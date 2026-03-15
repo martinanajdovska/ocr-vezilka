@@ -1,0 +1,10007 @@
+[
+  {
+    "op": "substitution",
+    "ocr_word": "Скоп",
+    "gt_word": "Скопје"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Печатнкца",
+    "gt_word": "Печатница"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "книгонацатеаство",
+    "gt_word": "книгоиздателство"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "На",
+    "gt_word": "на"
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "Ња",
+    "gt_word": ""
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Цветен",
+    "gt_word": "Цветон"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "сево,",
+    "gt_word": "село,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "дето",
+    "gt_word": "лето"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "--",
+    "gt_word": "–"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ија",
+    "gt_word": "убија"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "крита",
+    "gt_word": "крвта"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "кама...",
+    "gt_word": "капна..."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "з",
+    "gt_word": "в"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ими",
+    "gt_word": "изми"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "вредо.",
+    "gt_word": "врело."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Последна",
+    "gt_word": "последна"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "инсла",
+    "gt_word": "мисла"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "детна:",
+    "gt_word": "летна:"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ин",
+    "gt_word": "ми"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "остама",
+    "gt_word": "остана"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "село.",
+    "gt_word": "село.‘‘"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Криеате",
+    "gt_word": "Криевте"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "и",
+    "gt_word": "в"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "\"ракост",
+    "gt_word": "радост"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "бев",
+    "gt_word": "без"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "почни.",
+    "gt_word": "почин."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "пороцве",
+    "gt_word": "гороцвет"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "продет.",
+    "gt_word": "пролет,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "крита",
+    "gt_word": "крвта"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "цикити",
+    "gt_word": "закити"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "н",
+    "gt_word": "и"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "иодер",
+    "gt_word": "модер"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "мирнаба",
+    "gt_word": "миризба"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Тикнешко",
+    "gt_word": "Тиквешко"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "п",
+    "gt_word": "в"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "саана",
+    "gt_word": "слана"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ирееше",
+    "gt_word": "мрееше"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "--",
+    "gt_word": "–"
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "РЕШЕН",
+    "gt_word": ""
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Шопог",
+    "gt_word": "Шопов"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Пробиштни",
+    "gt_word": "Пробиштип"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "--",
+    "gt_word": "-"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "Ноќта"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "е"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "бурна,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "ноќта"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "е"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "ледна,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "разјарен"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "вихор"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "се"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "живо"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "коси,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "ни"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "волк"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "да"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "вијне"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "–"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "ни"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "глас"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "да"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "гласи,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "сал"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "див"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "–"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "колона"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "во"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "ноќ"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "се"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "носи..."
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "Јуначки"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "борци"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "с"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "луњи"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "се"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "борат"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "и"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "сметој"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "риат"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "и"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "пат"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "пробиат"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "капнати"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "и"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "гладни,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "смрзнати"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "и"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "боси."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "долнокј",
+    "gt_word": "полнокј"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "мре,",
+    "gt_word": "мрее,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Б",
+    "gt_word": "в"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "тие...",
+    "gt_word": "тлее..."
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "веднаш"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "–"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "геднад",
+    "gt_word": "Од"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "-.",
+    "gt_word": "тука..."
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "низ"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "дол"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "и"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "грм,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "по"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "венец"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "стрм,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "со"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "огнен"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "плам"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": ".",
+    "gt_word": "гради,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ое",
+    "gt_word": "се"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "гргиа",
+    "gt_word": "гргна"
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "ЕЕ",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "че",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "а",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "|",
+    "gt_word": ""
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ка",
+    "gt_word": "на"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "вра",
+    "gt_word": "врз"
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "|",
+    "gt_word": ""
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "гриеж",
+    "gt_word": "грмеж"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "Сред"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "вриеж"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "Доне"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "разиграл"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "срце,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "во"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "бој"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "урипнал"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "од"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "сите"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "прв,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "по"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "него"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "скакат"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "арслани-борци"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "за"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "народ"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "спремни"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "да"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "леат"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "крв."
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "И"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "бумби"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "трескат,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "автомати"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "сипат,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "земја"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "се"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "тресе,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "вовдух",
+    "gt_word": "воздух"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "цеди",
+    "gt_word": "цепи"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "м",
+    "gt_word": "и"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "кревосни",
+    "gt_word": "крепосни"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "аграаи,",
+    "gt_word": "згради,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "мранат,",
+    "gt_word": "мрзнат,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ки",
+    "gt_word": "им"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "--",
+    "gt_word": "-"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "а",
+    "gt_word": "в"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ни",
+    "gt_word": "им"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "рицат!",
+    "gt_word": "рипат!"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "грна",
+    "gt_word": "зрно"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ну",
+    "gt_word": "му"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "пака.",
+    "gt_word": "папса,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "стрчав",
+    "gt_word": "стрчаа"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "зерни",
+    "gt_word": "верни"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Го",
+    "gt_word": "го"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "разирда",
+    "gt_word": "размрда"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "и"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "громко"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "рече:"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "--",
+    "gt_word": "-"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "тече"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "тече...",
+    "gt_word": "..."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "машред,",
+    "gt_word": "напред,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "в"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "срашен"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "бес"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "фркнаа"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "огин"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "борците"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "млади,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "и"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "бумби"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "трескат,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "автомати"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "сипат,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "зeмја"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "ce"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "тpeсе,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "воздух"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "се"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "цепи"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "буктат"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "в"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "пламен"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "крепосни"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "згради,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "фашисти"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "мрзнат,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "брашен",
+    "gt_word": "-"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "бес",
+    "gt_word": "крв"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "дбумди",
+    "gt_word": "им"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "треската",
+    "gt_word": "се"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ан",
+    "gt_word": "лади"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ј",
+    "gt_word": "-"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "и",
+    "gt_word": "в"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "раат",
+    "gt_word": "рипат!"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ноќта",
+    "gt_word": "нокта"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "дижат",
+    "gt_word": "димат"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ов",
+    "gt_word": "од"
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "са",
+    "gt_word": ""
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "мртак",
+    "gt_word": "мртви"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "дизој",
+    "gt_word": "дивој"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "петок",
+    "gt_word": "исток"
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "аложен",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "дожА.",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "А",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "секој",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "пат.",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "в",
+    "gt_word": ""
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ноќ",
+    "gt_word": "аловен"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "бурна,",
+    "gt_word": "дожд."
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "А"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "секој"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "пат"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "в"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "ноќ"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "бурна,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "ледна"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "зојваш",
+    "gt_word": "пејзаш"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ма",
+    "gt_word": "на"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Пробиштна",
+    "gt_word": "Пробиштип"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "м",
+    "gt_word": "и"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "криј",
+    "gt_word": "крај"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "еаас",
+    "gt_word": "глас"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "гран",
+    "gt_word": "грми"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "борбен"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "зов:"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "з08:",
+    "gt_word": "-"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Остите,",
+    "gt_word": "Остајте,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "крата",
+    "gt_word": "крвта"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "тече"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "тече...",
+    "gt_word": "..."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "јурица,",
+    "gt_word": "јуриш,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "напред.",
+    "gt_word": "напред,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Кардош",
+    "gt_word": "Карпош"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "жа",
+    "gt_word": "да"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "скети",
+    "gt_word": "свети"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Карогчски",
+    "gt_word": "Каровски"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Фрагинат",
+    "gt_word": "Фрагмент"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "--",
+    "gt_word": "-"
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "блокада“",
+    "gt_word": ""
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "-",
+    "gt_word": "блокада“-"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "--",
+    "gt_word": "-"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "зрна,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "наредени"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "-"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "во"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "зрна.",
+    "gt_word": "момински"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "на",
+    "gt_word": "гердан,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "дванаесет"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "-"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "ко"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "јаганца"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "бели"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "изврзани"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "-"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "а",
+    "gt_word": "в"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "крано",
+    "gt_word": "крваво"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "гора"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "гора...",
+    "gt_word": "..."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ниа",
+    "gt_word": "низ"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "стреаореа",
+    "gt_word": "стрепереа"
+  },
+  {
+    "op": "deletion",
+    "ocr_word": ".",
+    "gt_word": ""
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "наглотн",
+    "gt_word": "наглоти"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "прав"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "прав...",
+    "gt_word": "..."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Нна",
+    "gt_word": "Низ"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "агрме,",
+    "gt_word": "згрме,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "зловаштиот",
+    "gt_word": "зловештиот"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "н",
+    "gt_word": "и"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "хревин",
+    "gt_word": "кревки"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "си",
+    "gt_word": "ги"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "сокршк",
+    "gt_word": "сокрши"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "о",
+    "gt_word": "в"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "мај"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "кај",
+    "gt_word": "..."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Дианаесет",
+    "gt_word": "Дванаесет"
+  },
+  {
+    "op": "deletion",
+    "ocr_word": ",",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "|",
+    "gt_word": ""
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "М",
+    "gt_word": "и"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ноже",
+    "gt_word": "нозе"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "протегат.",
+    "gt_word": "протегат,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "зднвој",
+    "gt_word": "здивој"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "тијан",
+    "gt_word": "тиран"
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "умор.",
+    "gt_word": ""
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "“.",
+    "gt_word": "умори,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "допири...",
+    "gt_word": "попари"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "-",
+    "gt_word": "..."
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "стравој"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "дрвја"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "а",
+    "gt_word": "треперат,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "стиној",
+    "gt_word": "ветерот"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "др",
+    "gt_word": "грозно"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "дрвја",
+    "gt_word": "шумее,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "треперат,",
+    "gt_word": "а"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ажоје",
+    "gt_word": "лисје"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "пат",
+    "gt_word": "пеат"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "родно,",
+    "gt_word": "јаросно,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "деат",
+    "gt_word": "пеат"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "одмазда"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "одизада...",
+    "gt_word": "..."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Диниесет",
+    "gt_word": "Дванаесет"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "зо",
+    "gt_word": "во"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "гробови"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "гробови...",
+    "gt_word": "..."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "аадни",
+    "gt_word": "ладни"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "гродошк",
+    "gt_word": "гробови"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "пресии.",
+    "gt_word": "пресни,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "хе",
+    "gt_word": "ке"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "песни"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "песни...",
+    "gt_word": "..."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "кролет,",
+    "gt_word": "пролет,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "цвенја,",
+    "gt_word": "цвеќја,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ќе",
+    "gt_word": "ке"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "шушат",
+    "gt_word": "шумат"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "--",
+    "gt_word": "-"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "\"Ни",
+    "gt_word": "ни"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "хискат,",
+    "gt_word": "лиснат,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ваќат,",
+    "gt_word": "видат,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "ке"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "бидат"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "хе",
+    "gt_word": "..."
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "пролет"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "продет",
+    "gt_word": "крај"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "25",
+    "gt_word": "за"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "мкад",
+    "gt_word": "мазд"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "шецне",
+    "gt_word": "шепне"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "крата",
+    "gt_word": "крвта"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "пресна"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "пресна..",
+    "gt_word": "..."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Блаж",
+    "gt_word": "Блаже"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "Одеднаш"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "веста"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "ко"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "црна"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "птица"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "крикна"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "над"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "градот"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "со"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "жален"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "крик"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "..."
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "Здивен"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "и"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "злорад"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "мине"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "убиецот,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "мране",
+    "gt_word": "мрзне"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "на"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "крвав"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "штик"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "..."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "праѓу,",
+    "gt_word": "врагу,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "сиеш",
+    "gt_word": "свиеш"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "градот"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "зарекен",
+    "gt_word": "зареден"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "дочуа",
+    "gt_word": "дочул"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "га",
+    "gt_word": "за"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Межа",
+    "gt_word": "нема"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "престаци",
+    "gt_word": "престапи"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ке",
+    "gt_word": "к'е"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "шине",
+    "gt_word": "мине"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "мртвнот",
+    "gt_word": "мртвиот"
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "градот",
+    "gt_word": ""
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Стакл",
+    "gt_word": "Стаил"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "одиаада",
+    "gt_word": "одмазда"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "жашка",
+    "gt_word": "машка"
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "\"",
+    "gt_word": ""
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "трае",
+    "gt_word": "трае?"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "амија,",
+    "gt_word": "змија,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "сви"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "сви...",
+    "gt_word": "..."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Шажија",
+    "gt_word": "Шамија"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "орауе",
+    "gt_word": "врзуе"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "н",
+    "gt_word": "и"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "иадив",
+    "gt_word": "издив"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "абогуи",
+    "gt_word": "збогум"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "син"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "син.",
+    "gt_word": "..."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Подуст",
+    "gt_word": "Попуст"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Серинна",
+    "gt_word": "Седмина"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Стражарн",
+    "gt_word": "Стражари"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "изекиат",
+    "gt_word": "иѕемнат"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "нив.",
+    "gt_word": "нив,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "таиу.",
+    "gt_word": "таму,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "т",
+    "gt_word": "и"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "нив",
+    "gt_word": "нив,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "мрак"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ирак..",
+    "gt_word": "..."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ш",
+    "gt_word": "в"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "очн",
+    "gt_word": "очи"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "н",
+    "gt_word": "и"
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "--",
+    "gt_word": ""
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "мајки",
+    "gt_word": "мајка"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "препозна"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "препози",
+    "gt_word": "..."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "идви",
+    "gt_word": "изви"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "и"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "прекри"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "лик."
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "Се"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "стресе"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "сета"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "ко"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "слаба"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "трска"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "и"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "напна"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "гради"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "..."
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "Но"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "од"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "градите"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "не"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "се"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "чу"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "вилен,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "раздирлив"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "вик."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "солан",
+    "gt_word": "солзи"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ниг",
+    "gt_word": "низ"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "обраа",
+    "gt_word": "образ"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "лиена",
+    "gt_word": "ливна"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "кад",
+    "gt_word": "над"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "..."
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "сиано",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "беружна",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "мисла,",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "ко",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "жисла",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "дивна:",
+    "gt_word": ""
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "нег",
+    "gt_word": "силно"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "безумна"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "мисла,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "но"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "мисла"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "дивна:"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "Не!"
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "РЕгРи",
+    "gt_word": ""
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "жајката",
+    "gt_word": "мајката"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "жнне",
+    "gt_word": "мине"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "пад",
+    "gt_word": "над"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "труд",
+    "gt_word": "труп"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "бер",
+    "gt_word": "без"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "почни",
+    "gt_word": "почин"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "а",
+    "gt_word": "в"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "жал"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "жал...",
+    "gt_word": "..."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "СК",
+    "gt_word": "Со"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "И",
+    "gt_word": "и"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "небосквон,",
+    "gt_word": "небосклон,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "сок.",
+    "gt_word": "сон."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "зиде",
+    "gt_word": "виде"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "гора",
+    "gt_word": "зора"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "зо",
+    "gt_word": "по"
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "-",
+    "gt_word": ""
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "колома",
+    "gt_word": "колона"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "костига",
+    "gt_word": "достига"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "вншен",
+    "gt_word": "вишен"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "врв"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "в",
+    "gt_word": "..."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "лупа",
+    "gt_word": "лула"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "угрен",
+    "gt_word": "утрен"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "кагрев",
+    "gt_word": "изгрев"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "орлов"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "орзов",
+    "gt_word": "лет"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "мет...",
+    "gt_word": "..."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "торите",
+    "gt_word": "горите"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "звонат.",
+    "gt_word": "ѕвонат,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "ред"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "рек...",
+    "gt_word": "..."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "\"Сонцето.",
+    "gt_word": "Сонцето"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "жаршира",
+    "gt_word": "маршира"
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "кодона!",
+    "gt_word": ""
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "си",
+    "gt_word": "колона!"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "„Инијат",
+    "gt_word": "„Минуат"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "--",
+    "gt_word": "-"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "шелот",
+    "gt_word": "шепот"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "притана",
+    "gt_word": "притаил"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "ѕвеѕдната"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "зведдната",
+    "gt_word": "вечер"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "зии",
+    "gt_word": "впи"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "м",
+    "gt_word": "и"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Ги",
+    "gt_word": "ги"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "кив,",
+    "gt_word": "нив,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Се",
+    "gt_word": "се"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ко,",
+    "gt_word": "во"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "заечат",
+    "gt_word": "влечат"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ка",
+    "gt_word": "на"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "прсти.",
+    "gt_word": "прсти,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "деко",
+    "gt_word": "леко"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "бег",
+    "gt_word": "без"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Збор",
+    "gt_word": "збор"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "нижејкн",
+    "gt_word": "нижејки"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "нива",
+    "gt_word": "низа"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ннвинот",
+    "gt_word": "нивниот"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "падот.",
+    "gt_word": "плот."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "--",
+    "gt_word": "-"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "--",
+    "gt_word": "-"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Си",
+    "gt_word": "ги"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "дат.",
+    "gt_word": "пат."
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "Минуат"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "..."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Минуат...",
+    "gt_word": "Минуат"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Минуат...",
+    "gt_word": "..."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "И",
+    "gt_word": "и"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "оснев",
+    "gt_word": "осмев"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "жајчниски",
+    "gt_word": "мајчински"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "па",
+    "gt_word": "по"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ни",
+    "gt_word": "им"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "вреди,",
+    "gt_word": "врели,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "же",
+    "gt_word": "ќе"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "звон“.",
+    "gt_word": "ѕвон“."
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "..."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "--И",
+    "gt_word": "И"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "засанваше",
+    "gt_word": "заспиваше"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "хапеше",
+    "gt_word": "капеше"
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "--",
+    "gt_word": ""
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "пробивише",
+    "gt_word": "пробиваше"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ча",
+    "gt_word": "а"
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "си",
+    "gt_word": ""
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "дно",
+    "gt_word": "Ацо"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Шопог",
+    "gt_word": "Шопов"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "Очи"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "мосевие",
+    "gt_word": "носевме"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "абрама,",
+    "gt_word": "збрана,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "дека",
+    "gt_word": "дена"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "--",
+    "gt_word": "-"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "таѓа",
+    "gt_word": "тага"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Другарнте",
+    "gt_word": "Другарите"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "бев",
+    "gt_word": "беа"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "згореки",
+    "gt_word": "згорени"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "бох",
+    "gt_word": "бол"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "и",
+    "gt_word": "в"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Јас",
+    "gt_word": "јас"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "вани",
+    "gt_word": "знаев"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "вишна",
+    "gt_word": "вивнат"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "5",
+    "gt_word": "в"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "сонце",
+    "gt_word": "солнце"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "стијмат",
+    "gt_word": "стијнат"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "агаснат.",
+    "gt_word": "згаснат."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "плакинското",
+    "gt_word": "плаиинското"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "сево,",
+    "gt_word": "село,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "-.",
+    "gt_word": "-"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "трецереше",
+    "gt_word": "трепереше"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "грогно",
+    "gt_word": "грозно"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "моминско"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "тело"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "раздробено,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "модро"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "и"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "распнато"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "горе,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "а"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "борците"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "беа"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "во"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "дрипава"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "дреа,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "со"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "пликови"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "жешки"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "на"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "стапалки"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "тешки,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "и"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "смрштени"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "чела"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "-"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "можинско",
+    "gt_word": "загасени,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "тево",
+    "gt_word": "мразни"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ухочени,",
+    "gt_word": "укочени,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "правни,",
+    "gt_word": "празни,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "мо",
+    "gt_word": "и"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "нечујна,",
+    "gt_word": "нечујно,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "адушена",
+    "gt_word": "здушена"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "дој",
+    "gt_word": "бој"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "ние"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ниесме",
+    "gt_word": "сме"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "--",
+    "gt_word": "-"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "неколку"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "души"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Неколку",
+    "gt_word": "..."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "души.\"",
+    "gt_word": "\""
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "фо",
+    "gt_word": "ко"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "нгла",
+    "gt_word": "игла"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "--",
+    "gt_word": "-"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "расте",
+    "gt_word": "растресе"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Раожовска",
+    "gt_word": "размолска"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Тага.",
+    "gt_word": "тага,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "го",
+    "gt_word": "со"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "--",
+    "gt_word": "-"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "адивените",
+    "gt_word": "здивените"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "--",
+    "gt_word": "-"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "другарка,",
+    "gt_word": "другарко,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "--.",
+    "gt_word": "-"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "смранатата",
+    "gt_word": "смрзнатата"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "лута",
+    "gt_word": "луто"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "н",
+    "gt_word": "и"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "нокта",
+    "gt_word": "ноќта"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "И",
+    "gt_word": "и"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "плацен",
+    "gt_word": "пламен"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "зрна"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "врна...",
+    "gt_word": "..."
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "И"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "--",
+    "gt_word": "-"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "а",
+    "gt_word": "в"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "вечер"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "вечер.",
+    "gt_word": "..."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "стам!",
+    "gt_word": "стана!"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "изби",
+    "gt_word": "изви"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "вакрана",
+    "gt_word": "замрзна"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "5",
+    "gt_word": "в"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "нивинот",
+    "gt_word": "нивниот"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "каетва",
+    "gt_word": "клетва"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "арии",
+    "gt_word": "зрив"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ки",
+    "gt_word": "ни"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "сираши",
+    "gt_word": "спраши"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "одмазла",
+    "gt_word": "одмазда"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "--",
+    "gt_word": "-"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "рагвихреа",
+    "gt_word": "развихреа"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "са",
+    "gt_word": "со"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "--",
+    "gt_word": "-"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "декн",
+    "gt_word": "леки"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "очн",
+    "gt_word": "очи"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "нивните"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "кивните",
+    "gt_word": "потни,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "поти,",
+    "gt_word": "распалени"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "распаленн",
+    "gt_word": "лица"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "лица...",
+    "gt_word": "..."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "абрана",
+    "gt_word": "збрана"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "--",
+    "gt_word": "-"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "кацка",
+    "gt_word": "капка"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "рама",
+    "gt_word": "рана"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "хо",
+    "gt_word": "ко"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "хапеше",
+    "gt_word": "капеше"
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "РЕСЕЧ",
+    "gt_word": ""
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Слагно",
+    "gt_word": "Славко"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Јаневска",
+    "gt_word": "Јаневски"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Кроаза",
+    "gt_word": "Крвава"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "пиза",
+    "gt_word": "низа"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "сФрагиент",
+    "gt_word": "(Фрагмент"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "содви",
+    "gt_word": "солзи"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "вод",
+    "gt_word": "под"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "роненн,",
+    "gt_word": "ронени,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "спаотнае,",
+    "gt_word": "сплотиле,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "тревови",
+    "gt_word": "гревови"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "зо",
+    "gt_word": "во"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Кега",
+    "gt_word": "Кога"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "темнина"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "би"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "израснала,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "земјата"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "би"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "опустела,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "иагаснале.",
+    "gt_word": "изгаснала."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "допрадо,",
+    "gt_word": "допрало,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "удака,",
+    "gt_word": "удаил,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "и",
+    "gt_word": "в"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ираа",
+    "gt_word": "мраз"
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "смринало,",
+    "gt_word": ""
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "итн",
+    "gt_word": "смрзнало."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Иваногска",
+    "gt_word": "Ивановски"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "вовита",
+    "gt_word": "новата"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ирелот",
+    "gt_word": "пролет"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "кво",
+    "gt_word": "Ацо"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Караманов.",
+    "gt_word": "Караманов,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "учевисчаови,",
+    "gt_word": "ученик-поет,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "загина",
+    "gt_word": "загинал"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Народмоосвободитеаната",
+    "gt_word": "Народноослободителната"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": ",",
+    "gt_word": "Пролет,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "--",
+    "gt_word": "-"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "кресна.",
+    "gt_word": "красна,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ве",
+    "gt_word": "зборевме"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "НОвНОТ",
+    "gt_word": "новиот"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Созице",
+    "gt_word": "Солнце"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "же",
+    "gt_word": "ќе"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ва",
+    "gt_word": "на"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Земинот",
+    "gt_word": "земниот"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "крила,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "крила.",
+    "gt_word": "и"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "кна",
+    "gt_word": "на"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "дадеме",
+    "gt_word": "дадевме"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "зет,",
+    "gt_word": "лет,"
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "настади",
+    "gt_word": ""
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "пиран",
+    "gt_word": "настапи"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "--",
+    "gt_word": "тиран"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "добра",
+    "gt_word": "добро"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "га",
+    "gt_word": "го"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "фрлам",
+    "gt_word": "фрли"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "пиет.",
+    "gt_word": "гнет."
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "..."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "„И",
+    "gt_word": "И"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ирачен",
+    "gt_word": "мрачен"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "видда",
+    "gt_word": "видов"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "веце,",
+    "gt_word": "веќе,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "сн",
+    "gt_word": "си"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "аа",
+    "gt_word": "да"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ока",
+    "gt_word": "онаа"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "и",
+    "gt_word": "в"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "жубав",
+    "gt_word": "љубав"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "звеадениот",
+    "gt_word": "ѕвездениот"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "Aцo"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "Шoпoв"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "век",
+    "gt_word": "ноќ"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ме",
+    "gt_word": "во"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "офанзиза",
+    "gt_word": "офанзива"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "знат",
+    "gt_word": "виат"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ј",
+    "gt_word": "ветрој"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "волија",
+    "gt_word": "волчја"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "кацат,",
+    "gt_word": "капат,"
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "ко",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "крвава",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "ламја",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "медна,",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "бушава",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "и",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "непрегледна,",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "8.",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "планината",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "губат",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "шуж.",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "Шлеи",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "до",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "шана,",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "8",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "ноќта",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "врват,",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "-",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "ск",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "железен",
+    "gt_word": ""
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "можска",
+    "gt_word": "стреи"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "прак,",
+    "gt_word": "гнили,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Фар",
+    "gt_word": "стреснат"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": ".",
+    "gt_word": "градот"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "до",
+    "gt_word": "губи"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "фарој",
+    "gt_word": "моќ."
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "Грозно"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "доба"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "..."
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "штукат"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "робја;"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "-"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "ниту"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "шепот,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "ниту"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "здив!"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "Само"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "..."
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "тамо"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "низ"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "стримнини"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "пишка,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "збива"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "згрчен"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "друм:"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "камиони,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "камиони"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "ко"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "крвава"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "ламја"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "ледна,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "бушава"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "и"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "непрегледна,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "в"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "планината"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "губат"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "шум."
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "Шлем"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "до"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "шлемој,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "в"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "ноќта"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "врват,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "-"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "ек"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "железен"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "молска"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "зрак,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "фар"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "до"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "фарој"
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "-",
+    "gt_word": ""
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "зилечен",
+    "gt_word": "млечен"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "И"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "ветер"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "и"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "дош,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "и"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "звекот"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "и"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "нож"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "и"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "пакост"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "и"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "гнев"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "и"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "моторен"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "рев"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "-"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "сè"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "се"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "слива"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "в"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "песна"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "дива:"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "-"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "Офанзива!"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "Офанзива"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "!..."
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "А"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "сред"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "соба,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "в"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "таа"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "доба,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "стара"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "са",
+    "gt_word": "Лена"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Распретуе",
+    "gt_word": "распретуе"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ма",
+    "gt_word": "на"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "закопани"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "закопани...",
+    "gt_word": "..."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "е",
+    "gt_word": "в"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "чами"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "чаши...",
+    "gt_word": "..."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "5",
+    "gt_word": "в"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "к",
+    "gt_word": "и"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "вие"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "чад."
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "Глад."
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "Ни"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "корка"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "леб"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "..."
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "А"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "гризе"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "влага"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "..."
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "Мрак"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "катрани"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "-"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "пластој"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "слала"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "и"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "натежал"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "слеп."
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "Расне"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "рана"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "в"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "срце"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "скрита,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Дена",
+    "gt_word": "Лена"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "--",
+    "gt_word": "-"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "--",
+    "gt_word": "-"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "тлеат"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "в"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "клетви"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "глуви"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "и"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "1.",
+    "gt_word": "низ"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "инка",
+    "gt_word": "брчки"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "бр",
+    "gt_word": "жолто-сиви"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "мскри",
+    "gt_word": "искри"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "алатни:",
+    "gt_word": "златни:"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "миао,",
+    "gt_word": "мило,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ди,",
+    "gt_word": "ли,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "снико,",
+    "gt_word": "синко,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "паѓи,",
+    "gt_word": "пази,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "трена,",
+    "gt_word": "тргна,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ха",
+    "gt_word": "да"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "втаѓи.",
+    "gt_word": "згази."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "знаи",
+    "gt_word": "знам"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "моања",
+    "gt_word": "молња"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "бне",
+    "gt_word": "бие"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "--",
+    "gt_word": "-"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "вле,",
+    "gt_word": "вие,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "анак",
+    "gt_word": "знам"
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "--",
+    "gt_word": ""
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "мубов",
+    "gt_word": "љубов"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "На",
+    "gt_word": "Но"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "погдедај",
+    "gt_word": "погледај"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "вое,",
+    "gt_word": "мое,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "снико,",
+    "gt_word": "синко,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "в"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "гарванова"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "злоба"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "темна"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "запливала"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "цела"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "земја,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "таер",
+    "gt_word": "sвер"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ае",
+    "gt_word": "ве"
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "А",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "пак",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "на",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "вас",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "чеда",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "мили,",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "кој",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "ли",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "ќе",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "ви",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "даде",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "сили?!",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "Тука",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "градот",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "шуми,",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "гори,",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "криза",
+    "gt_word": ""
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "А"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "пак"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "на"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "вас"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "чеда"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "мили,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "кој"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "ли"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "ќе"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "ви"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "даде"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "сили"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "?!"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "Тука"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "градот"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "шуми,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "гори,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "црна"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "сита"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "народ"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "мори,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "секој"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "ден"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "не"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "бие"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "веда,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "гледа.",
+    "gt_word": "гледа"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": ".",
+    "gt_word": "..."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ехна",
+    "gt_word": "една"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Црнотразка",
+    "gt_word": "Црнотравка"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "адатокоса",
+    "gt_word": "златокоса"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "писка",
+    "gt_word": "писна"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "можа,",
+    "gt_word": "мома,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ме",
+    "gt_word": "не"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "оламен",
+    "gt_word": "пламен"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "--",
+    "gt_word": "-"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "дума",
+    "gt_word": "думи"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "сага,",
+    "gt_word": "слеа,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ме",
+    "gt_word": "не"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "неа:"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "-"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "Мајки!"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "Сестри!"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "Родни"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "мои!"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "Нека"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "тага"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "не"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "ве"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "пои!"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "Умирајки"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "за"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "вас"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "тука,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "ко"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "да"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "мреам"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "браќа"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "дома"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "наа:",
+    "gt_word": "..."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "а",
+    "gt_word": "в"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ниа",
+    "gt_word": "низ"
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "жина,",
+    "gt_word": ""
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "--",
+    "gt_word": "мина,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "татковина",
+    "gt_word": "татковина‘‘"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "са-",
+    "gt_word": "!"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "8",
+    "gt_word": "в"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "краи,",
+    "gt_word": "крши,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "солач",
+    "gt_word": "солзи"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ниа",
+    "gt_word": "низ"
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "Бисер",
+    "gt_word": ""
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "зора",
+    "gt_word": "Бисер-зора"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "рубне",
+    "gt_word": "рубин"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ро",
+    "gt_word": "рони,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "дигансја",
+    "gt_word": "пеперуди-лисја"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "рена",
+    "gt_word": "сонлив"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ниа",
+    "gt_word": "низ"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "звоии,",
+    "gt_word": "ѕвони,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "В",
+    "gt_word": "Ордев"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "тлас",
+    "gt_word": "глас"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Дена.",
+    "gt_word": "Лена"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "жила,",
+    "gt_word": "мила,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Народна",
+    "gt_word": "народна"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "сила"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "сила...",
+    "gt_word": "..."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Трае",
+    "gt_word": "Трпне"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "з",
+    "gt_word": "в"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "раци"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "сами"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "преград"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "шират."
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "в"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "радост"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "димат"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "гради"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "горди"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "уште"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "шепнат:"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "„Орде"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "..."
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "Орде"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "..."
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "“"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "Веднаш"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "штрекна,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "крв"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "и"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "секна"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "..."
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "..."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "-Ко",
+    "gt_word": "Ко"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "нијади",
+    "gt_word": "илјади"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "лади:",
+    "gt_word": "ладна"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ниа",
+    "gt_word": "низ"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "страдна"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "страдна...",
+    "gt_word": "..."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Куидак",
+    "gt_word": "Кундак"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ирачна",
+    "gt_word": "мрачна"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "хра",
+    "gt_word": "крв"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "А"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "на"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Ана",
+    "gt_word": "прагот"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "прагот...",
+    "gt_word": "..."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "стелнат",
+    "gt_word": "стегнат"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "вавен",
+    "gt_word": "раскрвавен"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "бироа",
+    "gt_word": "Смрзна"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "пена.",
+    "gt_word": "Лена,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "пози",
+    "gt_word": "нози"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "3",
+    "gt_word": "в"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "адрве",
+    "gt_word": "здрве"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "голи:"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "-"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "Орде"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "!..."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Рбрде!..",
+    "gt_word": "Орде"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Ордет...",
+    "gt_word": "!..."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "снико",
+    "gt_word": "синко"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "в-о--о-ојн",
+    "gt_word": "м-о-о-ој\""
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ќе",
+    "gt_word": "се"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "Врискат,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "виат"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "ветрој"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "диви,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "оловна"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "е"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "волчја"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "ноќ"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "Град"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "се"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "ежи,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "друмот"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "збива:"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "Офанзива"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "!..."
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "Офанзива"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "-а-",
+    "gt_word": "!.."
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "Затијна,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "за"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "час,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "бојот"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "со"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "врагот,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "м",
+    "gt_word": "и"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "окоци",
+    "gt_word": "окопи"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "сад",
+    "gt_word": "сал"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "инрис",
+    "gt_word": "мирис"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "барут.",
+    "gt_word": "барут,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "зададна",
+    "gt_word": "запалил"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "дуже,",
+    "gt_word": "луле,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "к",
+    "gt_word": "и"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ински",
+    "gt_word": "мисли"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "--",
+    "gt_word": "-"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ШТО",
+    "gt_word": "што"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "пот.",
+    "gt_word": "пот,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "м",
+    "gt_word": "и"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "секана",
+    "gt_word": "сеќава"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "живи.",
+    "gt_word": "живи,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "то",
+    "gt_word": "го"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "икано",
+    "gt_word": "милно"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Нискиот",
+    "gt_word": "нискиот"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "адот.",
+    "gt_word": "плот."
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "поле"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "поле...",
+    "gt_word": "..."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "мрак--",
+    "gt_word": "мрак-"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "шнајвер",
+    "gt_word": "шмајзер"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "горе.",
+    "gt_word": "горе,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "глувнот",
+    "gt_word": "глувиот"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "--",
+    "gt_word": "-"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "марипа",
+    "gt_word": "изрипа"
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "-.",
+    "gt_word": ""
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "погаедот",
+    "gt_word": "погледот"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "прваѓа",
+    "gt_word": "првата"
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "ден“!",
+    "gt_word": ""
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "МЕЈ",
+    "gt_word": "ден‘‘!"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Конгски",
+    "gt_word": "Конески"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Фуалмет",
+    "gt_word": "Фрагмент"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "воената",
+    "gt_word": "поемата"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "„Шастот“",
+    "gt_word": "„Мостот“"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "скаама,",
+    "gt_word": "сказна,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ве",
+    "gt_word": "вие"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "синкозци",
+    "gt_word": "синковци"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "иска",
+    "gt_word": "мисла"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "веаден",
+    "gt_word": "везден"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "краде"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "краде.",
+    "gt_word": "..."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "дужам",
+    "gt_word": "думам"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "остана"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "фстана,",
+    "gt_word": "сирак,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "лужки",
+    "gt_word": "лулка"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "млад"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Сокод",
+    "gt_word": "сокол"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "саи.",
+    "gt_word": "сам."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Тиштек,",
+    "gt_word": "тиштел,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "суш",
+    "gt_word": "сум"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "збираа",
+    "gt_word": "збирал"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ла",
+    "gt_word": "да"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "знаи.",
+    "gt_word": "знам."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "тагко",
+    "gt_word": "татко"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "строг"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "гасно",
+    "gt_word": "гласно"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "жа",
+    "gt_word": "да"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "зрно",
+    "gt_word": "арно"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "даден",
+    "gt_word": "дален"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "вното",
+    "gt_word": "првното"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "вбор,",
+    "gt_word": "збор,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "јо",
+    "gt_word": "Но"
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "--",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "споменот...",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "Спиеше",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "тно",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "јунакот",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "мој",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "тасмеал",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "мило",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "усте",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "по",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "сонот!",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "но",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "пуста",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "беше",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "темната",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "ноќ",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "за",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "татко",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "му",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "од",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "мака",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "гонет.",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "Јас",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "зежев",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "скинат",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "бев",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "кашка",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "моќ",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "м",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "жежок",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "свржел",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "злабеше",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "и",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "ум,",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "се",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "вртев",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "тешко",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "на",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "кревет",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "тард,",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "и",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "слушав",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "в",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "уши",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "од",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "ужас",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "шуи,",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "м",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "сам",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "ја",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "сакаш",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "својата",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "смрт.",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "Зашто",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "ме",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "дари",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "со",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "мака",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "светот.",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "да",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "бидам",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "страден",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "ва",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "корка",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "леб,",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "да",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "биде",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "гладно",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "моето",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "дете,",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "и",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "кровот",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "урнат",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "м",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "огнот",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "свед.",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "И",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "ајот",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "Вожик",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "да",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "биде",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "тажен",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "Еј",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "за",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "дреме",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "бежа",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "на",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "мојот",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "кат,",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "а",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "јас",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "да",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "нема",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "со",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "погаек",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "важен",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "со",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "ток",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "усмеа",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "како",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "се",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "смешка.",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "Мм",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "детински",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "сништа",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "закгран",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "тој.",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "Ме",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "тоажн",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "драго",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "снагатк",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "мала,",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "ме",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "гаан",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "адивот,",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "со",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "жвр",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "ме",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "пече,",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "и",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "жи",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "е",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "чудно,",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "и",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "ми",
+    "gt_word": ""
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "е",
+    "gt_word": "споменот"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "жално",
+    "gt_word": "..."
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "Спиеше"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "тио"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "јунакот"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "мој"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "насмеал"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "мило"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "усте"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "во"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "сонот,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "но"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "пуста"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "беше"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "темната"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "ноќ"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "за"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "татко"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "му"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "од"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "мака"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "гонет."
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "Јас"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "лежев"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "скинат"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "без"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "капка"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "моќ"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "и"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "жежок"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "сврдел"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "длабеше"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "в"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "ум,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "се"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "вртев"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "тешко"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "на"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "кревет"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "тврд,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "и"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "слушав"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "в"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "уши"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "од"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "ужас"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "шум,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "и"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "сам"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "ја"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "сакав"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "својата"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "смрт."
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "Зашто"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "ме"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "дари"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "со"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "мака"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "светот,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "да"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "бидам"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "страден"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "за"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "корка"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "леб,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "да"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "биде"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "гладно"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "моето"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "дете,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "и"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "кровот"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "урнат"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "и"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "огнот"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "слеп."
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "И"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "мојот"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "Божик"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "да"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "биде"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "тажен"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "да"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "дреме"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "беда"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "на"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "мојот"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "кат,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "а"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "јас"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "да"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "нема"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "со"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "поглед"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "влажен"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "да"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "сетам"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "радост"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "никој"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "пат."
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "Аргатска"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "живот"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "ко"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "лута"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "змија,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "да"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "дроби"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "снага,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "лика"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "да"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "пија."
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "И"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "чисто"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "така"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "чудно"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "ми"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "беше,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "за"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "сонот"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "сладок"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "на"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "синот"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "мој,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "со"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "тиок"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "усмев"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "како"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "се"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "смешка"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "в"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "детински"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "сништа"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "заигран"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "тој."
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "Ме"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "топли"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "драго"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "снагата"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "мала,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "ме"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "гали"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "здивот,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "со"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "жар"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "ме"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "пече,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "и"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "ми"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "е"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "чудно,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "и"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "ми"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "е"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "жално"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "и"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "јадри"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "солзи"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "без"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "запир"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "течат."
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "Си"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "мислев"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "тогаш"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "од"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "милост"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "ватен"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "за"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "ошто"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "олку"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "му"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "ликот"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "греј."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "И.",
+    "gt_word": "И"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "совот",
+    "gt_word": "сонот"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "цатот",
+    "gt_word": "патот"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "деј?",
+    "gt_word": "леј?"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "И.",
+    "gt_word": "И"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "криаје",
+    "gt_word": "крилје"
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "--",
+    "gt_word": ""
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "вхатно",
+    "gt_word": "златно"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "аиаи",
+    "gt_word": "знам"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "сониа,",
+    "gt_word": "сонил,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "РОД.",
+    "gt_word": "род."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "леа",
+    "gt_word": "леел"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "рониа,",
+    "gt_word": "ронил,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "зреед",
+    "gt_word": "зреел"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "алатннот",
+    "gt_word": "златниот"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "длод.",
+    "gt_word": "плод."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "зика",
+    "gt_word": "вика"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "--",
+    "gt_word": "-"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Иарасна",
+    "gt_word": "Израсна"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "инсла",
+    "gt_word": "мисла"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Ниа",
+    "gt_word": "Низ"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "шина",
+    "gt_word": "мина"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ГО",
+    "gt_word": "го"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "з",
+    "gt_word": "в"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "СЕ",
+    "gt_word": "Се"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Јас",
+    "gt_word": "јас"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "сокод,",
+    "gt_word": "сокол,"
+  },
+  {
+    "op": "deletion",
+    "ocr_word": ".",
+    "gt_word": ""
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "аа",
+    "gt_word": "да"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "први",
+    "gt_word": "прва"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "сиена",
+    "gt_word": "смена"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "вој!",
+    "gt_word": "мој!"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "зами",
+    "gt_word": "зими"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": ".",
+    "gt_word": ","
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Нка",
+    "gt_word": "Низ"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "дии",
+    "gt_word": "дим"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "н",
+    "gt_word": "и"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "бед",
+    "gt_word": "без"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ди",
+    "gt_word": "да"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "сизд.",
+    "gt_word": "смад."
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "го"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "стигна"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "него"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "во"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "полет"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "млад."
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "А"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "кога"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "мина"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "година"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "трета"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "и"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "веќе"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "душман"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "бегаше"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "в"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "со",
+    "gt_word": "јад,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "јад.",
+    "gt_word": "кај"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ај",
+    "gt_word": "мостов"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "иоста",
+    "gt_word": "овде,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ФЕдЕ,",
+    "gt_word": "на"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "на-сиртта",
+    "gt_word": "смртта"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "тој"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Тој",
+    "gt_word": "Тој,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "туха",
+    "gt_word": "тука"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "кр",
+    "gt_word": "крв,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "звезда",
+    "gt_word": "ѕвезда"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Темен",
+    "gt_word": "темен"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ври.",
+    "gt_word": "врв."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "санок",
+    "gt_word": "саноќ"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Ба",
+    "gt_word": "да"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "сни",
+    "gt_word": "син"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "жоот",
+    "gt_word": "мојот"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "жошта",
+    "gt_word": "ноќта"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "м",
+    "gt_word": "и"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "нек.",
+    "gt_word": "нем."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "пајдов",
+    "gt_word": "најдов"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "срамен,",
+    "gt_word": "сразен,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "други"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "друти",
+    "gt_word": "сокли"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "сокак",
+    "gt_word": "во"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ко",
+    "gt_word": "дружна"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "пружа",
+    "gt_word": "смрт."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "сит.",
+    "gt_word": "Му"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ше",
+    "gt_word": "беше"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "чужно",
+    "gt_word": "чудно"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "казна,",
+    "gt_word": "мазна,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Му",
+    "gt_word": "ја"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ана",
+    "gt_word": "галев"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "долно",
+    "gt_word": "долго"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "дланов"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "дланот",
+    "gt_word": "тврд."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "тера,",
+    "gt_word": "И"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "сиави",
+    "gt_word": "слави"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "згина"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "за"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "својот"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "народ,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "извишен"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "бор"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "..."
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "И"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "тогаш"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "нешто"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "ме"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "вати,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "крена,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "се"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "напна"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "силно"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "мојата"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "град,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "и"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "божем"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "светов"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "друг"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "свет"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "го"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "смена,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "и"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "капна"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "солза"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "за"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "први"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "пат."
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "Не"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "болка,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "чудо"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "ми"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "откри"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "таја,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "за"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "ошто"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "копнел"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "јунакот"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "мој,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "тоа"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "што"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "секи"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "борец"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "го"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "знае"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "кога"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "во"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "смртта"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "тргнуе"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "тој,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "тоа"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "што"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "секи"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "човек"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "го"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "таи"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "длабоко"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "в"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "срце"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "-"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "најубав"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "дар,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "но"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "место"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "пожар"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "да"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "вивне"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "сјаен,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "што"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "тлее"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "често"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "-"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "запретан"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "жар."
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "Слобода"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "-"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "толку"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "што"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "сум"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "се"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "мачел,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "што"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "значи"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "разбрав"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "тој"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "чуден"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "збор."
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "А"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "беше"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "закоп."
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "Над"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "гробот"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "мрачен"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "стоеше"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "народ,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "пееше"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "хор."
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "И"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "тогај"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "реков:"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "Мој"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "сине,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "збогум,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "да"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "ти"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "е"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "лека"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "земјата"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "ладна"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "За"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "вечен"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "спомен"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "јас"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "ќе"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "го"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "кренам"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "мостот"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "во"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "младост"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "ти"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "кај"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "што"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "агина",
+    "gt_word": "падна!"
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "Слагко",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "ланегска",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "Низа",
+    "gt_word": ""
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "бразда",
+    "gt_word": "Прво"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Прво",
+    "gt_word": "слободно"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "свободно",
+    "gt_word": "светло"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "светао..",
+    "gt_word": "..."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "мамито",
+    "gt_word": "измило"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "анце.",
+    "gt_word": "лице."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "а",
+    "gt_word": "в"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "мајади",
+    "gt_word": "илјади"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "успана",
+    "gt_word": "успано"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "НОВ",
+    "gt_word": "нов"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "детање",
+    "gt_word": "летање"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "а",
+    "gt_word": "в"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "аисје",
+    "gt_word": "лисје"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "жалецки",
+    "gt_word": "малецки"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "криза.",
+    "gt_word": "крила."
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "Красен"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "набабрел.",
+    "gt_word": "набабрел,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "мека--",
+    "gt_word": "мека-"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "зиме",
+    "gt_word": "виме"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "бравда",
+    "gt_word": "бразда"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "чека"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "..."
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "и"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "че",
+    "gt_word": "-"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "мене",
+    "gt_word": "ене"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "--",
+    "gt_word": "-"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "снаги",
+    "gt_word": "снага"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "--",
+    "gt_word": "-"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "Шарко"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Шарко...",
+    "gt_word": "..."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "диј",
+    "gt_word": "дај"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "-"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "--",
+    "gt_word": "и"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "иплугот",
+    "gt_word": "плугот"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "рев",
+    "gt_word": "рез"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "же.",
+    "gt_word": "лее."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ружекиот",
+    "gt_word": "румениот"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "нсток",
+    "gt_word": "исток"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "--",
+    "gt_word": "-"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "планиии",
+    "gt_word": "планини"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "седо",
+    "gt_word": "село"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "нокта",
+    "gt_word": "ноќта"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "рлеве.",
+    "gt_word": "влезе."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Карогска",
+    "gt_word": "Каровски"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Младаиска",
+    "gt_word": "Младинска"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "колена",
+    "gt_word": "колона"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Ок",
+    "gt_word": "Од"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "нема",
+    "gt_word": "неми"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "гожи.",
+    "gt_word": "голи."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "стрминжа",
+    "gt_word": "стрмнина"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "нуже",
+    "gt_word": "ниже"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "н",
+    "gt_word": "и"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "банжи",
+    "gt_word": "ближи"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "иладнна",
+    "gt_word": "младина"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "сиела.",
+    "gt_word": "смела."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ногите",
+    "gt_word": "нозите"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "крца"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "крца...",
+    "gt_word": "..."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "иладинците",
+    "gt_word": "младинците"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ко",
+    "gt_word": "во"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ск",
+    "gt_word": "сé"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "усмивка"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "усинека",
+    "gt_word": "лица"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "анца",
+    "gt_word": "им"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ми",
+    "gt_word": "кити"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "кити...",
+    "gt_word": "..."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Се",
+    "gt_word": "Сé"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ми",
+    "gt_word": "и"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "к",
+    "gt_word": "и"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "иранат,",
+    "gt_word": "мрзнат,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "жранат,",
+    "gt_word": "мрзнат,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ла",
+    "gt_word": "да"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ижади",
+    "gt_word": "иљади"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "беа",
+    "gt_word": "без"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ме",
+    "gt_word": "не"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "сирани",
+    "gt_word": "смрзни"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "зимо"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "зимо...",
+    "gt_word": "..."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "м",
+    "gt_word": "и"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "гора"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "гора...",
+    "gt_word": "..."
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "за",
+    "gt_word": ""
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "КО",
+    "gt_word": "Ко"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "штскат",
+    "gt_word": "м'скат"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "рилите",
+    "gt_word": "пилите"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "веседо",
+    "gt_word": "весело"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "лскат,",
+    "gt_word": "л'скат,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "од"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "радост,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "од"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "радост,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "од"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "радост."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Жазо",
+    "gt_word": "Лазо"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Карогеки",
+    "gt_word": "Каровски"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "бледи",
+    "gt_word": "Ударници"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "и",
+    "gt_word": "Построени"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "лити,",
+    "gt_word": "-"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "но",
+    "gt_word": "бледи"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "бодри",
+    "gt_word": "и"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "-",
+    "gt_word": "лити,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "но"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "бодри"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "-"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "пасукан",
+    "gt_word": "засукан"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "лакт.",
+    "gt_word": "лакт,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "м",
+    "gt_word": "и"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "чехор",
+    "gt_word": "чекор"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "такт.",
+    "gt_word": "такт,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "браат",
+    "gt_word": "брзат"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ударкици",
+    "gt_word": "ударници"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "рагруцини",
+    "gt_word": "разрушени"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "н",
+    "gt_word": "и"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "градат"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "градат...",
+    "gt_word": "..."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "но",
+    "gt_word": "по"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "раха",
+    "gt_word": "рака"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Се",
+    "gt_word": "се"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "носн",
+    "gt_word": "носи"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "м",
+    "gt_word": "и"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ачера",
+    "gt_word": "вчера"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "н",
+    "gt_word": "и"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "гака",
+    "gt_word": "така"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "зо",
+    "gt_word": "по"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "аица",
+    "gt_word": "лица"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "вреда,",
+    "gt_word": "врела,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "и"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "н",
+    "gt_word": "мака"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "жана...",
+    "gt_word": "..."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "скте,",
+    "gt_word": "сите,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "млади!"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "илади!",
+    "gt_word": "На"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "На"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "коаона",
+    "gt_word": "колона"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Џеки,",
+    "gt_word": "река,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "марод,",
+    "gt_word": "народ,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "же",
+    "gt_word": "ке"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "изинеше",
+    "gt_word": "измиеме"
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "„",
+    "gt_word": ""
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "праг"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "праг...",
+    "gt_word": "..."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Шолог",
+    "gt_word": "Шопов"
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "и",
+    "gt_word": ""
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Дрва",
+    "gt_word": "Два"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ратн",
+    "gt_word": "пати"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Лека",
+    "gt_word": "Лена"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "--",
+    "gt_word": "-"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "мина"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "мина...",
+    "gt_word": "..."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "агина,",
+    "gt_word": "згина,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "во",
+    "gt_word": "в"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ресни",
+    "gt_word": "песни"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "н",
+    "gt_word": "и"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "жикот",
+    "gt_word": "викот"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "тарод",
+    "gt_word": "народ"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "--",
+    "gt_word": "-"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "скико!",
+    "gt_word": "синко!"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "--",
+    "gt_word": "-"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "--",
+    "gt_word": "-"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "бори",
+    "gt_word": "борци"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "жлади!",
+    "gt_word": "млади!"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "Лена"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Лев",
+    "gt_word": "лита,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "хита,",
+    "gt_word": "лита,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ј",
+    "gt_word": "лита,"
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "лита,",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "--",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "ј",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "/",
+    "gt_word": ""
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "косн",
+    "gt_word": "коси"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "--",
+    "gt_word": "-"
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "“",
+    "gt_word": ""
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "там,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "таи,",
+    "gt_word": "сред"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "пеоед",
+    "gt_word": "пепел"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "--",
+    "gt_word": "-"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "урнатн",
+    "gt_word": "урнати"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "лежеше"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "зежеше",
+    "gt_word": "Димо"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "гради,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "греди,",
+    "gt_word": "и"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "нкога",
+    "gt_word": "кога"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "пријае",
+    "gt_word": "пријде"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "--",
+    "gt_word": "-"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "заказа",
+    "gt_word": "закапа"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "солен",
+    "gt_word": "солзи"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "далија",
+    "gt_word": "залија"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "срека,",
+    "gt_word": "среќа,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "меко",
+    "gt_word": "леко"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "срмека",
+    "gt_word": "срмена"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "межен",
+    "gt_word": "нежен"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ван",
+    "gt_word": "впи"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "жртин",
+    "gt_word": "мртви"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "--",
+    "gt_word": "-"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "жајкнна",
+    "gt_word": "мајкина"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "радост...",
+    "gt_word": "радост"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ч-88--",
+    "gt_word": "..."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "знажиња",
+    "gt_word": "знамиња"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "плива.",
+    "gt_word": "плива,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Така",
+    "gt_word": "таква"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ка",
+    "gt_word": "ко"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "реха",
+    "gt_word": "река"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "--",
+    "gt_word": "-"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "нега",
+    "gt_word": "него"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "--",
+    "gt_word": "-"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "КО",
+    "gt_word": "ко"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "хо",
+    "gt_word": "ко"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "рожка",
+    "gt_word": "ронка"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "пожне",
+    "gt_word": "помне"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "излеве",
+    "gt_word": "излезе"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "вомка!",
+    "gt_word": "вонка!"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "--",
+    "gt_word": "-"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "врежи",
+    "gt_word": "врели"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "--",
+    "gt_word": "-"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "--",
+    "gt_word": "-"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "н",
+    "gt_word": "и"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "игра",
+    "gt_word": "играе"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "и"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "хун",
+    "gt_word": "ум"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "хо",
+    "gt_word": "и"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "и"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "покри",
+    "gt_word": "крв"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "горат:"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "--",
+    "gt_word": "-"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "тај",
+    "gt_word": "Тита!"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "кашнот",
+    "gt_word": "нашиот"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "н",
+    "gt_word": "и"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "да"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "е!"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ми.",
+    "gt_word": "Славко"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Рагри",
+    "gt_word": "Јаневски"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Валада",
+    "gt_word": "Балада"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "крвогорската",
+    "gt_word": "црногорската"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ружена",
+    "gt_word": "румена"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "златин",
+    "gt_word": "златни"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "изже",
+    "gt_word": "ниже"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "недозрела.",
+    "gt_word": "недозрела,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "н",
+    "gt_word": "и"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "вреди",
+    "gt_word": "врели"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "кате",
+    "gt_word": "капе"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "--",
+    "gt_word": "-"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "--",
+    "gt_word": "-"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ОЈ,",
+    "gt_word": "Ој,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "либе"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "прво"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "..."
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "кај"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "се"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "твојте"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "очи"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "сини,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "аибе",
+    "gt_word": "ој,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Д",
+    "gt_word": "езерски"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "длабочини!",
+    "gt_word": "длабочини?"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ини",
+    "gt_word": "нив"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "продетта",
+    "gt_word": "пролетта"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "гаедав",
+    "gt_word": "гледав"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ввевци",
+    "gt_word": "ѕвезди"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "песни-птици"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "пески--птици",
+    "gt_word": "не"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "не.гуслени",
+    "gt_word": "гуслени"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "\"што",
+    "gt_word": "што"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "жилуеја,",
+    "gt_word": "милуеја,"
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "звона?",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "кај",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "се",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "твојте",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "очи",
+    "gt_word": ""
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "сини,",
+    "gt_word": "ѕвона?"
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "-",
+    "gt_word": ""
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "СО",
+    "gt_word": "со"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "зишнево",
+    "gt_word": "вишнево"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "качункн",
+    "gt_word": "качунки"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "бразка",
+    "gt_word": "бразда"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "гнидо?",
+    "gt_word": "гнило?"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "кашето",
+    "gt_word": "нашето"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "н",
+    "gt_word": "и"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "жладо,",
+    "gt_word": "младо,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "милуено"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "и"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "со"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "роса"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "иклугно",
+    "gt_word": "напоено?"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "закмтив",
+    "gt_word": "закитив"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "вериост",
+    "gt_word": "верност"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "мна",
+    "gt_word": "мил"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "коѓа",
+    "gt_word": "кога"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "пиле"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "пиле...",
+    "gt_word": "..."
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "м",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "со",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "роса",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "напоено?",
+    "gt_word": ""
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ОЈ,",
+    "gt_word": "Ој,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Мртуде,",
+    "gt_word": "Мргуде,"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "продет",
+    "gt_word": "пролет"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "пуцка",
+    "gt_word": "пупка"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "“а",
+    "gt_word": "а"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "жако",
+    "gt_word": "како"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "пеѓ:",
+    "gt_word": "пее:"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "тресет",
+    "gt_word": "триесет"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "пролетерч",
+    "gt_word": "пролетери"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "лежи.",
+    "gt_word": "лежи,"
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "Лошцен",
+    "gt_word": ""
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "бдве“.",
+    "gt_word": "Ловчен"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ЕСЕН",
+    "gt_word": "бдее“."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "метер",
+    "gt_word": "ветер"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "дадлете",
+    "gt_word": "заплете"
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "|",
+    "gt_word": ""
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "вред",
+    "gt_word": "врел"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "мн",
+    "gt_word": "ми"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "дибе",
+    "gt_word": "либе"
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "Е",
+    "gt_word": ""
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "кријан.",
+    "gt_word": "кријам"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "ма",
+    "gt_word": "на"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "трепетанво,",
+    "gt_word": "трепетливо,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "в"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "љубов"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "и"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "ќе"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "бие,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "бие,"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "бие"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "дубов",
+    "gt_word": "гради"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "вгради",
+    "gt_word": "живо"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "живо...",
+    "gt_word": "..."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "Токај",
+    "gt_word": "Тогај"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "красн",
+    "gt_word": "краси"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "суи",
+    "gt_word": "сум"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "жирналиви",
+    "gt_word": "миризливи"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "лада",
+    "gt_word": "млада"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "беа",
+    "gt_word": "без"
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "не",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "бие,",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "бие,",
+    "gt_word": ""
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "бне",
+    "gt_word": ""
+  }
+]

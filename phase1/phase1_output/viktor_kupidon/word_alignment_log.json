@@ -1,0 +1,62 @@
+[
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "п"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "постојано",
+    "gt_word": "остојано"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": ",,."
+  },
+  {
+    "op": "substitution",
+    "ocr_word": ",,....бегање",
+    "gt_word": "бегање"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "мавни",
+    "gt_word": "мавна"
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "наеднаш,",
+    "gt_word": ""
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "па",
+    "gt_word": "наеднаш,па"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "найверојатно",
+    "gt_word": "најверојатно"
+  },
+  {
+    "op": "insertion",
+    "ocr_word": "",
+    "gt_word": "н"
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "носеше",
+    "gt_word": "осеше"
+  },
+  {
+    "op": "deletion",
+    "ocr_word": "с",
+    "gt_word": ""
+  },
+  {
+    "op": "substitution",
+    "ocr_word": "е",
+    "gt_word": "се"
+  }
+]

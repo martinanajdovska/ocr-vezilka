@@ -1,0 +1,996 @@
+[
+  {
+    "op": "insertion",
+    "ocr_char": "",
+    "gt_char": " ",
+    "ocr_pos": 1,
+    "gt_pos": 1
+  },
+  {
+    "op": "insertion",
+    "ocr_char": "",
+    "gt_char": "\t",
+    "ocr_pos": 8,
+    "gt_pos": 8
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 8,
+    "gt_pos": 9
+  },
+  {
+    "op": "insertion",
+    "ocr_char": "",
+    "gt_char": "\t",
+    "ocr_pos": 11,
+    "gt_pos": 12
+  },
+  {
+    "op": "insertion",
+    "ocr_char": "",
+    "gt_char": "\t",
+    "ocr_pos": 17,
+    "gt_pos": 19
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 17,
+    "gt_pos": 20
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 23,
+    "gt_pos": 26
+  },
+  {
+    "op": "insertion",
+    "ocr_char": "",
+    "gt_char": "\t",
+    "ocr_pos": 29,
+    "gt_pos": 32
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 29,
+    "gt_pos": 33
+  },
+  {
+    "op": "insertion",
+    "ocr_char": "",
+    "gt_char": "\t",
+    "ocr_pos": 31,
+    "gt_pos": 35
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 31,
+    "gt_pos": 36
+  },
+  {
+    "op": "insertion",
+    "ocr_char": "",
+    "gt_char": "\t",
+    "ocr_pos": 47,
+    "gt_pos": 52
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 57,
+    "gt_pos": 63
+  },
+  {
+    "op": "insertion",
+    "ocr_char": "",
+    "gt_char": "\t",
+    "ocr_pos": 60,
+    "gt_pos": 66
+  },
+  {
+    "op": "insertion",
+    "ocr_char": "",
+    "gt_char": "\t",
+    "ocr_pos": 60,
+    "gt_pos": 67
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 60,
+    "gt_pos": 68
+  },
+  {
+    "op": "insertion",
+    "ocr_char": "",
+    "gt_char": "\t",
+    "ocr_pos": 67,
+    "gt_pos": 75
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 67,
+    "gt_pos": 76
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 71,
+    "gt_pos": 80
+  },
+  {
+    "op": "insertion",
+    "ocr_char": "",
+    "gt_char": "\t",
+    "ocr_pos": 542,
+    "gt_pos": 551
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 542,
+    "gt_pos": 552
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 547,
+    "gt_pos": 557
+  },
+  {
+    "op": "insertion",
+    "ocr_char": "",
+    "gt_char": "\t",
+    "ocr_pos": 554,
+    "gt_pos": 564
+  },
+  {
+    "op": "insertion",
+    "ocr_char": "",
+    "gt_char": "\t",
+    "ocr_pos": 554,
+    "gt_pos": 565
+  },
+  {
+    "op": "insertion",
+    "ocr_char": "",
+    "gt_char": "\t",
+    "ocr_pos": 557,
+    "gt_pos": 569
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 557,
+    "gt_pos": 570
+  },
+  {
+    "op": "insertion",
+    "ocr_char": "",
+    "gt_char": "\t",
+    "ocr_pos": 563,
+    "gt_pos": 576
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 563,
+    "gt_pos": 577
+  },
+  {
+    "op": "insertion",
+    "ocr_char": "",
+    "gt_char": "\t",
+    "ocr_pos": 571,
+    "gt_pos": 585
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 571,
+    "gt_pos": 586
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 687,
+    "gt_pos": 702
+  },
+  {
+    "op": "insertion",
+    "ocr_char": "",
+    "gt_char": "\t",
+    "ocr_pos": 702,
+    "gt_pos": 717
+  },
+  {
+    "op": "insertion",
+    "ocr_char": "",
+    "gt_char": "\t",
+    "ocr_pos": 702,
+    "gt_pos": 718
+  },
+  {
+    "op": "insertion",
+    "ocr_char": "",
+    "gt_char": "\t",
+    "ocr_pos": 708,
+    "gt_pos": 725
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 711,
+    "gt_pos": 729
+  },
+  {
+    "op": "insertion",
+    "ocr_char": "",
+    "gt_char": "\t",
+    "ocr_pos": 720,
+    "gt_pos": 738
+  },
+  {
+    "op": "insertion",
+    "ocr_char": "",
+    "gt_char": "\t",
+    "ocr_pos": 735,
+    "gt_pos": 754
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 735,
+    "gt_pos": 755
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 738,
+    "gt_pos": 758
+  },
+  {
+    "op": "insertion",
+    "ocr_char": "",
+    "gt_char": "\t",
+    "ocr_pos": 743,
+    "gt_pos": 763
+  },
+  {
+    "op": "insertion",
+    "ocr_char": "",
+    "gt_char": "\t",
+    "ocr_pos": 743,
+    "gt_pos": 764
+  },
+  {
+    "op": "insertion",
+    "ocr_char": "",
+    "gt_char": "\t",
+    "ocr_pos": 744,
+    "gt_pos": 766
+  },
+  {
+    "op": "insertion",
+    "ocr_char": "",
+    "gt_char": "\t",
+    "ocr_pos": 750,
+    "gt_pos": 773
+  },
+  {
+    "op": "insertion",
+    "ocr_char": "",
+    "gt_char": "\t",
+    "ocr_pos": 750,
+    "gt_pos": 774
+  },
+  {
+    "op": "insertion",
+    "ocr_char": "",
+    "gt_char": "\t",
+    "ocr_pos": 764,
+    "gt_pos": 789
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 764,
+    "gt_pos": 790
+  },
+  {
+    "op": "deletion",
+    "ocr_char": ".",
+    "gt_char": "",
+    "ocr_pos": 784,
+    "gt_pos": 784
+  },
+  {
+    "op": "deletion",
+    "ocr_char": ".",
+    "gt_char": "",
+    "ocr_pos": 785,
+    "gt_pos": 784
+  },
+  {
+    "op": "substitution",
+    "ocr_char": ".",
+    "gt_char": "\t",
+    "ocr_pos": 787,
+    "gt_pos": 785
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 435,
+    "gt_pos": 435
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 447,
+    "gt_pos": 447
+  },
+  {
+    "op": "insertion",
+    "ocr_char": "",
+    "gt_char": "\t",
+    "ocr_pos": 454,
+    "gt_pos": 454
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 454,
+    "gt_pos": 455
+  },
+  {
+    "op": "insertion",
+    "ocr_char": "",
+    "gt_char": "\t",
+    "ocr_pos": 464,
+    "gt_pos": 465
+  },
+  {
+    "op": "insertion",
+    "ocr_char": "",
+    "gt_char": "\t",
+    "ocr_pos": 464,
+    "gt_pos": 466
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 464,
+    "gt_pos": 467
+  },
+  {
+    "op": "insertion",
+    "ocr_char": "",
+    "gt_char": "\t",
+    "ocr_pos": 467,
+    "gt_pos": 470
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 467,
+    "gt_pos": 471
+  },
+  {
+    "op": "substitution",
+    "ocr_char": "и",
+    "gt_char": "а",
+    "ocr_pos": 876,
+    "gt_pos": 880
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 932,
+    "gt_pos": 936
+  },
+  {
+    "op": "insertion",
+    "ocr_char": "",
+    "gt_char": "\t",
+    "ocr_pos": 935,
+    "gt_pos": 939
+  },
+  {
+    "op": "insertion",
+    "ocr_char": "",
+    "gt_char": "\t",
+    "ocr_pos": 945,
+    "gt_pos": 950
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 945,
+    "gt_pos": 951
+  },
+  {
+    "op": "insertion",
+    "ocr_char": "",
+    "gt_char": "\t",
+    "ocr_pos": 948,
+    "gt_pos": 954
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 948,
+    "gt_pos": 955
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 967,
+    "gt_pos": 974
+  },
+  {
+    "op": "insertion",
+    "ocr_char": "",
+    "gt_char": "\t",
+    "ocr_pos": 983,
+    "gt_pos": 990
+  },
+  {
+    "op": "insertion",
+    "ocr_char": "",
+    "gt_char": "\t",
+    "ocr_pos": 983,
+    "gt_pos": 991
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 983,
+    "gt_pos": 992
+  },
+  {
+    "op": "insertion",
+    "ocr_char": "",
+    "gt_char": "\t",
+    "ocr_pos": 986,
+    "gt_pos": 995
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 986,
+    "gt_pos": 996
+  },
+  {
+    "op": "insertion",
+    "ocr_char": "",
+    "gt_char": "\t",
+    "ocr_pos": 991,
+    "gt_pos": 1001
+  },
+  {
+    "op": "insertion",
+    "ocr_char": "",
+    "gt_char": "\t",
+    "ocr_pos": 991,
+    "gt_pos": 1002
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 991,
+    "gt_pos": 1003
+  },
+  {
+    "op": "insertion",
+    "ocr_char": "",
+    "gt_char": "\t",
+    "ocr_pos": 997,
+    "gt_pos": 1009
+  },
+  {
+    "op": "insertion",
+    "ocr_char": "",
+    "gt_char": "\t",
+    "ocr_pos": 997,
+    "gt_pos": 1010
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 997,
+    "gt_pos": 1011
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 1001,
+    "gt_pos": 1015
+  },
+  {
+    "op": "insertion",
+    "ocr_char": "",
+    "gt_char": "\t",
+    "ocr_pos": 1004,
+    "gt_pos": 1018
+  },
+  {
+    "op": "insertion",
+    "ocr_char": "",
+    "gt_char": "\t",
+    "ocr_pos": 1004,
+    "gt_pos": 1019
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 1004,
+    "gt_pos": 1020
+  },
+  {
+    "op": "insertion",
+    "ocr_char": "",
+    "gt_char": "\t",
+    "ocr_pos": 1011,
+    "gt_pos": 1027
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 1011,
+    "gt_pos": 1028
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 252,
+    "gt_pos": 252
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 265,
+    "gt_pos": 265
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 269,
+    "gt_pos": 269
+  },
+  {
+    "op": "deletion",
+    "ocr_char": " ",
+    "gt_char": "",
+    "ocr_pos": 83,
+    "gt_pos": 83
+  },
+  {
+    "op": "substitution",
+    "ocr_char": "й",
+    "gt_char": "ј",
+    "ocr_pos": 545,
+    "gt_pos": 545
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 713,
+    "gt_pos": 713
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 716,
+    "gt_pos": 716
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 728,
+    "gt_pos": 728
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 706,
+    "gt_pos": 706
+  },
+  {
+    "op": "insertion",
+    "ocr_char": "",
+    "gt_char": "\t",
+    "ocr_pos": 713,
+    "gt_pos": 713
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 953,
+    "gt_pos": 954
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 964,
+    "gt_pos": 965
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 967,
+    "gt_pos": 968
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 1243,
+    "gt_pos": 1244
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 1255,
+    "gt_pos": 1256
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 1257,
+    "gt_pos": 1258
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 98,
+    "gt_pos": 98
+  },
+  {
+    "op": "insertion",
+    "ocr_char": "",
+    "gt_char": "\t",
+    "ocr_pos": 103,
+    "gt_pos": 103
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 103,
+    "gt_pos": 104
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 106,
+    "gt_pos": 107
+  },
+  {
+    "op": "insertion",
+    "ocr_char": "",
+    "gt_char": "\t",
+    "ocr_pos": 113,
+    "gt_pos": 114
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 113,
+    "gt_pos": 115
+  },
+  {
+    "op": "insertion",
+    "ocr_char": "",
+    "gt_char": "\t",
+    "ocr_pos": 122,
+    "gt_pos": 124
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 122,
+    "gt_pos": 125
+  },
+  {
+    "op": "insertion",
+    "ocr_char": "",
+    "gt_char": "\t",
+    "ocr_pos": 127,
+    "gt_pos": 130
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 127,
+    "gt_pos": 131
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 244,
+    "gt_pos": 248
+  },
+  {
+    "op": "insertion",
+    "ocr_char": "",
+    "gt_char": "\t",
+    "ocr_pos": 250,
+    "gt_pos": 254
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 250,
+    "gt_pos": 255
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 258,
+    "gt_pos": 263
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 267,
+    "gt_pos": 272
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 275,
+    "gt_pos": 280
+  },
+  {
+    "op": "insertion",
+    "ocr_char": "",
+    "gt_char": "\t",
+    "ocr_pos": 291,
+    "gt_pos": 296
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 291,
+    "gt_pos": 297
+  },
+  {
+    "op": "insertion",
+    "ocr_char": "",
+    "gt_char": "\t",
+    "ocr_pos": 301,
+    "gt_pos": 307
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 301,
+    "gt_pos": 308
+  },
+  {
+    "op": "insertion",
+    "ocr_char": "",
+    "gt_char": "\t",
+    "ocr_pos": 312,
+    "gt_pos": 319
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 312,
+    "gt_pos": 320
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 1,
+    "gt_pos": 1
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 8,
+    "gt_pos": 8
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 11,
+    "gt_pos": 11
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 14,
+    "gt_pos": 14
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 23,
+    "gt_pos": 23
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 28,
+    "gt_pos": 28
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 35,
+    "gt_pos": 35
+  },
+  {
+    "op": "insertion",
+    "ocr_char": "",
+    "gt_char": " ",
+    "ocr_pos": 92,
+    "gt_pos": 92
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 3,
+    "gt_pos": 3
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 8,
+    "gt_pos": 8
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 12,
+    "gt_pos": 12
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 22,
+    "gt_pos": 22
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 29,
+    "gt_pos": 29
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 35,
+    "gt_pos": 35
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 48,
+    "gt_pos": 48
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 56,
+    "gt_pos": 56
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 61,
+    "gt_pos": 61
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 65,
+    "gt_pos": 65
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 74,
+    "gt_pos": 74
+  },
+  {
+    "op": "substitution",
+    "ocr_char": " ",
+    "gt_char": "\t",
+    "ocr_pos": 80,
+    "gt_pos": 80
+  },
+  {
+    "op": "deletion",
+    "ocr_char": " ",
+    "gt_char": "",
+    "ocr_pos": 997,
+    "gt_pos": 997
+  }
+]
