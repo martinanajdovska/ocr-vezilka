@@ -1,3 +1,3 @@
-- phase1_output/summary.json contains the alignment data for all books combined
-- summary for each book can be found in its corresponding folder in phase1_output
+- phase1_output/summary.json and phase1_output/total_statistics.json contain the alignment data and statistics for all books combined
 - summary for train, test and val splits can be found in the corresponding folders in phase1_output
+- summary for each book individually can be found in their corresponding folders inside train/test/val folders

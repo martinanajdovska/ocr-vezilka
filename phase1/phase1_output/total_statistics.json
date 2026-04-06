@@ -1,0 +1,12 @@
+{
+  "total_characters": 1997504,
+  "total_tokens": 344897,
+  "total_sentences": 5023,
+  "average_sentence_length": 397.67,
+  "total_CER": 0.1844,
+  "total_WER": 0.2481,
+  "total_char_errors": 368342,
+  "total_word_errors": 85583,
+  "total_ref_chars": 1997504,
+  "total_ref_words": 344897
+}
