@@ -1,0 +1,15 @@
+{
+  "matched_pairs": 1918,
+  "ocr_total_characters": 235508,
+  "ocr_total_tokens": 38847,
+  "ocr_total_sentences": 2035,
+  "ocr_avg_sentence_length": 19.0894,
+  "gt_total_characters": 233314,
+  "gt_total_tokens": 37862,
+  "gt_total_sentences": 1978,
+  "gt_avg_sentence_length": 19.1416,
+  "CER": 0.0857,
+  "WER": 0.1312,
+  "book": "Современост 7",
+  "split": "test"
+}

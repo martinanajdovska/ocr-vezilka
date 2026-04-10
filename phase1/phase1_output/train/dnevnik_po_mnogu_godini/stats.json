@@ -1,0 +1,15 @@
+{
+  "matched_pairs": 2280,
+  "ocr_total_characters": 163672,
+  "ocr_total_tokens": 27422,
+  "ocr_total_sentences": 2293,
+  "ocr_avg_sentence_length": 11.959,
+  "gt_total_characters": 163727,
+  "gt_total_tokens": 27422,
+  "gt_total_sentences": 2312,
+  "gt_avg_sentence_length": 11.8607,
+  "CER": 0.016,
+  "WER": 0.0469,
+  "book": "dnevnik_po_mnogu_godini",
+  "split": "train"
+}

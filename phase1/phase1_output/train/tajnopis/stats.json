@@ -1,0 +1,15 @@
+{
+  "matched_pairs": 211,
+  "ocr_total_characters": 40439,
+  "ocr_total_tokens": 7037,
+  "ocr_total_sentences": 331,
+  "ocr_avg_sentence_length": 21.2598,
+  "gt_total_characters": 35901,
+  "gt_total_tokens": 6256,
+  "gt_total_sentences": 213,
+  "gt_avg_sentence_length": 29.3709,
+  "CER": 0.0753,
+  "WER": 0.1004,
+  "book": "tajnopis",
+  "split": "train"
+}

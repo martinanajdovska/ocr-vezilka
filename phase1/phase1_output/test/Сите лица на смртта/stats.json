@@ -1,0 +1,15 @@
+{
+  "matched_pairs": 4239,
+  "ocr_total_characters": 270020,
+  "ocr_total_tokens": 48691,
+  "ocr_total_sentences": 4379,
+  "ocr_avg_sentence_length": 11.1192,
+  "gt_total_characters": 271895,
+  "gt_total_tokens": 49200,
+  "gt_total_sentences": 4387,
+  "gt_avg_sentence_length": 11.215,
+  "CER": 0.0623,
+  "WER": 0.0815,
+  "book": "Сите лица на смртта",
+  "split": "test"
+}

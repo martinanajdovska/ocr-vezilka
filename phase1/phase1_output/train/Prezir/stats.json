@@ -1,0 +1,15 @@
+{
+  "matched_pairs": 2766,
+  "ocr_total_characters": 369492,
+  "ocr_total_tokens": 61849,
+  "ocr_total_sentences": 2790,
+  "ocr_avg_sentence_length": 22.1681,
+  "gt_total_characters": 369283,
+  "gt_total_tokens": 61768,
+  "gt_total_sentences": 2768,
+  "gt_avg_sentence_length": 22.315,
+  "CER": 0.0041,
+  "WER": 0.0099,
+  "book": "Prezir",
+  "split": "train"
+}

@@ -1,0 +1,15 @@
+{
+  "matched_pairs": 3797,
+  "ocr_total_characters": 197566,
+  "ocr_total_tokens": 34333,
+  "ocr_total_sentences": 3829,
+  "ocr_avg_sentence_length": 8.9666,
+  "gt_total_characters": 198063,
+  "gt_total_tokens": 34308,
+  "gt_total_sentences": 3829,
+  "gt_avg_sentence_length": 8.96,
+  "CER": 0.0174,
+  "WER": 0.0502,
+  "book": "Samecot",
+  "split": "train"
+}

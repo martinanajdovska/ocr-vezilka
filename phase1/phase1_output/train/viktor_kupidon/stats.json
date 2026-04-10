@@ -1,0 +1,15 @@
+{
+  "matched_pairs": 600,
+  "ocr_total_characters": 115320,
+  "ocr_total_tokens": 19139,
+  "ocr_total_sentences": 604,
+  "ocr_avg_sentence_length": 31.6871,
+  "gt_total_characters": 114240,
+  "gt_total_tokens": 18953,
+  "gt_total_sentences": 601,
+  "gt_avg_sentence_length": 31.5358,
+  "CER": 0.0001,
+  "WER": 0.0006,
+  "book": "viktor_kupidon",
+  "split": "train"
+}

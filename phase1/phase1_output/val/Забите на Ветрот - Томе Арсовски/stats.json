@@ -1,0 +1,15 @@
+{
+  "matched_pairs": 1591,
+  "ocr_total_characters": 333105,
+  "ocr_total_tokens": 56295,
+  "ocr_total_sentences": 1597,
+  "ocr_avg_sentence_length": 35.2505,
+  "gt_total_characters": 387698,
+  "gt_total_tokens": 64534,
+  "gt_total_sentences": 4685,
+  "gt_avg_sentence_length": 13.7746,
+  "CER": 1.0325,
+  "WER": 1.1818,
+  "book": "Забите на Ветрот - Томе Арсовски",
+  "split": "val"
+}

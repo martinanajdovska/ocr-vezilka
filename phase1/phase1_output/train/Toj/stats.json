@@ -1,0 +1,15 @@
+{
+  "matched_pairs": 210,
+  "ocr_total_characters": 25779,
+  "ocr_total_tokens": 4677,
+  "ocr_total_sentences": 217,
+  "ocr_avg_sentence_length": 21.553,
+  "gt_total_characters": 24922,
+  "gt_total_tokens": 4506,
+  "gt_total_sentences": 221,
+  "gt_avg_sentence_length": 20.3891,
+  "CER": 0.1074,
+  "WER": 0.1591,
+  "book": "Toj",
+  "split": "train"
+}

@@ -1,0 +1,15 @@
+{
+  "matched_pairs": 230,
+  "ocr_total_characters": 20419,
+  "ocr_total_tokens": 3748,
+  "ocr_total_sentences": 261,
+  "ocr_avg_sentence_length": 14.3602,
+  "gt_total_characters": 23747,
+  "gt_total_tokens": 4257,
+  "gt_total_sentences": 268,
+  "gt_avg_sentence_length": 15.8843,
+  "CER": 0.4235,
+  "WER": 0.6025,
+  "book": "Pesni",
+  "split": "train"
+}

@@ -1,0 +1,15 @@
+{
+  "matched_pairs": 1420,
+  "ocr_total_characters": 127499,
+  "ocr_total_tokens": 23261,
+  "ocr_total_sentences": 1780,
+  "ocr_avg_sentence_length": 13.068,
+  "gt_total_characters": 113466,
+  "gt_total_tokens": 20814,
+  "gt_total_sentences": 1438,
+  "gt_avg_sentence_length": 14.4743,
+  "CER": 0.1588,
+  "WER": 0.2188,
+  "book": "itar_pejo",
+  "split": "train"
+}

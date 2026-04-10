@@ -1,0 +1,15 @@
+{
+  "matched_pairs": 259,
+  "ocr_total_characters": 28220,
+  "ocr_total_tokens": 5002,
+  "ocr_total_sentences": 346,
+  "ocr_avg_sentence_length": 14.4566,
+  "gt_total_characters": 29235,
+  "gt_total_tokens": 5048,
+  "gt_total_sentences": 277,
+  "gt_avg_sentence_length": 18.2238,
+  "CER": 0.3632,
+  "WER": 0.6398,
+  "book": "sina_pesna",
+  "split": "train"
+}
