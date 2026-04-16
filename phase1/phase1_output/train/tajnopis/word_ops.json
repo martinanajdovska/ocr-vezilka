@@ -1,12 +1,12 @@
 [
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "|",
     "gt": "slika1.jpg"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "page_010.jpg",
     "gt": "анте"
   },
   {
@@ -15,13 +15,13 @@
     "gt": "поповски"
   },
   {
-    "op": "substitution",
-    "ocr": "|",
+    "op": "deletion",
+    "ocr": "",
     "gt": "тајнопис"
   },
   {
-    "op": "substitution",
-    "ocr": "page_010.jpg",
+    "op": "deletion",
+    "ocr": "",
     "gt": "slika10.jpg"
   },
   {
@@ -5730,48 +5730,48 @@
     "gt": "народ."
   },
   {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "2"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "Тајнопис"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "17"
-  },
-  {
     "op": "substitution",
     "ocr": "8",
-    "gt": "slika2.jpg"
+    "gt": "2"
   },
   {
     "op": "substitution",
     "ocr": ":",
-    "gt": "slika20.jpg"
+    "gt": "Тајнопис"
   },
   {
     "op": "substitution",
     "ocr": "page_022.jpg",
-    "gt": "slika21.jpg"
+    "gt": "17"
   },
   {
     "op": "substitution",
     "ocr": "РБПОЗНТО",
-    "gt": "огнена"
+    "gt": "slika2.jpg"
   },
   {
     "op": "substitution",
     "ocr": "1",
-    "gt": "slika22.jpg"
+    "gt": "slika20.jpg"
   },
   {
     "op": "substitution",
     "ocr": "page_023.jpg",
+    "gt": "slika21.jpg"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "огнена"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "slika22.jpg"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
     "gt": "slika23.jpg"
   },
   {
@@ -10685,8 +10685,8 @@
     "gt": "27"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "page_030.jpg",
     "gt": "slika3.jpg"
   },
   {
@@ -10705,8 +10705,8 @@
     "gt": "ТАЈНОПИС"
   },
   {
-    "op": "substitution",
-    "ocr": "page_030.jpg",
+    "op": "deletion",
+    "ocr": "",
     "gt": "slika30.jpg"
   },
   {
@@ -17360,23 +17360,23 @@
     "gt": "Абрахамов!"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "-",
     "gt": "37"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": ":",
     "gt": "slika4.jpg"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "}",
     "gt": "наша"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "page_043.jpg",
     "gt": "современа"
   },
   {
@@ -17455,23 +17455,23 @@
     "gt": "над"
   },
   {
-    "op": "substitution",
-    "ocr": "-",
+    "op": "deletion",
+    "ocr": "",
     "gt": "пепелта"
   },
   {
-    "op": "substitution",
-    "ocr": ":",
+    "op": "deletion",
+    "ocr": "",
     "gt": "земна"
   },
   {
-    "op": "substitution",
-    "ocr": "}",
+    "op": "deletion",
+    "ocr": "",
     "gt": "slika42.jpg"
   },
   {
-    "op": "substitution",
-    "ocr": "page_043.jpg",
+    "op": "deletion",
+    "ocr": "",
     "gt": "slika43.jpg"
   },
   {
@@ -20620,13 +20620,13 @@
     "gt": "Ана."
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "47",
     "gt": "ш"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "page_050.jpg",
     "gt": "Анте"
   },
   {
@@ -20660,13 +20660,13 @@
     "gt": "Скопје"
   },
   {
-    "op": "substitution",
-    "ocr": "47",
+    "op": "deletion",
+    "ocr": "",
     "gt": "1975"
   },
   {
-    "op": "substitution",
-    "ocr": "page_050.jpg",
+    "op": "deletion",
+    "ocr": "",
     "gt": "slika50.jpg"
   },
   {
@@ -22730,8 +22730,8 @@
     "gt": "52"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "!",
     "gt": "slika55.jpg"
   },
   {
@@ -22840,8 +22840,8 @@
     "gt": "две"
   },
   {
-    "op": "substitution",
-    "ocr": "!",
+    "op": "deletion",
+    "ocr": "",
     "gt": "дечиња."
   },
   {
@@ -23690,13 +23690,13 @@
     "gt": "војникот"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "кон.",
     "gt": "кон"
   },
   {
-    "op": "substitution",
-    "ocr": "кон.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "слободата."
   },
   {
@@ -24435,13 +24435,13 @@
     "gt": "Марија."
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "и",
     "gt": "56"
   },
   {
-    "op": "substitution",
-    "ocr": "и",
+    "op": "deletion",
+    "ocr": "",
     "gt": "slika59.jpg"
   },
   {
@@ -24855,23 +24855,23 @@
     "gt": "земна."
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "есн",
     "gt": "57"
   },
   {
     "op": "substitution",
-    "ocr": "есн",
+    "ocr": "page_061.jpg",
     "gt": "slika6.jpg"
   },
   {
     "op": "substitution",
-    "ocr": "page_061.jpg",
+    "ocr": "1",
     "gt": "slika60.jpg"
   },
   {
-    "op": "substitution",
-    "ocr": "1",
+    "op": "deletion",
+    "ocr": "",
     "gt": "slika61.jpg"
   },
   {
@@ -26935,38 +26935,48 @@
     "gt": "Землу."
   },
   {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "67"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "slika7.jpg"
-  },
-  {
-    "op": "substitution",
+    "op": "insertion",
     "ocr": "*",
-    "gt": "лирска"
+    "gt": ""
   },
   {
-    "op": "substitution",
+    "op": "insertion",
     "ocr": "*",
-    "gt": "тетратка"
+    "gt": ""
   },
   {
-    "op": "substitution",
+    "op": "match",
     "ocr": "67",
-    "gt": "според"
+    "gt": "67"
   },
   {
     "op": "substitution",
     "ocr": "'",
-    "gt": "менделеев"
+    "gt": "slika7.jpg"
   },
   {
     "op": "substitution",
     "ocr": "page_070.jpg",
+    "gt": "лирска"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "тетратка"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "според"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "менделеев"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
     "gt": "slika70.jpg"
   },
   {
@@ -31180,8 +31190,8 @@
     "gt": "„Нова"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "Маке.",
     "gt": "Маке-"
   },
   {
@@ -31220,8 +31230,8 @@
     "gt": "1915"
   },
   {
-    "op": "substitution",
-    "ocr": "Маке.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "год."
   },
   {
@@ -31295,43 +31305,43 @@
     "gt": "Македонија"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "page_080.jpg",
     "gt": "slika8.jpg"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "«",
     "gt": "slika80.jpg"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "МБ",
     "gt": "анте"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "р",
     "gt": "поповски"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "821.163.3-1",
     "gt": "тајнопис"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "ќ",
     "gt": "slika9.jpg"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "ПОПОвВСКкИ",
     "gt": "Елементот"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "А.",
     "gt": "на"
   },
   {
@@ -31450,103 +31460,103 @@
     "gt": "криеш"
   },
   {
-    "op": "substitution",
-    "ocr": "page_080.jpg",
+    "op": "deletion",
+    "ocr": "",
     "gt": "квечерина,"
   },
   {
-    "op": "substitution",
-    "ocr": "«",
+    "op": "deletion",
+    "ocr": "",
     "gt": "во"
   },
   {
-    "op": "substitution",
-    "ocr": "МБ",
+    "op": "deletion",
+    "ocr": "",
     "gt": "златната"
   },
   {
-    "op": "substitution",
-    "ocr": "р",
+    "op": "deletion",
+    "ocr": "",
     "gt": "линија"
   },
   {
-    "op": "substitution",
-    "ocr": "821.163.3-1",
+    "op": "deletion",
+    "ocr": "",
     "gt": "меѓу"
   },
   {
-    "op": "substitution",
-    "ocr": "ќ",
+    "op": "deletion",
+    "ocr": "",
     "gt": "житото"
   },
   {
-    "op": "substitution",
-    "ocr": "ПОПОвВСКкИ",
+    "op": "deletion",
+    "ocr": "",
     "gt": "и"
   },
   {
-    "op": "substitution",
-    "ocr": "А.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "ветрот."
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "Е",
     "gt": "Читајќи"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": ";",
     "gt": "се"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "Тајнопис",
     "gt": "повеќе"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "821",
     "gt": "надоаѓаат"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": ",163,3-1",
     "gt": "зборови"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "1",
     "gt": "во"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "П",
     "gt": "кои"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "010124155",
     "gt": "е"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "С0В155",
     "gt": "застапена"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "анте",
     "gt": "буквата"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "поповски",
     "gt": "о"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "тајнопис",
     "gt": "а"
   },
   {
@@ -31630,63 +31640,63 @@
     "gt": "облик"
   },
   {
-    "op": "substitution",
-    "ocr": "Е",
+    "op": "deletion",
+    "ocr": "",
     "gt": "на"
   },
   {
-    "op": "substitution",
-    "ocr": ";",
+    "op": "deletion",
+    "ocr": "",
     "gt": "маминиот"
   },
   {
-    "op": "substitution",
-    "ocr": "Тајнопис",
+    "op": "deletion",
+    "ocr": "",
     "gt": "глас,"
   },
   {
-    "op": "substitution",
-    "ocr": "821",
+    "op": "deletion",
+    "ocr": "",
     "gt": "море"
   },
   {
-    "op": "substitution",
-    "ocr": ",163,3-1",
+    "op": "deletion",
+    "ocr": "",
     "gt": "е"
   },
   {
-    "op": "substitution",
-    "ocr": "1",
+    "op": "deletion",
+    "ocr": "",
     "gt": "по"
   },
   {
-    "op": "substitution",
-    "ocr": "П",
+    "op": "deletion",
+    "ocr": "",
     "gt": "кое"
   },
   {
-    "op": "substitution",
-    "ocr": "010124155",
+    "op": "deletion",
+    "ocr": "",
     "gt": "плови"
   },
   {
-    "op": "substitution",
-    "ocr": "С0В155",
+    "op": "deletion",
+    "ocr": "",
     "gt": "лето"
   },
   {
-    "op": "substitution",
-    "ocr": "анте",
+    "op": "deletion",
+    "ocr": "",
     "gt": "со"
   },
   {
-    "op": "substitution",
-    "ocr": "поповски",
+    "op": "deletion",
+    "ocr": "",
     "gt": "црвени"
   },
   {
-    "op": "substitution",
-    "ocr": "тајнопис",
+    "op": "deletion",
+    "ocr": "",
     "gt": "плодови."
   }
 ]

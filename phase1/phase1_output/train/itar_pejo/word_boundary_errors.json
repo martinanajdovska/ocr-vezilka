@@ -1,0 +1,7077 @@
+[
+  {
+    "type": "split",
+    "ocr": [
+      "=====",
+      "007.JPG"
+    ],
+    "gt": "007.JPG",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "а",
+      "Каков"
+    ],
+    "gt": "Каков",
+    "similarity": 0.9091
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "приказните"
+    ],
+    "gt": "приказните",
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "Не,,брате.",
+    "gt": [
+      "Не,",
+      "брате."
+    ],
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "оди,",
+      "дојдоа"
+    ],
+    "gt": "дојдоа",
+    "similarity": 0.8
+  },
+  {
+    "type": "merge",
+    "ocr": "пречекуваат",
+    "gt": [
+      "што",
+      "се",
+      "пречекуваат"
+    ],
+    "similarity": 0.8148
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "Кога"
+    ],
+    "gt": "Кога",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "под"
+    ],
+    "gt": "под",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "де",
+      "нема"
+    ],
+    "gt": "нема",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "да",
+      "мириса"
+    ],
+    "gt": "мириса",
+    "similarity": 0.8571
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Каде"
+    ],
+    "gt": "Каде",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "а",
+      "=====",
+      "011.JPG"
+    ],
+    "gt": "011.JPG",
+    "similarity": 0.9231
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "со",
+      "главата"
+    ],
+    "gt": "главата",
+    "similarity": 0.875
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "маваат"
+    ],
+    "gt": "маваат",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "-",
+      "Ами"
+    ],
+    "gt": "Ами",
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "им",
+    "gt": [
+      "-",
+      "им"
+    ],
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "Видоа"
+    ],
+    "gt": "Видоа",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ден-",
+      "денеска"
+    ],
+    "gt": "ден-денеска",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      ":",
+      "гу"
+    ],
+    "gt": "гу",
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "внуши",
+    "gt": [
+      "внуш",
+      "и"
+    ],
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "поповите."
+    ],
+    "gt": "поповите.",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "Кога"
+    ],
+    "gt": "Кога",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "момокот,"
+    ],
+    "gt": "момокот,",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      ":",
+      "Пејо"
+    ],
+    "gt": "Пејо",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Лесна"
+    ],
+    "gt": "Лесна",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "ме:"
+    ],
+    "gt": "ме:",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "\"",
+      "и"
+    ],
+    "gt": "и",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "ќе"
+    ],
+    "gt": "ќе",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "=====",
+      "013.JPG"
+    ],
+    "gt": "013.JPG",
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "некојјаукрал!",
+    "gt": [
+      "некој",
+      "ја",
+      "украл!"
+    ],
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "-",
+      "Море,"
+    ],
+    "gt": "Море,",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Така"
+    ],
+    "gt": "Така",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "Попот"
+    ],
+    "gt": "Попот",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "Што"
+    ],
+    "gt": "Што",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "свиња"
+    ],
+    "gt": "свиња",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "нога"
+    ],
+    "gt": "нога",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ЊЕ",
+      "Кога"
+    ],
+    "gt": "Кога",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Цр",
+      "лажицата"
+    ],
+    "gt": "лажицата",
+    "similarity": 0.8889
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "-",
+      "Море,"
+    ],
+    "gt": "Море,",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ја",
+      "Пејо"
+    ],
+    "gt": "Пејо",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "-",
+      "Море,"
+    ],
+    "gt": "Море,",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Море,"
+    ],
+    "gt": "Море,",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Море,"
+    ],
+    "gt": "Море,",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "И"
+    ],
+    "gt": "И",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "една"
+    ],
+    "gt": "една",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "џерето"
+    ],
+    "gt": "џерето",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "Иако"
+    ],
+    "gt": "Иако",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "што"
+    ],
+    "gt": "што",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Ке"
+    ],
+    "gt": "Ке",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      ":",
+      "бот."
+    ],
+    "gt": "бот.",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Е,"
+    ],
+    "gt": "Е,",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "Ајде"
+    ],
+    "gt": "Ајде",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "пови,"
+    ],
+    "gt": "пови,",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "ЦПејова"
+    ],
+    "gt": "Пејова",
+    "similarity": 0.9231
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ј",
+      "=====",
+      "017.JPG"
+    ],
+    "gt": "017.JPG",
+    "similarity": 0.9231
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "сл",
+      "наганката"
+    ],
+    "gt": "наганката",
+    "similarity": 0.9
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ста,",
+      "велејќи:"
+    ],
+    "gt": "велејќи:",
+    "similarity": 0.8235
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "-",
+      "Е,"
+    ],
+    "gt": "Е,",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Ш",
+      "сто"
+    ],
+    "gt": "што",
+    "similarity": 0.8571
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Ш",
+      "хеш"
+    ],
+    "gt": "хеш",
+    "similarity": 0.8571
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "Гледајќи"
+    ],
+    "gt": "Гледајќи",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ЦЕ",
+      "ката"
+    ],
+    "gt": "ката",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "и",
+      "веднаш"
+    ],
+    "gt": "веднаш",
+    "similarity": 0.9231
+  },
+  {
+    "type": "merge",
+    "ocr": "велеј-",
+    "gt": [
+      "велејќи:",
+      "-"
+    ],
+    "similarity": 0.8333
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Мене"
+    ],
+    "gt": "Мене",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ШЕ",
+      "зашто"
+    ],
+    "gt": "зашто",
+    "similarity": 0.8333
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "=====",
+      "018.JPG"
+    ],
+    "gt": "018.JPG",
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "селаните",
+    "gt": [
+      "Пеја",
+      "селаните"
+    ],
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Ш",
+      "почнал"
+    ],
+    "gt": "почнал",
+    "similarity": 0.9231
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ј",
+      "Пејо"
+    ],
+    "gt": "Пејо",
+    "similarity": 0.8889
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "„Аха!"
+    ],
+    "gt": "„Аха!",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "и",
+      "почнал"
+    ],
+    "gt": "почнал",
+    "similarity": 0.9231
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Г-и-и-и,"
+    ],
+    "gt": "Г-и-и-и,",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "многу"
+    ],
+    "gt": "многу",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Сакаме,"
+    ],
+    "gt": "Сакаме,",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "!|",
+      "глас"
+    ],
+    "gt": "глас",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ните:",
+      "изнесете"
+    ],
+    "gt": "изнесете",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ј",
+      "|",
+      "еден"
+    ],
+    "gt": "еден",
+    "similarity": 0.8889
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "почне"
+    ],
+    "gt": "почне",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ЦИ",
+      "растера"
+    ],
+    "gt": "растера",
+    "similarity": 0.875
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "И",
+      "кира."
+    ],
+    "gt": "кира.",
+    "similarity": 0.8889
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Ш",
+      "бил"
+    ],
+    "gt": "бил",
+    "similarity": 0.8571
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Знаете"
+    ],
+    "gt": "Знаете",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Ш",
+      "фаќајте"
+    ],
+    "gt": "фаќајте",
+    "similarity": 0.9333
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ј",
+      "разбира."
+    ],
+    "gt": "разбира.",
+    "similarity": 0.9333
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "||",
+      "ние"
+    ],
+    "gt": "ние",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "Се"
+    ],
+    "gt": "Се",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "говите"
+    ],
+    "gt": "говите",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|Е",
+      "поднаведнал"
+    ],
+    "gt": "поднаведнал",
+    "similarity": 0.9565
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "врз",
+      "селаните,"
+    ],
+    "gt": "селаните,",
+    "similarity": 0.8421
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "да",
+      "умира,"
+    ],
+    "gt": "умира,",
+    "similarity": 0.8333
+  },
+  {
+    "type": "split",
+    "ocr": [
+      ":",
+      "коленцето"
+    ],
+    "gt": "коленцето",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "прашал:"
+    ],
+    "gt": "прашал:",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Знаеш"
+    ],
+    "gt": "Знаеш",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "тоа"
+    ],
+    "gt": "тоа",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "да"
+    ],
+    "gt": "да",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "Наостри"
+    ],
+    "gt": "Наостри",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "ниот"
+    ],
+    "gt": "ниот",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "Се"
+    ],
+    "gt": "Се",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "бот"
+    ],
+    "gt": "бот",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "4",
+      "Фаќајќи"
+    ],
+    "gt": "Фаќајќи",
+    "similarity": 0.9333
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|)",
+      "да"
+    ],
+    "gt": "да",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "|",
+      "1"
+    ],
+    "gt": "1",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "Кога"
+    ],
+    "gt": "Кога",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "точен"
+    ],
+    "gt": "точен",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Ју,"
+    ],
+    "gt": "Ју,",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Што"
+    ],
+    "gt": "Што",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "Штом"
+    ],
+    "gt": "Штом",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      ":",
+      "=====",
+      "025.JPG"
+    ],
+    "gt": "025.JPG",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "сс",
+      "и",
+      "скремнисале"
+    ],
+    "gt": "скремнисале",
+    "similarity": 0.88
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "бара"
+    ],
+    "gt": "бара",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "ток,"
+    ],
+    "gt": "ток,",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "со"
+    ],
+    "gt": "со",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "дат"
+    ],
+    "gt": "дат",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "Пејо"
+    ],
+    "gt": "Пејо",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "па"
+    ],
+    "gt": "па",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "извади"
+    ],
+    "gt": "извади",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Лажиците,"
+    ],
+    "gt": "Лажиците,",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "бина"
+    ],
+    "gt": "бина",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ј",
+      "наредиле"
+    ],
+    "gt": "наредиле",
+    "similarity": 0.9412
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "=====",
+      "027.JPG"
+    ],
+    "gt": "027.JPG",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ѓ",
+      "била"
+    ],
+    "gt": "била",
+    "similarity": 0.8889
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Ш",
+      "огламникот"
+    ],
+    "gt": "огламникот",
+    "similarity": 0.9524
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ја",
+      "влечка"
+    ],
+    "gt": "влечка",
+    "similarity": 0.8571
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "Му"
+    ],
+    "gt": "Му",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "Го"
+    ],
+    "gt": "Го",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ј",
+      "Турчинот"
+    ],
+    "gt": "Турчинот",
+    "similarity": 0.9412
+  },
+  {
+    "type": "merge",
+    "ocr": "сслогламникот",
+    "gt": [
+      "огламникот",
+      "на"
+    ],
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "на",
+      "вратот,"
+    ],
+    "gt": "вратот,",
+    "similarity": 0.8571
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "леднал"
+    ],
+    "gt": "леднал",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "завртел"
+    ],
+    "gt": "завртел",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "се"
+    ],
+    "gt": "се",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "женце."
+    ],
+    "gt": "женце.",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "да"
+    ],
+    "gt": "да",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "тенал"
+    ],
+    "gt": "тенал",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "та"
+    ],
+    "gt": "та",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "вила"
+    ],
+    "gt": "вила",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "4",
+      "Кога"
+    ],
+    "gt": "Кога",
+    "similarity": 0.8889
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "град"
+    ],
+    "gt": "град",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "гарката"
+    ],
+    "gt": "гарката",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "Јавајќи"
+    ],
+    "gt": "Јавајќи",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "колку"
+    ],
+    "gt": "колку",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "огламникот"
+    ],
+    "gt": "огламникот",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ј",
+      "Излезе"
+    ],
+    "gt": "Излезе",
+    "similarity": 0.9231
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "му"
+    ],
+    "gt": "му",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "му"
+    ],
+    "gt": "му",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "дова"
+    ],
+    "gt": "дова",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "4",
+      "господ"
+    ],
+    "gt": "господ",
+    "similarity": 0.9231
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "са",
+      "Кадијата"
+    ],
+    "gt": "Кадијата",
+    "similarity": 0.8889
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "станал"
+    ],
+    "gt": "станал",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "Пеја"
+    ],
+    "gt": "Пеја",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "ама,"
+    ],
+    "gt": "ама,",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "те"
+    ],
+    "gt": "те",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "нива"
+    ],
+    "gt": "нива",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "„Ајде,"
+    ],
+    "gt": "„Ајде,",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "си"
+    ],
+    "gt": "си",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "одбрано,"
+    ],
+    "gt": "одбрано,",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "исто."
+    ],
+    "gt": "исто.",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "са",
+      "|",
+      "„Треба"
+    ],
+    "gt": "„Треба",
+    "similarity": 0.8333
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "што"
+    ],
+    "gt": "што",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "може"
+    ],
+    "gt": "може",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "4",
+      "Почнале"
+    ],
+    "gt": "Почнале",
+    "similarity": 0.9333
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "||",
+      "браќата"
+    ],
+    "gt": "браќата",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "И"
+    ],
+    "gt": "-И",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "=====",
+      "031.JPG"
+    ],
+    "gt": "031.JPG",
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "гоукасалаовега",
+    "gt": [
+      "го",
+      "укасала",
+      "овега"
+    ],
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "Здравиот"
+    ],
+    "gt": "Здравиот",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Ш",
+      "го"
+    ],
+    "gt": "го",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "него"
+    ],
+    "gt": "него",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "телото."
+    ],
+    "gt": "телото,",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "ниот"
+    ],
+    "gt": "ниот",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "41",
+      "=====",
+      "032.JPG"
+    ],
+    "gt": "032.JPG",
+    "similarity": 0.8571
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Ко",
+      "сите"
+    ],
+    "gt": "сите",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Џ",
+      "очите,"
+    ],
+    "gt": "очите,",
+    "similarity": 0.9091
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Му",
+      "расправи"
+    ],
+    "gt": "расправи",
+    "similarity": 0.8889
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "И"
+    ],
+    "gt": "и",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ја",
+      "пуштат"
+    ],
+    "gt": "пуштат",
+    "similarity": 0.8571
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "Владиката."
+    ],
+    "gt": "Владиката.",
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "нареди",
+    "gt": [
+      "и",
+      "му",
+      "нареди"
+    ],
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "=====",
+      "033.JPG"
+    ],
+    "gt": "033.JPG",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Така"
+    ],
+    "gt": "Така",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Ама"
+    ],
+    "gt": "Ама",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ј",
+      "пресуди."
+    ],
+    "gt": "пресуди.",
+    "similarity": 0.9333
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Ако"
+    ],
+    "gt": "Ако",
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "сеѓодбрани.",
+    "gt": [
+      "се",
+      "одбрани."
+    ],
+    "similarity": 0.9474
+  },
+  {
+    "type": "merge",
+    "ocr": "спеп.па",
+    "gt": [
+      "спеп,",
+      "па"
+    ],
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "данеги",
+    "gt": [
+      "да",
+      "не",
+      "ги"
+    ],
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "ида",
+    "gt": [
+      "и",
+      "да"
+    ],
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "=====",
+      "034.JPG"
+    ],
+    "gt": "034.JPG",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "Уште"
+    ],
+    "gt": "Уште",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Кога"
+    ],
+    "gt": "Кога",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "И",
+      "ќе"
+    ],
+    "gt": "ќе",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "држи"
+    ],
+    "gt": "држи",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "Пејо"
+    ],
+    "gt": "Пејо",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "во"
+    ],
+    "gt": "во",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "збор."
+    ],
+    "gt": "збор.",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "ку"
+    ],
+    "gt": "ку",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "испрати"
+    ],
+    "gt": "испрати",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "та"
+    ],
+    "gt": "та",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Дедо"
+    ],
+    "gt": "Дедо",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "-",
+      "Ајде"
+    ],
+    "gt": "Ајде",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "е"
+    ],
+    "gt": "е",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "\"На"
+    ],
+    "gt": "На",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "почна"
+    ],
+    "gt": "почна",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "погача"
+    ],
+    "gt": "погача",
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "035.JPG",
+    "gt": [
+      "036.JPG",
+      "====="
+    ],
+    "similarity": 0.8333
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "и"
+    ],
+    "gt": "И",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      ":",
+      "оо",
+      "Овој"
+    ],
+    "gt": "Овој",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Е",
+      "4",
+      "Така"
+    ],
+    "gt": "Така",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "со",
+      "владиката"
+    ],
+    "gt": "владиката",
+    "similarity": 0.9
+  },
+  {
+    "type": "merge",
+    "ocr": "Знаеш",
+    "gt": [
+      "-",
+      "Знаеш"
+    ],
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "Е",
+      "Шсело"
+    ],
+    "gt": "село",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "|",
+      "ва,"
+    ],
+    "gt": "ва,",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "|",
+      "збор,"
+    ],
+    "gt": "збор,",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "|",
+      "те"
+    ],
+    "gt": "те",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "|",
+      "Пејо"
+    ],
+    "gt": "Пејо",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "со"
+    ],
+    "gt": "со",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "владиката"
+    ],
+    "gt": "владиката",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "него,"
+    ],
+    "gt": "него,",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "чуе"
+    ],
+    "gt": "чуе",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "И"
+    ],
+    "gt": "И",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "|",
+      "И,"
+    ],
+    "gt": "И,",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "|",
+      "Владиката"
+    ],
+    "gt": "Владиката",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "|",
+      "Пејо"
+    ],
+    "gt": "Пејо",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "зборува"
+    ],
+    "gt": "зборува",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "Ш",
+      "недвикуваат."
+    ],
+    "gt": "недвикуваат.",
+    "similarity": 0.9565
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "си"
+    ],
+    "gt": "си",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "М",
+      "силен"
+    ],
+    "gt": "силен",
+    "similarity": 0.9091
+  },
+  {
+    "type": "merge",
+    "ocr": "удри",
+    "gt": [
+      "му",
+      "удри"
+    ],
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Ами"
+    ],
+    "gt": "Ами",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      ":",
+      "кајќи."
+    ],
+    "gt": "кајќи.",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      ":",
+      "„како"
+    ],
+    "gt": "„како",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "а",
+      "За"
+    ],
+    "gt": "За",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "е",
+      "лошо"
+    ],
+    "gt": "лошо",
+    "similarity": 0.8889
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Ш",
+      "тргнал"
+    ],
+    "gt": "тргнал",
+    "similarity": 0.9231
+  },
+  {
+    "type": "merge",
+    "ocr": "ЏПоткраднале",
+    "gt": [
+      "Поткраднале",
+      "што"
+    ],
+    "similarity": 0.8462
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "што",
+      "поткраднале"
+    ],
+    "gt": "поткраднале",
+    "similarity": 0.88
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "по"
+    ],
+    "gt": "по",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "кое"
+    ],
+    "gt": "кое",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "\"",
+      "го"
+    ],
+    "gt": "го",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Ш",
+      "јот"
+    ],
+    "gt": "јот",
+    "similarity": 0.8571
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "и",
+      "да"
+    ],
+    "gt": "да",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Ш",
+      "ко"
+    ],
+    "gt": "ко",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "и"
+    ],
+    "gt": "и",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "=====",
+      "041.JPG"
+    ],
+    "gt": "041.JPG",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "||",
+      "ИТАР"
+    ],
+    "gt": "ИТАР",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "РИБОЛОВЦИ"
+    ],
+    "gt": "РИБОЛОВЦИ",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "-Магаре"
+    ],
+    "gt": "-Магаре",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "Го"
+    ],
+    "gt": "Го",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "\"",
+      "Ш",
+      "гагачот"
+    ],
+    "gt": "лагачот",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "до",
+      "осум."
+    ],
+    "gt": "осум.",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "-",
+      "Ами"
+    ],
+    "gt": "Ами",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "удавил!"
+    ],
+    "gt": "удавил!",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "(|",
+      "Почнале"
+    ],
+    "gt": "Почнале",
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "броел.",
+    "gt": [
+      "се",
+      "броел."
+    ],
+    "similarity": 0.8333
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Ш",
+      "-аплакале."
+    ],
+    "gt": "заплакале.",
+    "similarity": 0.8889
+  },
+  {
+    "type": "merge",
+    "ocr": "које",
+    "gt": [
+      "кој",
+      "е"
+    ],
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ни",
+      "самите"
+    ],
+    "gt": "самите",
+    "similarity": 0.8571
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Ш",
+      "Оделе"
+    ],
+    "gt": "Оделе",
+    "similarity": 0.9091
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "Пејо"
+    ],
+    "gt": "Пејо",
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "му",
+    "gt": [
+      "и",
+      "му"
+    ],
+    "similarity": 0.8
+  },
+  {
+    "type": "merge",
+    "ocr": "на",
+    "gt": [
+      "и",
+      "на"
+    ],
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "тоа"
+    ],
+    "gt": "тоа",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "ископа"
+    ],
+    "gt": "ископа",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "е",
+      "=====",
+      "045.JPG"
+    ],
+    "gt": "045.JPG",
+    "similarity": 0.9231
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "фе."
+    ],
+    "gt": "фе,",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ј:",
+      "Арно"
+    ],
+    "gt": "Арно",
+    "similarity": 0.8889
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "БИ",
+      "Излегол"
+    ],
+    "gt": "Излегол",
+    "similarity": 0.875
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "„добро"
+    ],
+    "gt": "„добро",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Е",
+      "Се"
+    ],
+    "gt": "Се",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "вековд",
+      "|"
+    ],
+    "gt": "веков?",
+    "similarity": 0.9091
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ј",
+      "ни"
+    ],
+    "gt": "ни",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "Овој"
+    ],
+    "gt": "Овој",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "Станал,"
+    ],
+    "gt": "Станал,",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "викнал:"
+    ],
+    "gt": "викнал:",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Добро"
+    ],
+    "gt": "Добро",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "=====",
+      "046.JPG"
+    ],
+    "gt": "046.JPG",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "не",
+      "можеше"
+    ],
+    "gt": "можеше",
+    "similarity": 0.8571
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "какви"
+    ],
+    "gt": "какви",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "=====",
+      "047.JPG"
+    ],
+    "gt": "047.JPG",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "решил"
+    ],
+    "gt": "решил",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "ја"
+    ],
+    "gt": "ја",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ј",
+      "„Невестата"
+    ],
+    "gt": "„Невестата",
+    "similarity": 0.9474
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "Кога"
+    ],
+    "gt": "Кога",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "=====",
+      "048.JPG"
+    ],
+    "gt": "048.JPG",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "а"
+    ],
+    "gt": "а",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "отрчале"
+    ],
+    "gt": "отрчале",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Лесна"
+    ],
+    "gt": "Лесна",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "ли"
+    ],
+    "gt": "ли",
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "понив.",
+    "gt": [
+      "по",
+      "нив."
+    ],
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "јарецитго",
+    "gt": [
+      "јарец",
+      "и",
+      "го"
+    ],
+    "similarity": 0.9412
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "по"
+    ],
+    "gt": "по",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "си"
+    ],
+    "gt": "си",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      ":",
+      "Се"
+    ],
+    "gt": "Се",
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "се",
+    "gt": [
+      "-",
+      "се"
+    ],
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "има",
+      "украдено"
+    ],
+    "gt": "украдено",
+    "similarity": 0.8421
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "и",
+      "почнаа"
+    ],
+    "gt": "почнаа",
+    "similarity": 0.9231
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "седнаа"
+    ],
+    "gt": "седнаа",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "кројат"
+    ],
+    "gt": "кројат",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "да",
+      "мрднат,"
+    ],
+    "gt": "мрднат,",
+    "similarity": 0.8571
+  },
+  {
+    "type": "split",
+    "ocr": [
+      ":",
+      "ј",
+      "Арно"
+    ],
+    "gt": "Арно",
+    "similarity": 0.8889
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "да",
+      "помогне"
+    ],
+    "gt": "помогне",
+    "similarity": 0.875
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ќе",
+      "прават"
+    ],
+    "gt": "прават",
+    "similarity": 0.8571
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ј",
+      "му"
+    ],
+    "gt": "му",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Облачно"
+    ],
+    "gt": "Облачно",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "-",
+      "Ќе"
+    ],
+    "gt": "Ќе",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "|",
+      "оти"
+    ],
+    "gt": "от",
+    "similarity": 0.8
+  },
+  {
+    "type": "merge",
+    "ocr": "почнаа",
+    "gt": [
+      "и",
+      "почнаа"
+    ],
+    "similarity": 0.9231
+  },
+  {
+    "type": "split",
+    "ocr": [
+      ":",
+      "Кога"
+    ],
+    "gt": "Кога",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Ш",
+      "сто"
+    ],
+    "gt": "што",
+    "similarity": 0.8571
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "му",
+      "каже"
+    ],
+    "gt": "каже",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "и",
+      "дека"
+    ],
+    "gt": "дека",
+    "similarity": 0.8889
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "се",
+      "притапка"
+    ],
+    "gt": "притапка",
+    "similarity": 0.8889
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "=====",
+      "050.JPG"
+    ],
+    "gt": "050.JPG",
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "едниот:се",
+    "gt": [
+      "едниот,",
+      "се"
+    ],
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "а",
+      "=====",
+      "051.JPG"
+    ],
+    "gt": "051.JPG",
+    "similarity": 0.9231
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "со,",
+      "мори"
+    ],
+    "gt": "мори",
+    "similarity": 0.8
+  },
+  {
+    "type": "merge",
+    "ocr": "надмудрија.",
+    "gt": [
+      "му",
+      "го",
+      "надмудрија."
+    ],
+    "similarity": 0.8333
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-.-",
+      "Бегај"
+    ],
+    "gt": "-Бегај",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Пејо",
+      "и",
+      "Насрадин-оџа"
+    ],
+    "gt": "НАСРАДИН-ОЏА",
+    "similarity": 0.8148
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "и",
+      "се"
+    ],
+    "gt": "Се",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "силен"
+    ],
+    "gt": "силен",
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "Вечерта",
+    "gt": [
+      "|",
+      "Вечерта"
+    ],
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "53",
+      "=====",
+      "054.JPG"
+    ],
+    "gt": "054.JPG",
+    "similarity": 0.8571
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Лебами,"
+    ],
+    "gt": "Лебами,",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "магарињат",
+      "|"
+    ],
+    "gt": "магарињата",
+    "similarity": 0.9474
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "рекоа"
+    ],
+    "gt": "рекоа",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Дали"
+    ],
+    "gt": "Дали",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ј",
+      "|",
+      "било"
+    ],
+    "gt": "било",
+    "similarity": 0.8889
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "оо",
+      "Пеја"
+    ],
+    "gt": "Пеја",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "го",
+      "изеде"
+    ],
+    "gt": "изеде",
+    "similarity": 0.8333
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "|",
+      "Сите"
+    ],
+    "gt": "Сите",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "|",
+      "ре,"
+    ],
+    "gt": "ре,",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "жаби,"
+    ],
+    "gt": "жаби,",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "|",
+      "се"
+    ],
+    "gt": "се",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "-",
+      "Аха!"
+    ],
+    "gt": "Аха!",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "-",
+      "А"
+    ],
+    "gt": "А",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Јас"
+    ],
+    "gt": "Јас",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "|",
+      "орлите"
+    ],
+    "gt": "орлите",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "-",
+      "Ах,"
+    ],
+    "gt": "Ах,",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "го",
+      "откраднал"
+    ],
+    "gt": "откраднал",
+    "similarity": 0.9
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "гостиЛнИц",
+      ";"
+    ],
+    "gt": "гостилница,",
+    "similarity": 0.9474
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "за"
+    ],
+    "gt": "за",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "голема"
+    ],
+    "gt": "голема",
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "058.JPG",
+    "gt": [
+      "=====",
+      "058.JPG"
+    ],
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Знаеш,"
+    ],
+    "gt": "Знаеш,",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Јас"
+    ],
+    "gt": "Јас",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "=====",
+      "059.JPG"
+    ],
+    "gt": "059.JPG",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "ИТАР"
+    ],
+    "gt": "ИТАР",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "во",
+      "еден"
+    ],
+    "gt": "еден",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "1",
+      "јо"
+    ],
+    "gt": "јо",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Ќ",
+      "како"
+    ],
+    "gt": "како",
+    "similarity": 0.8889
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Еј",
+      "него,"
+    ],
+    "gt": "него,",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ги",
+      "брадата"
+    ],
+    "gt": "брадата",
+    "similarity": 0.875
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ШЕ",
+      "почна"
+    ],
+    "gt": "почна",
+    "similarity": 0.8333
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Ш",
+      "очите"
+    ],
+    "gt": "очите",
+    "similarity": 0.9091
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "бричен,"
+    ],
+    "gt": "бричен,",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Ш",
+      "рот"
+    ],
+    "gt": "рот",
+    "similarity": 0.8571
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Ш",
+      "да"
+    ],
+    "gt": "да",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ја",
+      "разбра"
+    ],
+    "gt": "разбра",
+    "similarity": 0.8571
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "В",
+      "кај"
+    ],
+    "gt": "кај",
+    "similarity": 0.8571
+  },
+  {
+    "type": "split",
+    "ocr": [
+      ":",
+      "со"
+    ],
+    "gt": "со",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "друг"
+    ],
+    "gt": "друг",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ј",
+      "По"
+    ],
+    "gt": "По",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "ј",
+      "лозја"
+    ],
+    "gt": "лозја",
+    "similarity": 0.9091
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Ш",
+      "ј",
+      "берберницата"
+    ],
+    "gt": "берберницата",
+    "similarity": 0.9231
+  },
+  {
+    "type": "merge",
+    "ocr": "а",
+    "gt": [
+      "-",
+      "А,"
+    ],
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "А,",
+      "ха!"
+    ],
+    "gt": "ха!",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "земјата."
+    ],
+    "gt": "земјата.",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ј",
+      "само"
+    ],
+    "gt": "само",
+    "similarity": 0.8889
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "60",
+      "=====",
+      "061.JPG"
+    ],
+    "gt": "061.JPG",
+    "similarity": 0.8571
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "ИТАР"
+    ],
+    "gt": "ИТАР",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "Ш",
+      "изеде"
+    ],
+    "gt": "изеде",
+    "similarity": 0.9091
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "|",
+      "пот"
+    ],
+    "gt": "пот",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "со",
+      "нешто"
+    ],
+    "gt": "нешто",
+    "similarity": 0.8333
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "-",
+      "Слушај,"
+    ],
+    "gt": "Слушај,",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "И"
+    ],
+    "gt": "И",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "Го"
+    ],
+    "gt": "Го",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "сам"
+    ],
+    "gt": "сам",
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "гричиња",
+    "gt": [
+      "грнчиња",
+      "в"
+    ],
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "в",
+      "раце"
+    ],
+    "gt": "раце",
+    "similarity": 0.8889
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "Влегол"
+    ],
+    "gt": "Влегол",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "добро"
+    ],
+    "gt": "добро",
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "гричињата",
+    "gt": [
+      "грнчињата",
+      "до"
+    ],
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "до",
+      "столот"
+    ],
+    "gt": "столот",
+    "similarity": 0.8571
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "вратот"
+    ],
+    "gt": "вратот",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "знам"
+    ],
+    "gt": "знам",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "бричениот"
+    ],
+    "gt": "бричениот",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "-",
+      "Го"
+    ],
+    "gt": "Го",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "го"
+    ],
+    "gt": "го",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "те"
+    ],
+    "gt": "те",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Стој,"
+    ],
+    "gt": "Стој,",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Ти"
+    ],
+    "gt": "Ти",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ј",
+      "угич,"
+    ],
+    "gt": "угич,",
+    "similarity": 0.8889
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ј",
+      "Берберот"
+    ],
+    "gt": "Берберот",
+    "similarity": 0.9412
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "-",
+      "А,а,"
+    ],
+    "gt": "А,а,",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "65",
+      "=====",
+      "066.JPG"
+    ],
+    "gt": "066.JPG",
+    "similarity": 0.8571
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ј",
+      "Пејо"
+    ],
+    "gt": "Пејо",
+    "similarity": 0.8889
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "=====",
+      "067.JPG"
+    ],
+    "gt": "067.JPG",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Навистина,"
+    ],
+    "gt": "Навистина,",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "бричат."
+    ],
+    "gt": "бричат.",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "ти"
+    ],
+    "gt": "ти",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Ш",
+      "„суво"
+    ],
+    "gt": "суво",
+    "similarity": 0.8889
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "и",
+      "инаку"
+    ],
+    "gt": "инаку",
+    "similarity": 0.9091
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "тое",
+      "лигавсње-сапунење"
+    ],
+    "gt": "лигавење-сапунење",
+    "similarity": 0.8571
+  },
+  {
+    "type": "merge",
+    "ocr": "Пејои",
+    "gt": [
+      "Пејо",
+      "и"
+    ],
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "чекаше"
+    ],
+    "gt": "чекаше",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "Берберот"
+    ],
+    "gt": "Берберот",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "од",
+      "каменот."
+    ],
+    "gt": "каменот.",
+    "similarity": 0.875
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "од",
+      "болки."
+    ],
+    "gt": "болки.",
+    "similarity": 0.8333
+  },
+  {
+    "type": "split",
+    "ocr": [
+      ":",
+      "|",
+      "Во"
+    ],
+    "gt": "Во",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "чорбаџијата"
+    ],
+    "gt": "чорбаџијата",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-?О-",
+      "Добар"
+    ],
+    "gt": "Добар",
+    "similarity": 0.9091
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Ш",
+      "го"
+    ],
+    "gt": "го",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "сс",
+      "насмевна:"
+    ],
+    "gt": "насмевна:",
+    "similarity": 0.8889
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "го",
+      "искористи"
+    ],
+    "gt": "искористи",
+    "similarity": 0.9
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Абре,"
+    ],
+    "gt": "Абре,",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Оти?"
+    ],
+    "gt": "Оти?",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Е,"
+    ],
+    "gt": "Е,",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Ех,"
+    ],
+    "gt": "Ех,",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Што"
+    ],
+    "gt": "Што",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "да",
+      "купиш..."
+    ],
+    "gt": "купиш...",
+    "similarity": 0.8333
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "сите",
+      "четворица"
+    ],
+    "gt": "четворица",
+    "similarity": 0.8182
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "врекна"
+    ],
+    "gt": "врекна",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "-",
+      "Ќе"
+    ],
+    "gt": "Ќе",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "се",
+      "велит"
+    ],
+    "gt": "велит",
+    "similarity": 0.8333
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "=====",
+      "069.JPG"
+    ],
+    "gt": "069.JPG",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "и",
+      "му"
+    ],
+    "gt": "му",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Ш",
+      "та."
+    ],
+    "gt": "та.",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "Ете,"
+    ],
+    "gt": "Ете,",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "тавата"
+    ],
+    "gt": "тавата",
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "гричето",
+    "gt": [
+      "грнчето",
+      "-"
+    ],
+    "similarity": 0.8571
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "речен"
+    ],
+    "gt": "рече",
+    "similarity": 0.8889
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "“а",
+      "го"
+    ],
+    "gt": "го",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ггк",
+      "погледна"
+    ],
+    "gt": "погледна",
+    "similarity": 0.8421
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "во",
+      "грнчињава?"
+    ],
+    "gt": "грнчињава?",
+    "similarity": 0.9
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "е",
+      "медот"
+    ],
+    "gt": "медот",
+    "similarity": 0.9091
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "и",
+      "му"
+    ],
+    "gt": "му",
+    "similarity": 0.8
+  },
+  {
+    "type": "merge",
+    "ocr": "јас",
+    "gt": [
+      "и",
+      "јас"
+    ],
+    "similarity": 0.8571
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "=====",
+      "071.JPG"
+    ],
+    "gt": "071.JPG",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "ри."
+    ],
+    "gt": "ари.",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Земи"
+    ],
+    "gt": "Земи",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "малку:"
+    ],
+    "gt": "малку:",
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "соназатрошење.",
+    "gt": [
+      "за",
+      "трошење."
+    ],
+    "similarity": 0.8182
+  },
+  {
+    "type": "merge",
+    "ocr": "гактојзнае",
+    "gt": [
+      "тој",
+      "знае"
+    ],
+    "similarity": 0.8235
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Знае"
+    ],
+    "gt": "Знае",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "се"
+    ],
+    "gt": "се",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ЕС",
+      "берберот"
+    ],
+    "gt": "берберот",
+    "similarity": 0.8889
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Ајде,"
+    ],
+    "gt": "Ајде,",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "Сите"
+    ],
+    "gt": "Сите",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Ш",
+      "рот"
+    ],
+    "gt": "рот",
+    "similarity": 0.8571
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Јас"
+    ],
+    "gt": "Јас",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "Мита"
+    ],
+    "gt": "Мита",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Почекајте"
+    ],
+    "gt": "Почекајте",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "го"
+    ],
+    "gt": "го",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ШЖ",
+      "обајцата"
+    ],
+    "gt": "обајцата",
+    "similarity": 0.8889
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "Мито"
+    ],
+    "gt": "Мито",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ЕВ",
+      "замолија"
+    ],
+    "gt": "замолија",
+    "similarity": 0.8889
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Е",
+      "-Аје",
+      "мајсторе,"
+    ],
+    "gt": "мајсторе,",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "Берберот"
+    ],
+    "gt": "Берберот",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "Ш",
+      "јовата"
+    ],
+    "gt": "јовата",
+    "similarity": 0.9231
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "\"|",
+      "пата"
+    ],
+    "gt": "пата",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "=====",
+      "072.JPG"
+    ],
+    "gt": "072.JPG",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "се",
+      "фати"
+    ],
+    "gt": "фати",
+    "similarity": 0.8
+  },
+  {
+    "type": "merge",
+    "ocr": "стрижењетои",
+    "gt": [
+      "стрижењето",
+      "и"
+    ],
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "си",
+      "-",
+      "Седум"
+    ],
+    "gt": "Седум",
+    "similarity": 0.8333
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Ајде,"
+    ],
+    "gt": "Ајде,",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "ша?"
+    ],
+    "gt": "ша?",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Ти"
+    ],
+    "gt": "Ти",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "дрепразнуваш"
+    ],
+    "gt": "препразнуваш",
+    "similarity": 0.9167
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "Пеја:"
+    ],
+    "gt": "Пеја:",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "-",
+      "Да"
+    ],
+    "gt": "Да",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Пејод",
+      "|"
+    ],
+    "gt": "Пејо?",
+    "similarity": 0.8889
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Реков"
+    ],
+    "gt": "Реков",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ти,",
+      "чорбаци,"
+    ],
+    "gt": "чорбаци,",
+    "similarity": 0.875
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "-",
+      "Е,"
+    ],
+    "gt": "Е,",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "е."
+    ],
+    "gt": "е.",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Ш",
+      "гзброја"
+    ],
+    "gt": "изброја",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Ш",
+      "чорбаџи"
+    ],
+    "gt": "чорбаџи",
+    "similarity": 0.9333
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "со."
+    ],
+    "gt": "со,",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "-",
+      "Десет"
+    ],
+    "gt": "Десет",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "=====",
+      "074.JPG"
+    ],
+    "gt": "074.JPG",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "маст",
+      "пазар;"
+    ],
+    "gt": "маст-пазар;",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Со"
+    ],
+    "gt": "Со",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "маста"
+    ],
+    "gt": "маста",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "=====",
+      "075.JPG"
+    ],
+    "gt": "075.JPG",
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "\"сево",
+    "gt": [
+      "се",
+      "во"
+    ],
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Три,"
+    ],
+    "gt": "Три,",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Аирлија"
+    ],
+    "gt": "Аирлија",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "фотографот."
+    ],
+    "gt": "фотографот.",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Дма",
+      "будала"
+    ],
+    "gt": "будала",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Такви"
+    ],
+    "gt": "Такви",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "ќе"
+    ],
+    "gt": "ќе",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "рот"
+    ],
+    "gt": "рот",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "Го"
+    ],
+    "gt": "Го",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "-",
+      "А"
+    ],
+    "gt": "А",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "поднесе"
+    ],
+    "gt": "поднесе",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "на,"
+    ],
+    "gt": "на,",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "-",
+      "А"
+    ],
+    "gt": "А",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "стапнеш"
+    ],
+    "gt": "стапнеш",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "канува"
+    ],
+    "gt": "канува",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "сите"
+    ],
+    "gt": "сите",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "почна"
+    ],
+    "gt": "почна",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Е,"
+    ],
+    "gt": "Е,",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "ако"
+    ],
+    "gt": "ако",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "голата",
+      "заканувачки"
+    ],
+    "gt": "заканувачки",
+    "similarity": 0.7857
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Н|",
+      "|",
+      "Дури"
+    ],
+    "gt": "Дури",
+    "similarity": 0.8889
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "(В",
+      "графот,"
+    ],
+    "gt": "графот,",
+    "similarity": 0.9231
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "“и",
+      "почна"
+    ],
+    "gt": "почна",
+    "similarity": 0.9091
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Сите"
+    ],
+    "gt": "Сите",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Смола"
+    ],
+    "gt": "Смола",
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "нее",
+    "gt": [
+      "не",
+      "е"
+    ],
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "тој",
+    "gt": [
+      "и",
+      "тој"
+    ],
+    "similarity": 0.8571
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Затоа"
+    ],
+    "gt": "Затоа",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Чија"
+    ],
+    "gt": "Чија",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "со",
+      "полна"
+    ],
+    "gt": "полна",
+    "similarity": 0.8333
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Од"
+    ],
+    "gt": "Од",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "-",
+      "Како"
+    ],
+    "gt": "Како",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "-",
+      "Драл-"
+    ],
+    "gt": "Драл-",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "до-",
+      "фурнацијата"
+    ],
+    "gt": "Фурнаџијата",
+    "similarity": 0.8333
+  },
+  {
+    "type": "merge",
+    "ocr": "прашал:",
+    "gt": [
+      "го",
+      "прашал:"
+    ],
+    "similarity": 0.8571
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "у",
+      "Пејо"
+    ],
+    "gt": "Пејо",
+    "similarity": 0.8889
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "сот",
+      "фурнаџијата"
+    ],
+    "gt": "фурнаџијата",
+    "similarity": 0.88
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "-",
+      "Не"
+    ],
+    "gt": "Не",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Ти"
+    ],
+    "gt": "Ти",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Ти"
+    ],
+    "gt": "Ти",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Немај"
+    ],
+    "gt": "Немај",
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "ќе",
+    "gt": [
+      "-",
+      "ќе"
+    ],
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "чалма"
+    ],
+    "gt": "чалма",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "А"
+    ],
+    "gt": "А",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "Фурнаџијата"
+    ],
+    "gt": "Фурнаџијата",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "\"",
+      "жен"
+    ],
+    "gt": "жен",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "камот"
+    ],
+    "gt": "камот",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Готова"
+    ],
+    "gt": "Готова",
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "печена",
+    "gt": [
+      "ла",
+      "печена"
+    ],
+    "similarity": 0.8571
+  },
+  {
+    "type": "merge",
+    "ocr": "фурнацијата,",
+    "gt": [
+      "фурнаџијата,",
+      "-"
+    ],
+    "similarity": 0.9091
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Море"
+    ],
+    "gt": "Море",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Еј",
+      "Кога"
+    ],
+    "gt": "Кога",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Како"
+    ],
+    "gt": "Како",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Камо"
+    ],
+    "gt": "Камо",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "=====",
+      "083.JPG"
+    ],
+    "gt": "083.JPG",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      ":",
+      "фурнаџијата"
+    ],
+    "gt": "Фурнаџијата",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "ца."
+    ],
+    "gt": "ца.",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "|",
+      "Бегајќи"
+    ],
+    "gt": "Бегајќи",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "низ"
+    ],
+    "gt": "низ",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Ш",
+      "гонстави"
+    ],
+    "gt": "остави",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "магарето"
+    ],
+    "gt": "магарето",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Ш",
+      "говото"
+    ],
+    "gt": "говото",
+    "similarity": 0.9231
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "и",
+      "поминал"
+    ],
+    "gt": "поминал",
+    "similarity": 0.9333
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "на",
+      "која"
+    ],
+    "gt": "која",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "пила",
+      "анамката"
+    ],
+    "gt": "анамката",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "83",
+      "=====",
+      "084.JPG"
+    ],
+    "gt": "084.JPG",
+    "similarity": 0.8571
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Бујрум,"
+    ],
+    "gt": "Бујрум,",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "се",
+      "отворила"
+    ],
+    "gt": "отворила",
+    "similarity": 0.8889
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Однесоа"
+    ],
+    "gt": "Однесоа",
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "ЗН4еШ",
+    "gt": [
+      "знаеш",
+      "====="
+    ],
+    "similarity": 0.8
+  },
+  {
+    "type": "merge",
+    "ocr": "085.JPG",
+    "gt": [
+      "086.JPG",
+      "====="
+    ],
+    "similarity": 0.8333
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Еве"
+    ],
+    "gt": "Еве",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Но",
+      "Пејо"
+    ],
+    "gt": "Пејо",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Еве,"
+    ],
+    "gt": "Еве,",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "-",
+      "Пушти"
+    ],
+    "gt": "Пушти",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "оо",
+      "Излегол"
+    ],
+    "gt": "Излегол",
+    "similarity": 0.875
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Што"
+    ],
+    "gt": "Што",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Ништо,"
+    ],
+    "gt": "Ништо,",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ЕВ",
+      "наџија"
+    ],
+    "gt": "наџија",
+    "similarity": 0.8571
+  },
+  {
+    "type": "merge",
+    "ocr": "него.",
+    "gt": [
+      "до",
+      "него."
+    ],
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Летна"
+    ],
+    "gt": "Летна",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ЕЕ",
+      "лага"
+    ],
+    "gt": "лага",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ЕЕ",
+      "фати"
+    ],
+    "gt": "фати",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Ш",
+      "вика,"
+    ],
+    "gt": "вика,",
+    "similarity": 0.8889
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Така"
+    ],
+    "gt": "Така",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "новен"
+    ],
+    "gt": "новен",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ЕЕ",
+      "правда,"
+    ],
+    "gt": "правда,",
+    "similarity": 0.8571
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "Кадијата"
+    ],
+    "gt": "Кадијата",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "искубан,",
+      "3",
+      "па"
+    ],
+    "gt": "искубана,",
+    "similarity": 0.8889
+  },
+  {
+    "type": "merge",
+    "ocr": "дури",
+    "gt": [
+      "па",
+      "дури"
+    ],
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ЕЕ",
+      "Кого"
+    ],
+    "gt": "Кого",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Никако"
+    ],
+    "gt": "Никако",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "жими"
+    ],
+    "gt": "жими",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Е",
+      "вадив"
+    ],
+    "gt": "вадив",
+    "similarity": 0.9091
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Е",
+      "фрррр..."
+    ],
+    "gt": "фрррр...",
+    "similarity": 0.9091
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Ха,"
+    ],
+    "gt": "Ха,",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "1",
+      "пезевенк"
+    ],
+    "gt": "пезевенк",
+    "similarity": 0.9412
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "1",
+      "нил"
+    ],
+    "gt": "нил",
+    "similarity": 0.8571
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "1",
+      "-",
+      "Педесет,"
+    ],
+    "gt": "Педесет,",
+    "similarity": 0.9333
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "87",
+      "=====",
+      "088.JPG"
+    ],
+    "gt": "088.JPG",
+    "similarity": 0.8571
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "почнал"
+    ],
+    "gt": "почнал",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "А"
+    ],
+    "gt": "А",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Ете"
+    ],
+    "gt": "Ете",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Чекај"
+    ],
+    "gt": "Чекај",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "=====",
+      "089.JPG"
+    ],
+    "gt": "089.JPG",
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "почнад",
+    "gt": [
+      "почнал",
+      "да"
+    ],
+    "similarity": 0.8571
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "да",
+      "бабака,"
+    ],
+    "gt": "бабака,",
+    "similarity": 0.8571
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "На"
+    ],
+    "gt": "На",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "курбан"
+    ],
+    "gt": "курбан",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "се"
+    ],
+    "gt": "се",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "гуска"
+    ],
+    "gt": "гуска",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Ајде"
+    ],
+    "gt": "Ајде",
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "но",
+    "gt": [
+      "-",
+      "но"
+    ],
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "а",
+      "Кајмакамот"
+    ],
+    "gt": "Кајмакамот",
+    "similarity": 0.9524
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "=====",
+      "090.JPG"
+    ],
+    "gt": "090.JPG",
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "„Китацот“",
+    "gt": [
+      "„Китапот“",
+      "-"
+    ],
+    "similarity": 0.8571
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "ќе"
+    ],
+    "gt": "ќе",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      ":",
+      "Селанецот"
+    ],
+    "gt": "Селанецот",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "90",
+      "=====",
+      "091.JPG"
+    ],
+    "gt": "091.JPG",
+    "similarity": 0.8571
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Ш",
+      "ромашкиот"
+    ],
+    "gt": "ромашкиот",
+    "similarity": 0.9474
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "се"
+    ],
+    "gt": "се",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Дај"
+    ],
+    "gt": "Дај",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "фурнаџијата"
+    ],
+    "gt": "фурнаџијата",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Ш",
+      "Ја"
+    ],
+    "gt": "Ја",
+    "similarity": 0.8
+  },
+  {
+    "type": "merge",
+    "ocr": "ничкосали",
+    "gt": [
+      "ничкосал",
+      "и"
+    ],
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ШО",
+      "легол"
+    ],
+    "gt": "легол",
+    "similarity": 0.8333
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "|",
+      "Пејо"
+    ],
+    "gt": "Пејо",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Ш",
+      "насмевнале"
+    ],
+    "gt": "насмевнале",
+    "similarity": 0.9524
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "Џо",
+      "излегувањето"
+    ],
+    "gt": "излегувањето",
+    "similarity": 0.9231
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "елегол"
+    ],
+    "gt": "влегол",
+    "similarity": 0.8333
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "на"
+    ],
+    "gt": "на",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "на",
+      "која"
+    ],
+    "gt": "која",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Ш",
+      "од"
+    ],
+    "gt": "од",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Е",
+      "-",
+      "Таксират,"
+    ],
+    "gt": "Таксират,",
+    "similarity": 0.9412
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ЖЕ",
+      "наџијата"
+    ],
+    "gt": "наџијата",
+    "similarity": 0.8889
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "е,",
+      "бо-"
+    ],
+    "gt": "бо-",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Што"
+    ],
+    "gt": "Што",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Така"
+    ],
+    "gt": "Така",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "од",
+      "кајмакамот"
+    ],
+    "gt": "кајмакамот",
+    "similarity": 0.9091
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Кој"
+    ],
+    "gt": "Кој",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "селанецот."
+    ],
+    "gt": "селанецот.",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Не"
+    ],
+    "gt": "Не",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "92",
+      "=====",
+      "093.JPG"
+    ],
+    "gt": "093.JPG",
+    "similarity": 0.8571
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "И"
+    ],
+    "gt": "И",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Како"
+    ],
+    "gt": "Како",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "=====",
+      "094.JPG"
+    ],
+    "gt": "094.JPG",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      ":",
+      "фурнаџијата"
+    ],
+    "gt": "Фурнаџијата",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "оо",
+      "Кога"
+    ],
+    "gt": "Кога",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "\"",
+      "деме"
+    ],
+    "gt": "деме",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "кај"
+    ],
+    "gt": "кај",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "фурнаџијата?"
+    ],
+    "gt": "фурнаџијата?",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Ами"
+    ],
+    "gt": "Ами",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Ш",
+      "што"
+    ],
+    "gt": "што",
+    "similarity": 0.8571
+  },
+  {
+    "type": "split",
+    "ocr": [
+      ":",
+      "Селанецот"
+    ],
+    "gt": "Селанецот",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Ж",
+      "таму-ваму,"
+    ],
+    "gt": "таму-ваму,",
+    "similarity": 0.9412
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Не,"
+    ],
+    "gt": "Не,",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Ш",
+      "од"
+    ],
+    "gt": "од",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "1",
+      "|",
+      "раскапам"
+    ],
+    "gt": "раскапам",
+    "similarity": 0.9412
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Ти"
+    ],
+    "gt": "Ти",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "лира"
+    ],
+    "gt": "лира",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "И",
+      "овој"
+    ],
+    "gt": "овој",
+    "similarity": 0.8889
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "\"|",
+      "јата"
+    ],
+    "gt": "јата",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "3",
+      "да"
+    ],
+    "gt": "да",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "|",
+      "оставил"
+    ],
+    "gt": "оставил",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Ами"
+    ],
+    "gt": "Ами",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "ра,"
+    ],
+    "gt": "ра,",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      ":",
+      "бота,"
+    ],
+    "gt": "бота,",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ј",
+      "висеше"
+    ],
+    "gt": "висеше",
+    "similarity": 0.9231
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "=====",
+      "098.JPG"
+    ],
+    "gt": "098.JPG",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "други"
+    ],
+    "gt": "други",
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "кршоборци",
+    "gt": [
+      "-",
+      "кршоборци"
+    ],
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "тегнеа"
+    ],
+    "gt": "тегнеа",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "ги"
+    ],
+    "gt": "ги",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ј",
+      "„Да"
+    ],
+    "gt": "„Да",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "како"
+    ],
+    "gt": "како",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "=====",
+      "099.JPG"
+    ],
+    "gt": "099.JPG",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "и",
+      "ќе"
+    ],
+    "gt": "ќе",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "|",
+      "ако"
+    ],
+    "gt": "ако",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "таа"
+    ],
+    "gt": "таа",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ШО",
+      "бичкијата"
+    ],
+    "gt": "бичкијата",
+    "similarity": 0.9
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "даваше"
+    ],
+    "gt": "даваше",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "та"
+    ],
+    "gt": "та",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "оклештуваше"
+    ],
+    "gt": "оклештуваше",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "цето"
+    ],
+    "gt": "цето",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "на",
+      "„горниот“:"
+    ],
+    "gt": "„горниот“:",
+    "similarity": 0.875
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "се",
+      "моли,"
+    ],
+    "gt": "моли,",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "сре",
+      "подароци"
+    ],
+    "gt": "подароци",
+    "similarity": 0.8421
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "„Ум,"
+    ],
+    "gt": "„Ум,",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ШО",
+      "секогаш"
+    ],
+    "gt": "секогаш",
+    "similarity": 0.875
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "“99",
+      "=====",
+      "100.JPG"
+    ],
+    "gt": "100.JPG",
+    "similarity": 0.8571
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ма",
+      "Слушнал"
+    ],
+    "gt": "Слушнал",
+    "similarity": 0.875
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Се",
+      "навредил"
+    ],
+    "gt": "навредил",
+    "similarity": 0.8889
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "го",
+      "гледал"
+    ],
+    "gt": "гледал",
+    "similarity": 0.8571
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Ш",
+      "задржал"
+    ],
+    "gt": "задржал",
+    "similarity": 0.9333
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "По",
+      "два-три"
+    ],
+    "gt": "два-три",
+    "similarity": 0.8571
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "вајќи:"
+    ],
+    "gt": "вајќи:",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "го",
+      "даде"
+    ],
+    "gt": "даде",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "В",
+      "\"Чорбацијата"
+    ],
+    "gt": "Чорбаџијата",
+    "similarity": 0.8696
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Ш",
+      "отиде"
+    ],
+    "gt": "отиде",
+    "similarity": 0.9091
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ШИ",
+      "кладе"
+    ],
+    "gt": "кладе",
+    "similarity": 0.8333
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "103",
+      "=====",
+      "104.JPG"
+    ],
+    "gt": "104.JPG",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "4",
+      "Чорбаџијата"
+    ],
+    "gt": "Чорбаџијата",
+    "similarity": 0.9565
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ри",
+      "Арно"
+    ],
+    "gt": "Арно",
+    "similarity": 0.8
+  },
+  {
+    "type": "merge",
+    "ocr": "раѓаше;",
+    "gt": [
+      "-",
+      "раѓаше;"
+    ],
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Се",
+      "разбира,"
+    ],
+    "gt": "разбира,",
+    "similarity": 0.875
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "санитар,"
+    ],
+    "gt": "санитар,",
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "Цоручникот",
+    "gt": [
+      "Поручникот",
+      "го"
+    ],
+    "similarity": 0.8182
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "го",
+      "изгледа"
+    ],
+    "gt": "изгледа",
+    "similarity": 0.875
+  },
+  {
+    "type": "merge",
+    "ocr": "уиструменти",
+    "gt": [
+      "инструменти",
+      "-"
+    ],
+    "similarity": 0.9091
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "апарати"
+    ],
+    "gt": "апарати",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "=====",
+      "106.JPG"
+    ],
+    "gt": "106.JPG",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "Запржува"
+    ],
+    "gt": "Запржува",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "и",
+      "Ш",
+      "другото"
+    ],
+    "gt": "другото",
+    "similarity": 0.875
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Ш",
+      "обиде"
+    ],
+    "gt": "обиде",
+    "similarity": 0.9091
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "да",
+      "неговото"
+    ],
+    "gt": "неговото",
+    "similarity": 0.8889
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "|",
+      "Арно"
+    ],
+    "gt": "Арно",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "ниот"
+    ],
+    "gt": "ниот",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "го",
+      "предупредија"
+    ],
+    "gt": "предупредија",
+    "similarity": 0.9231
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "и",
+      "капата"
+    ],
+    "gt": "капата",
+    "similarity": 0.9231
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "та“."
+    ],
+    "gt": "та“.",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ЕВ",
+      "ковникот,"
+    ],
+    "gt": "ковникот,",
+    "similarity": 0.8889
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "1",
+      "|",
+      "табур"
+    ],
+    "gt": "табур",
+    "similarity": 0.9091
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "107",
+      "=====",
+      "108.JPG"
+    ],
+    "gt": "108.JPG",
+    "similarity": 0.8
+  },
+  {
+    "type": "merge",
+    "ocr": "птачките",
+    "gt": [
+      "пљачките",
+      "и"
+    ],
+    "similarity": 0.8235
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "и",
+      "да"
+    ],
+    "gt": "да",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "=====",
+      "109.JPG"
+    ],
+    "gt": "109.JPG",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "воокопите,"
+    ],
+    "gt": "окопите,",
+    "similarity": 0.875
+  },
+  {
+    "type": "merge",
+    "ocr": "денидругво",
+    "gt": [
+      "ден",
+      "и",
+      "друг"
+    ],
+    "similarity": 0.8889
+  },
+  {
+    "type": "merge",
+    "ocr": "заднината.",
+    "gt": [
+      "во",
+      "заднината."
+    ],
+    "similarity": 0.9
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "пуштаат"
+    ],
+    "gt": "пуштаат",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      ":",
+      "|",
+      "„Болест"
+    ],
+    "gt": "„Болест",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "„Таму"
+    ],
+    "gt": "„Таму",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      ":",
+      "да"
+    ],
+    "gt": "да",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "|",
+      "Не"
+    ],
+    "gt": "Не",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Ш",
+      "„",
+      "годтреваната"
+    ],
+    "gt": "подгреваната",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Ш",
+      "блиското"
+    ],
+    "gt": "блиското",
+    "similarity": 0.9412
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "и",
+      "смота"
+    ],
+    "gt": "смота",
+    "similarity": 0.9091
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "не"
+    ],
+    "gt": "не",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "Го"
+    ],
+    "gt": "Го",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "болницата."
+    ],
+    "gt": "болницата.",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "110",
+      "=====",
+      "111.JPG"
+    ],
+    "gt": "111.JPG",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Да"
+    ],
+    "gt": "Да",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "врати"
+    ],
+    "gt": "врати",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "Помошникот"
+    ],
+    "gt": "Помошникот",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "Пејо"
+    ],
+    "gt": "Пејо",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "Е"
+    ],
+    "gt": "Е",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-,",
+      "На"
+    ],
+    "gt": "На",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "7“",
+      "Пејо"
+    ],
+    "gt": "Пејо",
+    "similarity": 0.8889
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Х",
+      "а",
+      "време"
+    ],
+    "gt": "време",
+    "similarity": 0.8333
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "|",
+      "Како"
+    ],
+    "gt": "Како",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "=====",
+      "114.JPG"
+    ],
+    "gt": "114.JPG",
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "Селани",
+    "gt": [
+      "и,",
+      "и,ј,",
+      "Селани"
+    ],
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "бр",
+      "ееј!"
+    ],
+    "gt": "брееј!",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "114",
+      "=====",
+      "115.JPG"
+    ],
+    "gt": "115.JPG",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "|",
+      "Приказните"
+    ],
+    "gt": "Приказните",
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "кај",
+    "gt": [
+      "и",
+      "кај"
+    ],
+    "similarity": 0.8571
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "Ш",
+      "Случајќи"
+    ],
+    "gt": "Слушајќи",
+    "similarity": 0.8235
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "|",
+      "целенков"
+    ],
+    "gt": "Цепенков",
+    "similarity": 0.875
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Г",
+      "рим"
+    ],
+    "gt": "Грим",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "Ш",
+      "од"
+    ],
+    "gt": "од",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ис",
+      "(приказните)"
+    ],
+    "gt": "приказни",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "сон",
+      "зг",
+      "авантурите"
+    ],
+    "gt": "авантурите",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "1",
+      "Пелин),"
+    ],
+    "gt": "Пелин),",
+    "similarity": 0.9091
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "иг",
+      "Земјата"
+    ],
+    "gt": "Земјата",
+    "similarity": 0.875
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "на",
+      "морињата"
+    ],
+    "gt": "морињата",
+    "similarity": 0.8889
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Ж",
+      "што"
+    ],
+    "gt": "што",
+    "similarity": 0.8571
+  },
+  {
+    "type": "merge",
+    "ocr": "негова",
+    "gt": [
+      "е",
+      "негова"
+    ],
+    "similarity": 0.9231
+  },
+  {
+    "type": "merge",
+    "ocr": "старо",
+    "gt": [
+      "во",
+      "старо"
+    ],
+    "similarity": 0.8333
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "на",
+      "некој"
+    ],
+    "gt": "некој",
+    "similarity": 0.8333
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "раѓа-",
+      "њето"
+    ],
+    "gt": "раѓањето",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "зна-",
+      "чаен"
+    ],
+    "gt": "значаен",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "тие",
+      "останале"
+    ],
+    "gt": "останале",
+    "similarity": 0.8421
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "нецпозна-",
+      "ти"
+    ],
+    "gt": "непознати.",
+    "similarity": 0.9474
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "се",
+      "родил"
+    ],
+    "gt": "родил",
+    "similarity": 0.8333
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "и",
+      "на"
+    ],
+    "gt": "на",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "Во"
+    ],
+    "gt": "Во",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "сестрич-",
+      "|",
+      "ките."
+    ],
+    "gt": "сестричките,",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "да",
+      "пукаат"
+    ],
+    "gt": "пукаат",
+    "similarity": 0.8571
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "на",
+      "Солунскиот"
+    ],
+    "gt": "Солунскиот",
+    "similarity": 0.9091
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "во",
+      "Белград"
+    ],
+    "gt": "Белград,",
+    "similarity": 0.875
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "како",
+      "службеник."
+    ],
+    "gt": "службеник",
+    "similarity": 0.8182
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Е",
+      "По"
+    ],
+    "gt": "По",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "и",
+      "за"
+    ],
+    "gt": "за",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "деј-",
+      "ност"
+    ],
+    "gt": "дејност",
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "Запишал/обработил",
+    "gt": [
+      "Запишал",
+      "и",
+      "обработил"
+    ],
+    "similarity": 0.9697
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "зошто"
+    ],
+    "gt": "зошто",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "Итар"
+    ],
+    "gt": "Итар",
+    "similarity": 1.0
+  }
+]

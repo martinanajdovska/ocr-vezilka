@@ -8,8 +8,195 @@
   "gt_total_tokens": 4257,
   "gt_total_sentences": 268,
   "gt_avg_sentence_length": 15.8843,
-  "CER": 0.4235,
-  "WER": 0.6025,
+  "CER": 0.5211,
+  "WER": 0.6106,
+  "split_count": 40,
+  "merge_count": 55,
+  "split_examples": [
+    {
+      "type": "split",
+      "ocr": [
+        "итворат",
+        "го-"
+      ],
+      "gt": "творат",
+      "similarity": 0.8
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "и",
+        "себе"
+      ],
+      "gt": "себе",
+      "similarity": 0.8889
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "|",
+        "И"
+      ],
+      "gt": "И",
+      "similarity": 1.0
+    },
+    {
+      "type": "split",
+      "ocr": [
+        ",",
+        "Од"
+      ],
+      "gt": "Од",
+      "similarity": 1.0
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "Ш",
+        "Блаж"
+      ],
+      "gt": "Блаже",
+      "similarity": 0.8
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "67",
+        "Одеднаш"
+      ],
+      "gt": "Одеднаш",
+      "similarity": 0.875
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "\"",
+        "Но"
+      ],
+      "gt": "Но",
+      "similarity": 1.0
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "И",
+        "тогаш"
+      ],
+      "gt": "тогаш",
+      "similarity": 0.9091
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "СК",
+        "топи"
+      ],
+      "gt": "топи",
+      "similarity": 0.8
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "и",
+        "жив"
+      ],
+      "gt": "жив",
+      "similarity": 0.8571
+    }
+  ],
+  "merge_examples": [
+    {
+      "type": "merge",
+      "ocr": "Криеате",
+      "gt": [
+        "Криевте",
+        "в"
+      ],
+      "similarity": 0.8
+    },
+    {
+      "type": "merge",
+      "ocr": "убија",
+      "gt": [
+        "–",
+        "убија"
+      ],
+      "similarity": 1.0
+    },
+    {
+      "type": "merge",
+      "ocr": "во",
+      "gt": [
+        "*",
+        "*",
+        "Во"
+      ],
+      "similarity": 1.0
+    },
+    {
+      "type": "merge",
+      "ocr": "стресе,",
+      "gt": [
+        "се",
+        "тресе,"
+      ],
+      "similarity": 0.9231
+    },
+    {
+      "type": "merge",
+      "ocr": "кри.",
+      "gt": [
+        "крик",
+        "..."
+      ],
+      "similarity": 0.8571
+    },
+    {
+      "type": "merge",
+      "ocr": "небосквон,",
+      "gt": [
+        "небосклон,",
+        "и"
+      ],
+      "similarity": 0.8421
+    },
+    {
+      "type": "merge",
+      "ocr": "во",
+      "gt": [
+        "и",
+        "во"
+      ],
+      "similarity": 0.8
+    },
+    {
+      "type": "merge",
+      "ocr": "со",
+      "gt": [
+        "-",
+        "со"
+      ],
+      "similarity": 1.0
+    },
+    {
+      "type": "merge",
+      "ocr": "сонце",
+      "gt": [
+        "солнце",
+        "и"
+      ],
+      "similarity": 0.8333
+    },
+    {
+      "type": "merge",
+      "ocr": "стијмат",
+      "gt": [
+        "стијнат",
+        "и"
+      ],
+      "similarity": 0.8
+    }
+  ],
   "book": "Pesni",
   "split": "train"
 }

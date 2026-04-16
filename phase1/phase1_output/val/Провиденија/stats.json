@@ -8,8 +8,194 @@
   "gt_total_tokens": 15230,
   "gt_total_sentences": 727,
   "gt_avg_sentence_length": 20.9491,
-  "CER": 0.0155,
+  "CER": 0.021,
   "WER": 0.0326,
+  "split_count": 62,
+  "merge_count": 30,
+  "split_examples": [
+    {
+      "type": "split",
+      "ocr": [
+        "B",
+        "о"
+      ],
+      "gt": "Bо",
+      "similarity": 1.0
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "и",
+        "го"
+      ],
+      "gt": "го",
+      "similarity": 0.8
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "Е",
+        "дна"
+      ],
+      "gt": "Една",
+      "similarity": 1.0
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "(",
+        "тоеја"
+      ],
+      "gt": "Стоеја",
+      "similarity": 0.9091
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "М",
+        "акедонија,"
+      ],
+      "gt": "Македонија,",
+      "similarity": 1.0
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "ел",
+        "живот"
+      ],
+      "gt": "живот",
+      "similarity": 0.8333
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "ги",
+        "знам"
+      ],
+      "gt": "знам",
+      "similarity": 0.8
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "И",
+        "звишија"
+      ],
+      "gt": "Извишија",
+      "similarity": 1.0
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "рз",
+        "секоја"
+      ],
+      "gt": "секоја",
+      "similarity": 0.8571
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "на",
+        "народот"
+      ],
+      "gt": "народот",
+      "similarity": 0.875
+    }
+  ],
+  "merge_examples": [
+    {
+      "type": "merge",
+      "ocr": "поПоВСКИ",
+      "gt": [
+        "АНТЕ",
+        "ПОПОВСКИ"
+      ],
+      "similarity": 0.8
+    },
+    {
+      "type": "merge",
+      "ocr": "секавањето",
+      "gt": [
+        "сеќавањето",
+        "и"
+      ],
+      "similarity": 0.8571
+    },
+    {
+      "type": "merge",
+      "ocr": "аизуст",
+      "gt": [
+        "Наизуст",
+        "ги"
+      ],
+      "similarity": 0.8
+    },
+    {
+      "type": "merge",
+      "ocr": "секавањето",
+      "gt": [
+        "сеќавањето",
+        "на"
+      ],
+      "similarity": 0.8182
+    },
+    {
+      "type": "merge",
+      "ocr": "есечината",
+      "gt": [
+        "Месечината",
+        "го"
+      ],
+      "similarity": 0.8571
+    },
+    {
+      "type": "merge",
+      "ocr": "легнувајки",
+      "gt": [
+        "легнувајќи",
+        "во"
+      ],
+      "similarity": 0.8182
+    },
+    {
+      "type": "merge",
+      "ocr": "раґајте",
+      "gt": [
+        "раѓајте",
+        "и"
+      ],
+      "similarity": 0.8
+    },
+    {
+      "type": "merge",
+      "ocr": "секавањата",
+      "gt": [
+        "сеќавањата",
+        "на"
+      ],
+      "similarity": 0.8182
+    },
+    {
+      "type": "merge",
+      "ocr": "најневидливите",
+      "gt": [
+        "нај",
+        "невидливите"
+      ],
+      "similarity": 1.0
+    },
+    {
+      "type": "merge",
+      "ocr": "искачувајки",
+      "gt": [
+        "искачувајќи",
+        "се"
+      ],
+      "similarity": 0.8333
+    }
+  ],
   "book": "Провиденија",
   "split": "val"
 }

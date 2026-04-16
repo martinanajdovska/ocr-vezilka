@@ -1,0 +1,859 @@
+[
+  {
+    "type": "split",
+    "ocr": [
+      "итворат",
+      "го-"
+    ],
+    "gt": "творат",
+    "similarity": 0.8
+  },
+  {
+    "type": "merge",
+    "ocr": "Криеате",
+    "gt": [
+      "Криевте",
+      "в"
+    ],
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "и",
+      "себе"
+    ],
+    "gt": "себе",
+    "similarity": 0.8889
+  },
+  {
+    "type": "merge",
+    "ocr": "убија",
+    "gt": [
+      "–",
+      "убија"
+    ],
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "во",
+    "gt": [
+      "*",
+      "*",
+      "Во"
+    ],
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "И"
+    ],
+    "gt": "И",
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "стресе,",
+    "gt": [
+      "се",
+      "тресе,"
+    ],
+    "similarity": 0.9231
+  },
+  {
+    "type": "split",
+    "ocr": [
+      ",",
+      "Од"
+    ],
+    "gt": "Од",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Ш",
+      "Блаж"
+    ],
+    "gt": "Блаже",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "67",
+      "Одеднаш"
+    ],
+    "gt": "Одеднаш",
+    "similarity": 0.875
+  },
+  {
+    "type": "merge",
+    "ocr": "кри.",
+    "gt": [
+      "крик",
+      "..."
+    ],
+    "similarity": 0.8571
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "\"",
+      "Но"
+    ],
+    "gt": "Но",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "И",
+      "тогаш"
+    ],
+    "gt": "тогаш",
+    "similarity": 0.9091
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "СК",
+      "топи"
+    ],
+    "gt": "топи",
+    "similarity": 0.8
+  },
+  {
+    "type": "merge",
+    "ocr": "небосквон,",
+    "gt": [
+      "небосклон,",
+      "и"
+    ],
+    "similarity": 0.8421
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "и",
+      "жив"
+    ],
+    "gt": "жив",
+    "similarity": 0.8571
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "колома"
+    ],
+    "gt": "колона",
+    "similarity": 0.8333
+  },
+  {
+    "type": "merge",
+    "ocr": "во",
+    "gt": [
+      "и",
+      "во"
+    ],
+    "similarity": 0.8
+  },
+  {
+    "type": "merge",
+    "ocr": "со",
+    "gt": [
+      "-",
+      "со"
+    ],
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "сонце",
+    "gt": [
+      "солнце",
+      "и"
+    ],
+    "similarity": 0.8333
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "и",
+      "никога"
+    ],
+    "gt": "никога",
+    "similarity": 0.9231
+  },
+  {
+    "type": "merge",
+    "ocr": "стијмат",
+    "gt": [
+      "стијнат",
+      "и"
+    ],
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "и",
+      "агаснат."
+    ],
+    "gt": "згаснат.",
+    "similarity": 0.8
+  },
+  {
+    "type": "merge",
+    "ocr": "после",
+    "gt": [
+      "И",
+      "после"
+    ],
+    "similarity": 0.9091
+  },
+  {
+    "type": "merge",
+    "ocr": "последната",
+    "gt": [
+      "в",
+      "последната"
+    ],
+    "similarity": 0.9524
+  },
+  {
+    "type": "merge",
+    "ocr": "кога",
+    "gt": [
+      "-",
+      "кога"
+    ],
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "ко",
+    "gt": [
+      "-",
+      "ко"
+    ],
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "распаленн",
+      "лица..."
+    ],
+    "gt": "распалени",
+    "similarity": 0.8182
+  },
+  {
+    "type": "merge",
+    "ocr": "со",
+    "gt": [
+      "-",
+      "со"
+    ],
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "в",
+      "црни"
+    ],
+    "gt": "црни",
+    "similarity": 0.8889
+  },
+  {
+    "type": "merge",
+    "ocr": "допрадо,",
+    "gt": [
+      "допрало,",
+      "в"
+    ],
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "в",
+      "студ"
+    ],
+    "gt": "студ",
+    "similarity": 0.8889
+  },
+  {
+    "type": "merge",
+    "ocr": "одбор",
+    "gt": [
+      "-",
+      "одбор"
+    ],
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "Ана",
+    "gt": [
+      "А",
+      "на"
+    ],
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "стелнат",
+    "gt": [
+      "стегнат",
+      "в"
+    ],
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "в",
+      "шапи,"
+    ],
+    "gt": "шапи,",
+    "similarity": 0.8889
+  },
+  {
+    "type": "merge",
+    "ocr": "Ордет...",
+    "gt": [
+      "Орде",
+      "!..."
+    ],
+    "similarity": 0.8889
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "на",
+      "земја"
+    ],
+    "gt": "земја",
+    "similarity": 0.8333
+  },
+  {
+    "type": "merge",
+    "ocr": "в",
+    "gt": [
+      "-",
+      "в"
+    ],
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ве",
+      "чујте,"
+    ],
+    "gt": "чујте,",
+    "similarity": 0.8333
+  },
+  {
+    "type": "merge",
+    "ocr": "збираа",
+    "gt": [
+      "збирал",
+      "за"
+    ],
+    "similarity": 0.8571
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "го",
+      "гледам,"
+    ],
+    "gt": "гледам,",
+    "similarity": 0.8571
+  },
+  {
+    "type": "merge",
+    "ocr": "како",
+    "gt": [
+      "а",
+      "како"
+    ],
+    "similarity": 0.8889
+  },
+  {
+    "type": "merge",
+    "ocr": "злабеше",
+    "gt": [
+      "длабеше",
+      "в"
+    ],
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "и",
+      "ум,"
+    ],
+    "gt": "ум,",
+    "similarity": 0.8
+  },
+  {
+    "type": "merge",
+    "ocr": "шуи,",
+    "gt": [
+      "шум,",
+      "и"
+    ],
+    "similarity": 0.8571
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "м",
+      "сам"
+    ],
+    "gt": "сам",
+    "similarity": 0.8571
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "за",
+      "дреме"
+    ],
+    "gt": "дреме",
+    "similarity": 0.8333
+  },
+  {
+    "type": "merge",
+    "ocr": "дали",
+    "gt": [
+      "И",
+      "дали"
+    ],
+    "similarity": 0.8889
+  },
+  {
+    "type": "merge",
+    "ocr": "дали",
+    "gt": [
+      "И",
+      "дали"
+    ],
+    "similarity": 0.8889
+  },
+  {
+    "type": "merge",
+    "ocr": "сониа,",
+    "gt": [
+      "сонил,",
+      "на"
+    ],
+    "similarity": 0.8333
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "на",
+      "златна"
+    ],
+    "gt": "златна",
+    "similarity": 0.8571
+  },
+  {
+    "type": "merge",
+    "ocr": "што",
+    "gt": [
+      "-",
+      "што"
+    ],
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "дии",
+    "gt": [
+      "дим",
+      "и"
+    ],
+    "similarity": 0.8571
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "н",
+      "пламен"
+    ],
+    "gt": "пламен",
+    "similarity": 0.9231
+  },
+  {
+    "type": "merge",
+    "ocr": "толку",
+    "gt": [
+      "-",
+      "толку"
+    ],
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "му",
+      "ден"
+    ],
+    "gt": "чуден",
+    "similarity": 0.8
+  },
+  {
+    "type": "merge",
+    "ocr": "светао..",
+    "gt": [
+      "светло",
+      "..."
+    ],
+    "similarity": 0.8333
+  },
+  {
+    "type": "merge",
+    "ocr": "Ај",
+    "gt": [
+      "-",
+      "Ај"
+    ],
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "иплугот",
+    "gt": [
+      "-",
+      "и",
+      "плугот"
+    ],
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "денот",
+    "gt": [
+      "-",
+      "денот"
+    ],
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "иладинците",
+    "gt": [
+      "младинците",
+      "-"
+    ],
+    "similarity": 0.9
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "-",
+      "со"
+    ],
+    "gt": "со",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "КО",
+      "веда"
+    ],
+    "gt": "веда",
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "носн",
+      "и"
+    ],
+    "gt": "носи",
+    "similarity": 0.8889
+  },
+  {
+    "type": "merge",
+    "ocr": "реди,",
+    "gt": [
+      "и",
+      "реди,"
+    ],
+    "similarity": 0.8889
+  },
+  {
+    "type": "merge",
+    "ocr": "работа,",
+    "gt": [
+      "На",
+      "работа,"
+    ],
+    "similarity": 0.8571
+  },
+  {
+    "type": "merge",
+    "ocr": "работа",
+    "gt": [
+      "На",
+      "работа"
+    ],
+    "similarity": 0.8571
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "„",
+      "здружно,"
+    ],
+    "gt": "здружно,",
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "година",
+    "gt": [
+      "-",
+      "година"
+    ],
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "Честито,",
+    "gt": [
+      "-",
+      "Честито,"
+    ],
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "Честито,",
+    "gt": [
+      "-",
+      "Честито,"
+    ],
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "Честито,",
+    "gt": [
+      "-",
+      "Честито,"
+    ],
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ј",
+      "лита,"
+    ],
+    "gt": "лита,",
+    "similarity": 0.8889
+  },
+  {
+    "type": "merge",
+    "ocr": "носи,",
+    "gt": [
+      "ја",
+      "носи,"
+    ],
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ј",
+      "рипнуе"
+    ],
+    "gt": "рипнуе",
+    "similarity": 0.9231
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "/",
+      "сокаци"
+    ],
+    "gt": "сокаци",
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "за",
+    "gt": [
+      "-",
+      "за"
+    ],
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "“",
+      "за"
+    ],
+    "gt": "за",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "А",
+      "сегден,"
+    ],
+    "gt": "сегден,",
+    "similarity": 0.9231
+  },
+  {
+    "type": "merge",
+    "ocr": "„Двесте",
+    "gt": [
+      "-",
+      "„Двесте"
+    ],
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "Грозд",
+    "gt": [
+      "-",
+      "Грозд"
+    ],
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "врежи",
+    "gt": [
+      "-",
+      "врели"
+    ],
+    "similarity": 0.8
+  },
+  {
+    "type": "merge",
+    "ocr": "За",
+    "gt": [
+      "-",
+      "За"
+    ],
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "некој",
+    "gt": [
+      "-",
+      "некој"
+    ],
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "жили,",
+    "gt": [
+      "и",
+      "жили,"
+    ],
+    "similarity": 0.8889
+  },
+  {
+    "type": "merge",
+    "ocr": "месо",
+    "gt": [
+      "и",
+      "месо"
+    ],
+    "similarity": 0.8889
+  },
+  {
+    "type": "merge",
+    "ocr": "Тита!",
+    "gt": [
+      "За",
+      "Тита!"
+    ],
+    "similarity": 0.8
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "мома",
+      "Црногорка"
+    ],
+    "gt": "Црногорка",
+    "similarity": 0.8182
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "пески",
+      "птици"
+    ],
+    "gt": "песни-птици",
+    "similarity": 0.9
+  },
+  {
+    "type": "merge",
+    "ocr": "не.гуслени",
+    "gt": [
+      "не",
+      "гуслени"
+    ],
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Во",
+      "вечери"
+    ],
+    "gt": "вечери",
+    "similarity": 0.8571
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "|",
+      "ќе"
+    ],
+    "gt": "ќе",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "И",
+      "јас"
+    ],
+    "gt": "јас",
+    "similarity": 0.8571
+  },
+  {
+    "type": "merge",
+    "ocr": "кријан.",
+    "gt": [
+      "кријам",
+      "на"
+    ],
+    "similarity": 0.8571
+  }
+]

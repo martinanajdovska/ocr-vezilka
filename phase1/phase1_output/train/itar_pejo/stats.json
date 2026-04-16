@@ -8,8 +8,199 @@
   "gt_total_tokens": 20814,
   "gt_total_sentences": 1438,
   "gt_avg_sentence_length": 14.4743,
-  "CER": 0.1588,
-  "WER": 0.2188,
+  "CER": 0.1812,
+  "WER": 0.2215,
+  "split_count": 707,
+  "merge_count": 66,
+  "split_examples": [
+    {
+      "type": "split",
+      "ocr": [
+        "=====",
+        "007.JPG"
+      ],
+      "gt": "007.JPG",
+      "similarity": 1.0
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "а",
+        "Каков"
+      ],
+      "gt": "Каков",
+      "similarity": 0.9091
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "|",
+        "приказните"
+      ],
+      "gt": "приказните",
+      "similarity": 1.0
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "оди,",
+        "дојдоа"
+      ],
+      "gt": "дојдоа",
+      "similarity": 0.8
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "|",
+        "Кога"
+      ],
+      "gt": "Кога",
+      "similarity": 1.0
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "|",
+        "под"
+      ],
+      "gt": "под",
+      "similarity": 1.0
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "де",
+        "нема"
+      ],
+      "gt": "нема",
+      "similarity": 0.8
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "да",
+        "мириса"
+      ],
+      "gt": "мириса",
+      "similarity": 0.8571
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "-",
+        "Каде"
+      ],
+      "gt": "Каде",
+      "similarity": 1.0
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "а",
+        "=====",
+        "011.JPG"
+      ],
+      "gt": "011.JPG",
+      "similarity": 0.9231
+    }
+  ],
+  "merge_examples": [
+    {
+      "type": "merge",
+      "ocr": "Не,,брате.",
+      "gt": [
+        "Не,",
+        "брате."
+      ],
+      "similarity": 1.0
+    },
+    {
+      "type": "merge",
+      "ocr": "пречекуваат",
+      "gt": [
+        "што",
+        "се",
+        "пречекуваат"
+      ],
+      "similarity": 0.8148
+    },
+    {
+      "type": "merge",
+      "ocr": "им",
+      "gt": [
+        "-",
+        "им"
+      ],
+      "similarity": 1.0
+    },
+    {
+      "type": "merge",
+      "ocr": "внуши",
+      "gt": [
+        "внуш",
+        "и"
+      ],
+      "similarity": 1.0
+    },
+    {
+      "type": "merge",
+      "ocr": "некојјаукрал!",
+      "gt": [
+        "некој",
+        "ја",
+        "украл!"
+      ],
+      "similarity": 1.0
+    },
+    {
+      "type": "merge",
+      "ocr": "велеј-",
+      "gt": [
+        "велејќи:",
+        "-"
+      ],
+      "similarity": 0.8333
+    },
+    {
+      "type": "merge",
+      "ocr": "селаните",
+      "gt": [
+        "Пеја",
+        "селаните"
+      ],
+      "similarity": 0.8
+    },
+    {
+      "type": "merge",
+      "ocr": "сслогламникот",
+      "gt": [
+        "огламникот",
+        "на"
+      ],
+      "similarity": 0.8
+    },
+    {
+      "type": "merge",
+      "ocr": "гоукасалаовега",
+      "gt": [
+        "го",
+        "укасала",
+        "овега"
+      ],
+      "similarity": 1.0
+    },
+    {
+      "type": "merge",
+      "ocr": "нареди",
+      "gt": [
+        "и",
+        "му",
+        "нареди"
+      ],
+      "similarity": 0.8
+    }
+  ],
   "book": "itar_pejo",
   "split": "train"
 }

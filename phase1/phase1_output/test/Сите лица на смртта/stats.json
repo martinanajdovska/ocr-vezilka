@@ -8,8 +8,198 @@
   "gt_total_tokens": 49200,
   "gt_total_sentences": 4387,
   "gt_avg_sentence_length": 11.215,
-  "CER": 0.0623,
-  "WER": 0.0815,
+  "CER": 0.0631,
+  "WER": 0.0816,
+  "split_count": 87,
+  "merge_count": 208,
+  "split_examples": [
+    {
+      "type": "split",
+      "ocr": [
+        "на",
+        "поетот"
+      ],
+      "gt": "поетот",
+      "similarity": 0.8571
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "и",
+        "зашеметени."
+      ],
+      "gt": "зашеметени.",
+      "similarity": 0.9524
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "ЕЈ",
+        "Изгледа"
+      ],
+      "gt": "Изгледа",
+      "similarity": 0.875
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "и",
+        "омразата!"
+      ],
+      "gt": "омразата!",
+      "similarity": 0.9412
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "и",
+        "топло,"
+      ],
+      "gt": "топло,",
+      "similarity": 0.9091
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "се",
+        "загледува"
+      ],
+      "gt": "загледува",
+      "similarity": 0.9
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "и",
+        "се"
+      ],
+      "gt": "се",
+      "similarity": 0.8
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "џ",
+        "беа"
+      ],
+      "gt": "беа",
+      "similarity": 0.8571
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "а",
+        "не"
+      ],
+      "gt": "не",
+      "similarity": 0.8
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "земј",
+        "а."
+      ],
+      "gt": "земја.",
+      "similarity": 1.0
+    }
+  ],
+  "merge_examples": [
+    {
+      "type": "merge",
+      "ocr": "вуасени",
+      "gt": [
+        "вџасени",
+        "и"
+      ],
+      "similarity": 0.8
+    },
+    {
+      "type": "merge",
+      "ocr": "кожата",
+      "gt": [
+        "а",
+        "по",
+        "кожата"
+      ],
+      "similarity": 0.8
+    },
+    {
+      "type": "merge",
+      "ocr": "Титаму",
+      "gt": [
+        "Ти",
+        "таму"
+      ],
+      "similarity": 1.0
+    },
+    {
+      "type": "merge",
+      "ocr": "Жалмиеза",
+      "gt": [
+        "Жал",
+        "ми",
+        "е"
+      ],
+      "similarity": 0.8571
+    },
+    {
+      "type": "merge",
+      "ocr": "човекот,",
+      "gt": [
+        "за",
+        "човекот,"
+      ],
+      "similarity": 0.875
+    },
+    {
+      "type": "merge",
+      "ocr": "лубовта",
+      "gt": [
+        "љубовта",
+        "и"
+      ],
+      "similarity": 0.8
+    },
+    {
+      "type": "merge",
+      "ocr": "наполнат",
+      "gt": [
+        "да",
+        "ги",
+        "наполнат"
+      ],
+      "similarity": 0.8
+    },
+    {
+      "type": "merge",
+      "ocr": "Имамработа",
+      "gt": [
+        "Имам",
+        "работа"
+      ],
+      "similarity": 1.0
+    },
+    {
+      "type": "merge",
+      "ocr": "самотии",
+      "gt": [
+        "само",
+        "ти",
+        "и"
+      ],
+      "similarity": 1.0
+    },
+    {
+      "type": "merge",
+      "ocr": "Гогледаше",
+      "gt": [
+        "Го",
+        "гледаше"
+      ],
+      "similarity": 1.0
+    }
+  ],
   "book": "Сите лица на смртта",
   "split": "test"
 }

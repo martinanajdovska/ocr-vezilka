@@ -2160,8 +2160,8 @@
     "gt": "дели"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "...",
     "gt": "9"
   },
   {
@@ -2265,8 +2265,8 @@
     "gt": "го"
   },
   {
-    "op": "substitution",
-    "ocr": "...",
+    "op": "deletion",
+    "ocr": "",
     "gt": "сакаш."
   },
   {
@@ -11020,8 +11020,8 @@
     "gt": ""
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "35",
     "gt": "Стракче"
   },
   {
@@ -11040,8 +11040,8 @@
     "gt": "покажало"
   },
   {
-    "op": "substitution",
-    "ocr": "35",
+    "op": "deletion",
+    "ocr": "",
     "gt": "утринава"
   },
   {
@@ -15595,13 +15595,13 @@
     "gt": "и"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "најневидливите",
     "gt": "нај"
   },
   {
-    "op": "substitution",
-    "ocr": "најневидливите",
+    "op": "deletion",
+    "ocr": "",
     "gt": "невидливите"
   },
   {
@@ -44035,8 +44035,8 @@
     "gt": "душата."
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "гнот",
     "gt": "137"
   },
   {
@@ -44060,8 +44060,8 @@
     "gt": "МАКЕДОНИЈА"
   },
   {
-    "op": "substitution",
-    "ocr": "гнот",
+    "op": "deletion",
+    "ocr": "",
     "gt": "Огнот"
   },
   {

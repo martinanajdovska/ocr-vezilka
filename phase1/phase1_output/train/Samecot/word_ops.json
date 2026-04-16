@@ -140,13 +140,13 @@
     "gt": "Андоновски"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "КОМПЈУТЕРСКА",
     "gt": "КОМ"
   },
   {
-    "op": "substitution",
-    "ocr": "КОМПЈУТЕРСКА",
+    "op": "deletion",
+    "ocr": "",
     "gt": "ЈУТЕРСКА"
   },
   {
@@ -265,13 +265,13 @@
     "gt": "2"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "223-810,111-332",
     "gt": "223-810,"
   },
   {
-    "op": "substitution",
-    "ocr": "223-810,111-332",
+    "op": "deletion",
+    "ocr": "",
     "gt": "111-332"
   },
   {
@@ -280,13 +280,13 @@
     "gt": "Факс"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "+389",
     "gt": "+"
   },
   {
-    "op": "substitution",
-    "ocr": "+389",
+    "op": "deletion",
+    "ocr": "",
     "gt": "389"
   },
   {
@@ -390,8 +390,8 @@
     "gt": "Скопје"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "821.163.3-31",
     "gt": "821"
   },
   {
@@ -400,8 +400,8 @@
     "gt": "163"
   },
   {
-    "op": "substitution",
-    "ocr": "821.163.3-31",
+    "op": "deletion",
+    "ocr": "",
     "gt": "3-31"
   },
   {
@@ -730,13 +730,13 @@
     "gt": "времето"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "-(119-194)",
     "gt": "-"
   },
   {
-    "op": "substitution",
-    "ocr": "-(119-194)",
+    "op": "deletion",
+    "ocr": "",
     "gt": "(119-194)"
   },
   {
@@ -950,13 +950,13 @@
     "gt": "напишам"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "декатоа",
     "gt": "дека"
   },
   {
-    "op": "substitution",
-    "ocr": "декатоа",
+    "op": "deletion",
+    "ocr": "",
     "gt": "тоа"
   },
   {
@@ -1580,13 +1580,13 @@
     "gt": "со"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "чаоови",
     "gt": "9"
   },
   {
-    "op": "substitution",
-    "ocr": "чаоови",
+    "op": "deletion",
+    "ocr": "",
     "gt": "часови"
   },
   {
@@ -2970,13 +2970,13 @@
     "gt": "потчитнување"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "мал-ку",
     "gt": "мал-"
   },
   {
-    "op": "substitution",
-    "ocr": "мал-ку",
+    "op": "deletion",
+    "ocr": "",
     "gt": "ку"
   },
   {
@@ -3955,18 +3955,18 @@
     "gt": "нервозата"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "посте-пено",
     "gt": "посте-"
   },
   {
     "op": "substitution",
-    "ocr": "посте-пено",
+    "ocr": "попушташе.",
     "gt": "пено"
   },
   {
-    "op": "substitution",
-    "ocr": "попушташе.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "лопушташе."
   },
   {
@@ -4095,13 +4095,13 @@
     "gt": "дојде-"
   },
   {
-    "op": "match",
-    "ocr": "на",
+    "op": "deletion",
+    "ocr": "",
     "gt": "на"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "на",
     "gt": "на"
   },
   {
@@ -4135,13 +4135,13 @@
     "gt": "на"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "сту-денти.",
     "gt": "сту-"
   },
   {
-    "op": "substitution",
-    "ocr": "сту-денти.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "денти."
   },
   {
@@ -5985,13 +5985,13 @@
     "gt": "малиот,"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "прете-рано",
     "gt": "прете-"
   },
   {
-    "op": "substitution",
-    "ocr": "прете-рано",
+    "op": "deletion",
+    "ocr": "",
     "gt": "рано"
   },
   {
@@ -8045,13 +8045,13 @@
     "gt": "крајот"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "оти-дрвме",
     "gt": "оти-"
   },
   {
-    "op": "substitution",
-    "ocr": "оти-дрвме",
+    "op": "deletion",
+    "ocr": "",
     "gt": "довме"
   },
   {
@@ -11935,13 +11935,13 @@
     "gt": "нешто"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "затебе,",
     "gt": "за"
   },
   {
-    "op": "substitution",
-    "ocr": "затебе,",
+    "op": "deletion",
+    "ocr": "",
     "gt": "тебе,"
   },
   {
@@ -13765,13 +13765,13 @@
     "gt": "вперува"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "пока-залецот",
     "gt": "пока-"
   },
   {
-    "op": "substitution",
-    "ocr": "пока-залецот",
+    "op": "deletion",
+    "ocr": "",
     "gt": "залецот"
   },
   {
@@ -14035,13 +14035,13 @@
     "gt": "тие"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "гали-јанци,",
     "gt": "гали-"
   },
   {
-    "op": "substitution",
-    "ocr": "гали-јанци,",
+    "op": "deletion",
+    "ocr": "",
     "gt": "јанци,"
   },
   {
@@ -14630,13 +14630,13 @@
     "gt": "лаги?"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "Вртамглава.",
     "gt": "Вртам"
   },
   {
-    "op": "substitution",
-    "ocr": "Вртамглава.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "глава."
   },
   {
@@ -15675,13 +15675,13 @@
     "gt": "заминат"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "заед-но",
     "gt": "заед-"
   },
   {
-    "op": "substitution",
-    "ocr": "заед-но",
+    "op": "deletion",
+    "ocr": "",
     "gt": "но"
   },
   {
@@ -16330,13 +16330,13 @@
     "gt": "и"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "мла-дите",
     "gt": "мла-"
   },
   {
-    "op": "substitution",
-    "ocr": "мла-дите",
+    "op": "deletion",
+    "ocr": "",
     "gt": "дите"
   },
   {
@@ -16590,13 +16590,13 @@
     "gt": "од"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "село-то,",
     "gt": "село-"
   },
   {
-    "op": "substitution",
-    "ocr": "село-то,",
+    "op": "deletion",
+    "ocr": "",
     "gt": "то,"
   },
   {
@@ -17645,13 +17645,13 @@
     "gt": "брз"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "технори-там,",
     "gt": "технори-"
   },
   {
-    "op": "substitution",
-    "ocr": "технори-там,",
+    "op": "deletion",
+    "ocr": "",
     "gt": "там,"
   },
   {
@@ -17955,13 +17955,13 @@
     "gt": "во"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "енер-гичната",
     "gt": "енер-"
   },
   {
-    "op": "substitution",
-    "ocr": "енер-гичната",
+    "op": "deletion",
+    "ocr": "",
     "gt": "гичната"
   },
   {
@@ -18780,13 +18780,13 @@
     "gt": "мисли."
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "Самабеше?",
     "gt": "Сама"
   },
   {
-    "op": "substitution",
-    "ocr": "Самабеше?",
+    "op": "deletion",
+    "ocr": "",
     "gt": "беше?"
   },
   {
@@ -19360,13 +19360,13 @@
     "gt": "го"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "поми-слувам",
     "gt": "поми-"
   },
   {
-    "op": "substitution",
-    "ocr": "поми-слувам",
+    "op": "deletion",
+    "ocr": "",
     "gt": "слувам"
   },
   {
@@ -21130,13 +21130,13 @@
     "gt": "Се"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "слушаатљубовни",
     "gt": "спушаат"
   },
   {
-    "op": "substitution",
-    "ocr": "слушаатљубовни",
+    "op": "deletion",
+    "ocr": "",
     "gt": "љубовни"
   },
   {
@@ -21195,8 +21195,8 @@
     "gt": "е"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "доцна.",
     "gt": "доцна"
   },
   {
@@ -21230,8 +21230,8 @@
     "gt": "од"
   },
   {
-    "op": "substitution",
-    "ocr": "доцна.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "пот."
   },
   {
@@ -21510,13 +21510,13 @@
     "gt": "дилемата"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "-која",
     "gt": "-"
   },
   {
-    "op": "substitution",
-    "ocr": "-која",
+    "op": "deletion",
+    "ocr": "",
     "gt": "која"
   },
   {
@@ -21670,8 +21670,8 @@
     "gt": "како"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "сведок.",
     "gt": "сведок"
   },
   {
@@ -21685,8 +21685,8 @@
     "gt": "едно"
   },
   {
-    "op": "substitution",
-    "ocr": "сведок.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "минато."
   },
   {
@@ -22045,8 +22045,8 @@
     "gt": "Ете"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "тиемиседумите,",
     "gt": "тие"
   },
   {
@@ -22060,8 +22060,8 @@
     "gt": "се"
   },
   {
-    "op": "substitution",
-    "ocr": "тиемиседумите,",
+    "op": "deletion",
+    "ocr": "",
     "gt": "думите,"
   },
   {
@@ -22070,13 +22070,13 @@
     "gt": "Севозможен."
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "Гизапишувам",
     "gt": "Ги"
   },
   {
-    "op": "substitution",
-    "ocr": "Гизапишувам",
+    "op": "deletion",
+    "ocr": "",
     "gt": "запишувам"
   },
   {
@@ -22175,13 +22175,13 @@
     "gt": "на"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "послед-ниот",
     "gt": "послед-"
   },
   {
-    "op": "substitution",
-    "ocr": "послед-ниот",
+    "op": "deletion",
+    "ocr": "",
     "gt": "ниот"
   },
   {
@@ -22245,8 +22245,8 @@
     "gt": "Овде"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "никојнедоаѓа",
     "gt": "никој"
   },
   {
@@ -22255,8 +22255,8 @@
     "gt": "не"
   },
   {
-    "op": "substitution",
-    "ocr": "никојнедоаѓа",
+    "op": "deletion",
+    "ocr": "",
     "gt": "доаѓа"
   },
   {
@@ -23325,13 +23325,13 @@
     "gt": "ни"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "годаде",
     "gt": "го"
   },
   {
-    "op": "substitution",
-    "ocr": "годаде",
+    "op": "deletion",
+    "ocr": "",
     "gt": "даде"
   },
   {
@@ -23490,13 +23490,13 @@
     "gt": "Федор,"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "којќе",
     "gt": "кој"
   },
   {
-    "op": "substitution",
-    "ocr": "којќе",
+    "op": "deletion",
+    "ocr": "",
     "gt": "ќе"
   },
   {
@@ -23845,13 +23845,13 @@
     "gt": "и"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "прашајме:",
     "gt": "прашај"
   },
   {
-    "op": "substitution",
-    "ocr": "прашајме:",
+    "op": "deletion",
+    "ocr": "",
     "gt": "ме:"
   },
   {
@@ -23860,13 +23860,13 @@
     "gt": "Се"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "каамли",
     "gt": "каам"
   },
   {
-    "op": "substitution",
-    "ocr": "каамли",
+    "op": "deletion",
+    "ocr": "",
     "gt": "ли"
   },
   {
@@ -24375,13 +24375,13 @@
     "gt": "знам"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "баремдека",
     "gt": "барем"
   },
   {
-    "op": "substitution",
-    "ocr": "баремдека",
+    "op": "deletion",
+    "ocr": "",
     "gt": "дека"
   },
   {
@@ -24790,13 +24790,13 @@
     "gt": "мака."
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "Иќе",
     "gt": "И"
   },
   {
-    "op": "substitution",
-    "ocr": "Иќе",
+    "op": "deletion",
+    "ocr": "",
     "gt": "ќе"
   },
   {
@@ -24925,23 +24925,23 @@
     "gt": "сакам"
   },
   {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "чесен:дај"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "ми"
-  },
-  {
     "op": "substitution",
     "ocr": "чесен:дајми",
-    "gt": "сила"
+    "gt": "чесен:дај"
   },
   {
     "op": "substitution",
     "ocr": "силада",
+    "gt": "ми"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "сила"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
     "gt": "да"
   },
   {
@@ -24950,13 +24950,13 @@
     "gt": "се"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "обидамда",
     "gt": "обидам"
   },
   {
-    "op": "substitution",
-    "ocr": "обидамда",
+    "op": "deletion",
+    "ocr": "",
     "gt": "да"
   },
   {
@@ -25190,13 +25190,13 @@
     "gt": "Аполодор"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "иДиофан.",
     "gt": "и"
   },
   {
-    "op": "substitution",
-    "ocr": "иДиофан.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "Диофан."
   },
   {
@@ -25305,18 +25305,18 @@
     "gt": "трагичари."
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "Аполодор",
     "gt": "Алолодор"
   },
   {
     "op": "substitution",
-    "ocr": "Аполодор",
+    "ocr": "-домаќин",
     "gt": "-"
   },
   {
-    "op": "substitution",
-    "ocr": "-домаќин",
+    "op": "deletion",
+    "ocr": "",
     "gt": "домаќин"
   },
   {
@@ -25550,13 +25550,13 @@
     "gt": "Тој"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "верувалдека",
     "gt": "верувал"
   },
   {
-    "op": "substitution",
-    "ocr": "верувалдека",
+    "op": "deletion",
+    "ocr": "",
     "gt": "дека"
   },
   {
@@ -25615,13 +25615,13 @@
     "gt": "мешавина."
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "Идека",
     "gt": "И"
   },
   {
-    "op": "substitution",
-    "ocr": "Идека",
+    "op": "deletion",
+    "ocr": "",
     "gt": "дека"
   },
   {
@@ -25680,13 +25680,13 @@
     "gt": "може"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "лида",
     "gt": "ли"
   },
   {
-    "op": "substitution",
-    "ocr": "лида",
+    "op": "deletion",
+    "ocr": "",
     "gt": "да"
   },
   {
@@ -26055,8 +26055,8 @@
     "gt": "со"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "умисо",
     "gt": "ум"
   },
   {
@@ -26065,8 +26065,8 @@
     "gt": "и"
   },
   {
-    "op": "substitution",
-    "ocr": "умисо",
+    "op": "deletion",
+    "ocr": "",
     "gt": "со"
   },
   {
@@ -26315,13 +26315,13 @@
     "gt": "Спој"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "ги-исе",
     "gt": "ги-и"
   },
   {
-    "op": "substitution",
-    "ocr": "ги-исе",
+    "op": "deletion",
+    "ocr": "",
     "gt": "се"
   },
   {
@@ -26375,13 +26375,13 @@
     "gt": "добиеме"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "битка-та",
     "gt": "битка-"
   },
   {
-    "op": "substitution",
-    "ocr": "битка-та",
+    "op": "deletion",
+    "ocr": "",
     "gt": "та"
   },
   {
@@ -26700,13 +26700,13 @@
     "gt": "се"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "срет-нат?",
     "gt": "срет-"
   },
   {
-    "op": "substitution",
-    "ocr": "срет-нат?",
+    "op": "deletion",
+    "ocr": "",
     "gt": "нат?"
   },
   {
@@ -26890,13 +26890,13 @@
     "gt": "души,"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "по-страшна",
     "gt": "по-"
   },
   {
-    "op": "substitution",
-    "ocr": "по-страшна",
+    "op": "deletion",
+    "ocr": "",
     "gt": "страшна"
   },
   {
@@ -27285,13 +27285,13 @@
     "gt": "прифаќате"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "илине?",
     "gt": "или"
   },
   {
-    "op": "substitution",
-    "ocr": "илине?",
+    "op": "deletion",
+    "ocr": "",
     "gt": "не?"
   },
   {
@@ -27540,13 +27540,13 @@
     "gt": "бил"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "смрт-нозаљубен.",
     "gt": "смртно"
   },
   {
-    "op": "substitution",
-    "ocr": "смрт-нозаљубен.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "заљубен."
   },
   {
@@ -28300,13 +28300,13 @@
     "gt": "не"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "можамда",
     "gt": "можам"
   },
   {
-    "op": "substitution",
-    "ocr": "можамда",
+    "op": "deletion",
+    "ocr": "",
     "gt": "да"
   },
   {
@@ -28335,8 +28335,8 @@
     "gt": "намерите"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "нетисе",
     "gt": "не"
   },
   {
@@ -28345,8 +28345,8 @@
     "gt": "ти"
   },
   {
-    "op": "substitution",
-    "ocr": "нетисе",
+    "op": "deletion",
+    "ocr": "",
     "gt": "се"
   },
   {
@@ -28920,13 +28920,13 @@
     "gt": "да"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "веруваатдека",
     "gt": "веруваат"
   },
   {
-    "op": "substitution",
-    "ocr": "веруваатдека",
+    "op": "deletion",
+    "ocr": "",
     "gt": "дека"
   },
   {
@@ -29130,13 +29130,13 @@
     "gt": "мудроста."
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "Реколдека",
     "gt": "Рекол"
   },
   {
-    "op": "substitution",
-    "ocr": "Реколдека",
+    "op": "deletion",
+    "ocr": "",
     "gt": "дека"
   },
   {
@@ -29775,13 +29775,13 @@
     "gt": "копнеат"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "ситемажи.",
     "gt": "сите"
   },
   {
-    "op": "substitution",
-    "ocr": "ситемажи.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "мажи."
   },
   {
@@ -29945,13 +29945,13 @@
     "gt": "се"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "осудилда",
     "gt": "осудил"
   },
   {
-    "op": "substitution",
-    "ocr": "осудилда",
+    "op": "deletion",
+    "ocr": "",
     "gt": "да"
   },
   {
@@ -29965,13 +29965,13 @@
     "gt": "вкуси"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "ида",
     "gt": "и"
   },
   {
-    "op": "substitution",
-    "ocr": "ида",
+    "op": "deletion",
+    "ocr": "",
     "gt": "да"
   },
   {
@@ -30115,8 +30115,8 @@
     "gt": "змиски"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "отровижена.",
     "gt": "отров"
   },
   {
@@ -30125,8 +30125,8 @@
     "gt": "и"
   },
   {
-    "op": "substitution",
-    "ocr": "отровижена.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "жена."
   },
   {
@@ -30245,13 +30245,13 @@
     "gt": "курва."
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "Инавистина",
     "gt": "И"
   },
   {
-    "op": "substitution",
-    "ocr": "Инавистина",
+    "op": "deletion",
+    "ocr": "",
     "gt": "навистина"
   },
   {
@@ -31335,13 +31335,13 @@
     "gt": "Аполодор"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "мурекол",
     "gt": "му"
   },
   {
-    "op": "substitution",
-    "ocr": "мурекол",
+    "op": "deletion",
+    "ocr": "",
     "gt": "рекол"
   },
   {
@@ -31690,13 +31690,13 @@
     "gt": "сме"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "согласнидека",
     "gt": "согласни"
   },
   {
-    "op": "substitution",
-    "ocr": "согласнидека",
+    "op": "deletion",
+    "ocr": "",
     "gt": "дека"
   },
   {
@@ -32385,13 +32385,13 @@
     "gt": "повториле"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "идругите",
     "gt": "и"
   },
   {
-    "op": "substitution",
-    "ocr": "идругите",
+    "op": "deletion",
+    "ocr": "",
     "gt": "другите"
   },
   {
@@ -32595,13 +32595,13 @@
     "gt": "Што"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "поскорода",
     "gt": "поскоро"
   },
   {
-    "op": "substitution",
-    "ocr": "поскорода",
+    "op": "deletion",
+    "ocr": "",
     "gt": "да"
   },
   {
@@ -32630,13 +32630,13 @@
     "gt": "работа."
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "Диофандумал",
     "gt": "Диофан"
   },
   {
-    "op": "substitution",
-    "ocr": "Диофандумал",
+    "op": "deletion",
+    "ocr": "",
     "gt": "думал"
   },
   {
@@ -32750,13 +32750,13 @@
     "gt": "Федаре,"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "тида",
     "gt": "ти"
   },
   {
-    "op": "substitution",
-    "ocr": "тида",
+    "op": "deletion",
+    "ocr": "",
     "gt": "да"
   },
   {
@@ -32930,8 +32930,8 @@
     "gt": "морал"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "исотоада",
     "gt": "и"
   },
   {
@@ -32945,8 +32945,8 @@
     "gt": "тоа"
   },
   {
-    "op": "substitution",
-    "ocr": "исотоада",
+    "op": "deletion",
+    "ocr": "",
     "gt": "да"
   },
   {
@@ -33125,13 +33125,13 @@
     "gt": "собата"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "мудошла",
     "gt": "му"
   },
   {
-    "op": "substitution",
-    "ocr": "мудошла",
+    "op": "deletion",
+    "ocr": "",
     "gt": "дошла"
   },
   {
@@ -33185,8 +33185,8 @@
     "gt": "Тебе"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "нетие",
     "gt": "не"
   },
   {
@@ -33195,8 +33195,8 @@
     "gt": "ти"
   },
   {
-    "op": "substitution",
-    "ocr": "нетие",
+    "op": "deletion",
+    "ocr": "",
     "gt": "е"
   },
   {
@@ -33330,13 +33330,13 @@
     "gt": "за"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "штодруго",
     "gt": "што"
   },
   {
-    "op": "substitution",
-    "ocr": "штодруго",
+    "op": "deletion",
+    "ocr": "",
     "gt": "друго"
   },
   {
@@ -33525,8 +33525,8 @@
     "gt": "по"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "којпатќе",
     "gt": "кој"
   },
   {
@@ -33535,8 +33535,8 @@
     "gt": "пат"
   },
   {
-    "op": "substitution",
-    "ocr": "којпатќе",
+    "op": "deletion",
+    "ocr": "",
     "gt": "ќе"
   },
   {
@@ -33565,23 +33565,23 @@
     "gt": "од"
   },
   {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "умот"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "и"
-  },
-  {
     "op": "substitution",
     "ocr": "умотиод",
-    "gt": "од"
+    "gt": "умот"
   },
   {
     "op": "substitution",
     "ocr": "задо-волствата",
+    "gt": "и"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "од"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
     "gt": "задоволствата"
   },
   {
@@ -33790,13 +33790,13 @@
     "gt": "ти"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "допратдо",
     "gt": "допрат"
   },
   {
-    "op": "substitution",
-    "ocr": "допратдо",
+    "op": "deletion",
+    "ocr": "",
     "gt": "до"
   },
   {
@@ -33890,8 +33890,8 @@
     "gt": "да"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "бидамчовек.",
     "gt": "бидам"
   },
   {
@@ -33935,8 +33935,8 @@
     "gt": "само"
   },
   {
-    "op": "substitution",
-    "ocr": "бидамчовек.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "покажувам."
   },
   {
@@ -34540,13 +34540,13 @@
     "gt": "но"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "никојдосега",
     "gt": "никој"
   },
   {
-    "op": "substitution",
-    "ocr": "никојдосега",
+    "op": "deletion",
+    "ocr": "",
     "gt": "досега"
   },
   {
@@ -34650,13 +34650,13 @@
     "gt": "бесконечноста."
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "Никојжив",
     "gt": "Никој"
   },
   {
-    "op": "substitution",
-    "ocr": "Никојжив",
+    "op": "deletion",
+    "ocr": "",
     "gt": "жив"
   },
   {
@@ -34665,8 +34665,8 @@
     "gt": "тоа"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "негоузнал.",
     "gt": "не"
   },
   {
@@ -34675,8 +34675,8 @@
     "gt": "го"
   },
   {
-    "op": "substitution",
-    "ocr": "негоузнал.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "узнал."
   },
   {
@@ -34720,8 +34720,8 @@
     "gt": "во"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "потра-гатапозамислениотидеал.",
     "gt": "потрагата"
   },
   {
@@ -34735,13 +34735,13 @@
     "gt": "замислениот"
   },
   {
-    "op": "substitution",
-    "ocr": "потра-гатапозамислениотидеал.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "идеал."
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "МалкуподоцнаодФедари",
     "gt": "Малку"
   },
   {
@@ -34760,8 +34760,8 @@
     "gt": "Федар"
   },
   {
-    "op": "substitution",
-    "ocr": "МалкуподоцнаодФедари",
+    "op": "deletion",
+    "ocr": "",
     "gt": "и"
   },
   {
@@ -34835,13 +34835,13 @@
     "gt": "на"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "тојначин,",
     "gt": "тој"
   },
   {
-    "op": "substitution",
-    "ocr": "тојначин,",
+    "op": "deletion",
+    "ocr": "",
     "gt": "начин,"
   },
   {
@@ -35065,13 +35065,13 @@
     "gt": "на"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "младатадевојка.",
     "gt": "младата"
   },
   {
-    "op": "substitution",
-    "ocr": "младатадевојка.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "девојка."
   },
   {
@@ -35970,13 +35970,13 @@
     "gt": "Не"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "можешда",
     "gt": "можеш"
   },
   {
-    "op": "substitution",
-    "ocr": "можешда",
+    "op": "deletion",
+    "ocr": "",
     "gt": "да"
   },
   {
@@ -36005,13 +36005,13 @@
     "gt": "моќ."
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "Можешда",
     "gt": "Можеш"
   },
   {
-    "op": "substitution",
-    "ocr": "Можешда",
+    "op": "deletion",
+    "ocr": "",
     "gt": "да"
   },
   {
@@ -36165,23 +36165,23 @@
     "gt": "Претходната"
   },
   {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "ноќ"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "бев"
-  },
-  {
     "op": "substitution",
     "ocr": "ноќбев",
-    "gt": "близу"
+    "gt": "ноќ"
   },
   {
     "op": "substitution",
     "ocr": "близудо",
+    "gt": "бев"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "близу"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
     "gt": "до"
   },
   {
@@ -36190,13 +36190,13 @@
     "gt": "чекорот."
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "Сакавда",
     "gt": "Сакав"
   },
   {
-    "op": "substitution",
-    "ocr": "Сакавда",
+    "op": "deletion",
+    "ocr": "",
     "gt": "да"
   },
   {
@@ -36255,13 +36255,13 @@
     "gt": "неослободен."
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "Кајсе",
     "gt": "Кај"
   },
   {
-    "op": "substitution",
-    "ocr": "Кајсе",
+    "op": "deletion",
+    "ocr": "",
     "gt": "се"
   },
   {
@@ -36530,13 +36530,13 @@
     "gt": "чекор."
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "Ипотоа",
     "gt": "И"
   },
   {
-    "op": "substitution",
-    "ocr": "Ипотоа",
+    "op": "deletion",
+    "ocr": "",
     "gt": "потоа"
   },
   {
@@ -36830,13 +36830,13 @@
     "gt": "Ах,"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "проклетода",
     "gt": "проклето"
   },
   {
-    "op": "substitution",
-    "ocr": "проклетода",
+    "op": "deletion",
+    "ocr": "",
     "gt": "да"
   },
   {
@@ -37495,13 +37495,13 @@
     "gt": "сакаш,"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "можешда",
     "gt": "можеш"
   },
   {
-    "op": "substitution",
-    "ocr": "можешда",
+    "op": "deletion",
+    "ocr": "",
     "gt": "да"
   },
   {
@@ -37585,13 +37585,13 @@
     "gt": "(Нејасен"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "текстза",
     "gt": "текст"
   },
   {
-    "op": "substitution",
-    "ocr": "текстза",
+    "op": "deletion",
+    "ocr": "",
     "gt": "за"
   },
   {
@@ -38550,8 +38550,8 @@
     "gt": "човекот"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "изасветот.",
     "gt": "и"
   },
   {
@@ -38560,8 +38560,8 @@
     "gt": "за"
   },
   {
-    "op": "substitution",
-    "ocr": "изасветот.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "светот."
   },
   {
@@ -40105,13 +40105,13 @@
     "gt": "кога"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "смесакани.",
     "gt": "сме"
   },
   {
-    "op": "substitution",
-    "ocr": "смесакани.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "сакани."
   },
   {
@@ -40675,9 +40675,9 @@
     "gt": "сонцето."
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "За",
-    "gt": "За"
+    "gt": ""
   },
   {
     "op": "insertion",
@@ -40705,9 +40705,9 @@
     "gt": ""
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "За",
-    "gt": ""
+    "gt": "За"
   },
   {
     "op": "match",
@@ -41255,23 +41255,23 @@
     "gt": "случуваат"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "не-убави",
     "gt": "неубави"
   },
   {
     "op": "substitution",
-    "ocr": "не-убави",
+    "ocr": "работм,",
     "gt": "работи,"
   },
   {
     "op": "substitution",
-    "ocr": "работм,",
+    "ocr": "таасе",
     "gt": "таа"
   },
   {
-    "op": "substitution",
-    "ocr": "таасе",
+    "op": "deletion",
+    "ocr": "",
     "gt": "се"
   },
   {
@@ -41865,13 +41865,13 @@
     "gt": "креирав"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "судби-ната.",
     "gt": "судби-"
   },
   {
-    "op": "substitution",
-    "ocr": "судби-ната.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "ната."
   },
   {
@@ -41910,13 +41910,13 @@
     "gt": "се"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "избег-нат.",
     "gt": "избег-"
   },
   {
-    "op": "substitution",
-    "ocr": "избег-нат.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "нат."
   },
   {
@@ -42465,13 +42465,13 @@
     "gt": "во"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "земја-та",
     "gt": "земја-"
   },
   {
-    "op": "substitution",
-    "ocr": "земја-та",
+    "op": "deletion",
+    "ocr": "",
     "gt": "та"
   },
   {
@@ -42605,13 +42605,13 @@
     "gt": "нејасен,"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "упа-тен",
     "gt": "упа-"
   },
   {
-    "op": "substitution",
-    "ocr": "упа-тен",
+    "op": "deletion",
+    "ocr": "",
     "gt": "тен"
   },
   {
@@ -43605,13 +43605,13 @@
     "gt": "посебно"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "тоачувство?",
     "gt": "тоа"
   },
   {
-    "op": "substitution",
-    "ocr": "тоачувство?",
+    "op": "deletion",
+    "ocr": "",
     "gt": "чувство?"
   },
   {
@@ -48530,8 +48530,8 @@
     "gt": "тој"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "продолжува.",
     "gt": "продолжува"
   },
   {
@@ -48555,8 +48555,8 @@
     "gt": "од"
   },
   {
-    "op": "substitution",
-    "ocr": "продолжува.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "ништо."
   },
   {
@@ -52045,8 +52045,8 @@
     "gt": "Колку"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "дасерече.",
     "gt": "да"
   },
   {
@@ -52055,8 +52055,8 @@
     "gt": "се"
   },
   {
-    "op": "substitution",
-    "ocr": "дасерече.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "рече."
   },
   {
@@ -56805,13 +56805,13 @@
     "gt": "од"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "све-тов?",
     "gt": "све-"
   },
   {
-    "op": "substitution",
-    "ocr": "све-тов?",
+    "op": "deletion",
+    "ocr": "",
     "gt": "тов?"
   },
   {
@@ -56955,23 +56955,23 @@
     "gt": "сета"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "мудростнадрвото",
     "gt": "мудрост"
   },
   {
     "op": "substitution",
-    "ocr": "мудростнадрвото",
+    "ocr": "ПасквеловоИ",
     "gt": "на"
   },
   {
     "op": "substitution",
-    "ocr": "ПасквеловоИ",
+    "ocr": "Грев.",
     "gt": "дрвото"
   },
   {
-    "op": "substitution",
-    "ocr": "Грев.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "Пасквелово!?"
   },
   {
@@ -57155,13 +57155,13 @@
     "gt": "поради"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "самоти-јата",
     "gt": "самота-"
   },
   {
-    "op": "substitution",
-    "ocr": "самоти-јата",
+    "op": "deletion",
+    "ocr": "",
     "gt": "јата"
   },
   {
@@ -59405,13 +59405,13 @@
     "gt": "Или,"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "воѕвер.",
     "gt": "во"
   },
   {
-    "op": "substitution",
-    "ocr": "воѕвер.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "ѕвер."
   },
   {
@@ -61790,23 +61790,23 @@
     "gt": "и"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "ВечниотКрал.",
     "gt": "Вечниот"
   },
   {
-    "op": "substitution",
-    "ocr": "ВечниотКрал.",
-    "gt": "Крал."
-  },
-  {
     "op": "deletion",
     "ocr": "",
-    "gt": "Вака"
+    "gt": "Крал."
   },
   {
     "op": "substitution",
     "ocr": "Ваказначи:",
+    "gt": "Вака"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
     "gt": "значи:"
   },
   {
@@ -61900,13 +61900,13 @@
     "gt": "Сништа"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "можешеда",
     "gt": "можеше"
   },
   {
-    "op": "substitution",
-    "ocr": "можешеда",
+    "op": "deletion",
+    "ocr": "",
     "gt": "да"
   },
   {
@@ -62200,23 +62200,23 @@
     "gt": "Сакав"
   },
   {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "само"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "да"
-  },
-  {
     "op": "substitution",
     "ocr": "самода",
-    "gt": "кажам"
+    "gt": "само"
   },
   {
     "op": "substitution",
     "ocr": "кажамдека",
+    "gt": "да"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "кажам"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
     "gt": "дека"
   },
   {
@@ -62315,13 +62315,13 @@
     "gt": "но"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "неко-гаш,",
     "gt": "неко-"
   },
   {
-    "op": "substitution",
-    "ocr": "неко-гаш,",
+    "op": "deletion",
+    "ocr": "",
     "gt": "гаш,"
   },
   {
@@ -62485,23 +62485,23 @@
     "gt": "време"
   },
   {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "го"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "делеше"
-  },
-  {
     "op": "substitution",
     "ocr": "годелеше",
-    "gt": "креветот"
+    "gt": "го"
   },
   {
     "op": "substitution",
     "ocr": "креветотсо",
+    "gt": "делеше"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "креветот"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
     "gt": "со"
   },
   {
@@ -62580,13 +62580,13 @@
     "gt": "јас,"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "морамда",
     "gt": "морам"
   },
   {
-    "op": "substitution",
-    "ocr": "морамда",
+    "op": "deletion",
+    "ocr": "",
     "gt": "да"
   },
   {
@@ -62740,23 +62740,23 @@
     "gt": "можеше"
   },
   {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "слободно"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "да"
-  },
-  {
     "op": "substitution",
     "ocr": "слободнода",
-    "gt": "му"
+    "gt": "слободно"
   },
   {
     "op": "substitution",
     "ocr": "муја",
+    "gt": "да"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "му"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
     "gt": "ја"
   },
   {
@@ -63150,8 +63150,8 @@
     "gt": "со"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "многуцрнидупки",
     "gt": "многу"
   },
   {
@@ -63160,8 +63160,8 @@
     "gt": "црни"
   },
   {
-    "op": "substitution",
-    "ocr": "многуцрнидупки",
+    "op": "deletion",
+    "ocr": "",
     "gt": "дупки"
   },
   {
@@ -63180,13 +63180,13 @@
     "gt": "не"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "бројамкоја",
     "gt": "бројам"
   },
   {
-    "op": "substitution",
-    "ocr": "бројамкоја",
+    "op": "deletion",
+    "ocr": "",
     "gt": "која"
   },
   {
@@ -63270,13 +63270,13 @@
     "gt": "ЏекЛондон,"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "кралотна",
     "gt": "кралот"
   },
   {
-    "op": "substitution",
-    "ocr": "кралотна",
+    "op": "deletion",
+    "ocr": "",
     "gt": "на"
   },
   {
@@ -63710,13 +63710,13 @@
     "gt": "курво!"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "Трјзнае",
     "gt": "Тој"
   },
   {
-    "op": "substitution",
-    "ocr": "Трјзнае",
+    "op": "deletion",
+    "ocr": "",
     "gt": "знае"
   },
   {
@@ -63950,13 +63950,13 @@
     "gt": "Одвај"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "чекашеда",
     "gt": "чекаше"
   },
   {
-    "op": "substitution",
-    "ocr": "чекашеда",
+    "op": "deletion",
+    "ocr": "",
     "gt": "да"
   },
   {
@@ -65515,13 +65515,13 @@
     "gt": "изначукаме."
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "Баремзасега.",
     "gt": "Барем"
   },
   {
-    "op": "substitution",
-    "ocr": "Баремзасега.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "засега."
   },
   {
@@ -67900,13 +67900,13 @@
     "gt": "или"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "самиги",
     "gt": "сами"
   },
   {
-    "op": "substitution",
-    "ocr": "самиги",
+    "op": "deletion",
+    "ocr": "",
     "gt": "ги"
   },
   {
@@ -70985,13 +70985,13 @@
     "gt": "и"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "замудроста.",
     "gt": "за"
   },
   {
-    "op": "substitution",
-    "ocr": "замудроста.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "мудроста."
   },
   {
@@ -71295,13 +71295,13 @@
     "gt": "зборувал"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "заљубовта.",
     "gt": "за"
   },
   {
-    "op": "substitution",
-    "ocr": "заљубовта.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "љубовта."
   },
   {
@@ -75455,8 +75455,8 @@
     "gt": "предупредува."
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "Асестратм?",
     "gt": "А"
   },
   {
@@ -75465,8 +75465,8 @@
     "gt": "сестра"
   },
   {
-    "op": "substitution",
-    "ocr": "Асестратм?",
+    "op": "deletion",
+    "ocr": "",
     "gt": "ти?"
   },
   {
@@ -77225,13 +77225,13 @@
     "gt": "му"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "наПетар.",
     "gt": "на"
   },
   {
-    "op": "substitution",
-    "ocr": "наПетар.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "Петар."
   },
   {
@@ -77425,13 +77425,13 @@
     "gt": "на"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "госто-примството.",
     "gt": "госто-"
   },
   {
-    "op": "substitution",
-    "ocr": "госто-примството.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "примството."
   },
   {
@@ -77955,13 +77955,13 @@
     "gt": "ништо"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "подо-бар",
     "gt": "подо-"
   },
   {
-    "op": "substitution",
-    "ocr": "подо-бар",
+    "op": "deletion",
+    "ocr": "",
     "gt": "бар"
   },
   {
@@ -78125,13 +78125,13 @@
     "gt": "ме"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "обѕе-ма",
     "gt": "обѕе-"
   },
   {
-    "op": "substitution",
-    "ocr": "обѕе-ма",
+    "op": "deletion",
+    "ocr": "",
     "gt": "ма"
   },
   {
@@ -78225,13 +78225,13 @@
     "gt": "и"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "приј-дам,",
     "gt": "приј-"
   },
   {
-    "op": "substitution",
-    "ocr": "приј-дам,",
+    "op": "deletion",
+    "ocr": "",
     "gt": "дам,"
   },
   {
@@ -79505,13 +79505,13 @@
     "gt": "освоил"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "слобо-дата",
     "gt": "слобо-"
   },
   {
-    "op": "substitution",
-    "ocr": "слобо-дата",
+    "op": "deletion",
+    "ocr": "",
     "gt": "дата"
   },
   {
@@ -79865,13 +79865,13 @@
     "gt": "трудови,"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "лите-ратурни",
     "gt": "лите-"
   },
   {
-    "op": "substitution",
-    "ocr": "лите-ратурни",
+    "op": "deletion",
+    "ocr": "",
     "gt": "ратурни"
   },
   {
@@ -80030,8 +80030,8 @@
     "gt": "закажан"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "испитот.",
     "gt": "испитот,"
   },
   {
@@ -80060,8 +80060,8 @@
     "gt": "огласната"
   },
   {
-    "op": "substitution",
-    "ocr": "испитот.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "табла."
   },
   {
@@ -80260,8 +80260,8 @@
     "gt": "да"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "раскажувамзатоа.",
     "gt": "раскажувам"
   },
   {
@@ -80270,8 +80270,8 @@
     "gt": "за"
   },
   {
-    "op": "substitution",
-    "ocr": "раскажувамзатоа.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "тоа."
   },
   {
@@ -80605,13 +80605,13 @@
     "gt": "зборувам"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "наИгор.",
     "gt": "на"
   },
   {
-    "op": "substitution",
-    "ocr": "наИгор.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "Игор."
   },
   {
@@ -81815,13 +81815,13 @@
     "gt": "ја"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "нареку-ваат",
     "gt": "нареку-"
   },
   {
-    "op": "substitution",
-    "ocr": "нареку-ваат",
+    "op": "deletion",
+    "ocr": "",
     "gt": "ваат"
   },
   {
@@ -84110,13 +84110,13 @@
     "gt": "одлучам"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "даја",
     "gt": "да"
   },
   {
-    "op": "substitution",
-    "ocr": "даја",
+    "op": "deletion",
+    "ocr": "",
     "gt": "ја"
   },
   {
@@ -84260,13 +84260,13 @@
     "gt": "здодевни."
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "Сесмее.",
     "gt": "Се"
   },
   {
-    "op": "substitution",
-    "ocr": "Сесмее.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "смее."
   },
   {
@@ -84735,13 +84735,13 @@
     "gt": "си?"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "Разбравдека",
     "gt": "Разбрав"
   },
   {
-    "op": "substitution",
-    "ocr": "Разбравдека",
+    "op": "deletion",
+    "ocr": "",
     "gt": "дека"
   },
   {
@@ -84825,13 +84825,13 @@
     "gt": "Како"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "ида",
     "gt": "и"
   },
   {
-    "op": "substitution",
-    "ocr": "ида",
+    "op": "deletion",
+    "ocr": "",
     "gt": "да"
   },
   {
@@ -84840,13 +84840,13 @@
     "gt": "е,"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "сакамда",
     "gt": "сакам"
   },
   {
-    "op": "substitution",
-    "ocr": "сакамда",
+    "op": "deletion",
+    "ocr": "",
     "gt": "да"
   },
   {
@@ -85045,13 +85045,13 @@
     "gt": "дека"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "немада",
     "gt": "нема"
   },
   {
-    "op": "substitution",
-    "ocr": "немада",
+    "op": "deletion",
+    "ocr": "",
     "gt": "да"
   },
   {
@@ -85140,13 +85140,13 @@
     "gt": "би"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "можелда",
     "gt": "можел"
   },
   {
-    "op": "substitution",
-    "ocr": "можелда",
+    "op": "deletion",
+    "ocr": "",
     "gt": "да"
   },
   {
@@ -85325,8 +85325,8 @@
     "gt": "жал,"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "тоанее",
     "gt": "тоа"
   },
   {
@@ -85335,8 +85335,8 @@
     "gt": "не"
   },
   {
-    "op": "substitution",
-    "ocr": "тоанее",
+    "op": "deletion",
+    "ocr": "",
     "gt": "е"
   },
   {
@@ -85450,13 +85450,13 @@
     "gt": "залудно"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "човекда",
     "gt": "човек"
   },
   {
-    "op": "substitution",
-    "ocr": "човекда",
+    "op": "deletion",
+    "ocr": "",
     "gt": "да"
   },
   {
@@ -85650,8 +85650,8 @@
     "gt": "но,"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "какоида",
     "gt": "како"
   },
   {
@@ -85660,8 +85660,8 @@
     "gt": "и"
   },
   {
-    "op": "substitution",
-    "ocr": "какоида",
+    "op": "deletion",
+    "ocr": "",
     "gt": "да"
   },
   {
@@ -85905,13 +85905,13 @@
     "gt": "ќе"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "седнамда",
     "gt": "седнам"
   },
   {
-    "op": "substitution",
-    "ocr": "седнамда",
+    "op": "deletion",
+    "ocr": "",
     "gt": "да"
   },
   {
@@ -86200,13 +86200,13 @@
     "gt": "пријател"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "ИванДричко",
     "gt": "Иван"
   },
   {
-    "op": "substitution",
-    "ocr": "ИванДричко",
+    "op": "deletion",
+    "ocr": "",
     "gt": "Дричко"
   },
   {
@@ -86505,13 +86505,13 @@
     "gt": "кажа?"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "Такачув.",
     "gt": "Така"
   },
   {
-    "op": "substitution",
-    "ocr": "Такачув.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "чув."
   },
   {
@@ -86625,18 +86625,18 @@
     "gt": "ги"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "пропуштам",
     "gt": "пропуипам"
   },
   {
     "op": "substitution",
-    "ocr": "пропуштам",
+    "ocr": "пома-гачите",
     "gt": "пома-"
   },
   {
-    "op": "substitution",
-    "ocr": "пома-гачите",
+    "op": "deletion",
+    "ocr": "",
     "gt": "гачите"
   },
   {
@@ -87140,8 +87140,8 @@
     "gt": "и"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "душата.",
     "gt": "душата"
   },
   {
@@ -87165,8 +87165,8 @@
     "gt": "на"
   },
   {
-    "op": "substitution",
-    "ocr": "душата.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "котелот."
   },
   {
@@ -89135,13 +89135,13 @@
     "gt": "и"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "-толку",
     "gt": "-"
   },
   {
-    "op": "substitution",
-    "ocr": "-толку",
+    "op": "deletion",
+    "ocr": "",
     "gt": "толку"
   },
   {
@@ -89770,13 +89770,13 @@
     "gt": "мислиме,"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "изве-довме",
     "gt": "изве-"
   },
   {
-    "op": "substitution",
-    "ocr": "изве-довме",
+    "op": "deletion",
+    "ocr": "",
     "gt": "довме"
   },
   {
@@ -89810,13 +89810,13 @@
     "gt": "и"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "неј-зина",
     "gt": "неј-"
   },
   {
-    "op": "substitution",
-    "ocr": "неј-зина",
+    "op": "deletion",
+    "ocr": "",
     "gt": "зина"
   },
   {
@@ -90325,13 +90325,13 @@
     "gt": "е"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "пре-голема",
     "gt": "пре-"
   },
   {
-    "op": "substitution",
-    "ocr": "пре-голема",
+    "op": "deletion",
+    "ocr": "",
     "gt": "голема"
   },
   {
@@ -92055,13 +92055,13 @@
     "gt": "на"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "Бога,дење",
     "gt": "Бога,"
   },
   {
-    "op": "substitution",
-    "ocr": "Бога,дење",
+    "op": "deletion",
+    "ocr": "",
     "gt": "дење"
   },
   {
@@ -92625,13 +92625,13 @@
     "gt": "вечната"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "тишина,таму",
     "gt": "тишина,"
   },
   {
-    "op": "substitution",
-    "ocr": "тишина,таму",
+    "op": "deletion",
+    "ocr": "",
     "gt": "таму"
   },
   {
@@ -95650,13 +95650,13 @@
     "gt": "ропството"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "наслучајностите.",
     "gt": "на"
   },
   {
-    "op": "substitution",
-    "ocr": "наслучајностите.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "случајностите."
   },
   {
@@ -95835,13 +95835,13 @@
     "gt": "на"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "случај-ностите",
     "gt": "случај-"
   },
   {
-    "op": "substitution",
-    "ocr": "случај-ностите",
+    "op": "deletion",
+    "ocr": "",
     "gt": "ностите"
   },
   {
@@ -98795,13 +98795,13 @@
     "gt": "гледа."
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "Штоносам?",
     "gt": "Што"
   },
   {
-    "op": "substitution",
-    "ocr": "Штоносам?",
+    "op": "deletion",
+    "ocr": "",
     "gt": "носам?"
   },
   {
@@ -99520,13 +99520,13 @@
     "gt": "филмот"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "надомарот.",
     "gt": "на"
   },
   {
-    "op": "substitution",
-    "ocr": "надомарот.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "домарот."
   },
   {
@@ -100035,13 +100035,13 @@
     "gt": "Најчесто"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "збору-ваше",
     "gt": "збору-"
   },
   {
-    "op": "substitution",
-    "ocr": "збору-ваше",
+    "op": "deletion",
+    "ocr": "",
     "gt": "ваше"
   },
   {
@@ -100115,13 +100115,13 @@
     "gt": "орлите."
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "Сесамоубил.",
     "gt": "Се"
   },
   {
-    "op": "substitution",
-    "ocr": "Сесамоубил.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "самоубил."
   },
   {
@@ -100145,13 +100145,13 @@
     "gt": "му."
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "Незнам.",
     "gt": "Не"
   },
   {
-    "op": "substitution",
-    "ocr": "Незнам.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "знам."
   },
   {
@@ -101080,13 +101080,13 @@
     "gt": "се"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "случувасо",
     "gt": "случува"
   },
   {
-    "op": "substitution",
-    "ocr": "случувасо",
+    "op": "deletion",
+    "ocr": "",
     "gt": "со"
   },
   {
@@ -104315,13 +104315,13 @@
     "gt": "не"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "до-знале",
     "gt": "до-"
   },
   {
-    "op": "substitution",
-    "ocr": "до-знале",
+    "op": "deletion",
+    "ocr": "",
     "gt": "знале"
   },
   {
@@ -111090,8 +111090,8 @@
     "gt": "автор"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "зами-наадома.",
     "gt": "зами-"
   },
   {
@@ -111100,8 +111100,8 @@
     "gt": "наа"
   },
   {
-    "op": "substitution",
-    "ocr": "зами-наадома.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "дома."
   },
   {
@@ -112865,13 +112865,13 @@
     "gt": "старогрчки"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "пијани-ца,",
     "gt": "пијани-"
   },
   {
-    "op": "substitution",
-    "ocr": "пијани-ца,",
+    "op": "deletion",
+    "ocr": "",
     "gt": "ца,"
   },
   {
@@ -114885,13 +114885,13 @@
     "gt": "така"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "-времето",
     "gt": "-"
   },
   {
-    "op": "substitution",
-    "ocr": "-времето",
+    "op": "deletion",
+    "ocr": "",
     "gt": "времето"
   },
   {
@@ -115215,13 +115215,13 @@
     "gt": "мудрост."
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "Првдел",
     "gt": "123"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "СЦЕНА1:",
     "gt": "Прв"
   },
   {
@@ -115230,13 +115230,13 @@
     "gt": "дел"
   },
   {
-    "op": "substitution",
-    "ocr": "Првдел",
+    "op": "deletion",
+    "ocr": "",
     "gt": "СЦЕНА"
   },
   {
-    "op": "substitution",
-    "ocr": "СЦЕНА1:",
+    "op": "deletion",
+    "ocr": "",
     "gt": "1:"
   },
   {
@@ -116760,13 +116760,13 @@
     "gt": "АГАТОН:"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "Когатоа?",
     "gt": "Кога"
   },
   {
-    "op": "substitution",
-    "ocr": "Когатоа?",
+    "op": "deletion",
+    "ocr": "",
     "gt": "тоа?"
   },
   {
@@ -117125,13 +117125,13 @@
     "gt": "твојата"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "побе-да.",
     "gt": "побе-"
   },
   {
-    "op": "substitution",
-    "ocr": "побе-да.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "да."
   },
   {
@@ -117295,13 +117295,13 @@
     "gt": "човештвото"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "илјад-ници",
     "gt": "илјад-"
   },
   {
-    "op": "substitution",
-    "ocr": "илјад-ници",
+    "op": "deletion",
+    "ocr": "",
     "gt": "ници"
   },
   {
@@ -117340,8 +117340,8 @@
     "gt": "зборот:"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "време).",
     "gt": "време),"
   },
   {
@@ -117385,8 +117385,8 @@
     "gt": "си"
   },
   {
-    "op": "substitution",
-    "ocr": "време).",
+    "op": "deletion",
+    "ocr": "",
     "gt": "будала."
   },
   {
@@ -117430,13 +117430,13 @@
     "gt": "и"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "мудри-от,",
     "gt": "мудри-"
   },
   {
-    "op": "substitution",
-    "ocr": "мудри-от,",
+    "op": "deletion",
+    "ocr": "",
     "gt": "от,"
   },
   {
@@ -117525,13 +117525,13 @@
     "gt": "признава"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "умување-то",
     "gt": "умување-"
   },
   {
-    "op": "substitution",
-    "ocr": "умување-то",
+    "op": "deletion",
+    "ocr": "",
     "gt": "то"
   },
   {
@@ -119335,13 +119335,13 @@
     "gt": "посебно."
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "ПЕТЕЛОТ:",
     "gt": "ПЕТЕЛ"
   },
   {
-    "op": "substitution",
-    "ocr": "ПЕТЕЛОТ:",
+    "op": "deletion",
+    "ocr": "",
     "gt": "ОТ:"
   },
   {
@@ -119865,13 +119865,13 @@
     "gt": "Судија?"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "Ти",
     "gt": "Социјален"
   },
   {
-    "op": "substitution",
-    "ocr": "Ти",
+    "op": "deletion",
+    "ocr": "",
     "gt": "работник?Ти"
   },
   {
@@ -121900,13 +121900,13 @@
     "gt": "грозје."
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "ВлегуваФедар.)",
     "gt": "Влегува"
   },
   {
-    "op": "substitution",
-    "ocr": "ВлегуваФедар.)",
+    "op": "deletion",
+    "ocr": "",
     "gt": "Федар.)"
   },
   {
@@ -122145,13 +122145,13 @@
     "gt": "не"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "мепушта.",
     "gt": "ме"
   },
   {
-    "op": "substitution",
-    "ocr": "мепушта.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "пушта."
   },
   {
@@ -125965,13 +125965,13 @@
     "gt": "јас"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "дати",
     "gt": "да"
   },
   {
-    "op": "substitution",
-    "ocr": "дати",
+    "op": "deletion",
+    "ocr": "",
     "gt": "ти"
   },
   {
@@ -126300,8 +126300,8 @@
     "gt": "не"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "требадасекаам.",
     "gt": "треба"
   },
   {
@@ -126315,8 +126315,8 @@
     "gt": "се"
   },
   {
-    "op": "substitution",
-    "ocr": "требадасекаам.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "каам."
   },
   {
@@ -126465,13 +126465,13 @@
     "gt": "ти"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "горасплакам.",
     "gt": "га"
   },
   {
-    "op": "substitution",
-    "ocr": "горасплакам.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "расплакам."
   },
   {
@@ -128510,8 +128510,8 @@
     "gt": "сцената)"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "СЦЕНА5:Гозбата",
     "gt": "135"
   },
   {
@@ -128525,8 +128525,8 @@
     "gt": "5:"
   },
   {
-    "op": "substitution",
-    "ocr": "СЦЕНА5:Гозбата",
+    "op": "deletion",
+    "ocr": "",
     "gt": "Гозбата"
   },
   {
@@ -128925,13 +128925,13 @@
     "gt": "Аполодоре"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "-Диофан,",
     "gt": "-"
   },
   {
-    "op": "substitution",
-    "ocr": "-Диофан,",
+    "op": "deletion",
+    "ocr": "",
     "gt": "Диофан,"
   },
   {
@@ -131145,13 +131145,13 @@
     "gt": "најголемата"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "вистина.е",
     "gt": "вистина"
   },
   {
-    "op": "substitution",
-    "ocr": "вистина.е",
+    "op": "deletion",
+    "ocr": "",
     "gt": "е"
   },
   {
@@ -131530,8 +131530,8 @@
     "gt": "од"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "расправија-татојим",
     "gt": "расправијата"
   },
   {
@@ -131540,8 +131540,8 @@
     "gt": "тој"
   },
   {
-    "op": "substitution",
-    "ocr": "расправија-татојим",
+    "op": "deletion",
+    "ocr": "",
     "gt": "им"
   },
   {
@@ -135225,13 +135225,13 @@
     "gt": "со"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "време-то.",
     "gt": "време-"
   },
   {
-    "op": "substitution",
-    "ocr": "време-то.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "то."
   },
   {
@@ -135285,13 +135285,13 @@
     "gt": "е"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "осуде-но",
     "gt": "осуде-"
   },
   {
-    "op": "substitution",
-    "ocr": "осуде-но",
+    "op": "deletion",
+    "ocr": "",
     "gt": "но"
   },
   {
@@ -137630,13 +137630,13 @@
     "gt": "начекав."
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "Надело.",
     "gt": "На"
   },
   {
-    "op": "substitution",
-    "ocr": "Надело.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "дело."
   },
   {
@@ -139010,8 +139010,8 @@
     "gt": "те"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "бара.",
     "gt": "бара"
   },
   {
@@ -139030,8 +139030,8 @@
     "gt": "БИБИ:"
   },
   {
-    "op": "substitution",
-    "ocr": "бара.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "Петел."
   },
   {
@@ -139065,13 +139065,13 @@
     "gt": "Нема"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "смисла.",
     "gt": "смисла,"
   },
   {
-    "op": "substitution",
-    "ocr": "смисла.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "соседите."
   },
   {
@@ -139225,8 +139225,8 @@
     "gt": "за"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "коса.",
     "gt": "коса"
   },
   {
@@ -139280,8 +139280,8 @@
     "gt": "Втората"
   },
   {
-    "op": "substitution",
-    "ocr": "коса.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "средба."
   },
   {
@@ -143605,8 +143605,8 @@
     "gt": "сторам"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "тоа.",
     "gt": "тоа"
   },
   {
@@ -143625,8 +143625,8 @@
     "gt": "расипано"
   },
   {
-    "op": "substitution",
-    "ocr": "тоа.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "срце."
   },
   {
@@ -144560,18 +144560,18 @@
     "gt": "и"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "поко-рисна",
     "gt": "покорисна"
   },
   {
     "op": "substitution",
-    "ocr": "поко-рисна",
+    "ocr": "одАтена.",
     "gt": "од"
   },
   {
-    "op": "substitution",
-    "ocr": "одАтена.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "Атена."
   },
   {
@@ -145385,8 +145385,8 @@
     "gt": "пат)"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "СЦЕНА10:",
     "gt": "150"
   },
   {
@@ -145395,8 +145395,8 @@
     "gt": "СЦЕНА"
   },
   {
-    "op": "substitution",
-    "ocr": "СЦЕНА10:",
+    "op": "deletion",
+    "ocr": "",
     "gt": "10:"
   },
   {
@@ -145475,13 +145475,13 @@
     "gt": "безживотно"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "наподот)",
     "gt": "на"
   },
   {
-    "op": "substitution",
-    "ocr": "наподот)",
+    "op": "deletion",
+    "ocr": "",
     "gt": "подот)"
   },
   {
@@ -147175,13 +147175,13 @@
     "gt": "дел"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "СЦЕНА11:",
     "gt": "СЦЕНА"
   },
   {
-    "op": "substitution",
-    "ocr": "СЦЕНА11:",
+    "op": "deletion",
+    "ocr": "",
     "gt": "11:"
   },
   {
@@ -148440,8 +148440,8 @@
     "gt": "се"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "заеба-вашсомене.",
     "gt": "заебаваш"
   },
   {
@@ -148450,8 +148450,8 @@
     "gt": "со"
   },
   {
-    "op": "substitution",
-    "ocr": "заеба-вашсомене.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "мене."
   },
   {
@@ -149065,13 +149065,13 @@
     "gt": "да"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "разго-варам",
     "gt": "разго-"
   },
   {
-    "op": "substitution",
-    "ocr": "разго-варам",
+    "op": "deletion",
+    "ocr": "",
     "gt": "варам"
   },
   {
@@ -153700,13 +153700,13 @@
     "gt": "знак"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "нагрбот.",
     "gt": "на"
   },
   {
-    "op": "substitution",
-    "ocr": "нагрбот.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "грбот."
   },
   {
@@ -155500,8 +155500,8 @@
     "gt": "знам."
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "СЦЕНА13:",
     "gt": "160"
   },
   {
@@ -155510,8 +155510,8 @@
     "gt": "СЦЕНА"
   },
   {
-    "op": "substitution",
-    "ocr": "СЦЕНА13:",
+    "op": "deletion",
+    "ocr": "",
     "gt": "13:"
   },
   {
@@ -155630,13 +155630,13 @@
     "gt": "гледа"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "теле-визија.",
     "gt": "теле-"
   },
   {
-    "op": "substitution",
-    "ocr": "теле-визија.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "визија."
   },
   {
@@ -156975,8 +156975,8 @@
     "gt": "лекар"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "анепандур.",
     "gt": "а"
   },
   {
@@ -156985,8 +156985,8 @@
     "gt": "не"
   },
   {
-    "op": "substitution",
-    "ocr": "анепандур.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "пандур."
   },
   {
@@ -157755,13 +157755,13 @@
     "gt": "цар"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "-Стенифор",
     "gt": "-"
   },
   {
-    "op": "substitution",
-    "ocr": "-Стенифор",
+    "op": "deletion",
+    "ocr": "",
     "gt": "Стенифор"
   },
   {
@@ -158800,8 +158800,8 @@
     "gt": "лови,"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "пан-дуртисуди.",
     "gt": "пандур"
   },
   {
@@ -158810,8 +158810,8 @@
     "gt": "ти"
   },
   {
-    "op": "substitution",
-    "ocr": "пан-дуртисуди.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "суди."
   },
   {
@@ -158825,18 +158825,18 @@
     "gt": "(Во"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "записникот):",
     "gt": "залисникот):"
   },
   {
     "op": "substitution",
-    "ocr": "записникот):",
+    "ocr": "Осомничениотја",
     "gt": "Осомничениот"
   },
   {
-    "op": "substitution",
-    "ocr": "Осомничениотја",
+    "op": "deletion",
+    "ocr": "",
     "gt": "ја"
   },
   {
@@ -159120,8 +159120,8 @@
     "gt": "сцената)"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "СЦЕНА14:",
     "gt": "154"
   },
   {
@@ -159130,8 +159130,8 @@
     "gt": "СЦЕНА"
   },
   {
-    "op": "substitution",
-    "ocr": "СЦЕНА14:",
+    "op": "deletion",
+    "ocr": "",
     "gt": "14:"
   },
   {
@@ -159895,13 +159895,13 @@
     "gt": "ПЕТЕЛОТ:"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "Штои?",
     "gt": "Што"
   },
   {
-    "op": "substitution",
-    "ocr": "Штои?",
+    "op": "deletion",
+    "ocr": "",
     "gt": "и?"
   },
   {
@@ -160540,13 +160540,13 @@
     "gt": "лошите"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "уштепобргу.",
     "gt": "уште"
   },
   {
-    "op": "substitution",
-    "ocr": "уштепобргу.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "побргу."
   },
   {
@@ -162575,13 +162575,13 @@
     "gt": "сам"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "насветов?",
     "gt": "на"
   },
   {
-    "op": "substitution",
-    "ocr": "насветов?",
+    "op": "deletion",
+    "ocr": "",
     "gt": "светов?"
   },
   {
@@ -162770,13 +162770,13 @@
     "gt": "има"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "вокафезов.",
     "gt": "во"
   },
   {
-    "op": "substitution",
-    "ocr": "вокафезов.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "кафезов."
   },
   {
@@ -163500,13 +163500,13 @@
     "gt": "ЦАРИНСКИ:"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "Неможам.",
     "gt": "Не"
   },
   {
-    "op": "substitution",
-    "ocr": "Неможам.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "можам."
   },
   {
@@ -163710,8 +163710,8 @@
     "gt": "собата)"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "СЦЕНА15:",
     "gt": "168"
   },
   {
@@ -163720,8 +163720,8 @@
     "gt": "СЦЕНА"
   },
   {
-    "op": "substitution",
-    "ocr": "СЦЕНА15:",
+    "op": "deletion",
+    "ocr": "",
     "gt": "15:"
   },
   {
@@ -165030,8 +165030,8 @@
     "gt": "како"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "тебе.",
     "gt": "тебе"
   },
   {
@@ -165055,8 +165055,8 @@
     "gt": "се"
   },
   {
-    "op": "substitution",
-    "ocr": "тебе.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "тепа."
   },
   {
@@ -165990,13 +165990,13 @@
     "gt": "врти"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "состомак",
     "gt": "со"
   },
   {
-    "op": "substitution",
-    "ocr": "состомак",
+    "op": "deletion",
+    "ocr": "",
     "gt": "стомак"
   },
   {
@@ -166735,8 +166735,8 @@
     "gt": "ми..."
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "ЕПИЛ0Г1",
     "gt": "171"
   },
   {
@@ -166745,8 +166745,8 @@
     "gt": "ЕПИЛОГ"
   },
   {
-    "op": "substitution",
-    "ocr": "ЕПИЛ0Г1",
+    "op": "deletion",
+    "ocr": "",
     "gt": "1"
   },
   {
@@ -170270,13 +170270,13 @@
     "gt": "низ"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "времи-њата.",
     "gt": "времи-"
   },
   {
-    "op": "substitution",
-    "ocr": "времи-њата.",
+    "op": "deletion",
+    "ocr": "",
     "gt": "њата."
   },
   {
@@ -170435,8 +170435,8 @@
     "gt": "Солун."
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "ЕПИЛ0Г2",
     "gt": "174"
   },
   {
@@ -170445,8 +170445,8 @@
     "gt": "ЕПИЛОГ"
   },
   {
-    "op": "substitution",
-    "ocr": "ЕПИЛ0Г2",
+    "op": "deletion",
+    "ocr": "",
     "gt": "2"
   },
   {
@@ -171625,13 +171625,13 @@
     "gt": "главата?"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "ипмало",
     "gt": "175"
   },
   {
-    "op": "substitution",
-    "ocr": "ипмало",
+    "op": "deletion",
+    "ocr": "",
     "gt": "Немало"
   },
   {

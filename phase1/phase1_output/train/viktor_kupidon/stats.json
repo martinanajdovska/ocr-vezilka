@@ -8,8 +8,50 @@
   "gt_total_tokens": 18953,
   "gt_total_sentences": 601,
   "gt_avg_sentence_length": 31.5358,
-  "CER": 0.0001,
+  "CER": 0.0003,
   "WER": 0.0006,
+  "split_count": 2,
+  "merge_count": 2,
+  "split_examples": [
+    {
+      "type": "split",
+      "ocr": [
+        "наеднаш,",
+        "па"
+      ],
+      "gt": "наеднаш,па",
+      "similarity": 1.0
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "с",
+        "е"
+      ],
+      "gt": "се",
+      "similarity": 1.0
+    }
+  ],
+  "merge_examples": [
+    {
+      "type": "merge",
+      "ocr": "постојано",
+      "gt": [
+        "п",
+        "остојано"
+      ],
+      "similarity": 1.0
+    },
+    {
+      "type": "merge",
+      "ocr": "носеше",
+      "gt": [
+        "н",
+        "осеше"
+      ],
+      "similarity": 1.0
+    }
+  ],
   "book": "viktor_kupidon",
   "split": "train"
 }

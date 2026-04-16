@@ -8,8 +8,194 @@
   "gt_total_tokens": 6256,
   "gt_total_sentences": 213,
   "gt_avg_sentence_length": 29.3709,
-  "CER": 0.0753,
-  "WER": 0.1004,
+  "CER": 0.094,
+  "WER": 0.1006,
+  "split_count": 56,
+  "merge_count": 12,
+  "split_examples": [
+    {
+      "type": "split",
+      "ocr": [
+        "|",
+        "Нулата"
+      ],
+      "gt": "Нулата",
+      "similarity": 1.0
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "|",
+        "прекрасната"
+      ],
+      "gt": "прекрасната",
+      "similarity": 1.0
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "|",
+        "дождовите"
+      ],
+      "gt": "дождовите",
+      "similarity": 1.0
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "|",
+        "Корен"
+      ],
+      "gt": "Корен",
+      "similarity": 1.0
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "|",
+        "Ме"
+      ],
+      "gt": "Ме",
+      "similarity": 1.0
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "|",
+        "и"
+      ],
+      "gt": "и",
+      "similarity": 1.0
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "|",
+        "каде"
+      ],
+      "gt": "каде",
+      "similarity": 1.0
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "|",
+        "зошто"
+      ],
+      "gt": "зошто",
+      "similarity": 1.0
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "}",
+        "Зошто"
+      ],
+      "gt": "Зошто",
+      "similarity": 1.0
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "|",
+        "квечерина,"
+      ],
+      "gt": "квечерина,",
+      "similarity": 1.0
+    }
+  ],
+  "merge_examples": [
+    {
+      "type": "merge",
+      "ocr": "тагтата",
+      "gt": [
+        "тагата",
+        "во"
+      ],
+      "similarity": 0.8
+    },
+    {
+      "type": "merge",
+      "ocr": "трешкањето",
+      "gt": [
+        "трепкањето",
+        "на"
+      ],
+      "similarity": 0.8182
+    },
+    {
+      "type": "merge",
+      "ocr": "созвездија",
+      "gt": [
+        "соѕвездија",
+        "во"
+      ],
+      "similarity": 0.8182
+    },
+    {
+      "type": "merge",
+      "ocr": "ВОјтНИЦИТе",
+      "gt": [
+        "војниците",
+        "врз"
+      ],
+      "similarity": 0.8182
+    },
+    {
+      "type": "merge",
+      "ocr": "каде",
+      "gt": [
+        "Од",
+        "каде"
+      ],
+      "similarity": 0.8
+    },
+    {
+      "type": "merge",
+      "ocr": "отачество",
+      "gt": [
+        "само",
+        "отачество"
+      ],
+      "similarity": 0.8182
+    },
+    {
+      "type": "merge",
+      "ocr": "гторјашчиј",
+      "gt": [
+        "горјашчиј",
+        "в"
+      ],
+      "similarity": 0.9
+    },
+    {
+      "type": "merge",
+      "ocr": "пл'т",
+      "gt": [
+        "И",
+        "пл'т"
+      ],
+      "similarity": 0.8571
+    },
+    {
+      "type": "merge",
+      "ocr": "шисмото",
+      "gt": [
+        "писмото",
+        "7"
+      ],
+      "similarity": 0.8
+    },
+    {
+      "type": "merge",
+      "ocr": "ПЕПЕЛТА",
+      "gt": [
+        "НА",
+        "ПЕПЕЛТА"
+      ],
+      "similarity": 0.875
+    }
+  ],
   "book": "tajnopis",
   "split": "train"
 }

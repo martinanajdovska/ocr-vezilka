@@ -1,0 +1,331 @@
+{
+  "total_word_ops": 3402,
+  "split_count": 2046,
+  "merge_count": 1356,
+  "split_rate_pct": 60.14109347442681,
+  "merge_rate_pct": 39.85890652557319,
+  "split_examples": [
+    {
+      "gt": "забележаното",
+      "ocr": [
+        "„на",
+        "забележаното"
+      ],
+      "doc_id": "dnevnik_po_mnogu_godini"
+    },
+    {
+      "gt": "добрината",
+      "ocr": [
+        "со",
+        "добрината"
+      ],
+      "doc_id": "dnevnik_po_mnogu_godini"
+    },
+    {
+      "gt": "Моето",
+      "ocr": [
+        "е",
+        "Моето"
+      ],
+      "doc_id": "dnevnik_po_mnogu_godini"
+    },
+    {
+      "gt": "поправени,",
+      "ocr": [
+        "ами",
+        "поправени,"
+      ],
+      "doc_id": "dnevnik_po_mnogu_godini"
+    },
+    {
+      "gt": "опредениле",
+      "ocr": [
+        "се",
+        "определиле"
+      ],
+      "doc_id": "dnevnik_po_mnogu_godini"
+    },
+    {
+      "gt": "Очевидно",
+      "ocr": [
+        "веш;",
+        "Очевидно"
+      ],
+      "doc_id": "dnevnik_po_mnogu_godini"
+    },
+    {
+      "gt": "живово",
+      "ocr": [
+        "што",
+        "живово"
+      ],
+      "doc_id": "dnevnik_po_mnogu_godini"
+    },
+    {
+      "gt": "изразува",
+      "ocr": [
+        "ја",
+        "изразува"
+      ],
+      "doc_id": "dnevnik_po_mnogu_godini"
+    },
+    {
+      "gt": "нашето",
+      "ocr": [
+        "ца",
+        "нашето"
+      ],
+      "doc_id": "dnevnik_po_mnogu_godini"
+    },
+    {
+      "gt": "нашите",
+      "ocr": [
+        "на",
+        "нашите"
+      ],
+      "doc_id": "dnevnik_po_mnogu_godini"
+    },
+    {
+      "gt": "неговото",
+      "ocr": [
+        "во",
+        "неговото"
+      ],
+      "doc_id": "dnevnik_po_mnogu_godini"
+    },
+    {
+      "gt": "бурјан..",
+      "ocr": [
+        "во",
+        "бурјан.."
+      ],
+      "doc_id": "dnevnik_po_mnogu_godini"
+    },
+    {
+      "gt": "Нема",
+      "ocr": [
+        ":",
+        "Нема"
+      ],
+      "doc_id": "dnevnik_po_mnogu_godini"
+    },
+    {
+      "gt": "овојот",
+      "ocr": [
+        "на",
+        "овојот"
+      ],
+      "doc_id": "dnevnik_po_mnogu_godini"
+    },
+    {
+      "gt": "Веројатно",
+      "ocr": [
+        ":",
+        "Веројатно"
+      ],
+      "doc_id": "dnevnik_po_mnogu_godini"
+    },
+    {
+      "gt": "Коте",
+      "ocr": [
+        ":",
+        "Коте"
+      ],
+      "doc_id": "dnevnik_po_mnogu_godini"
+    },
+    {
+      "gt": "тркалезно,",
+      "ocr": [
+        "камче,",
+        "тркалезно,"
+      ],
+      "doc_id": "dnevnik_po_mnogu_godini"
+    },
+    {
+      "gt": "избегале,",
+      "ocr": [
+        "и",
+        "избегале,"
+      ],
+      "doc_id": "dnevnik_po_mnogu_godini"
+    },
+    {
+      "gt": "Лесновскиот.",
+      "ocr": [
+        "во",
+        "Лесновскиот."
+      ],
+      "doc_id": "dnevnik_po_mnogu_godini"
+    },
+    {
+      "gt": "то",
+      "ocr": [
+        "и",
+        "то"
+      ],
+      "doc_id": "dnevnik_po_mnogu_godini"
+    }
+  ],
+  "merge_examples": [
+    {
+      "gt": [
+        "водел",
+        "дневник."
+      ],
+      "ocr": "водел-дневник.",
+      "doc_id": "dnevnik_po_mnogu_godini"
+    },
+    {
+      "gt": [
+        "можност",
+        "да"
+      ],
+      "ocr": "можност-дА",
+      "doc_id": "dnevnik_po_mnogu_godini"
+    },
+    {
+      "gt": [
+        "прикажување",
+        "„на"
+      ],
+      "ocr": "риќажување",
+      "doc_id": "dnevnik_po_mnogu_godini"
+    },
+    {
+      "gt": [
+        "за",
+        "Малку"
+      ],
+      "ocr": "за-Малку",
+      "doc_id": "dnevnik_po_mnogu_godini"
+    },
+    {
+      "gt": [
+        "сретнаги,",
+        "а"
+      ],
+      "ocr": "сретнати,",
+      "doc_id": "dnevnik_po_mnogu_godini"
+    },
+    {
+      "gt": [
+        "гулабите:",
+        "гие"
+      ],
+      "ocr": "гулабите:тие",
+      "doc_id": "dnevnik_po_mnogu_godini"
+    },
+    {
+      "gt": [
+        "дури:",
+        "и"
+      ],
+      "ocr": "дури:и",
+      "doc_id": "dnevnik_po_mnogu_godini"
+    },
+    {
+      "gt": [
+        "Незашгитено",
+        "е"
+      ],
+      "ocr": "Незаштитено",
+      "doc_id": "dnevnik_po_mnogu_godini"
+    },
+    {
+      "gt": [
+        "Ја",
+        "приоѓам,"
+      ],
+      "ocr": "К.приоѓам,",
+      "doc_id": "dnevnik_po_mnogu_godini"
+    },
+    {
+      "gt": [
+        "во",
+        "тоа"
+      ],
+      "ocr": "во-тоа",
+      "doc_id": "dnevnik_po_mnogu_godini"
+    },
+    {
+      "gt": [
+        "сенгиментални,",
+        "ами"
+      ],
+      "ocr": "сентиментални,",
+      "doc_id": "dnevnik_po_mnogu_godini"
+    },
+    {
+      "gt": [
+        "рационалисги",
+        "се"
+      ],
+      "ocr": "рационалисти",
+      "doc_id": "dnevnik_po_mnogu_godini"
+    },
+    {
+      "gt": [
+        "просгирање",
+        "на"
+      ],
+      "ocr": "простирање",
+      "doc_id": "dnevnik_po_mnogu_godini"
+    },
+    {
+      "gt": [
+        "во",
+        "тоа"
+      ],
+      "ocr": "во-тоа",
+      "doc_id": "dnevnik_po_mnogu_godini"
+    },
+    {
+      "gt": [
+        "парализира",
+        "она"
+      ],
+      "ocr": "ларализира",
+      "doc_id": "dnevnik_po_mnogu_godini"
+    },
+    {
+      "gt": [
+        "консонанги,",
+        "да"
+      ],
+      "ocr": "консонанти,",
+      "doc_id": "dnevnik_po_mnogu_godini"
+    },
+    {
+      "gt": [
+        "од",
+        "лебе."
+      ],
+      "ocr": "од-лебе.",
+      "doc_id": "dnevnik_po_mnogu_godini"
+    },
+    {
+      "gt": [
+        "е\"во",
+        "тоа"
+      ],
+      "ocr": "е\"во-тоа",
+      "doc_id": "dnevnik_po_mnogu_godini"
+    },
+    {
+      "gt": [
+        "часгиците",
+        "ца"
+      ],
+      "ocr": "частиците",
+      "doc_id": "dnevnik_po_mnogu_godini"
+    },
+    {
+      "gt": [
+        "лево",
+        "десно"
+      ],
+      "ocr": "лево-десно",
+      "doc_id": "dnevnik_po_mnogu_godini"
+    }
+  ]
+}

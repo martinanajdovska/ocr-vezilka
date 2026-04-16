@@ -8,8 +8,196 @@
   "gt_total_tokens": 4506,
   "gt_total_sentences": 221,
   "gt_avg_sentence_length": 20.3891,
-  "CER": 0.1074,
-  "WER": 0.1591,
+  "CER": 0.212,
+  "WER": 0.1593,
+  "split_count": 85,
+  "merge_count": 28,
+  "split_examples": [
+    {
+      "type": "split",
+      "ocr": [
+        "и",
+        "континентите"
+      ],
+      "gt": "континентите",
+      "similarity": 0.96
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "И",
+        "Крик"
+      ],
+      "gt": "Крик",
+      "similarity": 0.8889
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "9",
+        "Совршен,"
+      ],
+      "gt": "Совршен,",
+      "similarity": 0.9333
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "И",
+        "Не-"
+      ],
+      "gt": "Не-",
+      "similarity": 0.8
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "ЦП",
+        "Роден:"
+      ],
+      "gt": "Роден:",
+      "similarity": 0.8333
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "И",
+        "Твој"
+      ],
+      "gt": "Твој",
+      "similarity": 0.8889
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "а",
+        "жив",
+        "Чудотворец:"
+      ],
+      "gt": "Чудотворец:",
+      "similarity": 0.8333
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "Ги",
+        "затворам"
+      ],
+      "gt": "затворам",
+      "similarity": 0.8889
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "Зад-она-",
+        "што-е"
+      ],
+      "gt": "Зад-она-што-е",
+      "similarity": 1.0
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "е",
+        "отровта"
+      ],
+      "gt": "отровта",
+      "similarity": 0.9333
+    }
+  ],
+  "merge_examples": [
+    {
+      "type": "merge",
+      "ocr": "5вездите",
+      "gt": [
+        "ѕвездите",
+        "и"
+      ],
+      "similarity": 0.8235
+    },
+    {
+      "type": "merge",
+      "ocr": "„Се",
+      "gt": [
+        "„Сè",
+        "е"
+      ],
+      "similarity": 0.8
+    },
+    {
+      "type": "merge",
+      "ocr": "Исеќее",
+      "gt": [
+        "И",
+        "се",
+        "ќе"
+      ],
+      "similarity": 0.9091
+    },
+    {
+      "type": "merge",
+      "ocr": "Пеење",
+      "gt": [
+        "е",
+        "Пеење"
+      ],
+      "similarity": 0.9091
+    },
+    {
+      "type": "merge",
+      "ocr": "се",
+      "gt": [
+        "сè",
+        "е"
+      ],
+      "similarity": 0.8
+    },
+    {
+      "type": "merge",
+      "ocr": "пилее",
+      "gt": [
+        "пиле",
+        "е"
+      ],
+      "similarity": 1.0
+    },
+    {
+      "type": "merge",
+      "ocr": "ТИИ",
+      "gt": [
+        "Ти",
+        "и"
+      ],
+      "similarity": 1.0
+    },
+    {
+      "type": "merge",
+      "ocr": "Ијас",
+      "gt": [
+        "И",
+        "јас"
+      ],
+      "similarity": 1.0
+    },
+    {
+      "type": "merge",
+      "ocr": "Јас",
+      "gt": [
+        "-",
+        "Јас"
+      ],
+      "similarity": 1.0
+    },
+    {
+      "type": "merge",
+      "ocr": "Тој",
+      "gt": [
+        "–",
+        "Тој"
+      ],
+      "similarity": 1.0
+    }
+  ],
   "book": "Toj",
   "split": "train"
 }

@@ -1550,13 +1550,13 @@
     "gt": "носеше"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "постојано",
     "gt": "п"
   },
   {
-    "op": "substitution",
-    "ocr": "постојано",
+    "op": "deletion",
+    "ocr": "",
     "gt": "остојано"
   },
   {
@@ -82305,13 +82305,13 @@
     "gt": "и"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "носеше",
     "gt": "н"
   },
   {
-    "op": "substitution",
-    "ocr": "носеше",
+    "op": "deletion",
+    "ocr": "",
     "gt": "осеше"
   },
   {

@@ -8,8 +8,195 @@
   "gt_total_tokens": 34308,
   "gt_total_sentences": 3829,
   "gt_avg_sentence_length": 8.96,
-  "CER": 0.0174,
+  "CER": 0.0231,
   "WER": 0.0502,
+  "split_count": 67,
+  "merge_count": 359,
+  "split_examples": [
+    {
+      "type": "split",
+      "ocr": [
+        "РЕДАКЦИ",
+        "ЈА"
+      ],
+      "gt": "РЕДАКЦИЈА",
+      "similarity": 1.0
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "НА",
+        "ДРАМСКИОТ"
+      ],
+      "gt": "ДРАМСКИОТ",
+      "similarity": 0.9
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "има",
+        "КУЛТУРА"
+      ],
+      "gt": "КУЛТУРА",
+      "similarity": 0.8235
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "68а,",
+        "Скопје"
+      ],
+      "gt": "Скопје",
+      "similarity": 0.8
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "-",
+        "грст"
+      ],
+      "gt": "грст",
+      "similarity": 1.0
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "-",
+        "(87-88)"
+      ],
+      "gt": "(87-88)",
+      "similarity": 1.0
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "да",
+        "бидеме"
+      ],
+      "gt": "бидеме",
+      "similarity": 0.8571
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "е",
+        "секогаш"
+      ],
+      "gt": "секогаш",
+      "similarity": 0.9333
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "беа",
+        "воопшто"
+      ],
+      "gt": "воопшто",
+      "similarity": 0.8235
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "тексгот",
+        "н"
+      ],
+      "gt": "текстот",
+      "similarity": 0.8
+    }
+  ],
+  "merge_examples": [
+    {
+      "type": "merge",
+      "ocr": "РЕЦЕНЗЕНТ",
+      "gt": [
+        "РЕЦЕНЗЕНГ",
+        "НА"
+      ],
+      "similarity": 0.8
+    },
+    {
+      "type": "merge",
+      "ocr": "КОМПЈУТЕРСКА",
+      "gt": [
+        "КОМ",
+        "ЈУТЕРСКА"
+      ],
+      "similarity": 0.9565
+    },
+    {
+      "type": "merge",
+      "ocr": "изданието",
+      "gt": [
+        "изданнето",
+        "ги"
+      ],
+      "similarity": 0.8
+    },
+    {
+      "type": "merge",
+      "ocr": "Охридскиќ",
+      "gt": [
+        "Охридски",
+        "68а,"
+      ],
+      "similarity": 0.8
+    },
+    {
+      "type": "merge",
+      "ocr": "223-810,111-332",
+      "gt": [
+        "223-810,",
+        "111-332"
+      ],
+      "similarity": 1.0
+    },
+    {
+      "type": "merge",
+      "ocr": "+389",
+      "gt": [
+        "+",
+        "389"
+      ],
+      "similarity": 1.0
+    },
+    {
+      "type": "merge",
+      "ocr": "821.163.3-31",
+      "gt": [
+        "821",
+        "163",
+        "3-31"
+      ],
+      "similarity": 1.0
+    },
+    {
+      "type": "merge",
+      "ocr": "-(119-194)",
+      "gt": [
+        "-",
+        "(119-194)"
+      ],
+      "similarity": 1.0
+    },
+    {
+      "type": "merge",
+      "ocr": "декатоа",
+      "gt": [
+        "дека",
+        "тоа"
+      ],
+      "similarity": 1.0
+    },
+    {
+      "type": "merge",
+      "ocr": "барав",
+      "gt": [
+        "ја",
+        "барав"
+      ],
+      "similarity": 0.8333
+    }
+  ],
   "book": "Samecot",
   "split": "train"
 }

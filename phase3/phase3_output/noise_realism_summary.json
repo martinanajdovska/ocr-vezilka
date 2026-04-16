@@ -1,0 +1,74 @@
+[
+  {
+    "generator": "random_edit_noise",
+    "documents_compared": 13,
+    "js_divergence_error_profile": 0.011486221345216173,
+    "real_avg_length_ratio": 1.0014247474975302,
+    "synthetic_avg_length_ratio": 1.0264900368498275,
+    "length_ratio_abs_diff": 0.02506528935229735,
+    "real_error_profile": {
+      "insertion": 0.2093212868524294,
+      "substitution": 0.6553517500577087,
+      "deletion": 0.1353269630898618
+    },
+    "synthetic_error_profile": {
+      "insertion": 0.14571468065303264,
+      "deletion": 0.0854933144228202,
+      "substitution": 0.7687920049241471
+    }
+  },
+  {
+    "generator": "confusion_matrix_noise",
+    "documents_compared": 13,
+    "js_divergence_error_profile": 0.011056937248622549,
+    "real_avg_length_ratio": 1.0014247474975302,
+    "synthetic_avg_length_ratio": 0.9183378905281472,
+    "length_ratio_abs_diff": 0.083086856969383,
+    "real_error_profile": {
+      "insertion": 0.2093212868524294,
+      "substitution": 0.6553517500577087,
+      "deletion": 0.1353269630898618
+    },
+    "synthetic_error_profile": {
+      "deletion": 0.11491670245035918,
+      "insertion": 0.1253674051367475,
+      "substitution": 0.7597158924128933
+    }
+  },
+  {
+    "generator": "structure_aware_noise",
+    "documents_compared": 13,
+    "js_divergence_error_profile": 0.03430320401553461,
+    "real_avg_length_ratio": 1.0014247474975302,
+    "synthetic_avg_length_ratio": 0.8986112438240688,
+    "length_ratio_abs_diff": 0.10281350367346143,
+    "real_error_profile": {
+      "insertion": 0.2093212868524294,
+      "substitution": 0.6553517500577087,
+      "deletion": 0.1353269630898618
+    },
+    "synthetic_error_profile": {
+      "substitution": 0.8403383956142106,
+      "deletion": 0.07511976231391354,
+      "insertion": 0.08454184207187582
+    }
+  },
+  {
+    "generator": "phase2_aligned_noise",
+    "documents_compared": 13,
+    "js_divergence_error_profile": 0.030226600402485697,
+    "real_avg_length_ratio": 1.0014247474975302,
+    "synthetic_avg_length_ratio": 0.8994455780904637,
+    "length_ratio_abs_diff": 0.10197916940706653,
+    "real_error_profile": {
+      "insertion": 0.2093212868524294,
+      "substitution": 0.6553517500577087,
+      "deletion": 0.1353269630898618
+    },
+    "synthetic_error_profile": {
+      "substitution": 0.8241273134205722,
+      "insertion": 0.08280857401034084,
+      "deletion": 0.09306411256908678
+    }
+  }
+]

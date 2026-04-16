@@ -6,6 +6,9 @@
   "gt_total_tokens": 350158,
   "ocr_total_sentences": 21196,
   "gt_total_sentences": 23704,
-  "corpus_CER": 0.146353,
-  "corpus_WER": 0.187564
+  "corpus_CER": 0.177878,
+  "corpus_WER": 0.188603,
+  "corpus_split_count": 2046,
+  "corpus_merge_count": 1356,
+  "corpus_total_boundary_errors": 3402
 }

@@ -8,8 +8,194 @@
   "gt_total_tokens": 27422,
   "gt_total_sentences": 2312,
   "gt_avg_sentence_length": 11.8607,
-  "CER": 0.016,
+  "CER": 0.0196,
   "WER": 0.0469,
+  "split_count": 103,
+  "merge_count": 161,
+  "split_examples": [
+    {
+      "type": "split",
+      "ocr": [
+        "„на",
+        "забележаното"
+      ],
+      "gt": "забележаното",
+      "similarity": 0.9231
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "со",
+        "добрината"
+      ],
+      "gt": "добрината",
+      "similarity": 0.9
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "е",
+        "Моето"
+      ],
+      "gt": "Моето",
+      "similarity": 0.9091
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "ами",
+        "поправени,"
+      ],
+      "gt": "поправени,",
+      "similarity": 0.8571
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "се",
+        "определиле"
+      ],
+      "gt": "опредениле",
+      "similarity": 0.8182
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "веш;",
+        "Очевидно"
+      ],
+      "gt": "Очевидно",
+      "similarity": 0.8421
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "што",
+        "живово"
+      ],
+      "gt": "живово",
+      "similarity": 0.8
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "ја",
+        "изразува"
+      ],
+      "gt": "изразува",
+      "similarity": 0.8889
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "ца",
+        "нашето"
+      ],
+      "gt": "нашето",
+      "similarity": 0.8571
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "на",
+        "нашите"
+      ],
+      "gt": "нашите",
+      "similarity": 0.8571
+    }
+  ],
+  "merge_examples": [
+    {
+      "type": "merge",
+      "ocr": "водел-дневник.",
+      "gt": [
+        "водел",
+        "дневник."
+      ],
+      "similarity": 1.0
+    },
+    {
+      "type": "merge",
+      "ocr": "можност-дА",
+      "gt": [
+        "можност",
+        "да"
+      ],
+      "similarity": 1.0
+    },
+    {
+      "type": "merge",
+      "ocr": "риќажување",
+      "gt": [
+        "прикажување",
+        "„на"
+      ],
+      "similarity": 0.7826
+    },
+    {
+      "type": "merge",
+      "ocr": "за-Малку",
+      "gt": [
+        "за",
+        "Малку"
+      ],
+      "similarity": 1.0
+    },
+    {
+      "type": "merge",
+      "ocr": "сретнати,",
+      "gt": [
+        "сретнаги,",
+        "а"
+      ],
+      "similarity": 0.8235
+    },
+    {
+      "type": "merge",
+      "ocr": "гулабите:тие",
+      "gt": [
+        "гулабите:",
+        "гие"
+      ],
+      "similarity": 0.9091
+    },
+    {
+      "type": "merge",
+      "ocr": "дури:и",
+      "gt": [
+        "дури:",
+        "и"
+      ],
+      "similarity": 1.0
+    },
+    {
+      "type": "merge",
+      "ocr": "Незаштитено",
+      "gt": [
+        "Незашгитено",
+        "е"
+      ],
+      "similarity": 0.8696
+    },
+    {
+      "type": "merge",
+      "ocr": "К.приоѓам,",
+      "gt": [
+        "Ја",
+        "приоѓам,"
+      ],
+      "similarity": 0.8235
+    },
+    {
+      "type": "merge",
+      "ocr": "во-тоа",
+      "gt": [
+        "во",
+        "тоа"
+      ],
+      "similarity": 1.0
+    }
+  ],
   "book": "dnevnik_po_mnogu_godini",
   "split": "train"
 }
