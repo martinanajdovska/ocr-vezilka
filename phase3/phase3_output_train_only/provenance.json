@@ -1,0 +1,42 @@
+{
+  "phase2_dir": "/Users/martina/Ocr-Vezilka/ocr-vezilka/phase2/phase2_output_train_only",
+  "clean_dir": "/Users/martina/Ocr-Vezilka/ocr-vezilka/phase1/corrected_ocr",
+  "raw_dir": "/Users/martina/Ocr-Vezilka/ocr-vezilka/phase1/raw_ocr",
+  "calibration_doc_ids": [
+    "Pesni",
+    "Prezir",
+    "Samecot",
+    "Toj",
+    "dnevnik_po_mnogu_godini",
+    "itar_pejo",
+    "sina_pesna",
+    "tajnopis",
+    "viktor_kupidon"
+  ],
+  "calibration_filter_active": true,
+  "generated_doc_ids": [
+    "Pesni",
+    "Prezir",
+    "Samecot",
+    "Toj",
+    "dnevnik_po_mnogu_godini",
+    "itar_pejo",
+    "sina_pesna",
+    "tajnopis",
+    "viktor_kupidon",
+    "Забите на Ветрот - Томе Арсовски",
+    "Провиденија",
+    "Сите лица на смртта",
+    "Современост 7"
+  ],
+  "calibrated_rates": {
+    "p_del": 0.021405627551123484,
+    "p_sub": 0.007189081600357098,
+    "p_ins": 0.01596355146210701,
+    "p_split_word": 0.004894069856635084,
+    "p_merge_gap": 0.004029796727545767,
+    "p_struct_diacritic": 0.004587793688308077,
+    "p_struct_homoglyph": 0.0013379255143564082,
+    "p_struct_punct": 0.011528115793518636
+  }
+}

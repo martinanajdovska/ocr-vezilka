@@ -18,12 +18,31 @@ PAGE_MARKER_PATTERNS = [
 ]
 
 
+# OCR-pipeline batch metadata that contaminates `raw_ocr/*.txt` for some docs
+# (notably ``Забите на Ветрот - Томе Арсовски`` which had 261 such lines).
+# These markers are NOT in the corresponding ground-truth file, so leaving them
+# in pushes phase 1's DP into spurious matches and contaminates val labels.
+OCR_BATCH_PATTERNS = [
+    re.compile(r"^\s*#\d+\s*$", re.MULTILINE),
+    re.compile(r"^\s*BATCH\s+\d+\s*$", re.MULTILINE),
+    re.compile(r"^.*МАКЕДОНСКИ\s+OCR\s+ИЗВЕШТАЈ.*$", re.MULTILINE),
+    re.compile(r"^\s*Датум:\s*\d.*$", re.MULTILINE),
+    re.compile(r"^\s*[#=*]{3,}\s*$", re.MULTILINE),
+]
+
+
 DASH_NOISE_PATTERNS = [
     re.compile(r"[—\-]{3,}"),
     re.compile(r"\s*[—\-]{2,}\s*"),
     re.compile(r"^\s*[—\-]{2,}\s*$", re.MULTILINE),
     re.compile(r"[—\-]{2,}(\s*[—\-]{2,})+"),
 ]
+
+
+
+MIN_DIAGONAL_SIM = 0.30
+GAP_PENALTY = -0.5
+MIN_PAIR_SIM = 0.30
 
 
 def remove_dash_noise(text: str) -> str:
@@ -42,6 +61,20 @@ def detect_and_strip_page_markers(text: str) -> Tuple[str, bool]:
     return text, found
 
 
+def strip_ocr_batch_metadata(text: str) -> Tuple[str, int]:
+    """Remove OCR-pipeline batch metadata lines from raw OCR.
+
+    Returns (cleaned_text, n_lines_removed). The patterns are applied
+    line-anchored so we don't accidentally chop content out of body text.
+    """
+    n_before = text.count("\n")
+    for p in OCR_BATCH_PATTERNS:
+        text = p.sub("", text)
+    text = re.sub(r"\n{3,}", "\n\n", text)
+    n_after = text.count("\n")
+    return text, max(0, n_before - n_after)
+
+
 def is_garbage_line(line: str) -> bool:
     s = line.strip()
     if not s:
@@ -58,6 +91,7 @@ def is_garbage_line(line: str) -> bool:
 def extract_sentences(path: str):
     raw = Path(path).read_text(encoding="utf-8")
     cleaned, _ = detect_and_strip_page_markers(raw)
+    cleaned, _ = strip_ocr_batch_metadata(cleaned)
     cleaned = remove_dash_noise(cleaned)
 
     lines = cleaned.splitlines()
@@ -96,7 +130,21 @@ def fast_similarity(a, b):
     return 0.75 * char + 0.25 * word
 
 
-def align_sentences(ocr_sents, gt_sents):
+def align_sentences(
+    ocr_sents,
+    gt_sents,
+    min_diagonal_sim: float = MIN_DIAGONAL_SIM,
+    gap_penalty: float = GAP_PENALTY,
+    min_pair_sim: float = MIN_PAIR_SIM,
+):
+    """Align OCR sentences to GT sentences via DP with quality guards.
+
+    The diagonal (i+1, j+1) step is only allowed when ``sim(i, j)`` clears
+    ``min_diagonal_sim``; otherwise the DP must skip one side (paying
+    ``gap_penalty``). After backtracking we additionally drop pairs whose
+    final ``SequenceMatcher`` similarity is below ``min_pair_sim`` -
+    these are leftover forced matches when no good alignment exists.
+    """
     ocr_feats = build_features(ocr_sents)
     gt_feats = build_features(gt_sents)
 
@@ -116,36 +164,46 @@ def align_sentences(ocr_sents, gt_sents):
             cur = dp[i][j]
 
             if i < m and j < n:
-                val = cur + sim(i, j)
-                if val > dp[i + 1][j + 1]:
-                    dp[i + 1][j + 1] = val
-                    back[i + 1][j + 1] = (i, j)
+                s = sim(i, j)
+                if s >= min_diagonal_sim:
+                    val = cur + s
+                    if val > dp[i + 1][j + 1]:
+                        dp[i + 1][j + 1] = val
+                        back[i + 1][j + 1] = (i, j)
 
             if i < m:
-                val = cur - 0.3
+                val = cur + gap_penalty
                 if val > dp[i + 1][j]:
                     dp[i + 1][j] = val
                     back[i + 1][j] = (i, j)
 
             if j < n:
-                val = cur - 0.3
+                val = cur + gap_penalty
                 if val > dp[i][j + 1]:
                     dp[i][j + 1] = val
                     back[i][j + 1] = (i, j)
 
     if back[m][n] is None:
         min_len = min(len(ocr_sents), len(gt_sents))
-        return list(zip(ocr_sents[:min_len], gt_sents[:min_len]))
+        raw_pairs = list(zip(ocr_sents[:min_len], gt_sents[:min_len]))
+    else:
+        i, j = m, n
+        raw_pairs = []
+        while (i, j) != (0, 0):
+            pi, pj = back[i][j]
+            if i > pi and j > pj:
+                raw_pairs.append((ocr_sents[i - 1], gt_sents[j - 1]))
+            i, j = pi, pj
+        raw_pairs.reverse()
 
-    i, j = m, n
     pairs = []
-    while (i, j) != (0, 0):
-        pi, pj = back[i][j]
-        if i > pi and j > pj:
-            pairs.append((ocr_sents[i - 1], gt_sents[j - 1]))
-        i, j = pi, pj
-
-    pairs.reverse()
+    for ocr, gt in raw_pairs:
+        if not ocr.strip() or not gt.strip():
+            continue
+        ratio = SequenceMatcher(None, ocr, gt).ratio()
+        if ratio < min_pair_sim:
+            continue
+        pairs.append((ocr, gt))
     return pairs
 
 
@@ -196,7 +254,7 @@ class CharEditOp:
     gt_char: str
 
 
-def levenshtein_align(ocr: str, gt: str):
+def char_align(ocr: str, gt: str):
     ops = []
 
     for tag, i1, i2, j1, j2 in SequenceMatcher(None, ocr, gt).get_opcodes():
@@ -249,67 +307,201 @@ def _token_join(tokens):
     return "".join(tokens)
 
 
-def _best_window_similarity(src_tokens, tgt_tokens):
-    if not src_tokens or not tgt_tokens:
+
+WB_DP_INF = 1e18
+WB_DP_DEL = 0.92
+WB_DP_INS = 0.92
+# Preference for plain 1:1 alignments over merge/split when costs tie.
+WB_DP_LAMBDA_PAIR = 0.36
+WB_DP_LAMBDA_TRIP = 0.46
+
+WB_DP_JUNK_PREFIX = 0.62
+
+WB_DP_MERGE_SHORT_TAIL = 0.28
+WB_DP_MERGE_SHORT_TAIL_SIM_FLOOR = 0.93
+# Do not emit merge/split unless token_similarity on the merged spans reaches this
+# floor; otherwise structural ops act as cheap ``skip many tokens'' hacks.
+WB_DP_MIN_STRUCT_SIM = 0.82
+
+
+def _substitution_cost(ot: str, gtok: str) -> float:
+    if normalize_token(ot) == normalize_token(gtok):
         return 0.0
-    return token_similarity(_token_join(src_tokens), _token_join(tgt_tokens))
+    return 1.0 - token_similarity(ot, gtok)
 
 
-def detect_word_boundary_errors(ocr: str, gt: str, sim_threshold: float = 0.78):
+def _split_junk_extra(first_ocr: str) -> float:
+    if len(normalize_token(first_ocr)) <= 1:
+        return WB_DP_JUNK_PREFIX
+    return 0.0
+
+
+def detect_word_boundary_errors(ocr: str, gt: str):
+    """Detect merge/split word-boundary errors.
+
+    ``Emitted
+    ``similarity`` values are in ``[0, 1]`` (token_similarity on the
+    merged spans) so Phase 2 plots and downstream JSON consumers stay stable.
+
+    Returns a list of dicts with ``type`` in ``{"merge","split"}``, ``ocr``,
+    ``gt`` and ``similarity``
+    """
     ow = ocr.split()
     gw = gt.split()
+    if not ow or not gw:
+        return []
 
-    i = 0
-    j = 0
+    n, m = len(ow), len(gw)
+    dp = [[WB_DP_INF] * (m + 1) for _ in range(n + 1)]
+    pi = [[-1] * (m + 1) for _ in range(n + 1)]
+    pj = [[-1] * (m + 1) for _ in range(n + 1)]
+    op = [[-1] * (m + 1) for _ in range(n + 1)]
+
+    dp[0][0] = 0.0
+    for i in range(1, n + 1):
+        dp[i][0] = dp[i - 1][0] + WB_DP_DEL
+        pi[i][0] = i - 1
+        pj[i][0] = 0
+        op[i][0] = 2  # delete ocr
+    for j in range(1, m + 1):
+        dp[0][j] = dp[0][j - 1] + WB_DP_INS
+        pi[0][j] = 0
+        pj[0][j] = j - 1
+        op[0][j] = 3  # insert gt
+
+    def relax(i, j, cand, opi, opj, opc):
+        nonlocal dp, pi, pj, op
+        if cand + 1e-9 < dp[i][j]:
+            dp[i][j] = cand
+            pi[i][j] = opi
+            pj[i][j] = opj
+            op[i][j] = opc
+
+    for i in range(1, n + 1):
+        for j in range(1, m + 1):
+            # Apply cheaper / more structural transitions first, then plain
+            # match/substitution **last** so equal-cost paths prefer 1:1 edits
+            # over merge/split
+
+            # MERGE: 1 OCR vs 3 GT
+            if j >= 3:
+                joined = _token_join(gw[j - 3 : j])
+                ms = token_similarity(ow[i - 1], joined)
+                if ms >= WB_DP_MIN_STRUCT_SIM:
+                    c = 1.0 - ms + WB_DP_LAMBDA_TRIP
+                    last = normalize_token(gw[j - 1])
+                    if len(last) <= 1 and ms < WB_DP_MERGE_SHORT_TAIL_SIM_FLOOR:
+                        c += WB_DP_MERGE_SHORT_TAIL
+                    relax(i, j, dp[i - 1][j - 3] + c, i - 1, j - 3, 6)
+
+            # SPLIT: 3 OCR vs 1 GT
+            if i >= 3:
+                joined = _token_join(ow[i - 3 : i])
+                ms = token_similarity(joined, gw[j - 1])
+                if ms >= WB_DP_MIN_STRUCT_SIM:
+                    c = (
+                        1.0
+                        - ms
+                        + WB_DP_LAMBDA_TRIP
+                        + _split_junk_extra(ow[i - 3])
+                    )
+                    relax(i, j, dp[i - 3][j - 1] + c, i - 3, j - 1, 7)
+
+            # MERGE: 1 OCR word vs 2 GT words
+            if j >= 2:
+                joined = _token_join(gw[j - 2 : j])
+                ms = token_similarity(ow[i - 1], joined)
+                if ms >= WB_DP_MIN_STRUCT_SIM:
+                    c = 1.0 - ms + WB_DP_LAMBDA_PAIR
+                    if len(normalize_token(gw[j - 1])) <= 1 and ms < WB_DP_MERGE_SHORT_TAIL_SIM_FLOOR:
+                        c += WB_DP_MERGE_SHORT_TAIL
+                    relax(i, j, dp[i - 1][j - 2] + c, i - 1, j - 2, 4)
+
+            # SPLIT: 2 OCR words vs 1 GT word
+            if i >= 2:
+                joined = _token_join(ow[i - 2 : i])
+                ms = token_similarity(joined, gw[j - 1])
+                if ms >= WB_DP_MIN_STRUCT_SIM:
+                    c = 1.0 - ms + WB_DP_LAMBDA_PAIR + _split_junk_extra(ow[i - 2])
+                    relax(i, j, dp[i - 2][j - 1] + c, i - 2, j - 1, 5)
+
+            # delete OCR token (i-1, j) -> (i, j)
+            relax(i, j, dp[i - 1][j] + WB_DP_DEL, i - 1, j, 2)
+
+            # insert GT token (missing OCR word): (i, j-1) -> (i, j)
+            relax(i, j, dp[i][j - 1] + WB_DP_INS, i, j - 1, 3)
+
+            # match / substitute: (i-1, j-1) -> (i, j)  — last wins on ties
+            c = _substitution_cost(ow[i - 1], gw[j - 1])
+            opc = 0 if c <= 1e-12 else 1
+            relax(i, j, dp[i - 1][j - 1] + c, i - 1, j - 1, opc)
+
+    if dp[n][m] >= WB_DP_INF / 2:
+        return []
+
+    # Backtrack from (n, m) to (0, 0); include insert-only / delete-only tails.
+    seq = []
+    ci, cj = n, m
+    while (ci, cj) != (0, 0):
+        opc = op[ci][cj]
+        pi0, pj0 = pi[ci][cj], pj[ci][cj]
+        if pi0 < 0 or pj0 < 0:
+            break
+        seq.append((opc, pi0, pj0, ci, cj))
+        ci, cj = pi0, pj0
+
+    seq.reverse()
     boundary_errors = []
-
-    while i < len(ow) and j < len(gw):
-        o = ow[i]
-        g = gw[j]
-
-        if normalize_token(o) == normalize_token(g):
-            i += 1
-            j += 1
-            continue
-
-        best = None
-
-        for g_len in (2, 3):
-            if j + g_len <= len(gw):
-                cand = gw[j:j + g_len]
-                sim = _best_window_similarity([o], cand)
-                if sim >= sim_threshold and (best is None or sim > best[0]):
-                    best = (sim, "merge", 1, g_len, [o], cand)
-
-        for o_len in (2, 3):
-            if i + o_len <= len(ow):
-                cand = ow[i:i + o_len]
-                sim = _best_window_similarity(cand, [g])
-                if sim >= sim_threshold and (best is None or sim > best[0]):
-                    best = (sim, "split", o_len, 1, cand, [g])
-
-        if best is not None:
-            sim, typ, o_step, g_step, o_part, g_part = best
-            if typ == "merge":
-                boundary_errors.append({
+    for rec in seq:
+        opc, pi0, pj0, ci, cj = rec
+        if opc == 4:  # merge 1 vs 2
+            o_tok = ow[ci - 1]
+            g_slice = gw[pj0: cj]
+            sim = round(token_similarity(o_tok, _token_join(g_slice)), 4)
+            boundary_errors.append(
+                {
                     "type": "merge",
-                    "ocr": o_part[0],
-                    "gt": g_part,
-                    "similarity": round(sim, 4)
-                })
-            else:
-                boundary_errors.append({
+                    "ocr": o_tok,
+                    "gt": list(g_slice),
+                    "similarity": sim,
+                }
+            )
+        elif opc == 6:  # merge 1 vs 3
+            o_tok = ow[ci - 1]
+            g_slice = gw[pj0: cj]
+            sim = round(token_similarity(o_tok, _token_join(g_slice)), 4)
+            boundary_errors.append(
+                {
+                    "type": "merge",
+                    "ocr": o_tok,
+                    "gt": list(g_slice),
+                    "similarity": sim,
+                }
+            )
+        elif opc == 5:  # split 2 vs 1
+            o_slice = ow[pi0: ci]
+            g_tok = gw[cj - 1]
+            sim = round(token_similarity(_token_join(o_slice), g_tok), 4)
+            boundary_errors.append(
+                {
                     "type": "split",
-                    "ocr": o_part,
-                    "gt": g_part[0],
-                    "similarity": round(sim, 4)
-                })
-            i += o_step
-            j += g_step
-            continue
-
-        i += 1
-        j += 1
+                    "ocr": list(o_slice),
+                    "gt": g_tok,
+                    "similarity": sim,
+                }
+            )
+        elif opc == 7:  # split 3 vs 1
+            o_slice = ow[pi0: ci]
+            g_tok = gw[cj - 1]
+            sim = round(token_similarity(_token_join(o_slice), g_tok), 4)
+            boundary_errors.append(
+                {
+                    "type": "split",
+                    "ocr": list(o_slice),
+                    "gt": g_tok,
+                    "similarity": sim,
+                }
+            )
 
     return boundary_errors
 
@@ -321,7 +513,7 @@ def align_all_pairs(matched_pairs):
 
     for ocr, gt in matched_pairs:
         all_word_ops.extend(word_align(ocr, gt))
-        all_char_ops.extend(levenshtein_align(ocr, gt))
+        all_char_ops.extend(char_align(ocr, gt))
         all_boundary_errors.extend(detect_word_boundary_errors(ocr, gt))
 
     return all_char_ops, all_word_ops, all_boundary_errors
@@ -439,13 +631,54 @@ def compute_corpus_boundary_stats(all_boundary_errors):
     }
 
 
-def save_outputs(matched_pairs, char_ops, word_ops, boundary_errors, stats, out_dir):
+def compute_alignment_quality(ocr_sents, gt_sents, matched_pairs):
+    """Diagnostic alignment-quality metrics for a single document.
+
+    The ratios are over ``len(matched_pairs)``; ``sentence_count_ratio`` is
+    raw OCR sentences over GT sentences, useful for spotting docs where one
+    side is missing pages.
+    """
+    sims = [SequenceMatcher(None, o, g).ratio() for o, g in matched_pairs]
+    n = len(sims)
+    sims_sorted = sorted(sims)
+    median = sims_sorted[n // 2] if n else 0.0
+    mean_sim = sum(sims) / n if n else 0.0
+
+    def _frac_below(threshold: float) -> float:
+        if not n:
+            return 0.0
+        return sum(1 for s in sims if s < threshold) / n
+
+    return {
+        "n_pairs": n,
+        "n_ocr_sentences": len(ocr_sents),
+        "n_gt_sentences": len(gt_sents),
+        "sentence_count_ratio": (
+            round(len(ocr_sents) / max(1, len(gt_sents)), 4)
+        ),
+        "mean_similarity": round(mean_sim, 4),
+        "median_similarity": round(median, 4),
+        "min_similarity": round(min(sims), 4) if n else 0.0,
+        "max_similarity": round(max(sims), 4) if n else 0.0,
+        "below_0_30_ratio": round(_frac_below(0.30), 4),
+        "below_0_50_ratio": round(_frac_below(0.50), 4),
+        "below_0_70_ratio": round(_frac_below(0.70), 4),
+    }
+
+
+def save_outputs(matched_pairs, char_ops, word_ops, boundary_errors, stats, out_dir, alignment_quality=None):
     out_dir.mkdir(parents=True, exist_ok=True)
 
     (out_dir / "matched_pairs.json").write_text(
         json.dumps([{"ocr": o, "gt": g} for o, g in matched_pairs], indent=2, ensure_ascii=False),
         encoding="utf-8"
     )
+
+    if alignment_quality is not None:
+        (out_dir / "alignment_quality.json").write_text(
+            json.dumps(alignment_quality, indent=2, ensure_ascii=False),
+            encoding="utf-8"
+        )
 
     (out_dir / "char_ops.json").write_text(
         json.dumps([{"op": o.op, "ocr": o.ocr_char, "gt": o.gt_char} for o in char_ops], indent=2, ensure_ascii=False),
@@ -554,13 +787,22 @@ if __name__ == "__main__":
         stats["book"] = name
         stats["split"] = split
 
+        alignment_quality = compute_alignment_quality(ocr_sents, gt_sents, matched_pairs)
+        print(
+            f"  -> pairs={alignment_quality['n_pairs']} "
+            f"mean_sim={alignment_quality['mean_similarity']:.3f} "
+            f"<0.30={alignment_quality['below_0_30_ratio']:.3f} "
+            f"<0.50={alignment_quality['below_0_50_ratio']:.3f}"
+        )
+
         save_outputs(
             matched_pairs,
             char_ops,
             word_ops,
             boundary_errors,
             stats,
-            out_dir
+            out_dir,
+            alignment_quality=alignment_quality,
         )
 
         all_stats.append(stats)

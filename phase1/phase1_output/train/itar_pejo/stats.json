@@ -1,5 +1,5 @@
 {
-  "matched_pairs": 1420,
+  "matched_pairs": 1383,
   "ocr_total_characters": 127499,
   "ocr_total_tokens": 23261,
   "ocr_total_sentences": 1780,
@@ -8,101 +8,104 @@
   "gt_total_tokens": 20814,
   "gt_total_sentences": 1438,
   "gt_avg_sentence_length": 14.4743,
-  "CER": 0.1812,
-  "WER": 0.2215,
-  "split_count": 707,
-  "merge_count": 66,
+  "CER": 0.1576,
+  "WER": 0.2039,
+  "split_count": 556,
+  "merge_count": 131,
   "split_examples": [
     {
       "type": "split",
       "ocr": [
-        "=====",
-        "007.JPG"
+        "Туниќ",
+        "Ш"
       ],
-      "gt": "007.JPG",
-      "similarity": 1.0
-    },
-    {
-      "type": "split",
-      "ocr": [
-        "а",
-        "Каков"
-      ],
-      "gt": "Каков",
+      "gt": "Туниќ",
       "similarity": 0.9091
     },
     {
       "type": "split",
       "ocr": [
-        "|",
-        "приказните"
+        "залаците",
+        ":",
+        "4"
       ],
-      "gt": "приказните",
+      "gt": "залаците",
+      "similarity": 0.9412
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "претстават",
+        "|"
+      ],
+      "gt": "претстават",
       "similarity": 1.0
     },
     {
       "type": "split",
       "ocr": [
-        "оди,",
-        "дојдоа"
+        "ј",
+        "=====",
+        "008.JPG"
       ],
-      "gt": "дојдоа",
-      "similarity": 0.8
+      "gt": "008.JPG",
+      "similarity": 0.9231
     },
     {
       "type": "split",
       "ocr": [
-        "|",
-        "Кога"
+        "ОБЛОГ",
+        "-С)"
       ],
-      "gt": "Кога",
-      "similarity": 1.0
-    },
-    {
-      "type": "split",
-      "ocr": [
-        "|",
-        "под"
-      ],
-      "gt": "под",
-      "similarity": 1.0
-    },
-    {
-      "type": "split",
-      "ocr": [
-        "де",
-        "нема"
-      ],
-      "gt": "нема",
-      "similarity": 0.8
+      "gt": "ОБЛОГ",
+      "similarity": 0.9091
     },
     {
       "type": "split",
       "ocr": [
         "да",
-        "мириса"
+        "\""
       ],
-      "gt": "мириса",
-      "similarity": 0.8571
-    },
-    {
-      "type": "split",
-      "ocr": [
-        "-",
-        "Каде"
-      ],
-      "gt": "Каде",
+      "gt": "да",
       "similarity": 1.0
     },
     {
       "type": "split",
       "ocr": [
-        "а",
-        "=====",
-        "011.JPG"
+        "градината",
+        "|"
       ],
-      "gt": "011.JPG",
-      "similarity": 0.9231
+      "gt": "градината",
+      "similarity": 1.0
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "вели:",
+        ":",
+        "а"
+      ],
+      "gt": "вели:",
+      "similarity": 0.8889
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "го",
+        "|"
+      ],
+      "gt": "го",
+      "similarity": 1.0
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "|",
+        "-",
+        "Ами"
+      ],
+      "gt": "Ами",
+      "similarity": 1.0
     }
   ],
   "merge_examples": [
@@ -117,13 +120,21 @@
     },
     {
       "type": "merge",
-      "ocr": "пречекуваат",
+      "ocr": "Бре",
       "gt": [
-        "што",
-        "се",
-        "пречекуваат"
+        "=====",
+        "Бре"
       ],
-      "similarity": 0.8148
+      "similarity": 1.0
+    },
+    {
+      "type": "merge",
+      "ocr": "цревцето",
+      "gt": [
+        "сви",
+        "цревцето"
+      ],
+      "similarity": 0.8421
     },
     {
       "type": "merge",
@@ -155,50 +166,39 @@
     },
     {
       "type": "merge",
-      "ocr": "велеј-",
+      "ocr": "Пејо",
       "gt": [
-        "велејќи:",
+        "ПЕЈО",
+        "И"
+      ],
+      "similarity": 0.8889
+    },
+    {
+      "type": "merge",
+      "ocr": "вели.",
+      "gt": [
+        "вели:",
         "-"
-      ],
-      "similarity": 0.8333
-    },
-    {
-      "type": "merge",
-      "ocr": "селаните",
-      "gt": [
-        "Пеја",
-        "селаните"
-      ],
-      "similarity": 0.8
-    },
-    {
-      "type": "merge",
-      "ocr": "сслогламникот",
-      "gt": [
-        "огламникот",
-        "на"
-      ],
-      "similarity": 0.8
-    },
-    {
-      "type": "merge",
-      "ocr": "гоукасалаовега",
-      "gt": [
-        "го",
-        "укасала",
-        "овега"
       ],
       "similarity": 1.0
     },
     {
       "type": "merge",
-      "ocr": "нареди",
+      "ocr": "ваганите",
+      "gt": [
+        "ваганите",
+        "и"
+      ],
+      "similarity": 0.9412
+    },
+    {
+      "type": "merge",
+      "ocr": "ипак",
       "gt": [
         "и",
-        "му",
-        "нареди"
+        "пак"
       ],
-      "similarity": 0.8
+      "similarity": 1.0
     }
   ],
   "book": "itar_pejo",

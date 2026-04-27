@@ -1,0 +1,13 @@
+{
+  "n_pairs": 208,
+  "n_ocr_sentences": 331,
+  "n_gt_sentences": 213,
+  "sentence_count_ratio": 1.554,
+  "mean_similarity": 0.9638,
+  "median_similarity": 0.993,
+  "min_similarity": 0.3875,
+  "max_similarity": 1.0,
+  "below_0_30_ratio": 0.0,
+  "below_0_50_ratio": 0.0048,
+  "below_0_70_ratio": 0.0337
+}

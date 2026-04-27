@@ -1,5 +1,0 @@
-doc,split,errors,total_ops,cer_proxy
-Провиденија,val,1818,87362,0.02080996314186946
-dnevnik_po_mnogu_godini,train,3150,161728,0.019477146814404434
-Prezir,train,3682,367679,0.0100141699689131
-viktor_kupidon,train,39,113657,0.00034313768619618676

@@ -1,5 +1,5 @@
 {
-  "matched_pairs": 2766,
+  "matched_pairs": 2762,
   "ocr_total_characters": 369492,
   "ocr_total_tokens": 61849,
   "ocr_total_sentences": 2790,
@@ -8,82 +8,55 @@
   "gt_total_tokens": 61768,
   "gt_total_sentences": 2768,
   "gt_avg_sentence_length": 22.315,
-  "CER": 0.01,
-  "WER": 0.0099,
-  "split_count": 87,
-  "merge_count": 36,
+  "CER": 0.0074,
+  "WER": 0.0094,
+  "split_count": 65,
+  "merge_count": 12,
   "split_examples": [
     {
       "type": "split",
       "ocr": [
-        "В",
-        "о"
+        "ГЛАВА",
+        "В"
       ],
-      "gt": "Во",
+      "gt": "ГЛАВА",
+      "similarity": 0.9091
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "ГЛАВА",
+        "С"
+      ],
+      "gt": "ГЛАВА",
+      "similarity": 0.9091
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "кај",
+        "-"
+      ],
+      "gt": "кај",
       "similarity": 1.0
     },
     {
       "type": "split",
       "ocr": [
-        "и",
-        "длабока"
+        "ГЛАВА",
+        "Т"
       ],
-      "gt": "длабока",
-      "similarity": 0.9333
+      "gt": "ГЛАВА",
+      "similarity": 0.9091
     },
     {
       "type": "split",
       "ocr": [
-        "С",
-        "редбата"
+        "ГЛАВА",
+        "Т"
       ],
-      "gt": "Средбата",
-      "similarity": 1.0
-    },
-    {
-      "type": "split",
-      "ocr": [
-        "-",
-        "сите"
-      ],
-      "gt": "сите",
-      "similarity": 1.0
-    },
-    {
-      "type": "split",
-      "ocr": [
-        "|",
-        "Меѓутоа,"
-      ],
-      "gt": "Меѓутоа,",
-      "similarity": 1.0
-    },
-    {
-      "type": "split",
-      "ocr": [
-        "Т",
-        "аа"
-      ],
-      "gt": "Таа",
-      "similarity": 1.0
-    },
-    {
-      "type": "split",
-      "ocr": [
-        "Т",
-        "ака"
-      ],
-      "gt": "Така",
-      "similarity": 1.0
-    },
-    {
-      "type": "split",
-      "ocr": [
-        "и",
-        "не"
-      ],
-      "gt": "не",
-      "similarity": 0.8
+      "gt": "ГЛАВА",
+      "similarity": 0.9091
     },
     {
       "type": "split",
@@ -102,18 +75,36 @@
       ],
       "gt": "просечност",
       "similarity": 0.9
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "фантаа",
+        "зија"
+      ],
+      "gt": "фантазија",
+      "similarity": 0.9474
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "перспеки",
+        "тивата"
+      ],
+      "gt": "перспективата",
+      "similarity": 0.963
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "заври",
+        "шена..."
+      ],
+      "gt": "завршена...",
+      "similarity": 0.9412
     }
   ],
   "merge_examples": [
-    {
-      "type": "merge",
-      "ocr": "њубоморна",
-      "gt": [
-        "љубоморна",
-        "и"
-      ],
-      "similarity": 0.8421
-    },
     {
       "type": "merge",
       "ocr": "сентиментална:примеса.",
@@ -122,42 +113,6 @@
         "примеса."
       ],
       "similarity": 1.0
-    },
-    {
-      "type": "merge",
-      "ocr": "претиочитав",
-      "gt": [
-        "претпочитав",
-        "да"
-      ],
-      "similarity": 0.8333
-    },
-    {
-      "type": "merge",
-      "ocr": "морама",
-      "gt": [
-        "мораме",
-        "да"
-      ],
-      "similarity": 0.8571
-    },
-    {
-      "type": "merge",
-      "ocr": "љубовнициј",
-      "gt": [
-        "љубовници,",
-        "не"
-      ],
-      "similarity": 0.8571
-    },
-    {
-      "type": "merge",
-      "ocr": "шејкеротш,",
-      "gt": [
-        "шејкерот,",
-        "па"
-      ],
-      "similarity": 0.8421
     },
     {
       "type": "merge",
@@ -170,15 +125,6 @@
     },
     {
       "type": "merge",
-      "ocr": "каприциози",
-      "gt": [
-        "каприциозни",
-        "како"
-      ],
-      "similarity": 0.8
-    },
-    {
-      "type": "merge",
       "ocr": "јасно",
       "gt": [
         "е",
@@ -188,12 +134,66 @@
     },
     {
       "type": "merge",
-      "ocr": "прозевајќи",
+      "ocr": "да-ја",
       "gt": [
-        "проѕевајќи",
-        "се,"
+        "да",
+        "ја"
       ],
-      "similarity": 0.8182
+      "similarity": 1.0
+    },
+    {
+      "type": "merge",
+      "ocr": "нее",
+      "gt": [
+        "не",
+        "е"
+      ],
+      "similarity": 1.0
+    },
+    {
+      "type": "merge",
+      "ocr": "нее",
+      "gt": [
+        "не",
+        "е"
+      ],
+      "similarity": 1.0
+    },
+    {
+      "type": "merge",
+      "ocr": "„Јасте",
+      "gt": [
+        "„Јас",
+        "те"
+      ],
+      "similarity": 1.0
+    },
+    {
+      "type": "merge",
+      "ocr": "даи",
+      "gt": [
+        "да",
+        "и"
+      ],
+      "similarity": 1.0
+    },
+    {
+      "type": "merge",
+      "ocr": "Дефинитивно",
+      "gt": [
+        "mio“",
+        "Дефинитивно"
+      ],
+      "similarity": 0.88
+    },
+    {
+      "type": "merge",
+      "ocr": "плакаритеи",
+      "gt": [
+        "плакарите",
+        "и"
+      ],
+      "similarity": 1.0
     }
   ],
   "book": "Prezir",

@@ -1,18 +1,63 @@
 {
-  "matched_pairs": 1591,
-  "ocr_total_characters": 333105,
-  "ocr_total_tokens": 56295,
+  "matched_pairs": 1425,
+  "ocr_total_characters": 331714,
+  "ocr_total_tokens": 56031,
   "ocr_total_sentences": 1597,
-  "ocr_avg_sentence_length": 35.2505,
-  "gt_total_characters": 387698,
-  "gt_total_tokens": 64534,
+  "ocr_avg_sentence_length": 35.0852,
+  "gt_total_characters": 387685,
+  "gt_total_tokens": 64533,
   "gt_total_sentences": 4685,
-  "gt_avg_sentence_length": 13.7746,
-  "CER": 1.2295,
-  "WER": 1.1843,
-  "split_count": 500,
-  "merge_count": 150,
+  "gt_avg_sentence_length": 13.7744,
+  "CER": 0.8793,
+  "WER": 0.9877,
+  "split_count": 1136,
+  "merge_count": 271,
   "split_examples": [
+    {
+      "type": "split",
+      "ocr": [
+        "заз-",
+        "бивтан"
+      ],
+      "gt": "зазбивтан",
+      "similarity": 1.0
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "ce",
+        "тетеравеше;"
+      ],
+      "gt": "ceтетеравеше,",
+      "similarity": 1.0
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "сво-",
+        "јата"
+      ],
+      "gt": "својата",
+      "similarity": 1.0
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "нес-",
+        "масно"
+      ],
+      "gt": "несмасно",
+      "similarity": 1.0
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "испоте-",
+        "ни,"
+      ],
+      "gt": "испотени,",
+      "similarity": 1.0
+    },
     {
       "type": "split",
       "ocr": [
@@ -57,51 +102,6 @@
       ],
       "gt": "камбана",
       "similarity": 1.0
-    },
-    {
-      "type": "split",
-      "ocr": [
-        "зафр-",
-        "лени"
-      ],
-      "gt": "зафрлени",
-      "similarity": 1.0
-    },
-    {
-      "type": "split",
-      "ocr": [
-        "камба-",
-        "ната,"
-      ],
-      "gt": "камбаната,",
-      "similarity": 1.0
-    },
-    {
-      "type": "split",
-      "ocr": [
-        "впле-",
-        "тено"
-      ],
-      "gt": "вплетено",
-      "similarity": 1.0
-    },
-    {
-      "type": "split",
-      "ocr": [
-        "осед-",
-        "соба,"
-      ],
-      "gt": "оседсоба,",
-      "similarity": 1.0
-    },
-    {
-      "type": "split",
-      "ocr": [
-        "Хардо-",
-        "виј:"
-      ],
-      "gt": "Хардовиј.",
-      "similarity": 1.0
     }
   ],
   "merge_examples": [
@@ -116,30 +116,12 @@
     },
     {
       "type": "merge",
-      "ocr": "татнеше;",
+      "ocr": "макарони",
       "gt": [
-        "му",
-        "татнеше,"
+        "макарони",
+        "и"
       ],
-      "similarity": 0.875
-    },
-    {
-      "type": "merge",
-      "ocr": "прогресивен;",
-      "gt": [
-        "како",
-        "прогресивен,"
-      ],
-      "similarity": 0.8462
-    },
-    {
-      "type": "merge",
-      "ocr": "здодеа:",
-      "gt": [
-        "ce",
-        "здодеа,"
-      ],
-      "similarity": 0.8571
+      "similarity": 0.9412
     },
     {
       "type": "merge",
@@ -170,12 +152,13 @@
     },
     {
       "type": "merge",
-      "ocr": "ати",
+      "ocr": "зборувам;",
       "gt": [
+        "зборувам,",
         "а",
         "ти"
       ],
-      "similarity": 1.0
+      "similarity": 0.8421
     },
     {
       "type": "merge",
@@ -188,12 +171,31 @@
     },
     {
       "type": "merge",
-      "ocr": "не",
+      "ocr": "родното",
+      "gt": [
+        "во",
+        "родното"
+      ],
+      "similarity": 0.875
+    },
+    {
+      "type": "merge",
+      "ocr": "надевај",
       "gt": [
         "-",
-        "не"
+        "не",
+        "надевај"
       ],
-      "similarity": 1.0
+      "similarity": 0.875
+    },
+    {
+      "type": "merge",
+      "ocr": "кажаа.",
+      "gt": [
+        "Му",
+        "кажаа."
+      ],
+      "similarity": 0.8333
     }
   ],
   "book": "Забите на Ветрот - Томе Арсовски",

@@ -1,14 +1,14 @@
 {
   "books": 13,
-  "ocr_total_characters": 2014523,
-  "gt_total_characters": 2052926,
-  "ocr_total_tokens": 345575,
-  "gt_total_tokens": 350158,
+  "ocr_total_characters": 2013132,
+  "gt_total_characters": 2052909,
+  "ocr_total_tokens": 345311,
+  "gt_total_tokens": 350157,
   "ocr_total_sentences": 21196,
   "gt_total_sentences": 23704,
-  "corpus_CER": 0.177878,
-  "corpus_WER": 0.188603,
-  "corpus_split_count": 2046,
-  "corpus_merge_count": 1356,
-  "corpus_total_boundary_errors": 3402
+  "corpus_CER": 0.117519,
+  "corpus_WER": 0.147337,
+  "corpus_split_count": 2291,
+  "corpus_merge_count": 1460,
+  "corpus_total_boundary_errors": 3751
 }

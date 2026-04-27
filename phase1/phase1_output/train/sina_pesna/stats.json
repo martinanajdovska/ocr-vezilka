@@ -1,5 +1,5 @@
 {
-  "matched_pairs": 259,
+  "matched_pairs": 216,
   "ocr_total_characters": 28220,
   "ocr_total_tokens": 5002,
   "ocr_total_sentences": 346,
@@ -8,103 +8,149 @@
   "gt_total_tokens": 5048,
   "gt_total_sentences": 277,
   "gt_avg_sentence_length": 18.2238,
-  "CER": 0.5349,
-  "WER": 0.6576,
-  "split_count": 83,
-  "merge_count": 92,
+  "CER": 0.3041,
+  "WER": 0.5528,
+  "split_count": 60,
+  "merge_count": 99,
   "split_examples": [
     {
       "type": "split",
       "ocr": [
-        "шосжо",
-        "Невозможно"
+        "пците",
+        "м"
       ],
-      "gt": "Невозможно",
-      "similarity": 0.8
-    },
-    {
-      "type": "split",
-      "ocr": [
-        "м",
-        "окото"
-      ],
-      "gt": "окото",
+      "gt": "пците",
       "similarity": 0.9091
     },
     {
       "type": "split",
       "ocr": [
-        "со",
-        "зборот"
+        "бдее",
+        "м"
       ],
-      "gt": "зборот",
+      "gt": "бдее",
+      "similarity": 0.8889
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "земја",
+        "м"
+      ],
+      "gt": "земја",
+      "similarity": 0.9091
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "глувотија",
+        "м"
+      ],
+      "gt": "глувотија",
+      "similarity": 0.9474
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "меч",
+        "м"
+      ],
+      "gt": "меч",
       "similarity": 0.8571
     },
     {
       "type": "split",
       "ocr": [
-        "х",
-        "свето!"
+        "реч",
+        "м"
       ],
-      "gt": "свето!",
-      "similarity": 0.9091
+      "gt": "реч",
+      "similarity": 0.8571
     },
     {
       "type": "split",
       "ocr": [
-        "и",
-        "буквите?"
+        "Необјатко",
+        "х"
       ],
-      "gt": "буквите?",
-      "similarity": 0.9333
+      "gt": "Необјатно",
+      "similarity": 0.8421
     },
     {
       "type": "split",
       "ocr": [
-        "и",
-        "букзите,"
+        "луѓето,",
+        "а"
       ],
-      "gt": "буквите,",
-      "similarity": 0.8
+      "gt": "луѓето,",
+      "similarity": 0.9231
     },
     {
       "type": "split",
       "ocr": [
-        "зо",
-        "земјата,"
+        "Луѓето",
+        "к"
       ],
-      "gt": "земјата,",
-      "similarity": 0.875
+      "gt": "Луѓето",
+      "similarity": 0.9231
     },
     {
       "type": "split",
       "ocr": [
-        "си,",
-        "рече"
+        "јаренцате,",
+        "м"
       ],
-      "gt": "рече",
-      "similarity": 0.8
-    },
-    {
-      "type": "split",
-      "ocr": [
-        "и",
-        "да"
-      ],
-      "gt": "да",
-      "similarity": 0.8
-    },
-    {
-      "type": "split",
-      "ocr": [
-        "се",
-        "преплешија"
-      ],
-      "gt": "преплашија",
-      "similarity": 0.8182
+      "gt": "јаренцата,",
+      "similarity": 0.8421
     }
   ],
   "merge_examples": [
+    {
+      "type": "merge",
+      "ocr": "птиците,",
+      "gt": [
+        "и",
+        "птиците,"
+      ],
+      "similarity": 0.9333
+    },
+    {
+      "type": "merge",
+      "ocr": "само",
+      "gt": [
+        "и",
+        "само"
+      ],
+      "similarity": 0.8889
+    },
+    {
+      "type": "merge",
+      "ocr": "човек",
+      "gt": [
+        "човек",
+        "-"
+      ],
+      "similarity": 1.0
+    },
+    {
+      "type": "merge",
+      "ocr": "задушиве",
+      "gt": [
+        "гo",
+        "задушивме"
+      ],
+      "similarity": 0.8421
+    },
+    {
+      "type": "merge",
+      "ocr": "видовме:",
+      "gt": [
+        "и",
+        "—",
+        "видовме:"
+      ],
+      "similarity": 0.9333
+    },
     {
       "type": "merge",
       "ocr": "дрвото",
@@ -125,75 +171,30 @@
     },
     {
       "type": "merge",
-      "ocr": "престорм",
+      "ocr": "смртта",
       "gt": [
-        "престори",
-        "меч"
-      ],
-      "similarity": 0.8421
-    },
-    {
-      "type": "merge",
-      "ocr": "сродството",
-      "gt": [
-        "сродетвото",
-        "co"
-      ],
-      "similarity": 0.8182
-    },
-    {
-      "type": "merge",
-      "ocr": "Необјатко",
-      "gt": [
-        "Необјатно",
-        "и"
-      ],
-      "similarity": 0.8421
-    },
-    {
-      "type": "merge",
-      "ocr": "утре",
-      "gt": [
-        "—",
-        "утре"
+        "смртта",
+        "—"
       ],
       "similarity": 1.0
     },
     {
       "type": "merge",
-      "ocr": "Зборошите",
+      "ocr": "коб,",
       "gt": [
-        "Зборовите",
-        "и"
+        "и",
+        "коб,"
       ],
-      "similarity": 0.8421
+      "similarity": 0.8571
     },
     {
       "type": "merge",
-      "ocr": "збороште",
+      "ocr": "окото",
       "gt": [
-        "зборовте",
-        "и"
+        "и",
+        "окото"
       ],
-      "similarity": 0.8235
-    },
-    {
-      "type": "merge",
-      "ocr": "засолиија",
-      "gt": [
-        "засолнија",
-        "во"
-      ],
-      "similarity": 0.8
-    },
-    {
-      "type": "merge",
-      "ocr": "продетва",
-      "gt": [
-        "пролетва",
-        "и"
-      ],
-      "similarity": 0.8235
+      "similarity": 0.9091
     }
   ],
   "book": "sina_pesna",

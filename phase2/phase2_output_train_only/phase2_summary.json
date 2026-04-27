@@ -1,0 +1,11 @@
+{
+  "documents_loaded": 9,
+  "char_ops_total": 1056087,
+  "word_ops_total": 183229,
+  "boundary_errors_total": 1652,
+  "matched_pairs_total": 11521,
+  "top_substitution_count": 7473,
+  "diacritic_confusions_total": 33,
+  "homoglyph_confusions_total": 458,
+  "punctuation_confusions_total": 450
+}

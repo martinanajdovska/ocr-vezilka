@@ -1,0 +1,336 @@
+{
+  "total_word_ops": 183229,
+  "total_boundary_errors": 1652,
+  "split_count": 906,
+  "merge_count": 746,
+  "split_pct_of_word_ops": 0.4944632127010462,
+  "merge_pct_of_word_ops": 0.4071407910319873,
+  "boundary_error_pct_of_word_ops": 0.9016040037330335,
+  "split_pct_within_boundary_errors": 54.842615012106535,
+  "merge_pct_within_boundary_errors": 45.157384987893465,
+  "split_examples": [
+    {
+      "gt": "пците",
+      "ocr": [
+        "пците",
+        "м"
+      ],
+      "doc_id": "sina_pesna"
+    },
+    {
+      "gt": "бдее",
+      "ocr": [
+        "бдее",
+        "м"
+      ],
+      "doc_id": "sina_pesna"
+    },
+    {
+      "gt": "земја",
+      "ocr": [
+        "земја",
+        "м"
+      ],
+      "doc_id": "sina_pesna"
+    },
+    {
+      "gt": "глувотија",
+      "ocr": [
+        "глувотија",
+        "м"
+      ],
+      "doc_id": "sina_pesna"
+    },
+    {
+      "gt": "меч",
+      "ocr": [
+        "меч",
+        "м"
+      ],
+      "doc_id": "sina_pesna"
+    },
+    {
+      "gt": "реч",
+      "ocr": [
+        "реч",
+        "м"
+      ],
+      "doc_id": "sina_pesna"
+    },
+    {
+      "gt": "Необјатно",
+      "ocr": [
+        "Необјатко",
+        "х"
+      ],
+      "doc_id": "sina_pesna"
+    },
+    {
+      "gt": "луѓето,",
+      "ocr": [
+        "луѓето,",
+        "а"
+      ],
+      "doc_id": "sina_pesna"
+    },
+    {
+      "gt": "Луѓето",
+      "ocr": [
+        "Луѓето",
+        "к"
+      ],
+      "doc_id": "sina_pesna"
+    },
+    {
+      "gt": "јаренцата,",
+      "ocr": [
+        "јаренцате,",
+        "м"
+      ],
+      "doc_id": "sina_pesna"
+    },
+    {
+      "gt": "распука",
+      "ocr": [
+        "распука",
+        "а"
+      ],
+      "doc_id": "sina_pesna"
+    },
+    {
+      "gt": "стебло",
+      "ocr": [
+        "стебло",
+        "к"
+      ],
+      "doc_id": "sina_pesna"
+    },
+    {
+      "gt": "долго,",
+      "ocr": [
+        "долго,",
+        "се"
+      ],
+      "doc_id": "sina_pesna"
+    },
+    {
+      "gt": "животот",
+      "ocr": [
+        "животот",
+        "з"
+      ],
+      "doc_id": "sina_pesna"
+    },
+    {
+      "gt": "раката",
+      "ocr": [
+        "раката",
+        "м"
+      ],
+      "doc_id": "sina_pesna"
+    },
+    {
+      "gt": "чувствувам",
+      "ocr": [
+        "чузствувам",
+        "х"
+      ],
+      "doc_id": "sina_pesna"
+    },
+    {
+      "gt": "дрво",
+      "ocr": [
+        "дрво",
+        "Е"
+      ],
+      "doc_id": "sina_pesna"
+    },
+    {
+      "gt": "ми",
+      "ocr": [
+        "ми",
+        ","
+      ],
+      "doc_id": "sina_pesna"
+    },
+    {
+      "gt": "детето,",
+      "ocr": [
+        "детето,",
+        "к"
+      ],
+      "doc_id": "sina_pesna"
+    },
+    {
+      "gt": "пазарот",
+      "ocr": [
+        "пазарот",
+        "со"
+      ],
+      "doc_id": "sina_pesna"
+    }
+  ],
+  "merge_examples": [
+    {
+      "gt": [
+        "и",
+        "птиците,"
+      ],
+      "ocr": "птиците,",
+      "doc_id": "sina_pesna"
+    },
+    {
+      "gt": [
+        "и",
+        "само"
+      ],
+      "ocr": "само",
+      "doc_id": "sina_pesna"
+    },
+    {
+      "gt": [
+        "човек",
+        "-"
+      ],
+      "ocr": "човек",
+      "doc_id": "sina_pesna"
+    },
+    {
+      "gt": [
+        "гo",
+        "задушивме"
+      ],
+      "ocr": "задушиве",
+      "doc_id": "sina_pesna"
+    },
+    {
+      "gt": [
+        "и",
+        "—",
+        "видовме:"
+      ],
+      "ocr": "видовме:",
+      "doc_id": "sina_pesna"
+    },
+    {
+      "gt": [
+        "—",
+        "дрвото"
+      ],
+      "ocr": "дрвото",
+      "doc_id": "sina_pesna"
+    },
+    {
+      "gt": [
+        "—",
+        "одново"
+      ],
+      "ocr": "одново",
+      "doc_id": "sina_pesna"
+    },
+    {
+      "gt": [
+        "смртта",
+        "—"
+      ],
+      "ocr": "смртта",
+      "doc_id": "sina_pesna"
+    },
+    {
+      "gt": [
+        "и",
+        "коб,"
+      ],
+      "ocr": "коб,",
+      "doc_id": "sina_pesna"
+    },
+    {
+      "gt": [
+        "и",
+        "окото"
+      ],
+      "ocr": "окото",
+      "doc_id": "sina_pesna"
+    },
+    {
+      "gt": [
+        "и",
+        "еден"
+      ],
+      "ocr": "еден",
+      "doc_id": "sina_pesna"
+    },
+    {
+      "gt": [
+        "и",
+        "свето!"
+      ],
+      "ocr": "свето!",
+      "doc_id": "sina_pesna"
+    },
+    {
+      "gt": [
+        "—",
+        "утре"
+      ],
+      "ocr": "утре",
+      "doc_id": "sina_pesna"
+    },
+    {
+      "gt": [
+        "a",
+        "дечињата"
+      ],
+      "ocr": "дечињата",
+      "doc_id": "sina_pesna"
+    },
+    {
+      "gt": [
+        "и",
+        "дечињата,"
+      ],
+      "ocr": "дечињата,",
+      "doc_id": "sina_pesna"
+    },
+    {
+      "gt": [
+        "третиот,",
+        "—"
+      ],
+      "ocr": "третиот,",
+      "doc_id": "sina_pesna"
+    },
+    {
+      "gt": [
+        "и",
+        "јара,"
+      ],
+      "ocr": "јара,",
+      "doc_id": "sina_pesna"
+    },
+    {
+      "gt": [
+        "a",
+        "потоа"
+      ],
+      "ocr": "потоа",
+      "doc_id": "sina_pesna"
+    },
+    {
+      "gt": [
+        "и",
+        "тоа"
+      ],
+      "ocr": "тоа",
+      "doc_id": "sina_pesna"
+    },
+    {
+      "gt": [
+        "ce",
+        "тимареше"
+      ],
+      "ocr": "тимареше",
+      "doc_id": "sina_pesna"
+    }
+  ]
+}

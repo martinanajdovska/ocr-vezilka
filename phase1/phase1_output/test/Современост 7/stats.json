@@ -1,5 +1,5 @@
 {
-  "matched_pairs": 1918,
+  "matched_pairs": 1837,
   "ocr_total_characters": 235508,
   "ocr_total_tokens": 38847,
   "ocr_total_sentences": 2035,
@@ -8,11 +8,29 @@
   "gt_total_tokens": 37862,
   "gt_total_sentences": 1978,
   "gt_avg_sentence_length": 19.1416,
-  "CER": 0.1116,
-  "WER": 0.1329,
-  "split_count": 167,
-  "merge_count": 157,
+  "CER": 0.0742,
+  "WER": 0.1064,
+  "split_count": 121,
+  "merge_count": 120,
   "split_examples": [
+    {
+      "type": "split",
+      "ocr": [
+        "поим",
+        "—"
+      ],
+      "gt": "поим—",
+      "similarity": 1.0
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "поим",
+        "—"
+      ],
+      "gt": "поим",
+      "similarity": 1.0
+    },
     {
       "type": "split",
       "ocr": [
@@ -20,6 +38,34 @@
         "сок"
       ],
       "gt": "највисок",
+      "similarity": 1.0
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "Хаџипанзов",
+        "—",
+        "поет"
+      ],
+      "gt": "Хаџипанзов",
+      "similarity": 0.8333
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "тенденци-",
+        "озност"
+      ],
+      "gt": "тенденциозност",
+      "similarity": 1.0
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "обзнаната",
+        "—"
+      ],
+      "gt": "обзнаната",
       "similarity": 1.0
     },
     {
@@ -34,12 +80,11 @@
     {
       "type": "split",
       "ocr": [
-        "на",
         "литератур-",
         "ните"
       ],
       "gt": "лнтературните",
-      "similarity": 0.8571
+      "similarity": 0.9231
     },
     {
       "type": "split",
@@ -53,94 +98,22 @@
     {
       "type": "split",
       "ocr": [
-        "576",
-        "Ивановски"
-      ],
-      "gt": "Ивановски",
-      "similarity": 0.8571
-    },
-    {
-      "type": "split",
-      "ocr": [
         "наЈ-",
         "младите"
       ],
       "gt": "најмладите",
-      "similarity": 1.0
-    },
-    {
-      "type": "split",
-      "ocr": [
-        "на-",
-        "ционална"
-      ],
-      "gt": "национална",
-      "similarity": 1.0
-    },
-    {
-      "type": "split",
-      "ocr": [
-        "испра-",
-        "тени"
-      ],
-      "gt": "испратени",
-      "similarity": 1.0
-    },
-    {
-      "type": "split",
-      "ocr": [
-        "—",
-        "„Во"
-      ],
-      "gt": "„Во",
-      "similarity": 1.0
-    },
-    {
-      "type": "split",
-      "ocr": [
-        "ла-",
-        "виринтот"
-      ],
-      "gt": "лавиринтот",
       "similarity": 1.0
     }
   ],
   "merge_examples": [
     {
       "type": "merge",
-      "ocr": "страницитс",
+      "ocr": "идеЈност-",
       "gt": [
-        "страниците",
-        "на"
+        "идејност",
+        "–"
       ],
-      "similarity": 0.8182
-    },
-    {
-      "type": "merge",
-      "ocr": "литерагура",
-      "gt": [
-        "литература",
-        "VI,"
-      ],
-      "similarity": 0.8182
-    },
-    {
-      "type": "merge",
-      "ocr": "Шелембрег",
-      "gt": [
-        "Шеленбрег",
-        "—"
-      ],
-      "similarity": 0.8889
-    },
-    {
-      "type": "merge",
-      "ocr": "„Филозофија“",
-      "gt": [
-        "„Филозофиjа''-",
-        "бр."
-      ],
-      "similarity": 0.8182
+      "similarity": 1.0
     },
     {
       "type": "merge",
@@ -162,21 +135,30 @@
     },
     {
       "type": "merge",
-      "ocr": "освежуваша",
+      "ocr": "заговори“",
       "gt": [
-        "освежувања",
-        "во"
+        "заговори“",
+        "III,"
       ],
-      "similarity": 0.8182
+      "similarity": 0.8421
     },
     {
       "type": "merge",
-      "ocr": "рча-јанието,",
+      "ocr": "Пула-672",
       "gt": [
-        "очајанието,",
-        "тоа"
+        "Пула",
+        "672"
       ],
-      "similarity": 0.7826
+      "similarity": 1.0
+    },
+    {
+      "type": "merge",
+      "ocr": "нестварна",
+      "gt": [
+        "и",
+        "нестварна"
+      ],
+      "similarity": 0.9474
     },
     {
       "type": "merge",
@@ -195,6 +177,24 @@
         "тоа"
       ],
       "similarity": 0.8571
+    },
+    {
+      "type": "merge",
+      "ocr": "мојата",
+      "gt": [
+        "на",
+        "мојата"
+      ],
+      "similarity": 0.8571
+    },
+    {
+      "type": "merge",
+      "ocr": "измениш?...",
+      "gt": [
+        "измениш?…",
+        "Тоа"
+      ],
+      "similarity": 0.8235
     }
   ],
   "book": "Современост 7",

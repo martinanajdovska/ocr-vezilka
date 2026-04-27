@@ -38791,16 +38791,6 @@
   },
   {
     "op": "match",
-    "ocr": "2",
-    "gt": "2"
-  },
-  {
-    "op": "match",
-    "ocr": ".",
-    "gt": "."
-  },
-  {
-    "op": "match",
     "ocr": "П",
     "gt": "П"
   },
@@ -93463,16 +93453,6 @@
     "op": "match",
     "ocr": "е",
     "gt": "е"
-  },
-  {
-    "op": "match",
-    "ocr": ".",
-    "gt": "."
-  },
-  {
-    "op": "match",
-    "ocr": "6",
-    "gt": "6"
   },
   {
     "op": "match",
@@ -212916,16 +212896,6 @@
   },
   {
     "op": "match",
-    "ocr": "О",
-    "gt": "О"
-  },
-  {
-    "op": "match",
-    "ocr": ".",
-    "gt": "."
-  },
-  {
-    "op": "match",
     "ocr": "с",
     "gt": "с"
   },
@@ -297713,16 +297683,6 @@
     "op": "match",
     "ocr": "а",
     "gt": "а"
-  },
-  {
-    "op": "match",
-    "ocr": ".",
-    "gt": "."
-  },
-  {
-    "op": "match",
-    "ocr": "4",
-    "gt": "4"
   },
   {
     "op": "match",
@@ -463896,21 +463856,6 @@
   },
   {
     "op": "match",
-    "ocr": "О",
-    "gt": "О"
-  },
-  {
-    "op": "match",
-    "ocr": "у",
-    "gt": "у"
-  },
-  {
-    "op": "match",
-    "ocr": "?",
-    "gt": "?"
-  },
-  {
-    "op": "match",
     "ocr": "А",
     "gt": "А"
   },
@@ -463983,21 +463928,6 @@
     "op": "match",
     "ocr": "о",
     "gt": "о"
-  },
-  {
-    "op": "match",
-    "ocr": "!",
-    "gt": "!"
-  },
-  {
-    "op": "match",
-    "ocr": "О",
-    "gt": "О"
-  },
-  {
-    "op": "match",
-    "ocr": "у",
-    "gt": "у"
   },
   {
     "op": "match",
@@ -654386,16 +654316,6 @@
   },
   {
     "op": "match",
-    "ocr": "А",
-    "gt": "А"
-  },
-  {
-    "op": "match",
-    "ocr": ".",
-    "gt": "."
-  },
-  {
-    "op": "match",
     "ocr": "к",
     "gt": "к"
   },
@@ -661793,16 +661713,6 @@
     "op": "match",
     "ocr": "а",
     "gt": "а"
-  },
-  {
-    "op": "match",
-    "ocr": ".",
-    "gt": "."
-  },
-  {
-    "op": "match",
-    "ocr": "А",
-    "gt": "А"
   },
   {
     "op": "match",
@@ -669940,76 +669850,6 @@
     "gt": "."
   },
   {
-    "op": "match",
-    "ocr": "-",
-    "gt": "-"
-  },
-  {
-    "op": "match",
-    "ocr": " ",
-    "gt": " "
-  },
-  {
-    "op": "match",
-    "ocr": "К",
-    "gt": "К"
-  },
-  {
-    "op": "match",
-    "ocr": "а",
-    "gt": "а"
-  },
-  {
-    "op": "match",
-    "ocr": "д",
-    "gt": "д"
-  },
-  {
-    "op": "match",
-    "ocr": "е",
-    "gt": "е"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "match",
-    "ocr": "е",
-    "gt": "е"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "match",
-    "ocr": "м",
-    "gt": "м"
-  },
-  {
-    "op": "match",
-    "ocr": "а",
-    "gt": "а"
-  },
-  {
-    "op": "match",
-    "ocr": "м",
-    "gt": "м"
-  },
-  {
-    "op": "match",
-    "ocr": "а",
-    "gt": "а"
-  },
-  {
-    "op": "match",
-    "ocr": "?",
-    "gt": "?"
-  },
-  {
     "op": "substitution",
     "ocr": "-",
     "gt": "\""
@@ -676865,91 +676705,6 @@
     "gt": "."
   },
   {
-    "op": "insertion",
-    "ocr": "-",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "match",
-    "ocr": "К",
-    "gt": "К"
-  },
-  {
-    "op": "match",
-    "ocr": "а",
-    "gt": "а"
-  },
-  {
-    "op": "match",
-    "ocr": "д",
-    "gt": "д"
-  },
-  {
-    "op": "match",
-    "ocr": "е",
-    "gt": "е"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "match",
-    "ocr": "е",
-    "gt": "е"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "match",
-    "ocr": "п",
-    "gt": "п"
-  },
-  {
-    "op": "match",
-    "ocr": "р",
-    "gt": "р"
-  },
-  {
-    "op": "match",
-    "ocr": "о",
-    "gt": "о"
-  },
-  {
-    "op": "match",
-    "ocr": "с",
-    "gt": "с"
-  },
-  {
-    "op": "match",
-    "ocr": "о",
-    "gt": "о"
-  },
-  {
-    "op": "match",
-    "ocr": "т",
-    "gt": "т"
-  },
-  {
-    "op": "match",
-    "ocr": "о",
-    "gt": "о"
-  },
-  {
-    "op": "match",
-    "ocr": "?",
-    "gt": "?"
-  },
-  {
     "op": "match",
     "ocr": "-",
     "gt": "-"
@@ -682475,106 +682230,6 @@
     "gt": "?"
   },
   {
-    "op": "match",
-    "ocr": "-",
-    "gt": "-"
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "Г",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "и",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "м",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "с",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "к",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "л",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "в",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "п",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "т",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "л",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "т",
-    "gt": ""
-  },
-  {
-    "op": "match",
-    "ocr": ".",
-    "gt": "."
-  },
-  {
     "op": "deletion",
     "ocr": "",
     "gt": "Г"
@@ -686223,201 +685878,6 @@
     "op": "match",
     "ocr": "!",
     "gt": "!"
-  },
-  {
-    "op": "match",
-    "ocr": "-",
-    "gt": "-"
-  },
-  {
-    "op": "substitution",
-    "ocr": " ",
-    "gt": "."
-  },
-  {
-    "op": "insertion",
-    "ocr": "К",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "д",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "п",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "у",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "ш",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "к",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "т",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "?",
-    "gt": ""
-  },
-  {
-    "op": "substitution",
-    "ocr": "-",
-    "gt": "К"
-  },
-  {
-    "op": "substitution",
-    "ocr": " ",
-    "gt": "а"
-  },
-  {
-    "op": "insertion",
-    "ocr": "О",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "т",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "и",
-    "gt": ""
-  },
-  {
-    "op": "match",
-    "ocr": "д",
-    "gt": "д"
-  },
-  {
-    "op": "match",
-    "ocr": "е",
-    "gt": "е"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "е"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "п"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "у"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "ш"
-  },
-  {
-    "op": "match",
-    "ocr": "к",
-    "gt": "к"
-  },
-  {
-    "op": "match",
-    "ocr": "а",
-    "gt": "а"
-  },
-  {
-    "op": "substitution",
-    "ocr": "ј",
-    "gt": "т"
-  },
-  {
-    "op": "insertion",
-    "ocr": "ц",
-    "gt": ""
-  },
-  {
-    "op": "match",
-    "ocr": "а",
-    "gt": "а"
-  },
-  {
-    "op": "substitution",
-    "ocr": "р",
-    "gt": "?"
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "т",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": ".",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": ".",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": ".",
-    "gt": ""
   },
   {
     "op": "deletion",
@@ -690830,64 +690290,64 @@
     "gt": "."
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "И",
-    "gt": "И"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": " ",
-    "gt": " "
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "у",
-    "gt": "у"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "ш",
-    "gt": "ш"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "т",
-    "gt": "т"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "е",
-    "gt": "е"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": " ",
-    "gt": " "
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "т",
-    "gt": "т"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "у",
-    "gt": "у"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "к",
-    "gt": "к"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "а",
-    "gt": "а"
+    "gt": ""
   },
   {
-    "op": "substitution",
+    "op": "insertion",
     "ocr": ",",
-    "gt": "."
+    "gt": ""
   },
   {
     "op": "insertion",
@@ -690955,198 +690415,73 @@
     "gt": ""
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "ќ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "с",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "п",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "з",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "р",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "и",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": ":",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "-",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "З",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "к",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "л",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "к",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "у",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "?",
-    "gt": ""
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
     "gt": "ќ"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "е",
     "gt": "е"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": " ",
     "gt": " "
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "с",
     "gt": "с"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "е",
     "gt": "е"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": " ",
     "gt": " "
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "п",
     "gt": "п"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "а",
     "gt": "а"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "з",
     "gt": "з"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "а",
     "gt": "а"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "р",
     "gt": "р"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "и",
     "gt": "и"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": ":",
     "gt": ":"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": " ",
     "gt": " "
   },
   {
@@ -691175,8 +690510,8 @@
     "gt": " "
   },
   {
-    "op": "substitution",
-    "ocr": "т",
+    "op": "match",
+    "ocr": "к",
     "gt": "к"
   },
   {
@@ -691200,8 +690535,8 @@
     "gt": "у"
   },
   {
-    "op": "substitution",
-    "ocr": ".",
+    "op": "match",
+    "ocr": "?",
     "gt": "?"
   },
   {
@@ -691827,136 +691162,6 @@
   {
     "op": "deletion",
     "ocr": "",
-    "gt": "."
-  },
-  {
-    "op": "match",
-    "ocr": "-",
-    "gt": "-"
-  },
-  {
-    "op": "match",
-    "ocr": " ",
-    "gt": " "
-  },
-  {
-    "op": "substitution",
-    "ocr": "П",
-    "gt": "Д"
-  },
-  {
-    "op": "match",
-    "ocr": "о",
-    "gt": "о"
-  },
-  {
-    "op": "substitution",
-    "ocr": "в",
-    "gt": "б"
-  },
-  {
-    "op": "substitution",
-    "ocr": "е",
-    "gt": "р"
-  },
-  {
-    "op": "insertion",
-    "ocr": "ќ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "н",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "и",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "з",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "ј",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "д",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "њ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "т",
-    "gt": ""
-  },
-  {
-    "op": "match",
-    "ocr": "о",
-    "gt": "о"
-  },
-  {
-    "op": "match",
-    "ocr": ".",
     "gt": "."
   },
   {
@@ -707508,236 +706713,6 @@
     "op": "match",
     "ocr": "о",
     "gt": "о"
-  },
-  {
-    "op": "match",
-    "ocr": "т",
-    "gt": "т"
-  },
-  {
-    "op": "match",
-    "ocr": "о",
-    "gt": "о"
-  },
-  {
-    "op": "match",
-    "ocr": ".",
-    "gt": "."
-  },
-  {
-    "op": "substitution",
-    "ocr": "н",
-    "gt": "Ќ"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "е"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "г"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "о"
-  },
-  {
-    "op": "match",
-    "ocr": " ",
-    "gt": " "
-  },
-  {
-    "op": "match",
-    "ocr": "и",
-    "gt": "и"
-  },
-  {
-    "op": "match",
-    "ocr": "с",
-    "gt": "с"
-  },
-  {
-    "op": "match",
-    "ocr": "т",
-    "gt": "т"
-  },
-  {
-    "op": "match",
-    "ocr": "е",
-    "gt": "е"
-  },
-  {
-    "op": "match",
-    "ocr": "р",
-    "gt": "р"
-  },
-  {
-    "op": "substitution",
-    "ocr": "в",
-    "gt": "а"
-  },
-  {
-    "op": "match",
-    "ocr": " ",
-    "gt": " "
-  },
-  {
-    "op": "match",
-    "ocr": "р",
-    "gt": "р"
-  },
-  {
-    "op": "substitution",
-    "ocr": "о",
-    "gt": "е"
-  },
-  {
-    "op": "match",
-    "ocr": "д",
-    "gt": "д"
-  },
-  {
-    "op": "match",
-    "ocr": "о",
-    "gt": "о"
-  },
-  {
-    "op": "match",
-    "ocr": "т",
-    "gt": "т"
-  },
-  {
-    "op": "match",
-    "ocr": " ",
-    "gt": " "
-  },
-  {
-    "op": "substitution",
-    "ocr": "з",
-    "gt": "и"
-  },
-  {
-    "op": "match",
-    "ocr": " ",
-    "gt": " "
-  },
-  {
-    "op": "substitution",
-    "ocr": "б",
-    "gt": "ќ"
-  },
-  {
-    "op": "substitution",
-    "ocr": "и",
-    "gt": "е"
-  },
-  {
-    "op": "match",
-    "ocr": " ",
-    "gt": " "
-  },
-  {
-    "op": "match",
-    "ocr": "с",
-    "gt": "с"
-  },
-  {
-    "op": "match",
-    "ocr": "е",
-    "gt": "е"
-  },
-  {
-    "op": "match",
-    "ocr": " ",
-    "gt": " "
-  },
-  {
-    "op": "substitution",
-    "ocr": "л",
-    "gt": "з"
-  },
-  {
-    "op": "substitution",
-    "ocr": "и",
-    "gt": "а"
-  },
-  {
-    "op": "match",
-    "ocr": "с",
-    "gt": "с"
-  },
-  {
-    "op": "match",
-    "ocr": "л",
-    "gt": "л"
-  },
-  {
-    "op": "substitution",
-    "ocr": "ј",
-    "gt": "у"
-  },
-  {
-    "op": "substitution",
-    "ocr": "и",
-    "gt": "ш"
-  },
-  {
-    "op": "match",
-    "ocr": "а",
-    "gt": "а"
-  },
-  {
-    "op": "match",
-    "ocr": " ",
-    "gt": " "
-  },
-  {
-    "op": "match",
-    "ocr": "к",
-    "gt": "к"
-  },
-  {
-    "op": "match",
-    "ocr": "о",
-    "gt": "о"
-  },
-  {
-    "op": "match",
-    "ocr": "н",
-    "gt": "н"
-  },
-  {
-    "op": "match",
-    "ocr": " ",
-    "gt": " "
-  },
-  {
-    "op": "match",
-    "ocr": "д",
-    "gt": "д"
-  },
-  {
-    "op": "match",
-    "ocr": "е",
-    "gt": "е"
-  },
-  {
-    "op": "match",
-    "ocr": "т",
-    "gt": "т"
-  },
-  {
-    "op": "match",
-    "ocr": "е",
-    "gt": "е"
   },
   {
     "op": "match",
@@ -758125,89 +757100,89 @@
     "gt": "."
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "З",
-    "gt": "З"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "б",
-    "gt": "б"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "о",
-    "gt": "о"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "р",
-    "gt": "р"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "о",
-    "gt": "о"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "в",
-    "gt": "в"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "и",
-    "gt": "и"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "т",
-    "gt": "т"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "е",
-    "gt": "е"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": " ",
-    "gt": " "
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "м",
-    "gt": "м"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "у",
-    "gt": "у"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": " ",
-    "gt": " "
+    "gt": ""
   },
   {
-    "op": "substitution",
+    "op": "insertion",
     "ocr": "г",
-    "gt": "т"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "р",
-    "gt": "р"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "г",
-    "gt": "г"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "а",
-    "gt": "а"
+    "gt": ""
   },
   {
     "op": "insertion",
@@ -758225,263 +757200,43 @@
     "gt": ""
   },
   {
-    "op": "insertion",
-    "ocr": "м",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "у",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "с",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "п",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "р",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "в",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "т",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "с",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "у",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "в",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "к",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "к",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "м",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "т",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "н",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "и",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "н",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "д",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "ј",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "д",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "н",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "и",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "в",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "д",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "и",
-    "gt": ""
-  },
-  {
     "op": "match",
-    "ocr": ".",
-    "gt": "."
-  },
-  {
-    "op": "substitution",
-    "ocr": "Д",
+    "ocr": "м",
     "gt": "м"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "у",
     "gt": "у"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": " ",
     "gt": " "
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "с",
     "gt": "с"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "е",
     "gt": "е"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": " ",
     "gt": " "
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "п",
     "gt": "п"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "р",
     "gt": "р"
   },
   {
@@ -758495,53 +757250,33 @@
     "gt": "в"
   },
   {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "ј",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "к",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "и",
-    "gt": ""
-  },
-  {
     "op": "match",
     "ocr": "т",
     "gt": "т"
   },
   {
-    "op": "substitution",
-    "ocr": "е",
+    "op": "match",
+    "ocr": "а",
     "gt": "а"
   },
   {
-    "op": "substitution",
-    "ocr": " ",
+    "op": "match",
+    "ocr": "с",
     "gt": "с"
   },
   {
-    "op": "substitution",
-    "ocr": "о",
+    "op": "match",
+    "ocr": "у",
     "gt": "у"
   },
   {
-    "op": "substitution",
-    "ocr": "д",
+    "op": "match",
+    "ocr": "в",
     "gt": "в"
   },
   {
-    "op": "substitution",
-    "ocr": "е",
+    "op": "match",
+    "ocr": "а",
     "gt": "а"
   },
   {
@@ -758555,18 +757290,18 @@
     "gt": " "
   },
   {
-    "op": "substitution",
-    "ocr": "п",
+    "op": "match",
+    "ocr": "к",
     "gt": "к"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "а",
     "gt": "а"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "к",
     "gt": "к"
   },
   {
@@ -758580,18 +757315,18 @@
     "gt": " "
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "м",
     "gt": "м"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "а",
     "gt": "а"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "т",
     "gt": "т"
   },
   {
@@ -758600,61 +757335,6 @@
     "gt": "н"
   },
   {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "г",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "и",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "р",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "ч",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "и",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "с",
-    "gt": ""
-  },
-  {
     "op": "match",
     "ocr": "и",
     "gt": "и"
@@ -758670,38 +757350,38 @@
     "gt": "н"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "а",
     "gt": "а"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "д",
     "gt": "д"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "о",
     "gt": "о"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "ј",
     "gt": "ј"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "д",
     "gt": "д"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "е",
     "gt": "е"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "н",
     "gt": "н"
   },
   {
@@ -758710,13 +757390,13 @@
     "gt": "и"
   },
   {
-    "op": "substitution",
-    "ocr": "ш",
+    "op": "match",
+    "ocr": " ",
     "gt": " "
   },
   {
-    "op": "substitution",
-    "ocr": "т",
+    "op": "match",
+    "ocr": "в",
     "gt": "в"
   },
   {
@@ -758725,54 +757405,14 @@
     "gt": "о"
   },
   {
-    "op": "substitution",
-    "ocr": " ",
+    "op": "match",
+    "ocr": "д",
     "gt": "д"
   },
   {
-    "op": "substitution",
-    "ocr": "н",
+    "op": "match",
+    "ocr": "и",
     "gt": "и"
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "с",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "л",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "у",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "ш",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
   },
   {
     "op": "match",
@@ -779683,151 +778323,6 @@
     "op": "match",
     "ocr": "!",
     "gt": "!"
-  },
-  {
-    "op": "match",
-    "ocr": "-",
-    "gt": "-"
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "Н",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "б",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "у",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "д",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "л",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "и",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "с",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": ",",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "Н",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "в",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "л",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "и",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "м",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "ј",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "к",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "match",
-    "ocr": ".",
-    "gt": "."
   },
   {
     "op": "deletion",
@@ -827500,448 +825995,83 @@
     "gt": "."
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "Н",
-    "gt": "Н"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "о",
-    "gt": "о"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": " ",
-    "gt": " "
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "к",
-    "gt": "к"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "о",
-    "gt": "о"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "г",
-    "gt": "г"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "а",
-    "gt": "а"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": " ",
-    "gt": " "
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "с",
-    "gt": "с"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "е",
-    "gt": "е"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": " ",
-    "gt": " "
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "р",
-    "gt": "р"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "е",
-    "gt": "е"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "ш",
-    "gt": "ш"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "и",
-    "gt": "и"
+    "gt": ""
   },
   {
     "op": "insertion",
     "ocr": ",",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "з",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "б",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "л",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "ж",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "к",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "к",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "д",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "Н",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "с",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "п",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "р",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "и",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "с",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "н",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "и",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "н",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "ш",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "т",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "и",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "к",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "к",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "д",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "ј",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "г",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "л",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "д",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "н",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "к",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "ј",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "д",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "з",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "г",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "р",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "match",
-    "ocr": ".",
-    "gt": "."
-  },
-  {
-    "op": "insertion",
-    "ocr": "Г",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
     "gt": ""
   },
   {
@@ -827995,8 +826125,8 @@
     "gt": " "
   },
   {
-    "op": "substitution",
-    "ocr": "с",
+    "op": "match",
+    "ocr": "к",
     "gt": "к"
   },
   {
@@ -828005,8 +826135,8 @@
     "gt": "а"
   },
   {
-    "op": "substitution",
-    "ocr": "м",
+    "op": "match",
+    "ocr": "к",
     "gt": "к"
   },
   {
@@ -828020,28 +826150,28 @@
     "gt": " "
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "д",
     "gt": "д"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "а",
     "gt": "а"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": " ",
     "gt": " "
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "substitution",
+    "ocr": "Н",
     "gt": "И"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": " ",
     "gt": " "
   },
   {
@@ -828050,73 +826180,73 @@
     "gt": "с"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "е",
     "gt": "е"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": " ",
     "gt": " "
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "п",
     "gt": "п"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "р",
     "gt": "р"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "и",
     "gt": "и"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "с",
     "gt": "с"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "е",
     "gt": "е"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "н",
     "gt": "н"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "и",
     "gt": "и"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": " ",
     "gt": " "
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "н",
     "gt": "н"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "е",
     "gt": "е"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "ш",
     "gt": "ш"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "т",
     "gt": "т"
   },
   {
@@ -828130,78 +826260,78 @@
     "gt": " "
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "и",
     "gt": "и"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": " ",
     "gt": " "
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "к",
     "gt": "к"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "а",
     "gt": "а"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "к",
     "gt": "к"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "о",
     "gt": "о"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": " ",
     "gt": " "
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "д",
     "gt": "д"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "а",
     "gt": "а"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": " ",
     "gt": " "
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "ј",
     "gt": "ј"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "а",
     "gt": "а"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": " ",
     "gt": " "
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "г",
     "gt": "г"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "л",
     "gt": "л"
   },
   {
@@ -828215,14 +826345,9 @@
     "gt": "д"
   },
   {
-    "op": "substitution",
-    "ocr": "н",
+    "op": "match",
+    "ocr": "а",
     "gt": "а"
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
   },
   {
     "op": "match",
@@ -828230,8 +826355,8 @@
     "gt": " "
   },
   {
-    "op": "substitution",
-    "ocr": "к",
+    "op": "deletion",
+    "ocr": "",
     "gt": "-"
   },
   {
@@ -828245,13 +826370,13 @@
     "gt": "т"
   },
   {
-    "op": "match",
-    "ocr": "р",
+    "op": "deletion",
+    "ocr": "",
     "gt": "р"
   },
   {
-    "op": "match",
-    "ocr": "а",
+    "op": "deletion",
+    "ocr": "",
     "gt": "а"
   },
   {
@@ -828295,39 +826420,29 @@
     "gt": " "
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "н",
     "gt": "н"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "е",
     "gt": "е"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "к",
     "gt": "к"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "о",
     "gt": "о"
   },
   {
     "op": "match",
     "ocr": "ј",
     "gt": "ј"
-  },
-  {
-    "op": "insertion",
-    "ocr": "ч",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
   },
   {
     "op": "match",
@@ -828345,9 +826460,19 @@
     "gt": "д"
   },
   {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
+    "op": "match",
+    "ocr": "о",
+    "gt": "о"
+  },
+  {
+    "op": "match",
+    "ocr": "з",
+    "gt": "з"
+  },
+  {
+    "op": "match",
+    "ocr": "г",
+    "gt": "г"
   },
   {
     "op": "match",
@@ -828355,28 +826480,13 @@
     "gt": "о"
   },
   {
-    "op": "substitution",
-    "ocr": "ч",
-    "gt": "з"
-  },
-  {
-    "op": "substitution",
-    "ocr": "и",
-    "gt": "г"
-  },
-  {
-    "op": "substitution",
-    "ocr": "т",
-    "gt": "о"
-  },
-  {
-    "op": "substitution",
-    "ocr": "е",
+    "op": "match",
+    "ocr": "р",
     "gt": "р"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "а",
     "gt": "а"
   },
   {
@@ -846562,251 +844672,6 @@
   {
     "op": "insertion",
     "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "match",
-    "ocr": ".",
-    "gt": "."
-  },
-  {
-    "op": "substitution",
-    "ocr": "Н",
-    "gt": "з"
-  },
-  {
-    "op": "substitution",
-    "ocr": "о",
-    "gt": "а"
-  },
-  {
-    "op": "match",
-    "ocr": " ",
-    "gt": " "
-  },
-  {
-    "op": "substitution",
-    "ocr": "б",
-    "gt": "д"
-  },
-  {
-    "op": "match",
-    "ocr": "а",
-    "gt": "а"
-  },
-  {
-    "op": "substitution",
-    "ocr": "р",
-    "gt": " "
-  },
-  {
-    "op": "substitution",
-    "ocr": "е",
-    "gt": "с"
-  },
-  {
-    "op": "substitution",
-    "ocr": "м",
-    "gt": "и"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "ј"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "а"
-  },
-  {
-    "op": "match",
-    "ocr": " ",
-    "gt": " "
-  },
-  {
-    "op": "match",
-    "ocr": "в",
-    "gt": "в"
-  },
-  {
-    "op": "match",
-    "ocr": "и",
-    "gt": "и"
-  },
-  {
-    "op": "match",
-    "ocr": "д",
-    "gt": "д"
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "match",
-    "ocr": "и",
-    "gt": "и"
-  },
-  {
-    "op": "match",
-    "ocr": " ",
-    "gt": " "
-  },
-  {
-    "op": "insertion",
-    "ocr": "к",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "ј",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "match",
-    "ocr": "с",
-    "gt": "с"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "м"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "р"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "т"
-  },
-  {
-    "op": "match",
-    "ocr": "т",
-    "gt": "т"
-  },
-  {
-    "op": "match",
-    "ocr": "а",
-    "gt": "а"
-  },
-  {
-    "op": "insertion",
-    "ocr": "н",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "н",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "ј",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "з",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "и",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "н",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "и",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "т",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "ж",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "и",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "в",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "т",
     "gt": ""
   },
   {
@@ -979420,29 +977285,29 @@
     "gt": "."
   },
   {
-    "op": "substitution",
+    "op": "match",
     "ocr": "Н",
-    "gt": "с"
+    "gt": "Н"
   },
   {
-    "op": "substitution",
+    "op": "match",
     "ocr": "е",
-    "gt": "и"
+    "gt": "е"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "м",
-    "gt": ""
+    "gt": "м"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "а",
-    "gt": ""
+    "gt": "а"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "м",
-    "gt": ""
+    "gt": "м"
   },
   {
     "op": "match",
@@ -979450,24 +977315,24 @@
     "gt": " "
   },
   {
-    "op": "substitution",
+    "op": "match",
     "ocr": "н",
-    "gt": "г"
+    "gt": "н"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "и",
-    "gt": ""
+    "gt": "и"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "ш",
-    "gt": ""
+    "gt": "ш"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "т",
-    "gt": ""
+    "gt": "т"
   },
   {
     "op": "match",
@@ -979490,294 +977355,39 @@
     "gt": "а"
   },
   {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "б"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "р"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "и"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "ш"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "у"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "в"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "а"
-  },
-  {
     "op": "match",
     "ocr": " ",
     "gt": " "
   },
   {
-    "op": "substitution",
+    "op": "match",
     "ocr": "б",
-    "gt": "н"
-  },
-  {
-    "op": "substitution",
-    "ocr": "а",
-    "gt": "о"
-  },
-  {
-    "op": "substitution",
-    "ocr": "р",
-    "gt": "с"
-  },
-  {
-    "op": "substitution",
-    "ocr": "а",
-    "gt": "о"
-  },
-  {
-    "op": "substitution",
-    "ocr": "њ",
-    "gt": "т"
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": ",",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "в",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "л",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "и",
-    "gt": ""
-  },
-  {
-    "op": "match",
-    "ocr": ".",
-    "gt": "."
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "Н"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "е"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "м"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "а"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "м"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "н"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "и"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "ш"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "т"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "о"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "з"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "а"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
     "gt": "б"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "а",
     "gt": "а"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "р",
     "gt": "р"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "а",
     "gt": "а"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "њ",
     "gt": "њ"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "е",
     "gt": "е"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": ","
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "в"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "е"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "л"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "и"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "match",
-    "ocr": "И",
-    "gt": "И"
-  },
-  {
-    "op": "match",
-    "ocr": " ",
-    "gt": " "
-  },
-  {
-    "op": "match",
-    "ocr": "в",
-    "gt": "в"
-  },
-  {
-    "op": "match",
-    "ocr": "и",
-    "gt": "и"
-  },
-  {
-    "op": "match",
-    "ocr": "с",
-    "gt": "с"
-  },
-  {
-    "op": "match",
-    "ocr": "т",
-    "gt": "т"
-  },
-  {
-    "op": "match",
-    "ocr": "и",
-    "gt": "и"
-  },
-  {
-    "op": "match",
-    "ocr": "н",
-    "gt": "н"
-  },
-  {
-    "op": "match",
-    "ocr": "а",
-    "gt": "а"
   },
   {
     "op": "match",
@@ -979791,8 +977401,8 @@
   },
   {
     "op": "match",
-    "ocr": "н",
-    "gt": "н"
+    "ocr": "в",
+    "gt": "в"
   },
   {
     "op": "match",
@@ -979801,52 +977411,132 @@
   },
   {
     "op": "match",
-    "ocr": " ",
+    "ocr": "л",
+    "gt": "л"
+  },
+  {
+    "op": "match",
+    "ocr": "и",
+    "gt": "и"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
     "gt": " "
   },
   {
-    "op": "match",
-    "ocr": "г",
-    "gt": "г"
+    "op": "deletion",
+    "ocr": "",
+    "gt": "И"
   },
   {
-    "op": "match",
-    "ocr": "о",
-    "gt": "о"
-  },
-  {
-    "op": "match",
-    "ocr": " ",
+    "op": "deletion",
+    "ocr": "",
     "gt": " "
   },
   {
-    "op": "match",
-    "ocr": "п",
-    "gt": "п"
+    "op": "deletion",
+    "ocr": "",
+    "gt": "в"
   },
   {
-    "op": "match",
-    "ocr": "о",
-    "gt": "о"
+    "op": "deletion",
+    "ocr": "",
+    "gt": "и"
   },
   {
-    "op": "match",
-    "ocr": "б",
-    "gt": "б"
+    "op": "deletion",
+    "ocr": "",
+    "gt": "с"
   },
   {
-    "op": "match",
-    "ocr": "а",
+    "op": "deletion",
+    "ocr": "",
+    "gt": "т"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "и"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "н"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
     "gt": "а"
   },
   {
-    "op": "match",
-    "ocr": "р",
+    "op": "deletion",
+    "ocr": "",
+    "gt": ","
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": " "
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "н"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "е"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": " "
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "г"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "о"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": " "
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "п"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "о"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "б"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "а"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
     "gt": "р"
   },
   {
-    "op": "match",
-    "ocr": "а",
+    "op": "deletion",
+    "ocr": "",
     "gt": "а"
   },
   {
@@ -1026445,216 +1024135,6 @@
     "gt": "."
   },
   {
-    "op": "substitution",
-    "ocr": "Т",
-    "gt": "Н"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "е"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "к"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "о"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "ј"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "с"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "т"
-  },
-  {
-    "op": "match",
-    "ocr": "и",
-    "gt": "и"
-  },
-  {
-    "op": "substitution",
-    "ocr": "е",
-    "gt": "ш"
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "д",
-    "gt": ""
-  },
-  {
-    "op": "match",
-    "ocr": "е",
-    "gt": "е"
-  },
-  {
-    "op": "match",
-    "ocr": "н",
-    "gt": "н"
-  },
-  {
-    "op": "substitution",
-    "ocr": "о",
-    "gt": ","
-  },
-  {
-    "op": "insertion",
-    "ocr": "в",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "и",
-    "gt": ""
-  },
-  {
-    "op": "match",
-    "ocr": " ",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "з"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "а"
-  },
-  {
-    "op": "match",
-    "ocr": "п",
-    "gt": "п"
-  },
-  {
-    "op": "substitution",
-    "ocr": "о",
-    "gt": "л"
-  },
-  {
-    "op": "substitution",
-    "ocr": "ч",
-    "gt": "е"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "т"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "к"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "а"
-  },
-  {
-    "op": "match",
-    "ocr": "н",
-    "gt": "н"
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "д",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "в",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "р",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "н",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "match",
-    "ocr": " ",
-    "gt": " "
-  },
-  {
-    "op": "match",
-    "ocr": "д",
-    "gt": "д"
-  },
-  {
-    "op": "match",
-    "ocr": "о",
-    "gt": "о"
-  },
-  {
-    "op": "match",
-    "ocr": "ж",
-    "gt": "ж"
-  },
-  {
-    "op": "match",
-    "ocr": "д",
-    "gt": "д"
-  },
-  {
-    "op": "match",
-    "ocr": ".",
-    "gt": "."
-  },
-  {
     "op": "insertion",
     "ocr": "Н",
     "gt": ""
@@ -1035993,16 +1033473,6 @@
     "op": "match",
     "ocr": "т",
     "gt": "т"
-  },
-  {
-    "op": "match",
-    "ocr": ".",
-    "gt": "."
-  },
-  {
-    "op": "match",
-    "ocr": "И",
-    "gt": "И"
   },
   {
     "op": "match",
@@ -1056280,396 +1053750,6 @@
     "gt": "."
   },
   {
-    "op": "substitution",
-    "ocr": "-",
-    "gt": "в"
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "Р",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "н",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "match",
-    "ocr": "е",
-    "gt": "е"
-  },
-  {
-    "op": "substitution",
-    "ocr": " ",
-    "gt": "л"
-  },
-  {
-    "op": "insertion",
-    "ocr": "з",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "д",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "ж",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "д",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "в",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "и",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "т",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": ",",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "ќ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "р",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "ч",
-    "gt": ""
-  },
-  {
-    "op": "match",
-    "ocr": "е",
-    "gt": "е"
-  },
-  {
-    "op": "match",
-    "ocr": "ш",
-    "gt": "ш"
-  },
-  {
-    "op": "match",
-    "ocr": "е",
-    "gt": "е"
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "М",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "н",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "к",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": ",",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "т",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "и",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "д",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "т",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "г",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "ш",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "ќ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "з",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "д",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "р",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "в",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "и",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "ш",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": ",",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "т",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "т",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "к",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "С",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "п",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "с",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "и",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "ј",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "match",
-    "ocr": ".",
-    "gt": "."
-  },
-  {
     "op": "match",
     "ocr": "-",
     "gt": "-"
@@ -1058095,674 +1055175,49 @@
     "gt": "."
   },
   {
-    "op": "substitution",
+    "op": "match",
     "ocr": "С",
-    "gt": "с"
-  },
-  {
-    "op": "match",
-    "ocr": "е",
-    "gt": "е"
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "п",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "ф",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "ќ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "м",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": ",",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "к",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "ж",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "в",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "м",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "и",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "к",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "р",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "ц",
-    "gt": ""
-  },
-  {
-    "op": "match",
-    "ocr": "к",
-    "gt": "к"
-  },
-  {
-    "op": "match",
-    "ocr": "а",
-    "gt": "а"
-  },
-  {
-    "op": "insertion",
-    "ocr": ",",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "к",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "к",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "match",
-    "ocr": "д",
-    "gt": "д"
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "м",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "и",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "т",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "ч",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "п",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "с",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "к",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "м",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "ѓ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "у",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "п",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "р",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "с",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "т",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "и",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "в",
-    "gt": ""
-  },
-  {
-    "op": "match",
-    "ocr": "е",
-    "gt": "е"
-  },
-  {
-    "op": "match",
-    "ocr": ".",
-    "gt": "."
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
     "gt": "С"
   },
   {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "е"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "п"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "о"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "ф"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "а"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "ќ"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "а"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "м"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": ","
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "а"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "к"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "о"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "ж"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "а"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "в"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "а"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "м"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "и"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "к"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "р"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "ц"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "к"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "а"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": ","
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "к"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "а"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "к"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "о"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "д"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "а"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "м"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "и"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "т"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "е"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "ч"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "е"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "п"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "е"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "с"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "о"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "к"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "м"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "е"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "ѓ"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "у"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "п"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "р"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "с"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "т"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "и"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "в"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "е"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "match",
-    "ocr": "Н",
-    "gt": "Н"
-  },
-  {
     "op": "match",
     "ocr": "е",
     "gt": "е"
+  },
+  {
+    "op": "match",
+    "ocr": " ",
+    "gt": " "
+  },
+  {
+    "op": "match",
+    "ocr": "п",
+    "gt": "п"
+  },
+  {
+    "op": "match",
+    "ocr": "о",
+    "gt": "о"
+  },
+  {
+    "op": "match",
+    "ocr": "ф",
+    "gt": "ф"
+  },
+  {
+    "op": "match",
+    "ocr": "а",
+    "gt": "а"
+  },
+  {
+    "op": "match",
+    "ocr": "ќ",
+    "gt": "ќ"
+  },
+  {
+    "op": "match",
+    "ocr": "а",
+    "gt": "а"
   },
   {
     "op": "match",
@@ -1058771,23 +1055226,13 @@
   },
   {
     "op": "match",
-    "ocr": "о",
-    "gt": "о"
-  },
-  {
-    "op": "match",
-    "ocr": "ј",
-    "gt": "ј"
+    "ocr": ",",
+    "gt": ","
   },
   {
     "op": "match",
     "ocr": " ",
     "gt": " "
-  },
-  {
-    "op": "match",
-    "ocr": "д",
-    "gt": "д"
   },
   {
     "op": "match",
@@ -1058801,18 +1055246,8 @@
   },
   {
     "op": "match",
-    "ocr": "с",
-    "gt": "с"
-  },
-  {
-    "op": "match",
-    "ocr": "е",
-    "gt": "е"
-  },
-  {
-    "op": "match",
-    "ocr": " ",
-    "gt": " "
+    "ocr": "к",
+    "gt": "к"
   },
   {
     "op": "match",
@@ -1058821,38 +1055256,13 @@
   },
   {
     "op": "match",
-    "ocr": "д",
-    "gt": "д"
-  },
-  {
-    "op": "match",
-    "ocr": "д",
-    "gt": "д"
+    "ocr": "ж",
+    "gt": "ж"
   },
   {
     "op": "match",
     "ocr": "а",
     "gt": "а"
-  },
-  {
-    "op": "match",
-    "ocr": "л",
-    "gt": "л"
-  },
-  {
-    "op": "match",
-    "ocr": "е",
-    "gt": "е"
-  },
-  {
-    "op": "match",
-    "ocr": "ч",
-    "gt": "ч"
-  },
-  {
-    "op": "match",
-    "ocr": "у",
-    "gt": "у"
   },
   {
     "op": "match",
@@ -1058866,12 +1055276,352 @@
   },
   {
     "op": "match",
-    "ocr": "ш",
-    "gt": "ш"
+    "ocr": " ",
+    "gt": " "
   },
   {
     "op": "match",
-    "ocr": "!",
+    "ocr": "м",
+    "gt": "м"
+  },
+  {
+    "op": "match",
+    "ocr": "и",
+    "gt": "и"
+  },
+  {
+    "op": "match",
+    "ocr": " ",
+    "gt": " "
+  },
+  {
+    "op": "match",
+    "ocr": "к",
+    "gt": "к"
+  },
+  {
+    "op": "match",
+    "ocr": "р",
+    "gt": "р"
+  },
+  {
+    "op": "match",
+    "ocr": "ц",
+    "gt": "ц"
+  },
+  {
+    "op": "match",
+    "ocr": "к",
+    "gt": "к"
+  },
+  {
+    "op": "match",
+    "ocr": "а",
+    "gt": "а"
+  },
+  {
+    "op": "match",
+    "ocr": ",",
+    "gt": ","
+  },
+  {
+    "op": "match",
+    "ocr": " ",
+    "gt": " "
+  },
+  {
+    "op": "match",
+    "ocr": "к",
+    "gt": "к"
+  },
+  {
+    "op": "match",
+    "ocr": "а",
+    "gt": "а"
+  },
+  {
+    "op": "match",
+    "ocr": "к",
+    "gt": "к"
+  },
+  {
+    "op": "match",
+    "ocr": "о",
+    "gt": "о"
+  },
+  {
+    "op": "match",
+    "ocr": " ",
+    "gt": " "
+  },
+  {
+    "op": "match",
+    "ocr": "д",
+    "gt": "д"
+  },
+  {
+    "op": "match",
+    "ocr": "а",
+    "gt": "а"
+  },
+  {
+    "op": "match",
+    "ocr": " ",
+    "gt": " "
+  },
+  {
+    "op": "match",
+    "ocr": "м",
+    "gt": "м"
+  },
+  {
+    "op": "match",
+    "ocr": "и",
+    "gt": "и"
+  },
+  {
+    "op": "match",
+    "ocr": " ",
+    "gt": " "
+  },
+  {
+    "op": "match",
+    "ocr": "т",
+    "gt": "т"
+  },
+  {
+    "op": "match",
+    "ocr": "е",
+    "gt": "е"
+  },
+  {
+    "op": "match",
+    "ocr": "ч",
+    "gt": "ч"
+  },
+  {
+    "op": "match",
+    "ocr": "е",
+    "gt": "е"
+  },
+  {
+    "op": "match",
+    "ocr": " ",
+    "gt": " "
+  },
+  {
+    "op": "match",
+    "ocr": "п",
+    "gt": "п"
+  },
+  {
+    "op": "match",
+    "ocr": "е",
+    "gt": "е"
+  },
+  {
+    "op": "match",
+    "ocr": "с",
+    "gt": "с"
+  },
+  {
+    "op": "match",
+    "ocr": "о",
+    "gt": "о"
+  },
+  {
+    "op": "match",
+    "ocr": "к",
+    "gt": "к"
+  },
+  {
+    "op": "match",
+    "ocr": " ",
+    "gt": " "
+  },
+  {
+    "op": "match",
+    "ocr": "м",
+    "gt": "м"
+  },
+  {
+    "op": "match",
+    "ocr": "е",
+    "gt": "е"
+  },
+  {
+    "op": "match",
+    "ocr": "ѓ",
+    "gt": "ѓ"
+  },
+  {
+    "op": "match",
+    "ocr": "у",
+    "gt": "у"
+  },
+  {
+    "op": "match",
+    "ocr": " ",
+    "gt": " "
+  },
+  {
+    "op": "match",
+    "ocr": "п",
+    "gt": "п"
+  },
+  {
+    "op": "match",
+    "ocr": "р",
+    "gt": "р"
+  },
+  {
+    "op": "match",
+    "ocr": "с",
+    "gt": "с"
+  },
+  {
+    "op": "match",
+    "ocr": "т",
+    "gt": "т"
+  },
+  {
+    "op": "match",
+    "ocr": "и",
+    "gt": "и"
+  },
+  {
+    "op": "match",
+    "ocr": "в",
+    "gt": "в"
+  },
+  {
+    "op": "match",
+    "ocr": "е",
+    "gt": "е"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": " "
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "Н"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "е"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "м"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "о"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "ј"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": " "
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "д"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "а"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": " "
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "с"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "е"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": " "
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "о"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "д"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "д"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "а"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "л"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "е"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "ч"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "у"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "в"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "а"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "ш"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
     "gt": "!"
   },
   {
@@ -1058880,13 +1055630,13 @@
     "gt": "."
   },
   {
-    "op": "match",
-    "ocr": ".",
+    "op": "deletion",
+    "ocr": "",
     "gt": "."
   },
   {
-    "op": "match",
-    "ocr": ".",
+    "op": "deletion",
+    "ocr": "",
     "gt": "."
   },
   {
@@ -1133600,236 +1130350,6 @@
     "gt": "."
   },
   {
-    "op": "substitution",
-    "ocr": "И",
-    "gt": "р"
-  },
-  {
-    "op": "substitution",
-    "ocr": " ",
-    "gt": "е"
-  },
-  {
-    "op": "substitution",
-    "ocr": "п",
-    "gt": "ч"
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "с",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "л",
-    "gt": ""
-  },
-  {
-    "op": "match",
-    "ocr": "е",
-    "gt": "е"
-  },
-  {
-    "op": "match",
-    "ocr": " ",
-    "gt": " "
-  },
-  {
-    "op": "substitution",
-    "ocr": "с",
-    "gt": "Д"
-  },
-  {
-    "op": "substitution",
-    "ocr": "т",
-    "gt": "о"
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "match",
-    "ocr": "н",
-    "gt": "н"
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "б",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "ј",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "ц",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "т",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "и",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "п",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "ч",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "н",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "д",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "с",
-    "gt": ""
-  },
-  {
-    "op": "match",
-    "ocr": "е",
-    "gt": "е"
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "к",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "р",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "с",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "т",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "т",
-    "gt": ""
-  },
-  {
-    "op": "match",
-    "ocr": ".",
-    "gt": "."
-  },
-  {
     "op": "deletion",
     "ocr": "",
     "gt": "И"
@@ -1139930,111 +1136450,6 @@
     "gt": "."
   },
   {
-    "op": "match",
-    "ocr": "-",
-    "gt": "-"
-  },
-  {
-    "op": "match",
-    "ocr": " ",
-    "gt": " "
-  },
-  {
-    "op": "substitution",
-    "ocr": "Н",
-    "gt": "З"
-  },
-  {
-    "op": "substitution",
-    "ocr": "е",
-    "gt": "а"
-  },
-  {
-    "op": "substitution",
-    "ocr": "е",
-    "gt": "п"
-  },
-  {
-    "op": "insertion",
-    "ocr": ",",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "match",
-    "ocr": "р",
-    "gt": "р"
-  },
-  {
-    "op": "substitution",
-    "ocr": "е",
-    "gt": "и"
-  },
-  {
-    "op": "insertion",
-    "ocr": "ч",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "п",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "л",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "ј",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "к",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "т",
-    "gt": ""
-  },
-  {
-    "op": "match",
-    "ocr": ".",
-    "gt": "."
-  },
-  {
     "op": "insertion",
     "ocr": "-",
     "gt": ""
@@ -1145626,256 +1142041,6 @@
   },
   {
     "op": "insertion",
-    "ocr": "К",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "ј",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "н",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "т",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "у",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "р",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "н",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": ",",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "match",
-    "ocr": "п",
-    "gt": "п"
-  },
-  {
-    "op": "match",
-    "ocr": "р",
-    "gt": "р"
-  },
-  {
-    "op": "match",
-    "ocr": "а",
-    "gt": "а"
-  },
-  {
-    "op": "match",
-    "ocr": "ш",
-    "gt": "ш"
-  },
-  {
-    "op": "match",
-    "ocr": "а",
-    "gt": "а"
-  },
-  {
-    "op": "match",
-    "ocr": " ",
-    "gt": " "
-  },
-  {
-    "op": "match",
-    "ocr": "К",
-    "gt": "К"
-  },
-  {
-    "op": "match",
-    "ocr": "р",
-    "gt": "р"
-  },
-  {
-    "op": "match",
-    "ocr": "а",
-    "gt": "а"
-  },
-  {
-    "op": "match",
-    "ocr": "с",
-    "gt": "с"
-  },
-  {
-    "op": "match",
-    "ocr": "а",
-    "gt": "а"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "-"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "С"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "т"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "р"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "а"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "н"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "а"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "1"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "5"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "2"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "-"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "-"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "Н"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "е"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "з"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "н"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "а"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "м"
-  },
-  {
-    "op": "match",
-    "ocr": ".",
-    "gt": "."
-  },
-  {
-    "op": "insertion",
-    "ocr": "-",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
     "ocr": "Н",
     "gt": ""
   },
@@ -1150125,153 +1146290,48 @@
     "gt": "."
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "О",
-    "gt": "О"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "в",
-    "gt": "в"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "а",
-    "gt": "а"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": " ",
-    "gt": " "
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "н",
-    "gt": "н"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "и",
-    "gt": "и"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "к",
-    "gt": "к"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "о",
-    "gt": "о"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "г",
-    "gt": "г"
-  },
-  {
-    "op": "match",
-    "ocr": "а",
-    "gt": "а"
-  },
-  {
-    "op": "match",
-    "ocr": "ш",
-    "gt": "ш"
-  },
-  {
-    "op": "match",
-    "ocr": " ",
-    "gt": " "
-  },
-  {
-    "op": "match",
-    "ocr": "н",
-    "gt": "н"
-  },
-  {
-    "op": "match",
-    "ocr": "е",
-    "gt": "е"
-  },
-  {
-    "op": "match",
-    "ocr": " ",
-    "gt": " "
-  },
-  {
-    "op": "match",
-    "ocr": "б",
-    "gt": "б"
-  },
-  {
-    "op": "match",
-    "ocr": "и",
-    "gt": "и"
-  },
-  {
-    "op": "match",
-    "ocr": "л",
-    "gt": "л"
-  },
-  {
-    "op": "match",
-    "ocr": "о",
-    "gt": "о"
-  },
-  {
-    "op": "insertion",
-    "ocr": ",",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "с",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "и",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "ш",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "п",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "т",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
     "gt": ""
   },
   {
@@ -1150281,77 +1146341,12 @@
   },
   {
     "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "с",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "л",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "с",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "к",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "и",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "т",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
+    "ocr": "ш",
     "gt": ""
   },
   {
     "op": "insertion",
     "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "д",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "б",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "р",
     "gt": ""
   },
   {
@@ -1150361,17 +1146356,32 @@
   },
   {
     "op": "insertion",
+    "ocr": "е",
+    "gt": ""
+  },
+  {
+    "op": "insertion",
+    "ocr": " ",
+    "gt": ""
+  },
+  {
+    "op": "insertion",
+    "ocr": "б",
+    "gt": ""
+  },
+  {
+    "op": "insertion",
     "ocr": "и",
     "gt": ""
   },
   {
     "op": "insertion",
-    "ocr": "ц",
+    "ocr": "л",
     "gt": ""
   },
   {
     "op": "insertion",
-    "ocr": "и",
+    "ocr": "о",
     "gt": ""
   },
   {
@@ -1150385,168 +1146395,13 @@
     "gt": ""
   },
   {
-    "op": "insertion",
-    "ocr": "и",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "д",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "њ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "д",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "с",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "ј",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "в",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "у",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "в",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "т",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "д",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "у",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "х",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "в",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "и",
-    "gt": ""
-  },
-  {
     "op": "match",
-    "ocr": ".",
-    "gt": "."
-  },
-  {
-    "op": "insertion",
-    "ocr": ".",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": ".",
-    "gt": ""
-  },
-  {
-    "op": "substitution",
-    "ocr": "-",
+    "ocr": "с",
     "gt": "с"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "и",
     "gt": "и"
   },
   {
@@ -1150555,88 +1146410,88 @@
     "gt": " "
   },
   {
-    "op": "substitution",
-    "ocr": "П",
+    "op": "match",
+    "ocr": "ш",
     "gt": "ш"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "е",
     "gt": "е"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "п",
     "gt": "п"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "о",
     "gt": "о"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "т",
     "gt": "т"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "е",
     "gt": "е"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "а",
     "gt": "а"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": " ",
     "gt": " "
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "с",
     "gt": "с"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "е",
     "gt": "е"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "л",
     "gt": "л"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "с",
     "gt": "с"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "к",
     "gt": "к"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "и",
     "gt": "и"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "т",
     "gt": "т"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "е",
     "gt": "е"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": " ",
     "gt": " "
   },
   {
@@ -1150650,8 +1146505,8 @@
     "gt": "д"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "б",
     "gt": "б"
   },
   {
@@ -1150660,48 +1146515,43 @@
     "gt": "о"
   },
   {
-    "op": "insertion",
-    "ocr": "б",
-    "gt": ""
-  },
-  {
     "op": "match",
     "ocr": "р",
     "gt": "р"
   },
   {
-    "op": "substitution",
-    "ocr": "о",
+    "op": "match",
+    "ocr": "н",
     "gt": "н"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "и",
     "gt": "и"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "ц",
     "gt": "ц"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "и",
     "gt": "и"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": ",",
     "gt": ","
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": " ",
     "gt": " "
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "и",
     "gt": "и"
   },
   {
@@ -1150735,231 +1146585,6 @@
     "gt": " "
   },
   {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "т",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "к",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "л",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "к",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "у",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "н",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "ќ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": ",",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "р",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "ч",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "К",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "р",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "с",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": ",",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "б",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "р",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "м",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "ќ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "н",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "с",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "т",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "в",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "и",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
     "op": "match",
     "ocr": "д",
     "gt": "д"
@@ -1150980,83 +1146605,83 @@
     "gt": "с"
   },
   {
-    "op": "substitution",
-    "ocr": "п",
+    "op": "match",
+    "ocr": "е",
     "gt": "е"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": " ",
     "gt": " "
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "ј",
     "gt": "ј"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "а",
     "gt": "а"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "в",
     "gt": "в"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "у",
     "gt": "у"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "в",
     "gt": "в"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "а",
     "gt": "а"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "а",
     "gt": "а"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "т",
     "gt": "т"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": " ",
     "gt": " "
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "д",
     "gt": "д"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "у",
     "gt": "у"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "х",
     "gt": "х"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "о",
     "gt": "о"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "в",
     "gt": "в"
   },
   {
@@ -1151065,19 +1146690,9 @@
     "gt": "и"
   },
   {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "м",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
+    "op": "match",
+    "ocr": ".",
+    "gt": "."
   },
   {
     "op": "match",
@@ -1151085,13 +1146700,8 @@
     "gt": "."
   },
   {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "."
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": ".",
     "gt": "."
   },
   {
@@ -1155225,299 +1150835,229 @@
     "gt": " "
   },
   {
-    "op": "match",
-    "ocr": "-",
+    "op": "deletion",
+    "ocr": "",
     "gt": "-"
   },
   {
-    "op": "match",
-    "ocr": " ",
+    "op": "deletion",
+    "ocr": "",
     "gt": " "
   },
   {
-    "op": "match",
-    "ocr": "Ј",
+    "op": "deletion",
+    "ocr": "",
     "gt": "Ј"
   },
   {
-    "op": "match",
-    "ocr": "а",
+    "op": "deletion",
+    "ocr": "",
     "gt": "а"
   },
   {
-    "op": "match",
-    "ocr": " ",
+    "op": "deletion",
+    "ocr": "",
     "gt": " "
   },
   {
-    "op": "match",
-    "ocr": "п",
+    "op": "deletion",
+    "ocr": "",
     "gt": "п"
   },
   {
-    "op": "match",
-    "ocr": "о",
+    "op": "deletion",
+    "ocr": "",
     "gt": "о"
   },
   {
-    "op": "match",
-    "ocr": "с",
+    "op": "deletion",
+    "ocr": "",
     "gt": "с"
   },
   {
-    "op": "match",
-    "ocr": "т",
+    "op": "deletion",
+    "ocr": "",
     "gt": "т"
   },
   {
-    "op": "match",
-    "ocr": "а",
+    "op": "deletion",
+    "ocr": "",
     "gt": "а"
   },
   {
-    "op": "match",
-    "ocr": "в",
+    "op": "deletion",
+    "ocr": "",
     "gt": "в"
   },
   {
-    "op": "match",
-    "ocr": "и",
+    "op": "deletion",
+    "ocr": "",
     "gt": "и"
   },
   {
-    "op": "match",
-    "ocr": " ",
+    "op": "deletion",
+    "ocr": "",
     "gt": " "
   },
   {
-    "op": "match",
-    "ocr": "т",
+    "op": "deletion",
+    "ocr": "",
     "gt": "т"
   },
   {
-    "op": "match",
-    "ocr": "р",
+    "op": "deletion",
+    "ocr": "",
     "gt": "р"
   },
   {
-    "op": "match",
-    "ocr": "п",
+    "op": "deletion",
+    "ocr": "",
     "gt": "п"
   },
   {
-    "op": "match",
-    "ocr": "е",
+    "op": "deletion",
+    "ocr": "",
     "gt": "е"
   },
   {
-    "op": "match",
-    "ocr": "з",
+    "op": "deletion",
+    "ocr": "",
     "gt": "з"
   },
   {
-    "op": "match",
-    "ocr": "а",
+    "op": "deletion",
+    "ocr": "",
     "gt": "а"
   },
   {
-    "op": "match",
-    "ocr": "т",
+    "op": "deletion",
+    "ocr": "",
     "gt": "т"
   },
   {
-    "op": "match",
-    "ocr": "а",
+    "op": "deletion",
+    "ocr": "",
     "gt": "а"
   },
   {
-    "op": "match",
-    "ocr": ",",
+    "op": "deletion",
+    "ocr": "",
     "gt": ","
   },
   {
-    "op": "match",
-    "ocr": " ",
+    "op": "deletion",
+    "ocr": "",
     "gt": " "
   },
   {
-    "op": "match",
-    "ocr": "р",
+    "op": "deletion",
+    "ocr": "",
     "gt": "р"
   },
   {
-    "op": "match",
-    "ocr": "е",
+    "op": "deletion",
+    "ocr": "",
     "gt": "е"
   },
   {
-    "op": "match",
-    "ocr": "ч",
+    "op": "deletion",
+    "ocr": "",
     "gt": "ч"
   },
   {
-    "op": "match",
-    "ocr": "е",
+    "op": "deletion",
+    "ocr": "",
     "gt": "е"
   },
   {
-    "op": "match",
-    "ocr": " ",
+    "op": "deletion",
+    "ocr": "",
     "gt": " "
   },
   {
-    "op": "match",
-    "ocr": "К",
+    "op": "deletion",
+    "ocr": "",
     "gt": "К"
   },
   {
-    "op": "match",
-    "ocr": "р",
+    "op": "deletion",
+    "ocr": "",
     "gt": "р"
   },
   {
-    "op": "match",
-    "ocr": "а",
+    "op": "deletion",
+    "ocr": "",
     "gt": "а"
   },
   {
-    "op": "match",
-    "ocr": "с",
+    "op": "deletion",
+    "ocr": "",
     "gt": "с"
   },
   {
-    "op": "match",
-    "ocr": "а",
+    "op": "deletion",
+    "ocr": "",
     "gt": "а"
   },
   {
-    "op": "match",
-    "ocr": ",",
+    "op": "deletion",
+    "ocr": "",
     "gt": ","
   },
   {
-    "op": "match",
-    "ocr": " ",
+    "op": "deletion",
+    "ocr": "",
     "gt": " "
   },
   {
-    "op": "match",
-    "ocr": "с",
+    "op": "deletion",
+    "ocr": "",
     "gt": "с"
   },
   {
-    "op": "match",
-    "ocr": "и",
+    "op": "deletion",
+    "ocr": "",
     "gt": "и"
   },
   {
-    "op": "match",
-    "ocr": "г",
+    "op": "deletion",
+    "ocr": "",
     "gt": "г"
   },
   {
-    "op": "match",
-    "ocr": "у",
+    "op": "deletion",
+    "ocr": "",
     "gt": "у"
   },
   {
-    "op": "match",
-    "ocr": "р",
+    "op": "deletion",
+    "ocr": "",
     "gt": "р"
   },
   {
-    "op": "match",
-    "ocr": "н",
+    "op": "deletion",
+    "ocr": "",
     "gt": "н"
   },
   {
-    "op": "match",
-    "ocr": "о",
+    "op": "deletion",
+    "ocr": "",
     "gt": "о"
   },
   {
-    "op": "match",
-    "ocr": " ",
+    "op": "deletion",
+    "ocr": "",
     "gt": " "
   },
   {
-    "op": "match",
-    "ocr": "ќ",
+    "op": "deletion",
+    "ocr": "",
     "gt": "ќ"
   },
   {
-    "op": "match",
-    "ocr": "е",
-    "gt": "е"
-  },
-  {
-    "op": "match",
-    "ocr": " ",
-    "gt": " "
-  },
-  {
-    "op": "match",
-    "ocr": "в",
-    "gt": "в"
-  },
-  {
-    "op": "match",
-    "ocr": "е",
-    "gt": "е"
-  },
-  {
-    "op": "match",
-    "ocr": "ч",
-    "gt": "ч"
-  },
-  {
-    "op": "match",
-    "ocr": "е",
-    "gt": "е"
-  },
-  {
-    "op": "match",
-    "ocr": "р",
-    "gt": "р"
-  },
-  {
-    "op": "match",
-    "ocr": "а",
-    "gt": "а"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "-"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "Н"
-  },
-  {
     "op": "deletion",
     "ocr": "",
     "gt": "е"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "к"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "а"
   },
   {
     "op": "deletion",
@@ -1155557,192 +1151097,7 @@
   {
     "op": "deletion",
     "ocr": "",
-    "gt": ","
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
     "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "р"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "е"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "ч"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "е"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "Д"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "о"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "н"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "е"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": ","
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "б"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "е"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "л"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "к"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "и"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "п"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "о"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "б"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "р"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "г"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "у"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "ќ"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "е"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "с"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "и"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "о"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "т"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "и"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "д"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "е"
-  },
-  {
-    "op": "match",
-    "ocr": ".",
-    "gt": "."
   },
   {
     "op": "match",
@@ -1155755,24 +1151110,9 @@
     "gt": " "
   },
   {
-    "op": "substitution",
+    "op": "match",
     "ocr": "Н",
-    "gt": "Д"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "а"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "н"
+    "gt": "Н"
   },
   {
     "op": "match",
@@ -1155780,134 +1151120,9 @@
     "gt": "е"
   },
   {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "с"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "е"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "п"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "р"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "о"
-  },
-  {
     "op": "match",
     "ocr": "к",
     "gt": "к"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "у"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "д"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "и"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "с"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "а"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "м"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "о"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "к"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "а"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "ј"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "н"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "а"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "с"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "д"
   },
   {
     "op": "match",
@@ -1155982,101 +1151197,6 @@
   {
     "op": "match",
     "ocr": " ",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "р"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "а"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "с"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "а"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "и"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "с"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "е"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "п"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "р"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "и"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "п"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "и"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "д"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "о"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
     "gt": " "
   },
   {
@@ -1156100,114 +1151220,114 @@
     "gt": "е"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": ",",
-    "gt": ""
+    "gt": ","
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": " ",
-    "gt": ""
+    "gt": " "
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "б",
-    "gt": ""
+    "gt": "б"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "е",
-    "gt": ""
+    "gt": "е"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "л",
-    "gt": ""
+    "gt": "л"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "к",
-    "gt": ""
+    "gt": "к"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "и",
-    "gt": ""
+    "gt": "и"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": " ",
-    "gt": ""
+    "gt": " "
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "п",
-    "gt": ""
+    "gt": "п"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "о",
-    "gt": ""
+    "gt": "о"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "б",
-    "gt": ""
+    "gt": "б"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "р",
-    "gt": ""
+    "gt": "р"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "г",
-    "gt": ""
+    "gt": "г"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "у",
-    "gt": ""
+    "gt": "у"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": " ",
-    "gt": ""
+    "gt": " "
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "ќ",
-    "gt": ""
+    "gt": "ќ"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "е",
-    "gt": ""
+    "gt": "е"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": " ",
-    "gt": ""
+    "gt": " "
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "с",
-    "gt": ""
+    "gt": "с"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "и",
-    "gt": ""
+    "gt": "и"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": " ",
-    "gt": ""
+    "gt": " "
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "о",
-    "gt": ""
+    "gt": "о"
   },
   {
     "op": "match",
@@ -1156215,19 +1151335,19 @@
     "gt": "т"
   },
   {
-    "op": "substitution",
+    "op": "match",
     "ocr": "и",
-    "gt": "а"
+    "gt": "и"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "д",
-    "gt": ""
+    "gt": "д"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "е",
-    "gt": ""
+    "gt": "е"
   },
   {
     "op": "match",
@@ -1156235,239 +1151355,244 @@
     "gt": "."
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "-",
-    "gt": ""
+    "gt": "-"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": " ",
-    "gt": ""
+    "gt": " "
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "Д",
-    "gt": ""
+    "gt": "Д"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "а",
-    "gt": ""
+    "gt": "а"
   },
   {
-    "op": "insertion",
+    "op": "deletion",
+    "ocr": "",
+    "gt": " "
+  },
+  {
+    "op": "match",
     "ocr": "н",
-    "gt": ""
+    "gt": "н"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "е",
-    "gt": ""
+    "gt": "е"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": " ",
-    "gt": ""
+    "gt": " "
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "с",
-    "gt": ""
+    "gt": "с"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "е",
-    "gt": ""
+    "gt": "е"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": " ",
-    "gt": ""
+    "gt": " "
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "п",
-    "gt": ""
+    "gt": "п"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "р",
-    "gt": ""
+    "gt": "р"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "о",
-    "gt": ""
+    "gt": "о"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "к",
-    "gt": ""
+    "gt": "к"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "у",
-    "gt": ""
+    "gt": "у"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "д",
-    "gt": ""
+    "gt": "д"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "и",
-    "gt": ""
+    "gt": "и"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": " ",
-    "gt": ""
+    "gt": " "
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "с",
-    "gt": ""
+    "gt": "с"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "а",
-    "gt": ""
+    "gt": "а"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "м",
-    "gt": ""
+    "gt": "м"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "о",
-    "gt": ""
+    "gt": "о"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": " ",
-    "gt": ""
+    "gt": " "
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "к",
-    "gt": ""
+    "gt": "к"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "а",
-    "gt": ""
+    "gt": "а"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "ј",
-    "gt": ""
+    "gt": "ј"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": " ",
-    "gt": ""
+    "gt": " "
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "н",
-    "gt": ""
+    "gt": "н"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "а",
-    "gt": ""
+    "gt": "а"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "с",
-    "gt": ""
+    "gt": "с"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": " ",
-    "gt": ""
+    "gt": " "
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "д",
-    "gt": ""
+    "gt": "д"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "а",
-    "gt": ""
+    "gt": "а"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": " ",
-    "gt": ""
+    "gt": " "
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "в",
-    "gt": ""
+    "gt": "в"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "е",
-    "gt": ""
+    "gt": "е"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "ч",
-    "gt": ""
+    "gt": "ч"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "е",
-    "gt": ""
+    "gt": "е"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "р",
-    "gt": ""
+    "gt": "р"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "а",
-    "gt": ""
+    "gt": "а"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": ",",
-    "gt": ""
+    "gt": ","
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": " ",
-    "gt": ""
+    "gt": " "
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "р",
-    "gt": ""
+    "gt": "р"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "е",
-    "gt": ""
+    "gt": "е"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "ч",
-    "gt": ""
+    "gt": "ч"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "е",
-    "gt": ""
+    "gt": "е"
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": " ",
-    "gt": ""
+    "gt": " "
   },
   {
     "op": "insertion",
@@ -1156475,154 +1151600,9 @@
     "gt": ""
   },
   {
-    "op": "insertion",
+    "op": "match",
     "ocr": "р",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "с",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "и",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "с",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "п",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "р",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "и",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "п",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "и",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "д",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "Д",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "н",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "т",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": ",",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "match",
-    "ocr": "ц",
-    "gt": "ц"
-  },
-  {
-    "op": "match",
-    "ocr": "е",
-    "gt": "е"
-  },
-  {
-    "op": "match",
-    "ocr": "л",
-    "gt": "л"
+    "gt": "р"
   },
   {
     "op": "match",
@@ -1156631,13 +1151611,23 @@
   },
   {
     "op": "match",
-    "ocr": "т",
-    "gt": "т"
+    "ocr": "с",
+    "gt": "с"
   },
   {
     "op": "match",
     "ocr": "а",
     "gt": "а"
+  },
+  {
+    "op": "match",
+    "ocr": " ",
+    "gt": " "
+  },
+  {
+    "op": "match",
+    "ocr": "и",
+    "gt": "и"
   },
   {
     "op": "match",
@@ -1156666,23 +1151656,23 @@
   },
   {
     "op": "match",
+    "ocr": "р",
+    "gt": "р"
+  },
+  {
+    "op": "match",
     "ocr": "и",
     "gt": "и"
   },
   {
     "op": "match",
-    "ocr": "к",
-    "gt": "к"
+    "ocr": "п",
+    "gt": "п"
   },
   {
     "op": "match",
-    "ocr": "н",
-    "gt": "н"
-  },
-  {
-    "op": "match",
-    "ocr": "а",
-    "gt": "а"
+    "ocr": "и",
+    "gt": "и"
   },
   {
     "op": "match",
@@ -1156691,8 +1151681,8 @@
   },
   {
     "op": "match",
-    "ocr": "в",
-    "gt": "в"
+    "ocr": "д",
+    "gt": "д"
   },
   {
     "op": "match",
@@ -1156703,6 +1151693,16 @@
     "op": "match",
     "ocr": " ",
     "gt": " "
+  },
+  {
+    "op": "match",
+    "ocr": "Д",
+    "gt": "Д"
+  },
+  {
+    "op": "match",
+    "ocr": "о",
+    "gt": "о"
   },
   {
     "op": "match",
@@ -1156716,13 +1151716,138 @@
   },
   {
     "op": "match",
-    "ocr": "г",
-    "gt": "г"
+    "ocr": "т",
+    "gt": "т"
   },
   {
     "op": "match",
+    "ocr": "а",
+    "gt": "а"
+  },
+  {
+    "op": "insertion",
+    "ocr": ",",
+    "gt": ""
+  },
+  {
+    "op": "insertion",
+    "ocr": " ",
+    "gt": ""
+  },
+  {
+    "op": "insertion",
+    "ocr": "ц",
+    "gt": ""
+  },
+  {
+    "op": "insertion",
+    "ocr": "е",
+    "gt": ""
+  },
+  {
+    "op": "insertion",
+    "ocr": "л",
+    "gt": ""
+  },
+  {
+    "op": "insertion",
+    "ocr": "а",
+    "gt": ""
+  },
+  {
+    "op": "insertion",
+    "ocr": "т",
+    "gt": ""
+  },
+  {
+    "op": "insertion",
+    "ocr": "а",
+    "gt": ""
+  },
+  {
+    "op": "insertion",
+    "ocr": " ",
+    "gt": ""
+  },
+  {
+    "op": "insertion",
+    "ocr": "с",
+    "gt": ""
+  },
+  {
+    "op": "insertion",
+    "ocr": "е",
+    "gt": ""
+  },
+  {
+    "op": "insertion",
+    "ocr": " ",
+    "gt": ""
+  },
+  {
+    "op": "insertion",
+    "ocr": "п",
+    "gt": ""
+  },
+  {
+    "op": "insertion",
+    "ocr": "и",
+    "gt": ""
+  },
+  {
+    "op": "insertion",
+    "ocr": "к",
+    "gt": ""
+  },
+  {
+    "op": "insertion",
+    "ocr": "н",
+    "gt": ""
+  },
+  {
+    "op": "insertion",
+    "ocr": "а",
+    "gt": ""
+  },
+  {
+    "op": "insertion",
+    "ocr": " ",
+    "gt": ""
+  },
+  {
+    "op": "insertion",
+    "ocr": "в",
+    "gt": ""
+  },
+  {
+    "op": "insertion",
     "ocr": "о",
-    "gt": "о"
+    "gt": ""
+  },
+  {
+    "op": "insertion",
+    "ocr": " ",
+    "gt": ""
+  },
+  {
+    "op": "insertion",
+    "ocr": "н",
+    "gt": ""
+  },
+  {
+    "op": "insertion",
+    "ocr": "е",
+    "gt": ""
+  },
+  {
+    "op": "insertion",
+    "ocr": "г",
+    "gt": ""
+  },
+  {
+    "op": "insertion",
+    "ocr": "о",
+    "gt": ""
   },
   {
     "op": "match",
@@ -1206298,291 +1201423,6 @@
     "op": "deletion",
     "ocr": "",
     "gt": "к"
-  },
-  {
-    "op": "match",
-    "ocr": ".",
-    "gt": "."
-  },
-  {
-    "op": "match",
-    "ocr": "-",
-    "gt": "-"
-  },
-  {
-    "op": "match",
-    "ocr": " ",
-    "gt": " "
-  },
-  {
-    "op": "substitution",
-    "ocr": "М",
-    "gt": "И"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "ш"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "т"
-  },
-  {
-    "op": "match",
-    "ocr": "о",
-    "gt": "о"
-  },
-  {
-    "op": "insertion",
-    "ocr": "ж",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "match",
-    "ocr": " ",
-    "gt": " "
-  },
-  {
-    "op": "substitution",
-    "ocr": "и",
-    "gt": "с"
-  },
-  {
-    "op": "substitution",
-    "ocr": " ",
-    "gt": "т"
-  },
-  {
-    "op": "substitution",
-    "ocr": "д",
-    "gt": "а"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "н"
-  },
-  {
-    "op": "match",
-    "ocr": "а",
-    "gt": "а"
-  },
-  {
-    "op": "match",
-    "ocr": " ",
-    "gt": " "
-  },
-  {
-    "op": "match",
-    "ocr": "с",
-    "gt": "с"
-  },
-  {
-    "op": "match",
-    "ocr": "е",
-    "gt": "е"
-  },
-  {
-    "op": "substitution",
-    "ocr": " ",
-    "gt": "г"
-  },
-  {
-    "op": "insertion",
-    "ocr": "д",
-    "gt": ""
-  },
-  {
-    "op": "match",
-    "ocr": "а",
-    "gt": "а"
-  },
-  {
-    "op": "insertion",
-    "ocr": "в",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "л",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "match",
-    "ocr": ",",
-    "gt": ","
-  },
-  {
-    "op": "match",
-    "ocr": " ",
-    "gt": " "
-  },
-  {
-    "op": "match",
-    "ocr": "р",
-    "gt": "р"
-  },
-  {
-    "op": "match",
-    "ocr": "е",
-    "gt": "е"
-  },
-  {
-    "op": "match",
-    "ocr": "ч",
-    "gt": "ч"
-  },
-  {
-    "op": "match",
-    "ocr": "е",
-    "gt": "е"
-  },
-  {
-    "op": "match",
-    "ocr": " ",
-    "gt": " "
-  },
-  {
-    "op": "match",
-    "ocr": "п",
-    "gt": "п"
-  },
-  {
-    "op": "substitution",
-    "ocr": "р",
-    "gt": "о"
-  },
-  {
-    "op": "substitution",
-    "ocr": "в",
-    "gt": "л"
-  },
-  {
-    "op": "substitution",
-    "ocr": "и",
-    "gt": "ј"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "а"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "к"
-  },
-  {
-    "op": "match",
-    "ocr": "о",
-    "gt": "о"
-  },
-  {
-    "op": "match",
-    "ocr": "т",
-    "gt": "т"
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "с",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "л",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "с",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "к",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "и",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "д",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "б",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "р",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "н",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "и",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "к",
-    "gt": ""
   },
   {
     "op": "match",
@@ -1265925,428 +1260765,218 @@
     "gt": "."
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "-",
-    "gt": "-"
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "О",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "в",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "д",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "к",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
     "gt": ""
   },
   {
     "op": "insertion",
     "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "н",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "м",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "Б",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "у",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "г",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "р",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "и",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": ",",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "в",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "л",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "и",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "К",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "р",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "с",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "т",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "С",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "к",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "р",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "ж",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "в",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "с",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "к",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "и",
     "gt": ""
   },
   {
     "op": "match",
-    "ocr": ".",
-    "gt": "."
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
+    "ocr": "О",
     "gt": "О"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "в",
     "gt": "в"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "д",
     "gt": "д"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "е",
     "gt": "е"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "к",
     "gt": "к"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "а",
     "gt": "а"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": " ",
     "gt": " "
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "н",
     "gt": "н"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "е",
     "gt": "е"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "м",
     "gt": "м"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "а",
     "gt": "а"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": " ",
     "gt": " "
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "Б",
     "gt": "Б"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "у",
     "gt": "у"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "г",
     "gt": "г"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "а",
     "gt": "а"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "р",
     "gt": "р"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "и",
     "gt": "и"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": ",",
     "gt": ","
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": " ",
     "gt": " "
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "в",
     "gt": "в"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "е",
     "gt": "е"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "л",
     "gt": "л"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "и",
     "gt": "и"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": " ",
     "gt": " "
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "К",
     "gt": "К"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "р",
     "gt": "р"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "с",
     "gt": "с"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "т",
     "gt": "т"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "е",
     "gt": "е"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": " ",
     "gt": " "
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "С",
     "gt": "С"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "к",
     "gt": "к"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "р",
     "gt": "р"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "е",
     "gt": "е"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "ж",
     "gt": "ж"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "о",
     "gt": "о"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "в",
     "gt": "в"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "с",
     "gt": "с"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "к",
     "gt": "к"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "и",
     "gt": "и"
   },
   {
@@ -1266425,23 +1261055,23 @@
     "gt": " "
   },
   {
-    "op": "match",
-    "ocr": "-",
+    "op": "deletion",
+    "ocr": "",
     "gt": "-"
   },
   {
-    "op": "match",
-    "ocr": " ",
+    "op": "deletion",
+    "ocr": "",
     "gt": " "
   },
   {
-    "op": "match",
-    "ocr": "П",
+    "op": "deletion",
+    "ocr": "",
     "gt": "П"
   },
   {
-    "op": "match",
-    "ocr": "а",
+    "op": "deletion",
+    "ocr": "",
     "gt": "а"
   },
   {
@@ -1266450,18 +1261080,18 @@
     "gt": " "
   },
   {
-    "op": "match",
-    "ocr": "ш",
+    "op": "deletion",
+    "ocr": "",
     "gt": "ш"
   },
   {
-    "op": "match",
-    "ocr": "т",
+    "op": "deletion",
+    "ocr": "",
     "gt": "т"
   },
   {
-    "op": "match",
-    "ocr": "а",
+    "op": "deletion",
+    "ocr": "",
     "gt": "а"
   },
   {
@@ -1266470,148 +1261100,148 @@
     "gt": " "
   },
   {
-    "op": "match",
-    "ocr": "ј",
+    "op": "deletion",
+    "ocr": "",
     "gt": "ј"
   },
   {
-    "op": "match",
-    "ocr": "е",
+    "op": "deletion",
+    "ocr": "",
     "gt": "е"
   },
   {
-    "op": "match",
-    "ocr": " ",
+    "op": "deletion",
+    "ocr": "",
     "gt": " "
   },
   {
-    "op": "match",
-    "ocr": "о",
+    "op": "deletion",
+    "ocr": "",
     "gt": "о"
   },
   {
-    "op": "match",
-    "ocr": "н",
+    "op": "deletion",
+    "ocr": "",
     "gt": "н"
   },
   {
-    "op": "match",
-    "ocr": "д",
+    "op": "deletion",
+    "ocr": "",
     "gt": "д"
   },
   {
-    "op": "match",
-    "ocr": "а",
+    "op": "deletion",
+    "ocr": "",
     "gt": "а"
   },
   {
-    "op": "match",
-    "ocr": ",",
+    "op": "deletion",
+    "ocr": "",
     "gt": ","
   },
   {
-    "op": "match",
-    "ocr": " ",
+    "op": "deletion",
+    "ocr": "",
     "gt": " "
   },
   {
-    "op": "match",
-    "ocr": "п",
+    "op": "deletion",
+    "ocr": "",
     "gt": "п"
   },
   {
-    "op": "match",
-    "ocr": "р",
+    "op": "deletion",
+    "ocr": "",
     "gt": "р"
   },
   {
-    "op": "match",
-    "ocr": "а",
+    "op": "deletion",
+    "ocr": "",
     "gt": "а"
   },
   {
-    "op": "match",
-    "ocr": "ш",
+    "op": "deletion",
+    "ocr": "",
     "gt": "ш"
   },
   {
-    "op": "match",
-    "ocr": "у",
+    "op": "deletion",
+    "ocr": "",
     "gt": "у"
   },
   {
-    "op": "match",
-    "ocr": "в",
+    "op": "deletion",
+    "ocr": "",
     "gt": "в"
   },
   {
-    "op": "match",
-    "ocr": "а",
+    "op": "deletion",
+    "ocr": "",
     "gt": "а"
   },
   {
-    "op": "match",
-    "ocr": " ",
+    "op": "deletion",
+    "ocr": "",
     "gt": " "
   },
   {
-    "op": "match",
-    "ocr": "С",
+    "op": "deletion",
+    "ocr": "",
     "gt": "С"
   },
   {
-    "op": "match",
-    "ocr": "т",
+    "op": "deletion",
+    "ocr": "",
     "gt": "т"
   },
   {
-    "op": "match",
-    "ocr": "е",
+    "op": "deletion",
+    "ocr": "",
     "gt": "е"
   },
   {
-    "op": "match",
-    "ocr": "ф",
+    "op": "deletion",
+    "ocr": "",
     "gt": "ф"
   },
   {
-    "op": "match",
-    "ocr": "а",
+    "op": "deletion",
+    "ocr": "",
     "gt": "а"
   },
   {
-    "op": "match",
-    "ocr": "н",
+    "op": "deletion",
+    "ocr": "",
     "gt": "н"
   },
   {
-    "op": "match",
-    "ocr": " ",
+    "op": "deletion",
+    "ocr": "",
     "gt": " "
   },
   {
-    "op": "match",
-    "ocr": "Н",
+    "op": "deletion",
+    "ocr": "",
     "gt": "Н"
   },
   {
-    "op": "match",
-    "ocr": "е",
+    "op": "deletion",
+    "ocr": "",
     "gt": "е"
   },
   {
-    "op": "match",
-    "ocr": "д",
+    "op": "deletion",
+    "ocr": "",
     "gt": "д"
   },
   {
-    "op": "match",
-    "ocr": "и",
+    "op": "deletion",
+    "ocr": "",
     "gt": "и"
   },
   {
-    "op": "match",
-    "ocr": "ќ",
+    "op": "deletion",
+    "ocr": "",
     "gt": "ќ"
   },
   {
@@ -1274415,14 +1269045,14 @@
     "gt": "."
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "О",
-    "gt": "О"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "у",
-    "gt": "у"
+    "gt": ""
   },
   {
     "op": "insertion",
@@ -1274435,398 +1269065,63 @@
     "gt": ""
   },
   {
-    "op": "insertion",
-    "ocr": "в",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "л",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "и",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "и",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "К",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "р",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "с",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "т",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "С",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "к",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "р",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "ж",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "в",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "с",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "к",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "и",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "и",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "с",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "с",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "т",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "р",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "ч",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "у",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "в",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "д",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "м",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "у",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "ј",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "ф",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "т",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "и",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "у",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "з",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "д",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "т",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "н",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "к",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "њ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "т",
-    "gt": ""
-  },
-  {
     "op": "match",
-    "ocr": ".",
-    "gt": "."
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
+    "ocr": "в",
     "gt": "в"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "е",
     "gt": "е"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "л",
     "gt": "л"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "и",
     "gt": "и"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": " ",
     "gt": " "
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "и",
     "gt": "и"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": " ",
     "gt": " "
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "К",
     "gt": "К"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "р",
     "gt": "р"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "с",
     "gt": "с"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "т",
     "gt": "т"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "е",
     "gt": "е"
   },
   {
@@ -1274895,273 +1269190,273 @@
     "gt": "-"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": " ",
     "gt": " "
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "С",
     "gt": "С"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "к",
     "gt": "к"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "р",
     "gt": "р"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "е",
     "gt": "е"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "ж",
     "gt": "ж"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "о",
     "gt": "о"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "в",
     "gt": "в"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "с",
     "gt": "с"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "к",
     "gt": "к"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "и",
     "gt": "и"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": " ",
     "gt": " "
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "и",
     "gt": "и"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": " ",
     "gt": " "
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "с",
     "gt": "с"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "е",
     "gt": "е"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": " ",
     "gt": " "
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "с",
     "gt": "с"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "т",
     "gt": "т"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "р",
     "gt": "р"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "ч",
     "gt": "ч"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "у",
     "gt": "у"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "в",
     "gt": "в"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "а",
     "gt": "а"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": " ",
     "gt": " "
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "д",
     "gt": "д"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "а",
     "gt": "а"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": " ",
     "gt": " "
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "м",
     "gt": "м"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "у",
     "gt": "у"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": " ",
     "gt": " "
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "ј",
     "gt": "ј"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "а",
     "gt": "а"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": " ",
     "gt": " "
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "ф",
     "gt": "ф"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "а",
     "gt": "а"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "т",
     "gt": "т"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "и",
     "gt": "и"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": " ",
     "gt": " "
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "у",
     "gt": "у"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "з",
     "gt": "з"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "д",
     "gt": "д"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "а",
     "gt": "а"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "т",
     "gt": "т"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "а",
     "gt": "а"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": " ",
     "gt": " "
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "н",
     "gt": "н"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "а",
     "gt": "а"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": " ",
     "gt": " "
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "к",
     "gt": "к"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "о",
     "gt": "о"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "њ",
     "gt": "њ"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "о",
     "gt": "о"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "т",
     "gt": "т"
   },
   {
@@ -1275395,303 +1269690,303 @@
     "gt": " "
   },
   {
-    "op": "match",
-    "ocr": "Б",
+    "op": "deletion",
+    "ocr": "",
     "gt": "Б"
   },
   {
-    "op": "match",
-    "ocr": "л",
+    "op": "deletion",
+    "ocr": "",
     "gt": "л"
   },
   {
-    "op": "match",
-    "ocr": "а",
+    "op": "deletion",
+    "ocr": "",
     "gt": "а"
   },
   {
-    "op": "match",
-    "ocr": "ж",
+    "op": "deletion",
+    "ocr": "",
     "gt": "ж"
   },
   {
-    "op": "match",
-    "ocr": "е",
+    "op": "deletion",
+    "ocr": "",
     "gt": "е"
   },
   {
-    "op": "match",
-    "ocr": " ",
+    "op": "deletion",
+    "ocr": "",
     "gt": " "
   },
   {
-    "op": "match",
-    "ocr": "К",
+    "op": "deletion",
+    "ocr": "",
     "gt": "К"
   },
   {
-    "op": "match",
-    "ocr": "а",
+    "op": "deletion",
+    "ocr": "",
     "gt": "а"
   },
   {
-    "op": "match",
-    "ocr": "р",
+    "op": "deletion",
+    "ocr": "",
     "gt": "р"
   },
   {
-    "op": "match",
-    "ocr": "а",
+    "op": "deletion",
+    "ocr": "",
     "gt": "а"
   },
   {
-    "op": "match",
-    "ocr": "у",
+    "op": "deletion",
+    "ocr": "",
     "gt": "у"
   },
   {
-    "op": "match",
-    "ocr": "л",
+    "op": "deletion",
+    "ocr": "",
     "gt": "л"
   },
   {
-    "op": "match",
-    "ocr": "о",
+    "op": "deletion",
+    "ocr": "",
     "gt": "о"
   },
   {
-    "op": "match",
-    "ocr": "в",
+    "op": "deletion",
+    "ocr": "",
     "gt": "в"
   },
   {
-    "op": "match",
-    "ocr": ",",
+    "op": "deletion",
+    "ocr": "",
     "gt": ","
   },
   {
-    "op": "match",
-    "ocr": " ",
+    "op": "deletion",
+    "ocr": "",
     "gt": " "
   },
   {
-    "op": "match",
-    "ocr": "з",
+    "op": "deletion",
+    "ocr": "",
     "gt": "з"
   },
   {
-    "op": "match",
-    "ocr": "а",
+    "op": "deletion",
+    "ocr": "",
     "gt": "а"
   },
   {
-    "op": "match",
-    "ocr": "л",
+    "op": "deletion",
+    "ocr": "",
     "gt": "л"
   },
   {
-    "op": "match",
-    "ocr": "е",
+    "op": "deletion",
+    "ocr": "",
     "gt": "е"
   },
   {
-    "op": "match",
-    "ocr": "г",
+    "op": "deletion",
+    "ocr": "",
     "gt": "г"
   },
   {
-    "op": "match",
-    "ocr": "н",
+    "op": "deletion",
+    "ocr": "",
     "gt": "н"
   },
   {
-    "op": "match",
-    "ocr": "а",
+    "op": "deletion",
+    "ocr": "",
     "gt": "а"
   },
   {
-    "op": "match",
-    "ocr": "т",
+    "op": "deletion",
+    "ocr": "",
     "gt": "т"
   },
   {
-    "op": "match",
-    "ocr": " ",
+    "op": "deletion",
+    "ocr": "",
     "gt": " "
   },
   {
-    "op": "match",
-    "ocr": "в",
+    "op": "deletion",
+    "ocr": "",
     "gt": "в"
   },
   {
-    "op": "match",
-    "ocr": "о",
+    "op": "deletion",
+    "ocr": "",
     "gt": "о"
   },
   {
-    "op": "match",
-    "ocr": " ",
+    "op": "deletion",
+    "ocr": "",
     "gt": " "
   },
   {
-    "op": "match",
-    "ocr": "ш",
+    "op": "deletion",
+    "ocr": "",
     "gt": "ш"
   },
   {
-    "op": "match",
-    "ocr": "у",
+    "op": "deletion",
+    "ocr": "",
     "gt": "у"
   },
   {
-    "op": "match",
-    "ocr": "м",
+    "op": "deletion",
+    "ocr": "",
     "gt": "м"
   },
   {
-    "op": "match",
-    "ocr": "а",
+    "op": "deletion",
+    "ocr": "",
     "gt": "а"
   },
   {
-    "op": "match",
-    "ocr": "т",
+    "op": "deletion",
+    "ocr": "",
     "gt": "т"
   },
   {
-    "op": "match",
-    "ocr": "а",
+    "op": "deletion",
+    "ocr": "",
     "gt": "а"
   },
   {
-    "op": "match",
-    "ocr": ",",
+    "op": "deletion",
+    "ocr": "",
     "gt": ","
   },
   {
-    "op": "match",
-    "ocr": " ",
+    "op": "deletion",
+    "ocr": "",
     "gt": " "
   },
   {
-    "op": "match",
-    "ocr": "г",
+    "op": "deletion",
+    "ocr": "",
     "gt": "г"
   },
   {
-    "op": "match",
-    "ocr": "о",
+    "op": "deletion",
+    "ocr": "",
     "gt": "о"
   },
   {
-    "op": "match",
-    "ocr": " ",
+    "op": "deletion",
+    "ocr": "",
     "gt": " "
   },
   {
-    "op": "match",
-    "ocr": "д",
+    "op": "deletion",
+    "ocr": "",
     "gt": "д"
   },
   {
-    "op": "match",
-    "ocr": "е",
+    "op": "deletion",
+    "ocr": "",
     "gt": "е"
   },
   {
-    "op": "match",
-    "ocr": "м",
+    "op": "deletion",
+    "ocr": "",
     "gt": "м"
   },
   {
-    "op": "match",
-    "ocr": "н",
+    "op": "deletion",
+    "ocr": "",
     "gt": "н"
   },
   {
-    "op": "match",
-    "ocr": "е",
+    "op": "deletion",
+    "ocr": "",
     "gt": "е"
   },
   {
-    "op": "match",
-    "ocr": " ",
+    "op": "deletion",
+    "ocr": "",
     "gt": " "
   },
   {
-    "op": "match",
-    "ocr": "к",
+    "op": "deletion",
+    "ocr": "",
     "gt": "к"
   },
   {
-    "op": "match",
-    "ocr": "а",
+    "op": "deletion",
+    "ocr": "",
     "gt": "а"
   },
   {
-    "op": "match",
-    "ocr": "к",
+    "op": "deletion",
+    "ocr": "",
     "gt": "к"
   },
   {
-    "op": "match",
-    "ocr": "о",
+    "op": "deletion",
+    "ocr": "",
     "gt": "о"
   },
   {
-    "op": "match",
-    "ocr": " ",
+    "op": "deletion",
+    "ocr": "",
     "gt": " "
   },
   {
-    "op": "match",
-    "ocr": "н",
+    "op": "deletion",
+    "ocr": "",
     "gt": "н"
   },
   {
-    "op": "match",
-    "ocr": "е",
+    "op": "deletion",
+    "ocr": "",
     "gt": "е"
   },
   {
-    "op": "match",
-    "ocr": "в",
+    "op": "deletion",
+    "ocr": "",
     "gt": "в"
   },
   {
-    "op": "match",
-    "ocr": "е",
+    "op": "deletion",
+    "ocr": "",
     "gt": "е"
   },
   {
-    "op": "match",
-    "ocr": "с",
+    "op": "deletion",
+    "ocr": "",
     "gt": "с"
   },
   {
-    "op": "match",
-    "ocr": "т",
+    "op": "deletion",
+    "ocr": "",
     "gt": "т"
   },
   {
-    "op": "match",
-    "ocr": "у",
+    "op": "deletion",
+    "ocr": "",
     "gt": "у"
   },
   {
-    "op": "match",
-    "ocr": "л",
+    "op": "deletion",
+    "ocr": "",
     "gt": "л"
   },
   {
-    "op": "match",
-    "ocr": "к",
+    "op": "deletion",
+    "ocr": "",
     "gt": "к"
   },
   {
-    "op": "match",
-    "ocr": "а",
+    "op": "deletion",
+    "ocr": "",
     "gt": "а"
   },
   {
@@ -1278127,341 +1272422,6 @@
   {
     "op": "deletion",
     "ocr": "",
-    "gt": "а"
-  },
-  {
-    "op": "match",
-    "ocr": ".",
-    "gt": "."
-  },
-  {
-    "op": "substitution",
-    "ocr": "Л",
-    "gt": "-"
-  },
-  {
-    "op": "substitution",
-    "ocr": "и",
-    "gt": " "
-  },
-  {
-    "op": "substitution",
-    "ocr": "ц",
-    "gt": "Н"
-  },
-  {
-    "op": "substitution",
-    "ocr": "е",
-    "gt": "а"
-  },
-  {
-    "op": "substitution",
-    "ocr": "т",
-    "gt": " "
-  },
-  {
-    "op": "match",
-    "ocr": "о",
-    "gt": "о"
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "м",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "у",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "с",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "п",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "р",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "и",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "с",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "т",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "м",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "н",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "у",
-    "gt": ""
-  },
-  {
-    "op": "match",
-    "ocr": "в",
-    "gt": "в"
-  },
-  {
-    "op": "match",
-    "ocr": "а",
-    "gt": "а"
-  },
-  {
-    "op": "match",
-    "ocr": " ",
-    "gt": " "
-  },
-  {
-    "op": "match",
-    "ocr": "к",
-    "gt": "к"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "л"
-  },
-  {
-    "op": "match",
-    "ocr": "а",
-    "gt": "а"
-  },
-  {
-    "op": "substitution",
-    "ocr": "к",
-    "gt": "д"
-  },
-  {
-    "op": "substitution",
-    "ocr": "о",
-    "gt": "е"
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "match",
-    "ocr": "н",
-    "gt": "н"
-  },
-  {
-    "op": "substitution",
-    "ocr": "а",
-    "gt": "ч"
-  },
-  {
-    "op": "insertion",
-    "ocr": "ш",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "т",
-    "gt": ""
-  },
-  {
-    "op": "match",
-    "ocr": "е",
-    "gt": "е"
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "с",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "р",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "ц",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "д",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "match",
-    "ocr": " ",
-    "gt": " "
-  },
-  {
-    "op": "match",
-    "ocr": "г",
-    "gt": "г"
-  },
-  {
-    "op": "match",
-    "ocr": "о",
-    "gt": "о"
-  },
-  {
-    "op": "match",
-    "ocr": " ",
-    "gt": " "
-  },
-  {
-    "op": "substitution",
-    "ocr": "р",
-    "gt": "у"
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "з",
-    "gt": ""
-  },
-  {
-    "op": "match",
-    "ocr": "б",
-    "gt": "б"
-  },
-  {
-    "op": "match",
-    "ocr": "и",
-    "gt": "и"
-  },
-  {
-    "op": "substitution",
-    "ocr": "л",
-    "gt": "ј"
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "к",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "у",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "к",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "в",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "и",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "ц",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "т",
-    "gt": ""
-  },
-  {
-    "op": "match",
-    "ocr": "а",
     "gt": "а"
   },
   {
@@ -1330090,114 +1324050,114 @@
     "gt": "."
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "М",
-    "gt": "М"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "у",
-    "gt": "у"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": " ",
-    "gt": " "
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "и",
-    "gt": "и"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "д",
-    "gt": "д"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "е",
-    "gt": "е"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": " ",
-    "gt": " "
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "н",
-    "gt": "н"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "е",
-    "gt": "е"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "к",
-    "gt": "к"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "а",
-    "gt": "а"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "к",
-    "gt": "к"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "о",
-    "gt": "о"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": " ",
-    "gt": " "
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "о",
-    "gt": "о"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "д",
-    "gt": "д"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "д",
-    "gt": "д"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "а",
-    "gt": "а"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "л",
-    "gt": "л"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "е",
-    "gt": "е"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "к",
-    "gt": "к"
+    "gt": ""
   },
   {
-    "op": "match",
+    "op": "insertion",
     "ocr": "у",
-    "gt": "у"
+    "gt": ""
   },
   {
     "op": "insertion",
@@ -1330210,344 +1324170,9 @@
     "gt": ""
   },
   {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "к",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "к",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "д",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "б",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "л",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "и",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "с",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "к",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "у",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "д",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "н",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "г",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "match",
-    "ocr": ".",
-    "gt": "."
-  },
-  {
-    "op": "insertion",
-    "ocr": "И",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "Д",
-    "gt": ""
-  },
-  {
     "op": "match",
     "ocr": "а",
     "gt": "а"
-  },
-  {
-    "op": "insertion",
-    "ocr": "м",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "ј",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "н",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "Б",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "з",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "в",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "с",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "к",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "и",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "с",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "м",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "с",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "и",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "г",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "с",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "т",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "г",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "с",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "р",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "ц",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "т",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "о",
-    "gt": ""
   },
   {
     "op": "match",
@@ -1330580,38 +1324205,38 @@
     "gt": " "
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "д",
     "gt": "д"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "а",
     "gt": "а"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": " ",
     "gt": " "
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "е",
     "gt": "е"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": " ",
     "gt": " "
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "б",
     "gt": "б"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "л",
     "gt": "л"
   },
   {
@@ -1330625,34 +1324250,14 @@
     "gt": "с"
   },
   {
-    "op": "substitution",
-    "ocr": "п",
+    "op": "match",
+    "ocr": "к",
     "gt": "к"
   },
   {
-    "op": "substitution",
-    "ocr": "л",
+    "op": "match",
+    "ocr": "у",
     "gt": "у"
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "ш",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "н",
-    "gt": ""
   },
   {
     "op": "match",
@@ -1330660,44 +1324265,9 @@
     "gt": " "
   },
   {
-    "op": "substitution",
-    "ocr": "з",
+    "op": "match",
+    "ocr": "д",
     "gt": "д"
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "ј",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "к",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "ш",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "т",
-    "gt": ""
   },
   {
     "op": "match",
@@ -1330710,39 +1324280,9 @@
     "gt": " "
   },
   {
-    "op": "substitution",
-    "ocr": "с",
+    "op": "match",
+    "ocr": "н",
     "gt": "н"
-  },
-  {
-    "op": "insertion",
-    "ocr": "и",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "ј",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "с",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "т",
-    "gt": ""
   },
   {
     "op": "match",
@@ -1330755,94 +1324295,9 @@
     "gt": "г"
   },
   {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "г",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "л",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "в",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "т",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "а",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "с",
-    "gt": ""
-  },
-  {
     "op": "match",
     "ocr": "о",
     "gt": "о"
-  },
-  {
-    "op": "insertion",
-    "ocr": " ",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "у",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "ш",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "и",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "т",
-    "gt": ""
-  },
-  {
-    "op": "insertion",
-    "ocr": "е",
-    "gt": ""
   },
   {
     "op": "match",
@@ -1330850,494 +1324305,19 @@
     "gt": "."
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "И",
     "gt": "И"
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": " ",
     "gt": " "
   },
   {
-    "op": "deletion",
-    "ocr": "",
+    "op": "match",
+    "ocr": "Д",
     "gt": "Д"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "а"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "м"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "ј"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "а"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "н"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "Б"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "о"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "з"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "о"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "в"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "с"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "к"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "и"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "с"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "а"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "м"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "о"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "с"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "и"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "г"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "о"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "с"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "т"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "е"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "г"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "а"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "с"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "р"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "ц"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "е"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "т"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "о"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "к"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "а"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "к"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "о"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "и"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "с"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "п"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "л"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "а"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "ш"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "е"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "н"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "з"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "а"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "ј"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "а"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "к"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "ш"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "т"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "о"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "с"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "и"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "ј"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "а"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "с"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "т"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "е"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "г"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "а"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "г"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "л"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "а"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "в"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "а"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "т"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "а"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "с"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "о"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "у"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "ш"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "и"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "т"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": "е"
-  },
-  {
-    "op": "deletion",
-    "ocr": "",
-    "gt": " "
-  },
-  {
-    "op": "match",
-    "ocr": "О",
-    "gt": "О"
-  },
-  {
-    "op": "match",
-    "ocr": "ф",
-    "gt": "ф"
-  },
-  {
-    "op": "match",
-    "ocr": "к",
-    "gt": "к"
   },
   {
     "op": "match",
@@ -1331346,8 +1324326,173 @@
   },
   {
     "op": "match",
-    "ocr": "њ",
-    "gt": "њ"
+    "ocr": "м",
+    "gt": "м"
+  },
+  {
+    "op": "match",
+    "ocr": "ј",
+    "gt": "ј"
+  },
+  {
+    "op": "match",
+    "ocr": "а",
+    "gt": "а"
+  },
+  {
+    "op": "match",
+    "ocr": "н",
+    "gt": "н"
+  },
+  {
+    "op": "match",
+    "ocr": " ",
+    "gt": " "
+  },
+  {
+    "op": "match",
+    "ocr": "Б",
+    "gt": "Б"
+  },
+  {
+    "op": "match",
+    "ocr": "о",
+    "gt": "о"
+  },
+  {
+    "op": "match",
+    "ocr": "з",
+    "gt": "з"
+  },
+  {
+    "op": "match",
+    "ocr": "о",
+    "gt": "о"
+  },
+  {
+    "op": "match",
+    "ocr": "в",
+    "gt": "в"
+  },
+  {
+    "op": "match",
+    "ocr": "с",
+    "gt": "с"
+  },
+  {
+    "op": "match",
+    "ocr": "к",
+    "gt": "к"
+  },
+  {
+    "op": "match",
+    "ocr": "и",
+    "gt": "и"
+  },
+  {
+    "op": "match",
+    "ocr": " ",
+    "gt": " "
+  },
+  {
+    "op": "match",
+    "ocr": "с",
+    "gt": "с"
+  },
+  {
+    "op": "match",
+    "ocr": "а",
+    "gt": "а"
+  },
+  {
+    "op": "match",
+    "ocr": "м",
+    "gt": "м"
+  },
+  {
+    "op": "match",
+    "ocr": "о",
+    "gt": "о"
+  },
+  {
+    "op": "match",
+    "ocr": " ",
+    "gt": " "
+  },
+  {
+    "op": "match",
+    "ocr": "с",
+    "gt": "с"
+  },
+  {
+    "op": "match",
+    "ocr": "и",
+    "gt": "и"
+  },
+  {
+    "op": "match",
+    "ocr": " ",
+    "gt": " "
+  },
+  {
+    "op": "match",
+    "ocr": "г",
+    "gt": "г"
+  },
+  {
+    "op": "match",
+    "ocr": "о",
+    "gt": "о"
+  },
+  {
+    "op": "match",
+    "ocr": " ",
+    "gt": " "
+  },
+  {
+    "op": "match",
+    "ocr": "с",
+    "gt": "с"
+  },
+  {
+    "op": "match",
+    "ocr": "т",
+    "gt": "т"
+  },
+  {
+    "op": "match",
+    "ocr": "е",
+    "gt": "е"
+  },
+  {
+    "op": "match",
+    "ocr": "г",
+    "gt": "г"
+  },
+  {
+    "op": "match",
+    "ocr": "а",
+    "gt": "а"
+  },
+  {
+    "op": "match",
+    "ocr": " ",
+    "gt": " "
+  },
+  {
+    "op": "match",
+    "ocr": "с",
+    "gt": "с"
+  },
+  {
+    "op": "match",
+    "ocr": "р",
+    "gt": "р"
+  },
+  {
+    "op": "match",
+    "ocr": "ц",
+    "gt": "ц"
   },
   {
     "op": "match",
@@ -1331371,23 +1324516,18 @@
   },
   {
     "op": "match",
-    "ocr": "с",
-    "gt": "с"
+    "ocr": "к",
+    "gt": "к"
   },
   {
     "op": "match",
-    "ocr": "е",
-    "gt": "е"
+    "ocr": "а",
+    "gt": "а"
   },
   {
     "op": "match",
-    "ocr": " ",
-    "gt": " "
-  },
-  {
-    "op": "match",
-    "ocr": "п",
-    "gt": "п"
+    "ocr": "к",
+    "gt": "к"
   },
   {
     "op": "match",
@@ -1331396,63 +1324536,8 @@
   },
   {
     "op": "match",
-    "ocr": "в",
-    "gt": "в"
-  },
-  {
-    "op": "match",
-    "ocr": "е",
-    "gt": "е"
-  },
-  {
-    "op": "match",
-    "ocr": "ќ",
-    "gt": "ќ"
-  },
-  {
-    "op": "match",
-    "ocr": "е",
-    "gt": "е"
-  },
-  {
-    "op": "match",
     "ocr": " ",
     "gt": " "
-  },
-  {
-    "op": "match",
-    "ocr": "м",
-    "gt": "м"
-  },
-  {
-    "op": "match",
-    "ocr": "у",
-    "gt": "у"
-  },
-  {
-    "op": "match",
-    "ocr": " ",
-    "gt": " "
-  },
-  {
-    "op": "match",
-    "ocr": "д",
-    "gt": "д"
-  },
-  {
-    "op": "match",
-    "ocr": "о",
-    "gt": "о"
-  },
-  {
-    "op": "match",
-    "ocr": "б",
-    "gt": "б"
-  },
-  {
-    "op": "match",
-    "ocr": "л",
-    "gt": "л"
   },
   {
     "op": "match",
@@ -1331461,18 +1324546,113 @@
   },
   {
     "op": "match",
-    "ocr": "ж",
-    "gt": "ж"
+    "ocr": "с",
+    "gt": "с"
   },
   {
     "op": "match",
-    "ocr": "у",
-    "gt": "у"
+    "ocr": "п",
+    "gt": "п"
   },
   {
     "op": "match",
-    "ocr": "в",
-    "gt": "в"
+    "ocr": "л",
+    "gt": "л"
+  },
+  {
+    "op": "match",
+    "ocr": "а",
+    "gt": "а"
+  },
+  {
+    "op": "match",
+    "ocr": "ш",
+    "gt": "ш"
+  },
+  {
+    "op": "match",
+    "ocr": "е",
+    "gt": "е"
+  },
+  {
+    "op": "match",
+    "ocr": "н",
+    "gt": "н"
+  },
+  {
+    "op": "match",
+    "ocr": " ",
+    "gt": " "
+  },
+  {
+    "op": "match",
+    "ocr": "з",
+    "gt": "з"
+  },
+  {
+    "op": "match",
+    "ocr": "а",
+    "gt": "а"
+  },
+  {
+    "op": "match",
+    "ocr": "ј",
+    "gt": "ј"
+  },
+  {
+    "op": "match",
+    "ocr": "а",
+    "gt": "а"
+  },
+  {
+    "op": "match",
+    "ocr": "к",
+    "gt": "к"
+  },
+  {
+    "op": "match",
+    "ocr": " ",
+    "gt": " "
+  },
+  {
+    "op": "match",
+    "ocr": "ш",
+    "gt": "ш"
+  },
+  {
+    "op": "match",
+    "ocr": "т",
+    "gt": "т"
+  },
+  {
+    "op": "match",
+    "ocr": "о",
+    "gt": "о"
+  },
+  {
+    "op": "match",
+    "ocr": " ",
+    "gt": " "
+  },
+  {
+    "op": "match",
+    "ocr": "с",
+    "gt": "с"
+  },
+  {
+    "op": "match",
+    "ocr": "и",
+    "gt": "и"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": " "
+  },
+  {
+    "op": "match",
+    "ocr": "ј",
+    "gt": "ј"
   },
   {
     "op": "match",
@@ -1331486,18 +1324666,13 @@
   },
   {
     "op": "match",
-    "ocr": "и",
-    "gt": "и"
-  },
-  {
-    "op": "match",
-    "ocr": " ",
-    "gt": " "
-  },
-  {
-    "op": "match",
     "ocr": "с",
     "gt": "с"
+  },
+  {
+    "op": "match",
+    "ocr": "т",
+    "gt": "т"
   },
   {
     "op": "match",
@@ -1331506,18 +1324681,18 @@
   },
   {
     "op": "match",
+    "ocr": "г",
+    "gt": "г"
+  },
+  {
+    "op": "match",
+    "ocr": "а",
+    "gt": "а"
+  },
+  {
+    "op": "match",
     "ocr": " ",
     "gt": " "
-  },
-  {
-    "op": "match",
-    "ocr": "п",
-    "gt": "п"
-  },
-  {
-    "op": "match",
-    "ocr": "о",
-    "gt": "о"
   },
   {
     "op": "match",
@@ -1331536,43 +1324711,13 @@
   },
   {
     "op": "match",
-    "ocr": "с",
-    "gt": "с"
+    "ocr": "в",
+    "gt": "в"
   },
   {
     "op": "match",
-    "ocr": "н",
-    "gt": "н"
-  },
-  {
-    "op": "match",
-    "ocr": "о",
-    "gt": "о"
-  },
-  {
-    "op": "match",
-    "ocr": " ",
-    "gt": " "
-  },
-  {
-    "op": "match",
-    "ocr": "м",
-    "gt": "м"
-  },
-  {
-    "op": "match",
-    "ocr": "у",
-    "gt": "у"
-  },
-  {
-    "op": "match",
-    "ocr": " ",
-    "gt": " "
-  },
-  {
-    "op": "match",
-    "ocr": "с",
-    "gt": "с"
+    "ocr": "а",
+    "gt": "а"
   },
   {
     "op": "match",
@@ -1331586,8 +1324731,23 @@
   },
   {
     "op": "match",
-    "ocr": "н",
-    "gt": "н"
+    "ocr": " ",
+    "gt": " "
+  },
+  {
+    "op": "match",
+    "ocr": "с",
+    "gt": "с"
+  },
+  {
+    "op": "match",
+    "ocr": "о",
+    "gt": "о"
+  },
+  {
+    "op": "match",
+    "ocr": " ",
+    "gt": " "
   },
   {
     "op": "match",
@@ -1331596,12 +1324756,307 @@
   },
   {
     "op": "match",
-    "ocr": "в",
-    "gt": "в"
+    "ocr": "ш",
+    "gt": "ш"
   },
   {
     "op": "match",
-    "ocr": "а",
+    "ocr": "и",
+    "gt": "и"
+  },
+  {
+    "op": "match",
+    "ocr": "т",
+    "gt": "т"
+  },
+  {
+    "op": "match",
+    "ocr": "е",
+    "gt": "е"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": " "
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "О"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "ф"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "к"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "а"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "њ"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "е"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "т"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "о"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": " "
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "с"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "е"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": " "
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "п"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "о"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "в"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "е"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "ќ"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "е"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": " "
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "м"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "у"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": " "
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "д"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "о"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "б"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "л"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "и"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "ж"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "у"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "в"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "а"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": " "
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "и"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": " "
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "с"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "е"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": " "
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "п"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "о"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "г"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "л"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "а"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "с"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "н"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "о"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": " "
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "м"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "у"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": " "
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "с"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "т"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "а"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "н"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "у"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
+    "gt": "в"
+  },
+  {
+    "op": "deletion",
+    "ocr": "",
     "gt": "а"
   },
   {

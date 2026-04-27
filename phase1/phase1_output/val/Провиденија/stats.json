@@ -1,5 +1,5 @@
 {
-  "matched_pairs": 724,
+  "matched_pairs": 718,
   "ocr_total_characters": 87484,
   "ocr_total_tokens": 15274,
   "ocr_total_sentences": 734,
@@ -10,172 +10,109 @@
   "gt_avg_sentence_length": 20.9491,
   "CER": 0.021,
   "WER": 0.0326,
-  "split_count": 62,
-  "merge_count": 30,
+  "split_count": 45,
+  "merge_count": 5,
   "split_examples": [
     {
       "type": "split",
       "ocr": [
-        "B",
-        "о"
+        "ПТИЦА",
+        "Л"
       ],
-      "gt": "Bо",
-      "similarity": 1.0
-    },
-    {
-      "type": "split",
-      "ocr": [
-        "и",
-        "го"
-      ],
-      "gt": "го",
-      "similarity": 0.8
-    },
-    {
-      "type": "split",
-      "ocr": [
-        "Е",
-        "дна"
-      ],
-      "gt": "Една",
-      "similarity": 1.0
-    },
-    {
-      "type": "split",
-      "ocr": [
-        "(",
-        "тоеја"
-      ],
-      "gt": "Стоеја",
+      "gt": "ПТИЦА",
       "similarity": 0.9091
     },
     {
       "type": "split",
       "ocr": [
-        "М",
-        "акедонија,"
+        "ТЕБА",
+        "B"
       ],
-      "gt": "Македонија,",
+      "gt": "ТЕБА",
+      "similarity": 0.8889
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "ПТИЦА",
+        "Е"
+      ],
+      "gt": "ПТИЦА",
+      "similarity": 0.9091
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "ЛУҐЕ",
+        "("
+      ],
+      "gt": "ЛУҐЕ",
       "similarity": 1.0
     },
     {
       "type": "split",
       "ocr": [
-        "ел",
-        "живот"
+        "РЕЛАЦИИ",
+        "М"
       ],
-      "gt": "живот",
-      "similarity": 0.8333
+      "gt": "РЕЛАЦИИ",
+      "similarity": 0.9333
     },
     {
       "type": "split",
       "ocr": [
-        "ги",
-        "знам"
+        "ЗАБОРАВ",
+        "И"
       ],
-      "gt": "знам",
-      "similarity": 0.8
+      "gt": "ЗАБОРАВ",
+      "similarity": 0.9333
     },
     {
       "type": "split",
       "ocr": [
-        "И",
-        "звишија"
+        "МОМЦИ",
+        "2"
       ],
-      "gt": "Извишија",
+      "gt": "момци,",
+      "similarity": 0.9091
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "ПОРТИ",
+        "И"
+      ],
+      "gt": "ПОРТИ",
+      "similarity": 0.9091
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "ПИСМО",
+        "B"
+      ],
+      "gt": "ПИСМО",
+      "similarity": 0.9091
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "ОГНОВИТЕ",
+        "(/"
+      ],
+      "gt": "ОГНОВИТЕ",
       "similarity": 1.0
-    },
-    {
-      "type": "split",
-      "ocr": [
-        "рз",
-        "секоја"
-      ],
-      "gt": "секоја",
-      "similarity": 0.8571
-    },
-    {
-      "type": "split",
-      "ocr": [
-        "на",
-        "народот"
-      ],
-      "gt": "народот",
-      "similarity": 0.875
     }
   ],
   "merge_examples": [
     {
       "type": "merge",
-      "ocr": "поПоВСКИ",
+      "ocr": "дели",
       "gt": [
-        "АНТЕ",
-        "ПОПОВСКИ"
+        "дели",
+        "9"
       ],
-      "similarity": 0.8
-    },
-    {
-      "type": "merge",
-      "ocr": "секавањето",
-      "gt": [
-        "сеќавањето",
-        "и"
-      ],
-      "similarity": 0.8571
-    },
-    {
-      "type": "merge",
-      "ocr": "аизуст",
-      "gt": [
-        "Наизуст",
-        "ги"
-      ],
-      "similarity": 0.8
-    },
-    {
-      "type": "merge",
-      "ocr": "секавањето",
-      "gt": [
-        "сеќавањето",
-        "на"
-      ],
-      "similarity": 0.8182
-    },
-    {
-      "type": "merge",
-      "ocr": "есечината",
-      "gt": [
-        "Месечината",
-        "го"
-      ],
-      "similarity": 0.8571
-    },
-    {
-      "type": "merge",
-      "ocr": "легнувајки",
-      "gt": [
-        "легнувајќи",
-        "во"
-      ],
-      "similarity": 0.8182
-    },
-    {
-      "type": "merge",
-      "ocr": "раґајте",
-      "gt": [
-        "раѓајте",
-        "и"
-      ],
-      "similarity": 0.8
-    },
-    {
-      "type": "merge",
-      "ocr": "секавањата",
-      "gt": [
-        "сеќавањата",
-        "на"
-      ],
-      "similarity": 0.8182
+      "similarity": 0.8889
     },
     {
       "type": "merge",
@@ -188,12 +125,30 @@
     },
     {
       "type": "merge",
-      "ocr": "искачувајки",
+      "ocr": "донесе",
       "gt": [
-        "искачувајќи",
-        "се"
+        "ни",
+        "донесе"
       ],
-      "similarity": 0.8333
+      "similarity": 0.8571
+    },
+    {
+      "type": "merge",
+      "ocr": "Храмовите",
+      "gt": [
+        "6",
+        "Храмовите"
+      ],
+      "similarity": 0.9474
+    },
+    {
+      "type": "merge",
+      "ocr": "Епитаф",
+      "gt": [
+        "7",
+        "Епитаф"
+      ],
+      "similarity": 0.9231
     }
   ],
   "book": "Провиденија",

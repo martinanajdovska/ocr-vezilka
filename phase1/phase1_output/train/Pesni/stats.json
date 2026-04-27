@@ -1,5 +1,5 @@
 {
-  "matched_pairs": 230,
+  "matched_pairs": 201,
   "ocr_total_characters": 20419,
   "ocr_total_tokens": 3748,
   "ocr_total_sentences": 261,
@@ -8,111 +8,156 @@
   "gt_total_tokens": 4257,
   "gt_total_sentences": 268,
   "gt_avg_sentence_length": 15.8843,
-  "CER": 0.5211,
-  "WER": 0.6106,
-  "split_count": 40,
-  "merge_count": 55,
+  "CER": 0.3529,
+  "WER": 0.5022,
+  "split_count": 48,
+  "merge_count": 128,
   "split_examples": [
     {
       "type": "split",
       "ocr": [
-        "итворат",
-        "го-"
+        "Ња",
+        "Народно-ослободителнита"
       ],
-      "gt": "творат",
-      "similarity": 0.8
+      "gt": "Народно-ослободителната",
+      "similarity": 0.913
     },
     {
       "type": "split",
       "ocr": [
-        "и",
-        "себе"
+        "нај-",
+        "големо"
       ],
-      "gt": "себе",
+      "gt": "најголемо",
+      "similarity": 1.0
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "го-",
+        "лем"
+      ],
+      "gt": "голем",
+      "similarity": 1.0
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "исто-",
+        "риски"
+      ],
+      "gt": "историски",
+      "similarity": 1.0
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "слободинот",
+        "н"
+      ],
+      "gt": "слободниот",
+      "similarity": 0.8571
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "утрото",
+        "з"
+      ],
+      "gt": "утрото",
+      "similarity": 0.9231
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "ружа",
+        "н"
+      ],
+      "gt": "ружа",
       "similarity": 0.8889
     },
     {
       "type": "split",
       "ocr": [
-        "|",
-        "И"
+        "негде,",
+        "п"
       ],
-      "gt": "И",
-      "similarity": 1.0
-    },
-    {
-      "type": "split",
-      "ocr": [
-        ",",
-        "Од"
-      ],
-      "gt": "Од",
-      "similarity": 1.0
-    },
-    {
-      "type": "split",
-      "ocr": [
-        "Ш",
-        "Блаж"
-      ],
-      "gt": "Блаже",
-      "similarity": 0.8
-    },
-    {
-      "type": "split",
-      "ocr": [
-        "67",
-        "Одеднаш"
-      ],
-      "gt": "Одеднаш",
-      "similarity": 0.875
-    },
-    {
-      "type": "split",
-      "ocr": [
-        "\"",
-        "Но"
-      ],
-      "gt": "Но",
-      "similarity": 1.0
-    },
-    {
-      "type": "split",
-      "ocr": [
-        "И",
-        "тогаш"
-      ],
-      "gt": "тогаш",
+      "gt": "негде,",
       "similarity": 0.9091
     },
     {
       "type": "split",
       "ocr": [
-        "СК",
-        "топи"
+        "гласи,",
+        "Во"
       ],
-      "gt": "топи",
-      "similarity": 0.8
+      "gt": "гласи,",
+      "similarity": 0.8333
     },
     {
       "type": "split",
       "ocr": [
-        "и",
-        "жив"
+        "борци",
+        "а"
       ],
-      "gt": "жив",
-      "similarity": 0.8571
+      "gt": "борци",
+      "similarity": 0.9091
     }
   ],
   "merge_examples": [
     {
       "type": "merge",
-      "ocr": "Криеате",
+      "ocr": "останатиот",
       "gt": [
-        "Криевте",
-        "в"
+        "и",
+        "останатиот"
       ],
-      "similarity": 0.8
+      "similarity": 0.9524
+    },
+    {
+      "type": "merge",
+      "ocr": "рамноправен",
+      "gt": [
+        "и",
+        "рамноправен"
+      ],
+      "similarity": 0.9565
+    },
+    {
+      "type": "merge",
+      "ocr": "крвје",
+      "gt": [
+        "в",
+        "крвје"
+      ],
+      "similarity": 0.9091
+    },
+    {
+      "type": "merge",
+      "ocr": "село.",
+      "gt": [
+        "село.‘‘",
+        "0,"
+      ],
+      "similarity": 0.8889
+    },
+    {
+      "type": "merge",
+      "ocr": "цветот",
+      "gt": [
+        "и",
+        "цветот"
+      ],
+      "similarity": 0.9231
+    },
+    {
+      "type": "merge",
+      "ocr": "некое",
+      "gt": [
+        "в",
+        "некое"
+      ],
+      "similarity": 0.9091
     },
     {
       "type": "merge",
@@ -125,76 +170,30 @@
     },
     {
       "type": "merge",
-      "ocr": "во",
+      "ocr": "ни",
       "gt": [
-        "*",
-        "*",
-        "Во"
+        "–",
+        "ни"
       ],
       "similarity": 1.0
     },
     {
       "type": "merge",
-      "ocr": "стресе,",
+      "ocr": "третата",
       "gt": [
-        "се",
-        "тресе,"
+        "на",
+        "третата"
       ],
-      "similarity": 0.9231
+      "similarity": 0.875
     },
     {
       "type": "merge",
-      "ocr": "кри.",
-      "gt": [
-        "крик",
-        "..."
-      ],
-      "similarity": 0.8571
-    },
-    {
-      "type": "merge",
-      "ocr": "небосквон,",
-      "gt": [
-        "небосклон,",
-        "и"
-      ],
-      "similarity": 0.8421
-    },
-    {
-      "type": "merge",
-      "ocr": "во",
-      "gt": [
-        "и",
-        "во"
-      ],
-      "similarity": 0.8
-    },
-    {
-      "type": "merge",
-      "ocr": "со",
+      "ocr": "храбрите",
       "gt": [
         "-",
-        "со"
+        "храбрите"
       ],
       "similarity": 1.0
-    },
-    {
-      "type": "merge",
-      "ocr": "сонце",
-      "gt": [
-        "солнце",
-        "и"
-      ],
-      "similarity": 0.8333
-    },
-    {
-      "type": "merge",
-      "ocr": "стијмат",
-      "gt": [
-        "стијнат",
-        "и"
-      ],
-      "similarity": 0.8
     }
   ],
   "book": "Pesni",

@@ -1,0 +1,156 @@
+"""Phase 4 configuration.
+
+All hyperparameters that influence model behavior live here so they can be
+hashed once into ``hyperparameter_hash`` and reused identically across the
+3 (model) x 3 (regime) x N (seed) grid
+"""
+
+from __future__ import annotations
+
+from dataclasses import dataclass, asdict, field
+from pathlib import Path
+from typing import Dict, List
+
+
+PRIMARY_SEED: int = 42
+SECONDARY_SEEDS: List[int] = [1337, 2026]
+ALL_SEEDS: List[int] = [PRIMARY_SEED] + SECONDARY_SEEDS
+
+SEEDS: List[int] = ALL_SEEDS
+
+
+@dataclass(frozen=True)
+class ClassicalConfig:
+    max_edit_distance: int = 2
+    top_k_candidates: int = 8
+    char_ngram_order: int = 4
+    add_k_smoothing: float = 0.1
+    word_lm_order: int = 3
+    word_lm_discount: float = 0.75
+    candidate_pool_max: int = 64
+    beam_size: int = 6
+    lambda_lm: float = 1.0
+    lambda_channel: float = 0.6
+    correction_margin: float = 1.5
+    proper_name_extra_margin: float = 1.0
+    rare_word_extra_margin: float = 1.0
+    case_preserving: bool = True
+
+
+
+@dataclass(frozen=True)
+class TransformerConfig:
+    pretrained_model: str = "google/byt5-small"
+
+    learning_rate: float = 1.0e-4
+    warmup_ratio: float = 0.05
+    weight_decay: float = 0.01
+    label_smoothing: float = 0.1
+    grad_clip: float = 1.0
+
+    max_input_bytes: int = 1024
+    max_target_bytes: int = 1024
+
+    batch_size: int = 8
+    gradient_accumulation_steps: int = 4
+
+    max_epochs: int = 40
+    pretrain_epochs: int = 30
+    finetune_epochs: int = 10
+    early_stopping_patience: int = 5
+    early_stop_metric: str = "val_loss"
+
+    beam_size: int = 4
+    length_penalty: float = 1.0
+    no_repeat_ngram_size: int = 0
+    length_norm_alpha: float = 0.6
+
+    identity_pair_ratio: float = 0.2
+
+    use_amp: bool = True
+    deterministic: bool = True
+
+    eval_cer_pairs: int = 64
+    eval_cer_beam: int = 2
+
+
+
+@dataclass(frozen=True)
+class HybridConfig:
+    num_classical_candidates: int = 5
+    fusion_w_lm: float = 1.0
+    fusion_w_channel: float = 0.5
+    fusion_w_neural: float = 1.5
+    margin_default: float = 0.8
+    margin_proper_name: float = 1.6
+    margin_rare_word: float = 1.4
+    calibration_grid_w_neural: List[float] = field(default_factory=lambda: [0.5, 1.0, 1.5, 2.0, 2.5])
+    calibration_grid_margin: List[float] = field(default_factory=lambda: [0.4, 0.8, 1.2, 1.6, 2.0])
+
+
+
+@dataclass(frozen=True)
+class ManifestConfig:
+    band: int = 8
+    chunk_window: int = 20
+    min_align_sim: float = 0.30
+    qa_max_mismatch_ratio: float = 0.55
+    qa_max_low_alignment_ratio: float = 0.55
+
+
+
+@dataclass(frozen=True)
+class RunConfig:
+    repo_root: Path
+    phase1_output_dir: Path
+    phase1_clean_dir: Path
+    phase1_raw_dir: Path
+    phase2_train_only_dir: Path
+    phase3_train_only_dir: Path
+    output_dir: Path
+    fail_fast: bool = False
+    force_rebuild_train_only_stats: bool = False
+    force_rebuild_manifests: bool = False
+
+
+def default_run_config(repo_root: Path) -> RunConfig:
+    return RunConfig(
+        repo_root=repo_root,
+        phase1_output_dir=repo_root / "phase1" / "phase1_output",
+        phase1_clean_dir=repo_root / "phase1" / "corrected_ocr",
+        phase1_raw_dir=repo_root / "phase1" / "raw_ocr",
+        phase2_train_only_dir=repo_root / "phase2" / "phase2_output_train_only",
+        phase3_train_only_dir=repo_root / "phase3" / "phase3_output_train_only",
+        output_dir=repo_root / "phase4" / "phase4_output",
+    )
+
+
+def frozen_hparams_dict() -> Dict[str, object]:
+    return {
+        "seeds": ALL_SEEDS,
+        "classical": asdict(ClassicalConfig()),
+        "transformer": asdict(TransformerConfig()),
+        "hybrid": asdict(HybridConfig()),
+        "manifest": asdict(ManifestConfig()),
+    }
+
+
+@dataclass(frozen=True)
+class Seq2SeqConfig:
+    embedding_dim: int = 128
+    hidden_dim: int = 256
+    num_layers: int = 1
+    dropout: float = 0.2
+    learning_rate: float = 1e-3
+    batch_size: int = 64
+    max_epochs: int = 20
+    early_stopping_patience: int = 4
+    teacher_forcing_ratio: float = 0.5
+    beam_size: int = 1
+    max_decode_len: int = 48
+
+
+MAX_EDIT_DISTANCE = ClassicalConfig().max_edit_distance
+TOP_K_CANDIDATES = ClassicalConfig().top_k_candidates
+CHAR_NGRAM_ORDER = ClassicalConfig().char_ngram_order
+ADD_K_SMOOTHING = ClassicalConfig().add_k_smoothing

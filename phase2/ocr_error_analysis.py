@@ -1,8 +1,8 @@
 import json
 from pathlib import Path
 from collections import defaultdict, Counter
+from typing import Iterable, Optional
 
-import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -36,7 +36,9 @@ SPLITS = {
 
 
 class Phase2:
-    def __init__(self, output_dir="phase2_output"):
+    def __init__(self, output_dir="phase2_output", allowed_docs: Optional[Iterable[str]] = None):
+        self.allowed_docs = set(allowed_docs) if allowed_docs is not None else None
+        self.loaded_doc_ids = set()
         self.char_ops = []
         self.word_ops = []
         self.boundary_errors = []
@@ -66,7 +68,6 @@ class Phase2:
         )
         self.lat = set("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz")
         self.punct_set = set(".,!?;:'\"„“”()-—;:[]{}")
-        self.space_markers = {" ", "<SPACE>", "<space>"}
 
         self.diacritic_pairs = {
             ("Г", "Ѓ"), ("г", "ѓ"),
@@ -84,6 +85,12 @@ class Phase2:
             ("Х", "X"), ("У", "Y"), ("Ѕ", "S")
         }
 
+    @staticmethod
+    def _cer_from_counts(match_count, substitution_count, deletion_count, insertion_count):
+        ref_total = match_count + substitution_count + deletion_count
+        errors = substitution_count + deletion_count + insertion_count
+        return errors / max(ref_total, 1)
+
     def load_dataset(self, base_dir):
         base_dir = Path(base_dir)
 
@@ -99,6 +106,9 @@ class Phase2:
                 doc = doc_folder.name
                 if doc not in docs:
                     continue
+                if self.allowed_docs is not None and doc not in self.allowed_docs:
+                    continue
+                self.loaded_doc_ids.add(doc)
 
                 char_file = doc_folder / "char_ops.json"
                 word_file = doc_folder / "word_ops.json"
@@ -195,12 +205,13 @@ class Phase2:
         if gt in self.punct_set or ocr in self.punct_set:
             self.punct[(gt, ocr)] += 1
 
-    def error_distribution(self):
+    def error_distribution(self, wb_stats=None):
         c = Counter(op["op"] for op in self.char_ops)
         total = sum(c.values()) if c else 1
 
-        split_merge_stats = self.word_boundary_analysis()
-        structural_count = split_merge_stats["split_count"] + split_merge_stats["merge_count"]
+        if wb_stats is None:
+            wb_stats = self.word_boundary_analysis()
+        structural_count = wb_stats["split_count"] + wb_stats["merge_count"]
 
         return {
             "total_char_ops": int(total),
@@ -208,9 +219,12 @@ class Phase2:
             "substitution_pct": 100 * c.get("substitution", 0) / total,
             "deletion_pct": 100 * c.get("deletion", 0) / total,
             "insertion_pct": 100 * c.get("insertion", 0) / total,
-            "split_count": int(split_merge_stats["split_count"]),
-            "merge_count": int(split_merge_stats["merge_count"]),
-            "structural_count": int(structural_count)
+            "split_count": int(wb_stats["split_count"]),
+            "merge_count": int(wb_stats["merge_count"]),
+            "split_pct": wb_stats["split_pct_of_word_ops"],
+            "merge_pct": wb_stats["merge_pct_of_word_ops"],
+            "structural_count": int(structural_count),
+            "structural_pct": wb_stats["boundary_error_pct_of_word_ops"]
         }
 
     def top_substitutions(self, n=30):
@@ -233,7 +247,26 @@ class Phase2:
             })
         return pd.DataFrame(rows)
 
+    def diacritic_rates_df(self, n=30):
+        total_substitutions = sum(self.sub_pairs.values())
+        src_substitution_totals = Counter()
+        for (src, _tgt), count in self.sub_pairs.items():
+            src_substitution_totals[src] += count
+
+        rows = []
+        for (src, tgt), count in self.diacritic.most_common(n):
+            rows.append({
+                "src": src,
+                "tgt": tgt,
+                "count": count,
+                "rate_within_substitutions": count / max(total_substitutions, 1),
+                "rate_given_src_char": count / max(src_substitution_totals[src], 1)
+            })
+        return pd.DataFrame(rows)
+
     def word_boundary_analysis(self):
+        self.word_splits = []
+        self.word_merges = []
         split_count = 0
         merge_count = 0
         split_examples = []
@@ -256,63 +289,76 @@ class Phase2:
                 if len(merge_examples) < 20:
                     merge_examples.append({"gt": gt, "ocr": ocr, "doc_id": op.get("doc_id", "")})
 
-        total_word_ops = max(len(self.boundary_errors), 1)
+        total_boundary_errors = len(self.boundary_errors)
+        total_boundary_errors_safe = max(total_boundary_errors, 1)
+        total_word_ops = len(self.word_ops)
+        total_word_ops_safe = max(total_word_ops, 1)
 
         return {
-            "total_word_ops": len(self.boundary_errors),
+            "total_word_ops": total_word_ops,
+            "total_boundary_errors": total_boundary_errors,
             "split_count": split_count,
             "merge_count": merge_count,
-            "split_rate_pct": 100 * split_count / total_word_ops,
-            "merge_rate_pct": 100 * merge_count / total_word_ops,
+            "split_pct_of_word_ops": 100 * split_count / total_word_ops_safe,
+            "merge_pct_of_word_ops": 100 * merge_count / total_word_ops_safe,
+            "boundary_error_pct_of_word_ops": 100 * (split_count + merge_count) / total_word_ops_safe,
+            "split_pct_within_boundary_errors": 100 * split_count / total_boundary_errors_safe,
+            "merge_pct_within_boundary_errors": 100 * merge_count / total_boundary_errors_safe,
             "split_examples": split_examples,
             "merge_examples": merge_examples
         }
 
     def stratify_docs(self):
-        doc_scores = defaultdict(lambda: {"err": 0, "total": 0, "split": None})
+        doc_scores = defaultdict(lambda: {"match": 0, "substitution": 0, "deletion": 0, "insertion": 0, "split": None})
 
         for op in self.char_ops:
             doc = op["doc_id"]
             split = op["split"]
+            typ = op["op"]
 
-            doc_scores[doc]["total"] += 1
-            doc_scores[doc]["err"] += int(op["op"] != "match")
+            if typ in doc_scores[doc]:
+                doc_scores[doc][typ] += 1
             doc_scores[doc]["split"] = split
 
         rows = []
         for d, v in doc_scores.items():
-            cer = v["err"] / v["total"] if v["total"] else 0.0
+            errors = v["substitution"] + v["deletion"] + v["insertion"]
+            ref_total = v["match"] + v["substitution"] + v["deletion"]
+            cer = self._cer_from_counts(v["match"], v["substitution"], v["deletion"], v["insertion"])
             rows.append({
                 "doc": d,
                 "split": v["split"],
-                "errors": v["err"],
-                "total_ops": v["total"],
-                "cer_proxy": cer
+                "errors": errors,
+                "ref_total": ref_total,
+                "cer": cer
             })
 
-        df = pd.DataFrame(rows).sort_values("cer_proxy", ascending=False)
-        high = df[df["cer_proxy"] >= df["cer_proxy"].quantile(0.75)].copy()
-        low = df[df["cer_proxy"] <= df["cer_proxy"].quantile(0.25)].copy()
+        df = pd.DataFrame(rows).sort_values("cer", ascending=False)
+        high = df[df["cer"] >= df["cer"].quantile(0.75)].copy()
+        low = df[df["cer"] <= df["cer"].quantile(0.25)].copy()
 
         return df, high, low
 
     def split_level_stats(self):
-        stats = defaultdict(lambda: {"err": 0, "total": 0, "docs": set()})
+        stats = defaultdict(lambda: {"match": 0, "substitution": 0, "deletion": 0, "insertion": 0, "docs": set()})
 
         for op in self.char_ops:
             split = op["split"]
-            stats[split]["total"] += 1
-            stats[split]["err"] += int(op["op"] != "match")
+            typ = op["op"]
+            if typ in stats[split]:
+                stats[split][typ] += 1
             stats[split]["docs"].add(op["doc_id"])
 
         rows = []
         for split, v in stats.items():
+            errors = v["substitution"] + v["deletion"] + v["insertion"]
+            ref_total = v["match"] + v["substitution"] + v["deletion"]
             rows.append({
                 "split": split,
                 "docs": len(v["docs"]),
-                "total_ops": v["total"],
-                "errors": v["err"],
-                "cer_proxy": v["err"] / v["total"] if v["total"] else 0.0
+                "ref_total": ref_total,
+                "errors": errors,
+                "cer": self._cer_from_counts(v["match"], v["substitution"], v["deletion"], v["insertion"])
             })
 
         return pd.DataFrame(rows).sort_values("split")
@@ -381,7 +427,7 @@ class Phase2:
         self.error_confusion_prob.to_csv(self.output_dir / "error_confusion_probs.csv", encoding="utf-8")
 
         self.top_substitutions(30).to_csv(self.output_dir / "top_30_substitutions.csv", index=False, encoding="utf-8")
-        self.top_counter_to_df(self.diacritic, 30).to_csv(self.output_dir / "top_diacritic_confusions.csv", index=False, encoding="utf-8")
+        self.diacritic_rates_df(30).to_csv(self.output_dir / "top_diacritic_confusions.csv", index=False, encoding="utf-8")
         self.top_counter_to_df(self.homoglyph, 30).to_csv(self.output_dir / "top_homoglyph_confusions.csv", index=False, encoding="utf-8")
         self.top_counter_to_df(self.punct, 30).to_csv(self.output_dir / "top_punctuation_confusions.csv", index=False, encoding="utf-8")
 
@@ -389,6 +435,11 @@ class Phase2:
         high_df.to_csv(self.output_dir / "high_error_docs.csv", index=False, encoding="utf-8")
         low_df.to_csv(self.output_dir / "low_error_docs.csv", index=False, encoding="utf-8")
         split_df.to_csv(self.output_dir / "split_level_stats.csv", index=False, encoding="utf-8")
+        pd.DataFrame([wb]).drop(columns=["split_examples", "merge_examples"]).to_csv(
+            self.output_dir / "word_boundary_frequency.csv",
+            index=False,
+            encoding="utf-8"
+        )
 
         with open(self.output_dir / "error_distribution.json", "w", encoding="utf-8") as f:
             json.dump(dist, f, ensure_ascii=False, indent=2)
@@ -411,6 +462,15 @@ class Phase2:
         with open(self.output_dir / "phase2_summary.json", "w", encoding="utf-8") as f:
             json.dump(summary, f, ensure_ascii=False, indent=2)
 
+        provenance = {
+            "allowed_docs_filter": sorted(self.allowed_docs) if self.allowed_docs is not None else None,
+            "loaded_doc_ids": sorted(self.loaded_doc_ids),
+            "loaded_doc_count": len(self.loaded_doc_ids),
+            "filter_active": self.allowed_docs is not None,
+        }
+        with open(self.output_dir / "provenance.json", "w", encoding="utf-8") as f:
+            json.dump(provenance, f, ensure_ascii=False, indent=2)
+
     def run(self, base_dir):
         self.load_dataset(base_dir)
         self.build_confusion_matrix()
@@ -418,7 +478,7 @@ class Phase2:
         self.normalize_error_confusion_matrix()
 
         wb = self.word_boundary_analysis()
-        dist = self.error_distribution()
+        dist = self.error_distribution(wb)
 
         doc_df, high_df, low_df = self.stratify_docs()
         split_df = self.split_level_stats()
@@ -434,9 +494,49 @@ class Phase2:
         print(f"Outputs saved to: {self.output_dir.resolve()}")
 
 
+def _repo_root() -> Path:
+    return Path(__file__).resolve().parent.parent
+
+
+def run_full_mode(base_dir: Optional[Path] = None, output_dir: Optional[Path] = None) -> Path:
+    """Run Phase 2 over all documents (descriptive analysis)."""
+    repo_root = _repo_root()
+    base = base_dir or (repo_root / "phase1" / "phase1_output")
+    out = output_dir or (repo_root / "phase2" / "phase2_output")
+    print(f"[phase2] full mode: base={base} output={out}", flush=True)
+    analyzer = Phase2(output_dir=str(out))
+    analyzer.run(base_dir=str(base))
+    return out
+
+
+def run_train_only_mode(
+    base_dir: Optional[Path] = None,
+    output_dir: Optional[Path] = None,
+) -> Path:
+    """Run Phase 2 over TRAIN documents only.
+    """
+    repo_root = _repo_root()
+    base = base_dir or (repo_root / "phase1" / "phase1_output")
+    out = output_dir or (repo_root / "phase2" / "phase2_output_train_only")
+    train_docs = set(SPLITS["train"])
+    print(
+        f"[phase2] train-only mode: base={base} output={out} "
+        f"train_docs={sorted(train_docs)}",
+        flush=True,
+    )
+    analyzer = Phase2(output_dir=str(out), allowed_docs=train_docs)
+    analyzer.run(base_dir=str(base))
+    leaked = sorted(analyzer.loaded_doc_ids & (set(SPLITS["val"]) | set(SPLITS["test"])))
+    if leaked:
+        raise AssertionError(
+            f"Phase 2 train-only mode loaded leaked val/test docs: {leaked}"
+        )
+    return out
+
+
 def main():
-    analyzer = Phase2(output_dir="../phase2/phase2_output")
-    analyzer.run(base_dir="../phase1/phase1_output")
+    run_full_mode()
+    run_train_only_mode()
 
 
 if __name__ == "__main__":

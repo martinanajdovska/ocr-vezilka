@@ -1,0 +1,4 @@
+doc,split,errors,ref_total,cer
+dnevnik_po_mnogu_godini,train,2740,159849,0.01714117698578033
+Prezir,train,2693,365727,0.007363415881244753
+viktor_kupidon,train,39,113637,0.0003431980780907627

@@ -1,5 +1,5 @@
 {
-  "matched_pairs": 4239,
+  "matched_pairs": 4204,
   "ocr_total_characters": 270020,
   "ocr_total_tokens": 48691,
   "ocr_total_sentences": 4379,
@@ -8,29 +8,11 @@
   "gt_total_tokens": 49200,
   "gt_total_sentences": 4387,
   "gt_avg_sentence_length": 11.215,
-  "CER": 0.0631,
-  "WER": 0.0816,
-  "split_count": 87,
-  "merge_count": 208,
+  "CER": 0.0584,
+  "WER": 0.0764,
+  "split_count": 83,
+  "merge_count": 318,
   "split_examples": [
-    {
-      "type": "split",
-      "ocr": [
-        "на",
-        "поетот"
-      ],
-      "gt": "поетот",
-      "similarity": 0.8571
-    },
-    {
-      "type": "split",
-      "ocr": [
-        "и",
-        "зашеметени."
-      ],
-      "gt": "зашеметени.",
-      "similarity": 0.9524
-    },
     {
       "type": "split",
       "ocr": [
@@ -43,56 +25,20 @@
     {
       "type": "split",
       "ocr": [
-        "и",
-        "омразата!"
+        "препогледни",
+        "п,"
       ],
-      "gt": "омразата!",
-      "similarity": 0.9412
+      "gt": "препогледни",
+      "similarity": 0.9565
     },
     {
       "type": "split",
       "ocr": [
-        "и",
-        "топло,"
+        "Кога",
+        "Н"
       ],
-      "gt": "топло,",
-      "similarity": 0.9091
-    },
-    {
-      "type": "split",
-      "ocr": [
-        "се",
-        "загледува"
-      ],
-      "gt": "загледува",
-      "similarity": 0.9
-    },
-    {
-      "type": "split",
-      "ocr": [
-        "и",
-        "се"
-      ],
-      "gt": "се",
-      "similarity": 0.8
-    },
-    {
-      "type": "split",
-      "ocr": [
-        "џ",
-        "беа"
-      ],
-      "gt": "беа",
-      "similarity": 0.8571
-    },
-    {
-      "type": "split",
-      "ocr": [
-        "а",
-        "не"
-      ],
-      "gt": "не",
-      "similarity": 0.8
+      "gt": "Кога",
+      "similarity": 0.8889
     },
     {
       "type": "split",
@@ -102,27 +48,134 @@
       ],
       "gt": "земја.",
       "similarity": 1.0
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "жените",
+        "Н"
+      ],
+      "gt": "жените",
+      "similarity": 0.9231
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "дој",
+        "дам"
+      ],
+      "gt": "дојдам",
+      "similarity": 1.0
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "што",
+        "Н"
+      ],
+      "gt": "што",
+      "similarity": 0.8571
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "Јас",
+        "Н"
+      ],
+      "gt": "Јас",
+      "similarity": 0.8571
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "нај",
+        "дат"
+      ],
+      "gt": "најдат",
+      "similarity": 1.0
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "тутун",
+        "ш"
+      ],
+      "gt": "тутун",
+      "similarity": 0.9091
     }
   ],
   "merge_examples": [
     {
       "type": "merge",
-      "ocr": "вуасени",
+      "ocr": "Петре",
       "gt": [
-        "вџасени",
-        "и"
+        "2-",
+        "Петре"
       ],
-      "similarity": 0.8
+      "similarity": 0.9091
     },
     {
       "type": "merge",
-      "ocr": "кожата",
+      "ocr": "Конечната",
       "gt": [
-        "а",
-        "по",
-        "кожата"
+        "4-",
+        "Конечната"
       ],
-      "similarity": 0.8
+      "similarity": 0.9474
+    },
+    {
+      "type": "merge",
+      "ocr": "Конечната",
+      "gt": [
+        "5-",
+        "Конечната"
+      ],
+      "similarity": 0.9474
+    },
+    {
+      "type": "merge",
+      "ocr": "затворено",
+      "gt": [
+        "7-",
+        "затворено"
+      ],
+      "similarity": 0.9474
+    },
+    {
+      "type": "merge",
+      "ocr": "мене.",
+      "gt": [
+        "8-",
+        "мене."
+      ],
+      "similarity": 0.8889
+    },
+    {
+      "type": "merge",
+      "ocr": "чукам",
+      "gt": [
+        "9-",
+        "чукам"
+      ],
+      "similarity": 0.9091
+    },
+    {
+      "type": "merge",
+      "ocr": "требаше",
+      "gt": [
+        "10-",
+        "требаше"
+      ],
+      "similarity": 0.875
+    },
+    {
+      "type": "merge",
+      "ocr": "метениот",
+      "gt": [
+        "11-",
+        "метениот"
+      ],
+      "similarity": 0.8889
     },
     {
       "type": "merge",
@@ -142,62 +195,6 @@
         "е"
       ],
       "similarity": 0.8571
-    },
-    {
-      "type": "merge",
-      "ocr": "човекот,",
-      "gt": [
-        "за",
-        "човекот,"
-      ],
-      "similarity": 0.875
-    },
-    {
-      "type": "merge",
-      "ocr": "лубовта",
-      "gt": [
-        "љубовта",
-        "и"
-      ],
-      "similarity": 0.8
-    },
-    {
-      "type": "merge",
-      "ocr": "наполнат",
-      "gt": [
-        "да",
-        "ги",
-        "наполнат"
-      ],
-      "similarity": 0.8
-    },
-    {
-      "type": "merge",
-      "ocr": "Имамработа",
-      "gt": [
-        "Имам",
-        "работа"
-      ],
-      "similarity": 1.0
-    },
-    {
-      "type": "merge",
-      "ocr": "самотии",
-      "gt": [
-        "само",
-        "ти",
-        "и"
-      ],
-      "similarity": 1.0
-    },
-    {
-      "type": "merge",
-      "ocr": "Гогледаше",
-      "gt": [
-        "Го",
-        "гледаше"
-      ],
-      "similarity": 1.0
     }
   ],
   "book": "Сите лица на смртта",

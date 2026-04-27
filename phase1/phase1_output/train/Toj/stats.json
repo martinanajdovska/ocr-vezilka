@@ -1,5 +1,5 @@
 {
-  "matched_pairs": 210,
+  "matched_pairs": 204,
   "ocr_total_characters": 25779,
   "ocr_total_tokens": 4677,
   "ocr_total_sentences": 217,
@@ -8,46 +8,28 @@
   "gt_total_tokens": 4506,
   "gt_total_sentences": 221,
   "gt_avg_sentence_length": 20.3891,
-  "CER": 0.212,
-  "WER": 0.1593,
-  "split_count": 85,
-  "merge_count": 28,
+  "CER": 0.1724,
+  "WER": 0.1452,
+  "split_count": 84,
+  "merge_count": 34,
   "split_examples": [
     {
       "type": "split",
       "ocr": [
-        "и",
-        "континентите"
+        "Вик",
+        "И"
       ],
-      "gt": "континентите",
-      "similarity": 0.96
+      "gt": "Вик",
+      "similarity": 0.8571
     },
     {
       "type": "split",
       "ocr": [
-        "И",
-        "Крик"
+        "Таков",
+        "И"
       ],
-      "gt": "Крик",
-      "similarity": 0.8889
-    },
-    {
-      "type": "split",
-      "ocr": [
-        "9",
-        "Совршен,"
-      ],
-      "gt": "Совршен,",
-      "similarity": 0.9333
-    },
-    {
-      "type": "split",
-      "ocr": [
-        "И",
-        "Не-"
-      ],
-      "gt": "Не-",
-      "similarity": 0.8
+      "gt": "Таков",
+      "similarity": 0.9091
     },
     {
       "type": "split",
@@ -61,30 +43,38 @@
     {
       "type": "split",
       "ocr": [
-        "И",
-        "Твој"
+        "сенка",
+        "И"
       ],
-      "gt": "Твој",
-      "similarity": 0.8889
+      "gt": "сенка",
+      "similarity": 0.9091
     },
     {
       "type": "split",
       "ocr": [
-        "а",
-        "жив",
-        "Чудотворец:"
+        "појн",
+        "о"
       ],
-      "gt": "Чудотворец:",
-      "similarity": 0.8333
+      "gt": "појно",
+      "similarity": 1.0
     },
     {
       "type": "split",
       "ocr": [
-        "Ги",
-        "затворам"
+        "БЕТ",
+        "Погубен:"
       ],
-      "gt": "затворам",
-      "similarity": 0.8889
+      "gt": "Погубен:",
+      "similarity": 0.8235
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "Не-би-час“",
+        "17"
+      ],
+      "gt": "Не-би-час“",
+      "similarity": 0.875
     },
     {
       "type": "split",
@@ -98,31 +88,31 @@
     {
       "type": "split",
       "ocr": [
-        "е",
-        "отровта"
+        "Душата:",
+        "„"
       ],
-      "gt": "отровта",
-      "similarity": 0.9333
+      "gt": "Душата:",
+      "similarity": 1.0
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "Причесна-искушение",
+        "И"
+      ],
+      "gt": "Причесна-искушение",
+      "similarity": 0.9714
     }
   ],
   "merge_examples": [
     {
       "type": "merge",
-      "ocr": "5вездите",
+      "ocr": "јадовен",
       "gt": [
-        "ѕвездите",
-        "и"
+        "Ем",
+        "јадовен"
       ],
-      "similarity": 0.8235
-    },
-    {
-      "type": "merge",
-      "ocr": "„Се",
-      "gt": [
-        "„Сè",
-        "е"
-      ],
-      "similarity": 0.8
+      "similarity": 0.875
     },
     {
       "type": "merge",
@@ -145,12 +135,12 @@
     },
     {
       "type": "merge",
-      "ocr": "се",
+      "ocr": "Лик",
       "gt": [
-        "сè",
-        "е"
+        "Лик",
+        "1"
       ],
-      "similarity": 0.8
+      "similarity": 0.8571
     },
     {
       "type": "merge",
@@ -158,6 +148,33 @@
       "gt": [
         "пиле",
         "е"
+      ],
+      "similarity": 1.0
+    },
+    {
+      "type": "merge",
+      "ocr": "Ија",
+      "gt": [
+        "И",
+        "ја"
+      ],
+      "similarity": 1.0
+    },
+    {
+      "type": "merge",
+      "ocr": "Му",
+      "gt": [
+        "-",
+        "Му"
+      ],
+      "similarity": 1.0
+    },
+    {
+      "type": "merge",
+      "ocr": "кајти",
+      "gt": [
+        "кај",
+        "ти"
       ],
       "similarity": 1.0
     },
@@ -172,28 +189,10 @@
     },
     {
       "type": "merge",
-      "ocr": "Ијас",
-      "gt": [
-        "И",
-        "јас"
-      ],
-      "similarity": 1.0
-    },
-    {
-      "type": "merge",
-      "ocr": "Јас",
+      "ocr": "Му",
       "gt": [
         "-",
-        "Јас"
-      ],
-      "similarity": 1.0
-    },
-    {
-      "type": "merge",
-      "ocr": "Тој",
-      "gt": [
-        "–",
-        "Тој"
+        "Му"
       ],
       "similarity": 1.0
     }
