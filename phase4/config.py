@@ -47,30 +47,30 @@ class TransformerConfig:
     label_smoothing: float = 0.1
     grad_clip: float = 1.0
 
-    max_input_bytes = 256
-    max_target_bytes = 256
+    max_input_bytes: int = 256
+    max_target_bytes: int = 256
 
-    batch_size = 16
-    gradient_accumulation_steps = 1
+    batch_size: int = 16
+    gradient_accumulation_steps: int = 1
 
-    max_epochs = 15
-    pretrain_epochs = 10
-    finetune_epochs = 5
-    early_stopping_patience = 3
+    max_epochs:int  = 15
+    pretrain_epochs:int  = 10
+    finetune_epochs:int  = 5
+    early_stopping_patience:int = 3
     early_stop_metric: str = "val_loss"
 
-    beam_size = 1
+    beam_size:int  = 1
     length_penalty: float = 1.0
     no_repeat_ngram_size: int = 0
     length_norm_alpha: float = 0.6
 
     identity_pair_ratio: float = 0.2
 
-    use_amp = False
+    use_amp:bool = False
     deterministic: bool = True
 
     eval_cer_pairs: int = 64
-    eval_cer_beam = 1
+    eval_cer_beam:int = 1
 
 
 
@@ -83,8 +83,8 @@ class HybridConfig:
     margin_default: float = 0.8
     margin_proper_name: float = 1.6
     margin_rare_word: float = 1.4
-    calibration_grid_w_neural = [0.5, 1.5, 2.5]
-    calibration_grid_margin = [0.4, 1.2, 2.0]
+    calibration_grid_w_neural: List[float] = field(default_factory=lambda: [0.5, 1.5, 2.5])
+    calibration_grid_margin: List[float] = field(default_factory=lambda: [0.4, 1.2, 2.0])
 
 
 @dataclass(frozen=True)
