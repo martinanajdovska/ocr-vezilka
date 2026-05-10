@@ -47,10 +47,10 @@ class TransformerConfig:
     label_smoothing: float = 0.1
     grad_clip: float = 1.0
 
-    max_input_bytes: int = 256
-    max_target_bytes: int = 256
+    max_input_bytes: int = 192
+    max_target_bytes: int = 192
 
-    batch_size: int = 16
+    batch_size: int = 8
     gradient_accumulation_steps: int = 1
 
     max_epochs:int  = 15

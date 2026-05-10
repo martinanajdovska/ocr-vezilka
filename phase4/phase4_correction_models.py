@@ -16,8 +16,10 @@ threshold selection (asserted at runtime).
 Smoke / GPU check (from repo root, after Phase 1--3 train-only artifacts exist):
 ``python -u phase4/phase4_correction_models.py --skip-phase1 --skip-phase2-stats
 --skip-phase3-noise --skip-classical --skip-hybrid --regimes real_only
---seeds 42 --neural-device cuda --predict-sample 200``. Optionally capture
-stdout and grep for ``train_loss=nan`` or ``Non-finite training loss``.
+--seeds 42 --neural-device cuda --predict-sample 200``. ``200`` caps ByT5
+train/val pairs for fitting (1 epoch per stage) and caps val/test prediction
+JSONL rows. Optionally grep logs for ``train_loss=nan`` or
+``Non-finite training loss``.
 """
 
 from __future__ import annotations
@@ -28,6 +30,7 @@ import json
 import os
 import sys
 import time
+from dataclasses import replace
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
@@ -67,6 +70,14 @@ from phase4.io.schemas import validate_prediction_records
 from phase4.models.classical import ClassicalCorrector
 from phase4.models.hybrid import HybridCorrector
 from phase4.models.transformer_seq2seq import ByteTransformerCorrector
+
+
+def _predict_sample_progress(limit: Optional[int], msg: str) -> None:
+    """Extra checkpoints when ``--predict-sample`` is set (subprocess log stays alive)."""
+    if limit is None:
+        return
+    wall = time.strftime("%H:%M:%S")
+    print(f"[phase4] (predict-sample N={limit}) {wall}  {msg}", flush=True)
 
 
 def _phase2_train_only(phase2_dir: Path) -> bool:
@@ -148,11 +159,27 @@ def _split_pairs_by_source(
     return _to_sentence_pairs(sel)
 
 
+def _maybe_cap_pairs(
+    pairs: List[Tuple[str, str]],
+    cap: Optional[int],
+    label: str,
+) -> List[Tuple[str, str]]:
+    """Return ``pairs[:cap]`` when ``cap`` is set and smaller than ``len(pairs)``."""
+    if cap is None or len(pairs) <= cap:
+        return pairs
+    print(
+        f"[neural] predict-sample: using first {cap} of {len(pairs)} {label} pairs",
+        flush=True,
+    )
+    return pairs[:cap]
+
+
 def _train_neural(
     neural,
     rows: List[Dict[str, object]],
     regime: str,
     val_pairs: List[Tuple[str, str]],
+    train_pair_cap: Optional[int] = None,
 ) -> Dict[str, object]:
     """Centralised neural-training dispatch.
 
@@ -167,10 +194,23 @@ def _train_neural(
     (currently identical across regimes by construction; the runner passes
     them in to keep one source of truth). Hyperparameters are constant
     across stages: only the per-stage epoch budget changes.
+
+    ``train_pair_cap`` (same ``N`` as ``--predict-sample`` when that flag is set):
+    use only the first ``N`` synthetic / real / plain train pairs per stage;
+    ``val_pairs`` must already be capped by the caller when ``--predict-sample``
+    is in use.
     """
+    if train_pair_cap is not None:
+        print(
+            f"[neural] (predict-sample) starting ByT5 fit  regime={regime}  "
+            f"val_pairs={len(val_pairs)} (short run: 1 epoch per stage)",
+            flush=True,
+        )
     if regime == "synthetic_plus_real":
         synth_pairs = _split_pairs_by_source(rows, split="train", source_type="synthetic")
         real_pairs = _split_pairs_by_source(rows, split="train", source_type="real")
+        synth_pairs = _maybe_cap_pairs(synth_pairs, train_pair_cap, "synthetic train")
+        real_pairs = _maybe_cap_pairs(real_pairs, train_pair_cap, "real train")
         if not synth_pairs:
             print(
                 "[neural] regime=synthetic_plus_real has no synthetic train rows; "
@@ -210,6 +250,7 @@ def _train_neural(
             ),
         }
     train_pairs = _to_sentence_pairs([r for r in rows if r["split"] == "train"])
+    train_pairs = _maybe_cap_pairs(train_pairs, train_pair_cap, "train")
     return neural.fit(train_pairs, val_pairs, stage="train")
 
 
@@ -426,11 +467,36 @@ def _run_one(
         f"test={len(test_rows)} total={len(rows)}",
         flush=True,
     )
+    if predict_sample_limit is not None:
+        wall = time.strftime("%H:%M:%S")
+        n = predict_sample_limit
+        print(
+            f"[RUN] (predict-sample N={n}) {wall}  ByT5 uses ≤{n} train+val pairs per stage "
+            f"and 1 epoch/stage; predictions capped to ≤{n} val / ≤{n} test rows.",
+            flush=True,
+        )
     _assert_no_disallowed_doc_ids(train_rows, ("val", "test"), context="train_rows")
     _assert_no_disallowed_doc_ids(val_rows, ("train", "test"), context="val_rows")
     _assert_no_disallowed_doc_ids(test_rows, ("train", "val"), context="test_rows")
 
     train_word_counts = _train_word_counts(train_rows)
+
+    nn_pair_cap = predict_sample_limit
+
+    val_pairs_all = _to_sentence_pairs(val_rows)
+    val_nn = _maybe_cap_pairs(val_pairs_all, nn_pair_cap, "val (ByT5)")
+
+    base_nn = TransformerConfig()
+    nn_cfg = (
+        replace(
+            base_nn,
+            max_epochs=1,
+            pretrain_epochs=1,
+            finetune_epochs=1,
+        )
+        if nn_pair_cap is not None
+        else base_nn
+    )
 
     is_primary = seed == primary_seed
     seed_suffix = "" if is_primary else f"__seed{seed}"
@@ -447,6 +513,8 @@ def _run_one(
                 "primary_seed": primary_seed,
                 "split_manifest_hash": split_manifest_hash(),
                 "hparams": frozen_hparams_dict(),
+                "predict_sample_limit": predict_sample_limit,
+                "short_neural_fit": predict_sample_limit is not None,
             },
             ensure_ascii=False,
             indent=2,
@@ -464,20 +532,32 @@ def _run_one(
         t_fit = time.perf_counter()
         model.fit([str(r["clean"]) for r in train_rows])
         print(f"[train] classical: fit done in {time.perf_counter() - t_fit:.1f}s", flush=True)
+        if predict_sample_limit is not None:
+            print(
+                "[train] classical: (predict-sample) used full train split for LM "
+                "(only ByT5 + JSONL outputs are capped).",
+                flush=True,
+            )
         model.save(model_dir)
         correct_fn = model.correct_sentence
     elif model_name == "neural":
-        cfg = TransformerConfig()
-        model = ByteTransformerCorrector(cfg=cfg, seed=seed)
-        val_pairs = _to_sentence_pairs(val_rows)
+        model = ByteTransformerCorrector(cfg=nn_cfg, seed=seed)
         print(
-            f"[train] neural: regime={regime} val_pairs={len(val_pairs)}",
+            f"[train] neural: regime={regime} val_pairs={len(val_nn)} "
+            f"(predict_sample_limit={predict_sample_limit})",
             flush=True,
         )
         t_fit = time.perf_counter()
-        training_metrics = _train_neural(model, rows, regime, val_pairs)
+        training_metrics = _train_neural(
+            model, rows, regime, val_nn, train_pair_cap=nn_pair_cap
+        )
         print(f"[train] neural: training done in {time.perf_counter() - t_fit:.1f}s", flush=True)
         model.save(model_dir)
+        if predict_sample_limit is not None:
+            print(
+                f"[train] neural: (predict-sample) checkpoint saved -> {model_dir / 'transformer.pt'}",
+                flush=True,
+            )
         n_params = int(training_metrics.get("n_params") or 0) or None
         (model_dir / "training_metrics.json").write_text(
             json.dumps(training_metrics, ensure_ascii=False, indent=2), encoding="utf-8"
@@ -491,17 +571,25 @@ def _run_one(
         t0 = time.perf_counter()
         classical.fit([str(r["clean"]) for r in train_rows])
         print(f"[train] hybrid: classical fit done in {time.perf_counter() - t0:.1f}s", flush=True)
-        neural = ByteTransformerCorrector(cfg=TransformerConfig(), seed=seed)
-        val_pairs = _to_sentence_pairs(val_rows)
+        neural = ByteTransformerCorrector(cfg=nn_cfg, seed=seed)
         print(
-            f"[train] hybrid: regime={regime} val_pairs={len(val_pairs)}",
+            f"[train] hybrid: regime={regime} val_pairs={len(val_nn)} "
+            f"(predict_sample_limit={predict_sample_limit})",
             flush=True,
         )
         t1 = time.perf_counter()
-        training_metrics = _train_neural(neural, rows, regime, val_pairs)
+        training_metrics = _train_neural(
+            neural, rows, regime, val_nn, train_pair_cap=nn_pair_cap
+        )
         print(f"[train] hybrid: neural fit done in {time.perf_counter() - t1:.1f}s", flush=True)
         classical.save(model_dir / "classical_assets")
         neural.save(model_dir / "neural_assets")
+        if predict_sample_limit is not None:
+            print(
+                f"[train] hybrid: (predict-sample) neural checkpoint saved -> "
+                f"{model_dir / 'neural_assets' / 'transformer.pt'}",
+                flush=True,
+            )
         n_params = int(training_metrics.get("n_params") or 0) or None
         (model_dir / "neural_assets" / "training_metrics.json").write_text(
             json.dumps(training_metrics, ensure_ascii=False, indent=2), encoding="utf-8"
@@ -516,7 +604,7 @@ def _run_one(
         )
         print("[train] hybrid: calibrating fusion weights on VAL...", flush=True)
         t2 = time.perf_counter()
-        cal = model.calibrate_on_val(val_pairs, max_pairs=400)
+        cal = model.calibrate_on_val(val_nn, max_pairs=min(400, len(val_nn)))
         print(f"[train] hybrid: calibration done in {time.perf_counter() - t2:.1f}s", flush=True)
         model.save_calibration(model_dir / "hybrid_calibration.json")
         (model_dir / "hybrid_calibration_summary.json").write_text(
@@ -542,9 +630,11 @@ def _run_one(
         else test_rows
     )
     if predict_sample_limit is not None:
+        wall = time.strftime("%H:%M:%S")
         print(
-            f"[predict] limiting val/test rows to {predict_sample_limit} each "
-            f"(full val={len(val_rows)} test={len(test_rows)})",
+            f"[predict] (predict-sample N={predict_sample_limit}) {wall}  "
+            f"scoring val ({len(val_predict_rows)} rows) then test ({len(test_predict_rows)} rows); "
+            f"full split sizes val={len(val_rows)} test={len(test_rows)}",
             flush=True,
         )
 
@@ -579,6 +669,15 @@ def _run_one(
     cd_path = out_dir / "predictions" / "cross_domain" / model_name / f"{regime}{seed_suffix}_A_to_B.jsonl"
     print(f"[write] cross_domain predictions -> {cd_path}", flush=True)
     _jsonl_write(cd_path, a_to_b_records)
+
+    if predict_sample_limit is not None:
+        wall = time.strftime("%H:%M:%S")
+        print(
+            f"[predict] (predict-sample) {wall}  prediction pass done for "
+            f"{model_name}/{regime}: val={len(val_records)} test={len(test_records)} "
+            f"cross_domain={len(a_to_b_records)} lines.",
+            flush=True,
+        )
 
     metric_payload = aggregate_metrics(val_records)
     metric_payload.update(rare_and_name_corruption(val_records))
@@ -788,8 +887,18 @@ def run_phase4(
     if predict_sample_limit is not None:
         print(
             f"[phase4] predict_sample_limit={predict_sample_limit} "
-            f"(caps val/test prediction JSONL rows per model; training unchanged)",
+            f"(caps ByT5 train/val pairs for fit with 1 epoch per stage, and "
+            f"caps val/test prediction JSONL rows per model)",
             flush=True,
+        )
+        _predict_sample_progress(
+            predict_sample_limit,
+            "Expect: phase1 → train-only stats (if rebuilt) → manifests → "
+            "classical tuning → per-regime identity + models.",
+        )
+        _predict_sample_progress(
+            predict_sample_limit,
+            f"Output directory: {cfg.output_dir}",
         )
 
     if not skip_phase1:
@@ -797,6 +906,7 @@ def run_phase4(
         _run_phase1(repo_root)
     else:
         print("[phase4] (skip-phase1) reusing existing phase1_output/", flush=True)
+    _predict_sample_progress(predict_sample_limit, "Phase 1 finished or skipped.")
 
     if skip_phase2_stats:
         if not _phase2_train_only(cfg.phase2_train_only_dir):
@@ -819,11 +929,17 @@ def run_phase4(
             flush=True,
         )
     if not (skip_phase2_stats and skip_phase3_noise):
+        _predict_sample_progress(
+            predict_sample_limit,
+            "Ensuring train-only Phase 2 stats + Phase 3 noise (may take several minutes if rebuilding)...",
+        )
         _ensure_train_only_stats(cfg)
+    _predict_sample_progress(predict_sample_limit, "Train-only Phase 2/3 artifacts ready.")
 
     manifests_dir = repo_root / "phase4" / "data" / "manifests"
     if skip_manifests:
         print("[phase4] (skip-manifests) reusing existing manifests/*.jsonl", flush=True)
+        _predict_sample_progress(predict_sample_limit, "Reusing existing manifests.")
         manifest_paths = {
             r: manifests_dir / f"{r}.jsonl" for r in all_regimes
         }
@@ -832,7 +948,12 @@ def run_phase4(
             raise FileNotFoundError(
                 f"--skip-manifests requested but the following manifests are missing: {missing}"
             )
+        _predict_sample_progress(predict_sample_limit, "Manifest paths verified (reused).")
     else:
+        _predict_sample_progress(
+            predict_sample_limit,
+            "Building phase4 manifests from train-only data (I/O + alignment)...",
+        )
         print("[phase4] building manifests from train-only synthetic + real pairs ...", flush=True)
         manifest_paths = build_phase4_manifests(
             phase1_output_dir=cfg.phase1_output_dir,
@@ -840,6 +961,7 @@ def run_phase4(
             manifests_dir=manifests_dir,
         )
         print(f"[phase4] manifests: {manifest_paths}", flush=True)
+        _predict_sample_progress(predict_sample_limit, "Manifests ready.")
 
     runs: List[Dict[str, object]] = []
     selected_checkpoints: Dict[str, object] = {}
@@ -847,18 +969,33 @@ def run_phase4(
     print(f"[phase4] models_to_run={models_to_run}", flush=True)
     print(f"[phase4] regimes_to_run={regimes_to_run}", flush=True)
 
-
+    _predict_sample_progress(
+        predict_sample_limit,
+        "Loading real_only manifest and running classical threshold tuning (full val; can take a few minutes)...",
+    )
     real_rows_for_tuning = load_jsonl(manifest_paths["real_only"])
     classical_cfg = _tune_classical_on_real_val(
         real_rows=real_rows_for_tuning,
         out_dir=cfg.output_dir,
         phase2_train_only_dir=cfg.phase2_train_only_dir,
     )
+    _predict_sample_progress(
+        predict_sample_limit,
+        "Classical tuning done; starting regime / model loop.",
+    )
 
     for regime in regimes_to_run:
         rows = load_jsonl(manifest_paths[regime])
+        _predict_sample_progress(
+            predict_sample_limit,
+            f"--- regime={regime}  ({len(rows)} manifest rows) ---",
+        )
         train_word_counts = _train_word_counts([r for r in rows if r["split"] == "train"])
         try:
+            _predict_sample_progress(
+                predict_sample_limit,
+                f"regime={regime}: writing identity baseline...",
+            )
             id_run = _emit_identity_baseline(
                 rows=rows,
                 out_dir=cfg.output_dir,
@@ -869,6 +1006,10 @@ def run_phase4(
             )
             runs.append(id_run)
             print(f"[phase4] identity baseline emitted for {regime}", flush=True)
+            _predict_sample_progress(
+                predict_sample_limit,
+                f"regime={regime}: identity baseline done.",
+            )
         except Exception as exc:  
             fail = {
                 "model": "identity",
@@ -884,6 +1025,10 @@ def run_phase4(
         for model_name in models_to_run:
             for seed in seeds:
                 try:
+                    _predict_sample_progress(
+                        predict_sample_limit,
+                        f"regime={regime}  starting {model_name}  seed={seed} ...",
+                    )
                     result = _run_one(
                         model_name=model_name,
                         regime=regime,
@@ -905,6 +1050,10 @@ def run_phase4(
                         f"[phase4] completed {model_name} {regime} seed={seed}",
                         flush=True,
                     )
+                    _predict_sample_progress(
+                        predict_sample_limit,
+                        f"regime={regime}  finished {model_name}  seed={seed}.",
+                    )
                 except Exception as exc:
                     fail = {
                         "model": model_name,
@@ -923,6 +1072,7 @@ def run_phase4(
                         raise
 
     print("[phase4] building paper tables...", flush=True)
+    _predict_sample_progress(predict_sample_limit, "Aggregating paper tables + run manifest...")
     table_paths = build_all_tables(
         out_dir=cfg.output_dir, primary_seed=primary_seed, all_seeds=list(seeds)
     )
@@ -972,6 +1122,7 @@ def run_phase4(
         for row in runs:
             writer.writerow({k: row.get(k) for k in fieldnames})
     print(f"[phase4] wrote {table_path}", flush=True)
+    _predict_sample_progress(predict_sample_limit, "All phase4 artifacts written; run complete.")
 
 
 def main():
@@ -1035,9 +1186,10 @@ def main():
         type=int,
         default=None,
         metavar="N",
-        help="For smoke/dev runs: after training, only write the first N val and "
-        "first N test rows to prediction JSONL (and cross-domain A->B from the "
-        "capped test set). Training and validation during fit are unchanged.",
+        help="Short sanity run + smaller artifacts: caps ByT5 train and val "
+        "pairs to the first N each (1 epoch per stage) and writes at most N val "
+        "and N test rows per model to prediction JSONL (and cross-domain A->B "
+        "from the capped test set). Omit for full training and full predictions.",
     )
     args = parser.parse_args()
     if args.neural_device != "auto":
