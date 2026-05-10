@@ -328,6 +328,12 @@ class ByT5Corrector:
                     optimizer.zero_grad(set_to_none=True)
                     global_step += 1
             train_loss = running_loss / max(1, n_batches)
+            if not math.isfinite(train_loss):
+                print(
+                    f"[byt5] Non-finite training loss at {stage} epoch {epoch + 1}: "
+                    f"train_loss={train_loss}",
+                    flush=True,
+                )
 
             val_loss = self._eval_loss(val_loader)
             history.append(

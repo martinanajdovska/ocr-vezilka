@@ -12,6 +12,12 @@
 All training-time decisions read only train rows. Hybrid calibration reads
 only val rows. Test rows are predicted, but never inspected for parameter or
 threshold selection (asserted at runtime).
+
+Smoke / GPU check (from repo root, after Phase 1--3 train-only artifacts exist):
+``python -u phase4/phase4_correction_models.py --skip-phase1 --skip-phase2-stats
+--skip-phase3-noise --skip-classical --skip-hybrid --regimes real_only
+--seeds 42 --neural-device cuda --predict-sample 200``. Optionally capture
+stdout and grep for ``train_loss=nan`` or ``Non-finite training loss``.
 """
 
 from __future__ import annotations
@@ -409,6 +415,7 @@ def _run_one(
     phase2_train_only_dir: Path,
     primary_seed: int,
     classical_cfg: Optional[ClassicalConfig] = None,
+    predict_sample_limit: Optional[int] = None,
 ) -> Dict[str, object]:
     print(f"[RUN] model={model_name} regime={regime} seed={seed}", flush=True)
     train_rows = [r for r in rows if r["split"] == "train"]
@@ -524,8 +531,25 @@ def _run_one(
     else:
         raise ValueError(f"Unknown model: {model_name}")
 
+    val_predict_rows = (
+        val_rows[:predict_sample_limit]
+        if predict_sample_limit is not None
+        else val_rows
+    )
+    test_predict_rows = (
+        test_rows[:predict_sample_limit]
+        if predict_sample_limit is not None
+        else test_rows
+    )
+    if predict_sample_limit is not None:
+        print(
+            f"[predict] limiting val/test rows to {predict_sample_limit} each "
+            f"(full val={len(val_rows)} test={len(test_rows)})",
+            flush=True,
+        )
+
     val_records, val_latencies = _predict_records(
-        model_name, correct_fn, val_rows, train_word_counts, blind_test=False
+        model_name, correct_fn, val_predict_rows, train_word_counts, blind_test=False
     )
     val_path = out_dir / "predictions" / "val" / model_name / f"{regime}{seed_suffix}.jsonl"
     print(f"[write] val predictions -> {val_path}", flush=True)
@@ -542,13 +566,13 @@ def _run_one(
     _assert_artifacts_saved_before_test(artifact_check_paths, context=f"{model_name}/{regime}")
 
     test_records, _test_latencies = _predict_records(
-        model_name, correct_fn, test_rows, train_word_counts, blind_test=True
+        model_name, correct_fn, test_predict_rows, train_word_counts, blind_test=True
     )
     test_path = out_dir / "predictions" / "test_blind" / model_name / f"{regime}{seed_suffix}.jsonl"
     print(f"[write] test_blind predictions -> {test_path}", flush=True)
     _jsonl_write(test_path, test_records)
 
-    a_to_b_rows = [r for r in test_rows if r["subset_domain"] == "B"]
+    a_to_b_rows = [r for r in test_predict_rows if r["subset_domain"] == "B"]
     a_to_b_records, _ = _predict_records(
         model_name, correct_fn, a_to_b_rows, train_word_counts, blind_test=True
     )
@@ -598,9 +622,13 @@ def _emit_identity_baseline(
     regime: str,
     primary_seed: int,
     train_word_counts: Dict[str, int],
+    predict_sample_limit: Optional[int] = None,
 ) -> Dict[str, object]:
     val_rows = [r for r in rows if r["split"] == "val"]
     test_rows = [r for r in rows if r["split"] == "test"]
+    if predict_sample_limit is not None:
+        val_rows = val_rows[:predict_sample_limit]
+        test_rows = test_rows[:predict_sample_limit]
     val_records = identity_baseline_records(val_rows, train_word_counts)
     test_records = []
     for r in test_rows:
@@ -728,6 +756,7 @@ def run_phase4(
     skip_phase3_noise: bool = False,
     skip_manifests: bool = False,
     regimes: Optional[List[str]] = None,
+    predict_sample_limit: Optional[int] = None,
 ) -> None:
     cfg = default_run_config(repo_root)
     cfg.output_dir.mkdir(parents=True, exist_ok=True)
@@ -756,6 +785,12 @@ def run_phase4(
         raise ValueError(f"Unknown regime(s): {bad}. Allowed: {all_regimes}")
 
     _print_run_header(repo_root, cfg, seeds, models_to_run, regimes_to_run)
+    if predict_sample_limit is not None:
+        print(
+            f"[phase4] predict_sample_limit={predict_sample_limit} "
+            f"(caps val/test prediction JSONL rows per model; training unchanged)",
+            flush=True,
+        )
 
     if not skip_phase1:
         print("[phase4] running phase 1 alignment to regenerate matched_pairs.json", flush=True)
@@ -830,6 +865,7 @@ def run_phase4(
                 regime=regime,
                 primary_seed=primary_seed,
                 train_word_counts=train_word_counts,
+                predict_sample_limit=predict_sample_limit,
             )
             runs.append(id_run)
             print(f"[phase4] identity baseline emitted for {regime}", flush=True)
@@ -857,6 +893,7 @@ def run_phase4(
                         phase2_train_only_dir=cfg.phase2_train_only_dir,
                         primary_seed=primary_seed,
                         classical_cfg=classical_cfg,
+                        predict_sample_limit=predict_sample_limit,
                     )
                     runs.append(result)
                     if seed == primary_seed:
@@ -993,6 +1030,15 @@ def main():
         "Use 'cpu' as an escape hatch when MPS hits a Metal bug for your "
         "PyTorch / macOS combination (slower but always works).",
     )
+    parser.add_argument(
+        "--predict-sample",
+        type=int,
+        default=None,
+        metavar="N",
+        help="For smoke/dev runs: after training, only write the first N val and "
+        "first N test rows to prediction JSONL (and cross-domain A->B from the "
+        "capped test set). Training and validation during fit are unchanged.",
+    )
     args = parser.parse_args()
     if args.neural_device != "auto":
         os.environ["PHASE4_NEURAL_DEVICE"] = args.neural_device
@@ -1015,6 +1061,7 @@ def main():
         skip_phase3_noise=args.skip_phase3_noise,
         skip_manifests=args.skip_manifests,
         regimes=regimes,
+        predict_sample_limit=args.predict_sample,
     )
     print("Phase 4 completed.", flush=True)
 
