@@ -1,0 +1,13 @@
+model,regime,subset_domain,n,cer,wer,chrf,sentence_accuracy
+identity,real_only,A,1203,0.92132,1.01266,0.78715,0.0
+identity,real_only,B,229,0.05782,0.10348,0.94659,0.0
+identity,synthetic_only,A,4068,0.06827,0.30233,0.85349,0.0
+identity,synthetic_only,B,891,0.09174,0.32532,0.82774,0.0
+identity,synthetic_plus_real,A,5271,0.26296,0.46445,0.83835,0.0
+identity,synthetic_plus_real,B,1120,0.08481,0.27996,0.85204,0.0
+classical,real_only,A,1203,0.92294,1.01868,0.78621,0.00083
+classical,real_only,B,229,0.05815,0.10564,0.94589,0.00873
+classical,synthetic_only,A,4068,0.06969,0.3048,0.85263,0.00221
+classical,synthetic_only,B,891,0.09033,0.32621,0.82815,0.00112
+classical,synthetic_plus_real,A,5271,0.26588,0.46964,0.83693,0.00209
+classical,synthetic_plus_real,B,1120,0.08507,0.28205,0.85168,0.00268

@@ -303,17 +303,20 @@ class ByT5Corrector:
         global_step = 0
         t_all = time.perf_counter()
 
+        log_every = max(1, steps_per_epoch // 7)
         for epoch in range(n_epochs):
             t_ep = time.perf_counter()
             self.model.train()
             running_loss = 0.0
             n_batches = 0
             optimizer.zero_grad(set_to_none=True)
+            train_opt_steps = 0
             for batch_idx, batch in enumerate(train_loader):
                 batch = {k: v.to(self.device, non_blocking=True) for k, v in batch.items()}
                 with torch.amp.autocast("cuda", enabled=use_amp):
                     outputs = self.model(**batch)
                     loss = outputs.loss / accum
+                batch_loss = float(outputs.loss.detach().item())
                 scaler.scale(loss).backward()
                 running_loss += float(loss.item()) * accum
                 n_batches += 1
@@ -327,6 +330,19 @@ class ByT5Corrector:
                     scheduler.step()
                     optimizer.zero_grad(set_to_none=True)
                     global_step += 1
+                    train_opt_steps += 1
+                    if (
+                        train_opt_steps == 1
+                        or train_opt_steps == steps_per_epoch
+                        or train_opt_steps % log_every == 0
+                    ):
+                        print(
+                            f"[byt5] {stage} epoch {epoch + 1}/{n_epochs} "
+                            f"opt_step {train_opt_steps}/{steps_per_epoch} "
+                            f"(global_step={global_step}) batch_loss={batch_loss:.4f} "
+                            f"epoch_elapsed={time.perf_counter() - t_ep:.1f}s",
+                            flush=True,
+                        )
             train_loss = running_loss / max(1, n_batches)
             if not math.isfinite(train_loss):
                 print(

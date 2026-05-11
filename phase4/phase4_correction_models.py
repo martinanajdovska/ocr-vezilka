@@ -969,20 +969,35 @@ def run_phase4(
     print(f"[phase4] models_to_run={models_to_run}", flush=True)
     print(f"[phase4] regimes_to_run={regimes_to_run}", flush=True)
 
-    _predict_sample_progress(
-        predict_sample_limit,
-        "Loading real_only manifest and running classical threshold tuning (full val; can take a few minutes)...",
+    needs_classical_val_tune = any(
+        m in models_to_run for m in ("classical", "hybrid")
     )
-    real_rows_for_tuning = load_jsonl(manifest_paths["real_only"])
-    classical_cfg = _tune_classical_on_real_val(
-        real_rows=real_rows_for_tuning,
-        out_dir=cfg.output_dir,
-        phase2_train_only_dir=cfg.phase2_train_only_dir,
-    )
-    _predict_sample_progress(
-        predict_sample_limit,
-        "Classical tuning done; starting regime / model loop.",
-    )
+    if needs_classical_val_tune:
+        _predict_sample_progress(
+            predict_sample_limit,
+            "Loading real_only manifest and running classical threshold tuning (full val; can take a few minutes)...",
+        )
+        real_rows_for_tuning = load_jsonl(manifest_paths["real_only"])
+        classical_cfg = _tune_classical_on_real_val(
+            real_rows=real_rows_for_tuning,
+            out_dir=cfg.output_dir,
+            phase2_train_only_dir=cfg.phase2_train_only_dir,
+        )
+        _predict_sample_progress(
+            predict_sample_limit,
+            "Classical tuning done; starting regime / model loop.",
+        )
+    else:
+        classical_cfg = None
+        print(
+            "[phase4] skipping classical val tuning (only needed for classical/hybrid "
+            f"in models_to_run={models_to_run})",
+            flush=True,
+        )
+        _predict_sample_progress(
+            predict_sample_limit,
+            "Starting regime / model loop (no classical threshold tuning).",
+        )
 
     for regime in regimes_to_run:
         rows = load_jsonl(manifest_paths[regime])

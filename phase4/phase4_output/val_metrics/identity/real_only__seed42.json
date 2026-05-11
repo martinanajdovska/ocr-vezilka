@@ -1,0 +1,44 @@
+{
+  "cer": 0.7832297036587182,
+  "wer": 0.8672669343487329,
+  "chrf": 0.8126487381373886,
+  "input_cer": 0.7832297036587182,
+  "cer_reduction_rate": 0.0,
+  "correction_rate": 0.0,
+  "overcorrection_rate": 0.0,
+  "sentence_accuracy": 0.0,
+  "n_records": 1432,
+  "rare_word_corruption_rate": 0.6920499818906194,
+  "proper_name_corruption_rate": 0.6211215485340165,
+  "rare_token_total": 11044,
+  "proper_token_total": 3513,
+  "per_domain": {
+    "A": {
+      "cer": 0.9213167541813386,
+      "wer": 1.012660326729036,
+      "chrf": 0.787152036481929,
+      "input_cer": 0.9213167541813386,
+      "cer_reduction_rate": 0.0,
+      "correction_rate": 0.0,
+      "overcorrection_rate": 0.0,
+      "sentence_accuracy": 0.0,
+      "n_records": 1203
+    },
+    "B": {
+      "cer": 0.05782043824950149,
+      "wer": 0.1034754451194656,
+      "chrf": 0.946589926309957,
+      "input_cer": 0.05782043824950149,
+      "cer_reduction_rate": 0.0,
+      "correction_rate": 0.0,
+      "overcorrection_rate": 0.0,
+      "sentence_accuracy": 0.0,
+      "n_records": 229
+    }
+  },
+  "runs_on": {
+    "model": "identity",
+    "regime": "real_only",
+    "seed": 42
+  }
+}

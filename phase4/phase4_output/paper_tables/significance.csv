@@ -1,0 +1,4 @@
+regime,system,vs_baseline,n,cer_mean_delta,cer_ci_low,cer_ci_high,cer_p_value,wer_mean_delta,wer_p_value
+real_only,classical,identity,1432,0.001419,-0.000493,0.003001,0.128,0.005405,0.0
+synthetic_only,classical,identity,4959,0.000911,-0.000112,0.00187,0.078,0.002183,0.0
+synthetic_plus_real,classical,identity,6391,0.002452,0.001273,0.003662,0.002,0.004645,0.0
