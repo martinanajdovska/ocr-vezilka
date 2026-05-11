@@ -7,7 +7,7 @@ import random
 import time
 from dataclasses import asdict
 from pathlib import Path
-from typing import Dict, List, Optional, Sequence, Tuple
+from typing import Any, Dict, List, Optional, Sequence, Tuple, Union
 
 import torch
 import torch.nn as nn
@@ -58,6 +58,59 @@ def _set_seed(seed: int) -> None:
             torch.mps.manual_seed(seed)
         except (AttributeError, RuntimeError):
             pass
+
+
+def _training_rng_state() -> Dict[str, Any]:
+    state: Dict[str, Any] = {
+        "python_random": random.getstate(),
+        "torch": torch.get_rng_state(),
+    }
+    if torch.cuda.is_available():
+        state["cuda"] = torch.cuda.get_rng_state_all()
+    if hasattr(torch, "mps") and torch.backends.mps.is_available():
+        try:
+            state["mps"] = torch.mps.get_rng_state()
+        except (AttributeError, RuntimeError):
+            pass
+    return state
+
+
+def _restore_training_rng_state(bundle: Dict[str, Any]) -> None:
+    rs = bundle.get("rng_state")
+    if not isinstance(rs, dict):
+        return
+    pr = rs.get("python_random")
+    if pr is not None:
+        random.setstate(pr)
+    tr = rs.get("torch")
+    if tr is not None:
+        torch.set_rng_state(tr)
+    if torch.cuda.is_available():
+        cu = rs.get("cuda")
+        if cu is not None:
+            torch.cuda.set_rng_state_all(cu)
+    if hasattr(torch, "mps") and torch.backends.mps.is_available():
+        mp = rs.get("mps")
+        if mp is not None:
+            try:
+                torch.mps.set_rng_state(mp)
+            except (AttributeError, RuntimeError):
+                pass
+
+
+def _atomic_torch_save(obj: object, path: Path) -> None:
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp = path.with_suffix(path.suffix + ".tmp")
+    torch.save(obj, tmp)
+    tmp.replace(path)
+
+
+def _torch_load_checkpoint(path: Path, map_location: Union[str, torch.device]) -> Dict[str, Any]:
+    try:
+        return torch.load(path, map_location=map_location, weights_only=False)  # type: ignore[call-arg]
+    except TypeError:
+        return torch.load(path, map_location=map_location)
 
 
 class _ByT5Dataset(Dataset):
@@ -182,6 +235,8 @@ class ByT5Corrector:
         val_pairs: Sequence[Tuple[str, str]],
         stage: str = "train",
         resume_from: Optional[Path] = None,
+        checkpoint_dir: Optional[Path] = None,
+        resume: bool = True,
     ) -> Dict[str, object]:
         """Fine-tune ByT5 on (noisy, clean) sentence pairs.
 
@@ -189,14 +244,20 @@ class ByT5Corrector:
         - ``train`` (default) -> ``cfg.max_epochs`` epochs, single stage.
         - ``pretrain`` -> ``cfg.pretrain_epochs`` epochs.
         - ``finetune`` -> ``cfg.finetune_epochs`` epochs (load weights from
-          ``resume_from`` if provided).
+          ``resume_from`` when starting finetune in a new process, if no
+          mid-stage checkpoint exists).
 
-        All other hyperparameters (learning rate, weight decay, label smoothing,
-        warmup ratio, beam size) are constant across stages and regimes.
+        When ``checkpoint_dir`` is set, an epoch-end checkpoint is written to
+        ``checkpoint_dir / f"byt5_resume_{stage}.pt"`` so training can resume
+        after an interrupt. On successful completion that file is removed.
+        For ``stage="pretrain"``, weights are also saved under
+        ``checkpoint_dir / "pretrain_hf"`` for the finetune stage.
+
+        If a training checkpoint exists and ``resume`` is true, it takes
+        precedence over ``resume_from`` for initial weights.
         """
         if not train_pairs:
             raise ValueError("No training pairs for ByT5 corrector.")
-        _set_seed(self.seed)
 
         stage = stage.lower()
         if stage == "pretrain":
@@ -206,7 +267,45 @@ class ByT5Corrector:
         else:
             n_epochs = int(self.cfg.max_epochs)
 
-        if self.model is None:
+        ckpt_root = Path(checkpoint_dir) if checkpoint_dir is not None else None
+        train_ckpt_path = (
+            (ckpt_root / f"byt5_resume_{stage}.pt") if ckpt_root is not None else None
+        )
+
+        resume_bundle: Optional[Dict[str, Any]] = None
+        if resume and train_ckpt_path is not None and train_ckpt_path.exists():
+            resume_bundle = _torch_load_checkpoint(train_ckpt_path, map_location="cpu")
+            if (
+                resume_bundle.get("stage") != stage
+                or int(resume_bundle.get("n_epochs", -1)) != n_epochs
+            ):
+                print(
+                    "[byt5] ignoring stale training checkpoint "
+                    f"(stage/n_epochs mismatch): {train_ckpt_path}",
+                    flush=True,
+                )
+                resume_bundle = None
+            else:
+                print(
+                    f"[byt5] resuming training from checkpoint -> {train_ckpt_path}",
+                    flush=True,
+                )
+
+        if resume_bundle is None:
+            _set_seed(self.seed)
+
+        if resume_bundle is not None:
+            T5ForConditionalGeneration, ByT5Tokenizer = _import_hf()
+            self.tokenizer = ByT5Tokenizer.from_pretrained(self.cfg.pretrained_model)
+            self.model = T5ForConditionalGeneration.from_pretrained(
+                self.cfg.pretrained_model
+            ).to(self.device)
+            sd = resume_bundle["model_state_dict"]
+            self.model.load_state_dict(
+                {k: v.to(self.device) for k, v in sd.items()}, strict=True
+            )
+            _restore_training_rng_state(resume_bundle)
+        elif self.model is None:
             if resume_from is not None and Path(resume_from).exists():
                 self._load_pretrained(Path(resume_from))
             else:
@@ -218,6 +317,25 @@ class ByT5Corrector:
         val_kept, val_skipped = self._filter_pairs(val_pairs)
         if not train_kept:
             raise ValueError("All training pairs were empty.")
+
+        if resume_bundle is not None:
+            ct = resume_bundle.get("kept_train_pairs")
+            cv = resume_bundle.get("kept_val_pairs")
+            if ct is not None and cv is not None and (
+                int(ct) != len(train_kept) or int(cv) != len(val_kept)
+            ):
+                print(
+                    "[byt5] training checkpoint train/val size mismatch vs current data; "
+                    "starting this stage from scratch (new seed init).",
+                    flush=True,
+                )
+                resume_bundle = None
+                _set_seed(self.seed)
+                self._load_pretrained(
+                    Path(resume_from)
+                    if resume_from is not None and Path(resume_from).exists()
+                    else None
+                )
 
         n_params = sum(p.numel() for p in self.model.parameters())
         eff_batch = self.cfg.batch_size * max(1, self.cfg.gradient_accumulation_steps)
@@ -301,10 +419,50 @@ class ByT5Corrector:
         patience = 0
         history: List[Dict[str, float]] = []
         global_step = 0
+        start_epoch = 0
+
+        if resume_bundle is not None:
+            optimizer.load_state_dict(resume_bundle["optimizer_state_dict"])
+            scheduler.load_state_dict(resume_bundle["scheduler_state_dict"])
+            scaler.load_state_dict(resume_bundle["scaler_state_dict"])
+            best_val_loss = float(resume_bundle["best_val_loss"])
+            bs = resume_bundle.get("best_state_dict")
+            if isinstance(bs, dict):
+                best_state = {k: v.clone() for k, v in bs.items()}
+            patience = int(resume_bundle["patience"])
+            history = list(resume_bundle["history"])
+            global_step = int(resume_bundle["global_step"])
+            start_epoch = int(resume_bundle["next_epoch"])
+
         t_all = time.perf_counter()
 
+        def _write_train_checkpoint(next_epoch: int) -> None:
+            if train_ckpt_path is None:
+                return
+            bundle: Dict[str, Any] = {
+                "format_version": 1,
+                "stage": stage,
+                "n_epochs": n_epochs,
+                "next_epoch": next_epoch,
+                "global_step": global_step,
+                "best_val_loss": best_val_loss,
+                "best_state_dict": best_state,
+                "patience": patience,
+                "history": history,
+                "model_state_dict": {k: v.detach().cpu() for k, v in self.model.state_dict().items()},
+                "optimizer_state_dict": optimizer.state_dict(),
+                "scheduler_state_dict": scheduler.state_dict(),
+                "scaler_state_dict": scaler.state_dict(),
+                "rng_state": _training_rng_state(),
+                "kept_train_pairs": len(train_kept),
+                "kept_val_pairs": len(val_kept),
+            }
+            _atomic_torch_save(bundle, train_ckpt_path)
+            print(f"[byt5] wrote training checkpoint -> {train_ckpt_path}", flush=True)
+
         log_every = max(1, steps_per_epoch // 7)
-        for epoch in range(n_epochs):
+        early_stop = False
+        for epoch in range(start_epoch, n_epochs):
             t_ep = time.perf_counter()
             self.model.train()
             running_loss = 0.0
@@ -378,12 +536,18 @@ class ByT5Corrector:
                 f"time={time.perf_counter() - t_ep:.1f}s",
                 flush=True,
             )
+
+            _write_train_checkpoint(epoch + 1)
+
             if patience >= self.cfg.early_stopping_patience:
                 print("[byt5] early stopping", flush=True)
+                early_stop = True
                 break
 
         if best_state is not None:
-            self.model.load_state_dict(best_state)
+            self.model.load_state_dict(
+                {k: v.to(self.device) for k, v in best_state.items()}, strict=True
+            )
         self.training_metrics = {
             "stage": stage,
             "epochs_run": len(history),
@@ -399,12 +563,26 @@ class ByT5Corrector:
             "effective_batch_size": eff_batch,
             "warmup_steps": warmup_steps,
             "total_steps": total_steps,
+            "resumed": resume_bundle is not None,
+            "early_stopped": early_stop,
         }
         print(
             f"[byt5] {stage} finished in {self.training_metrics['total_train_seconds']:.1f}s "
             f"best_val_loss={best_val_loss:.4f}",
             flush=True,
         )
+
+        if train_ckpt_path is not None and train_ckpt_path.exists():
+            train_ckpt_path.unlink()
+            print(f"[byt5] removed completed training checkpoint -> {train_ckpt_path}", flush=True)
+
+        if ckpt_root is not None and stage == "pretrain":
+            pre_dir = ckpt_root / "pretrain_hf"
+            pre_dir.mkdir(parents=True, exist_ok=True)
+            self.model.save_pretrained(pre_dir)
+            self.tokenizer.save_pretrained(pre_dir)
+            print(f"[byt5] wrote pretrain snapshot for finetune/resume -> {pre_dir}", flush=True)
+
         return self.training_metrics
 
     def _eval_loss(self, loader: DataLoader) -> float:

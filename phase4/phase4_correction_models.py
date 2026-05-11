@@ -13,6 +13,12 @@ All training-time decisions read only train rows. Hybrid calibration reads
 only val rows. Test rows are predicted, but never inspected for parameter or
 threshold selection (asserted at runtime).
 
+Neural and hybrid ByT5 training writes resumable checkpoints under
+``models/<neural|hybrid>/<regime>/_neural_train_checkpoint/`` (epoch files
+``byt5_resume_<stage>.pt``, plus ``pretrain_hf/`` after a completed pretrain
+for ``synthetic_plus_real``, and ``awaiting_finetune`` between stages).
+Disable with ``--no-neural-resume`` or env ``PHASE4_NEURAL_RESUME=0``.
+
 Smoke / GPU check (from repo root, after Phase 1--3 train-only artifacts exist):
 ``python -u phase4/phase4_correction_models.py --skip-phase1 --skip-phase2-stats
 --skip-phase3-noise --skip-classical --skip-hybrid --regimes real_only
@@ -174,12 +180,26 @@ def _maybe_cap_pairs(
     return pairs[:cap]
 
 
+def _neural_resume_effective(cli_neural_resume: bool) -> bool:
+    """Honor ``PHASE4_NEURAL_RESUME`` when set; otherwise use the CLI / runner flag."""
+    raw = os.environ.get("PHASE4_NEURAL_RESUME", "").strip()
+    if not raw:
+        return cli_neural_resume
+    return raw.lower() not in ("0", "false", "no", "off")
+
+
+def _neural_train_checkpoint_dir(model_dir: Path) -> Path:
+    return model_dir / "_neural_train_checkpoint"
+
+
 def _train_neural(
     neural,
     rows: List[Dict[str, object]],
     regime: str,
     val_pairs: List[Tuple[str, str]],
     train_pair_cap: Optional[int] = None,
+    checkpoint_dir: Optional[Path] = None,
+    neural_resume: bool = True,
 ) -> Dict[str, object]:
     """Centralised neural-training dispatch.
 
@@ -199,6 +219,10 @@ def _train_neural(
     use only the first ``N`` synthetic / real / plain train pairs per stage;
     ``val_pairs`` must already be capped by the caller when ``--predict-sample``
     is in use.
+
+    ``checkpoint_dir`` (typically ``.../models/<neural|hybrid>/<regime>/_neural_train_checkpoint``)
+    stores epoch checkpoints and, for two-stage regimes, ``pretrain_hf`` so a
+    Colab/Drive reconnect can resume pretrain, finetune, or single-stage training.
     """
     if train_pair_cap is not None:
         print(
@@ -206,6 +230,23 @@ def _train_neural(
             f"val_pairs={len(val_pairs)} (short run: 1 epoch per stage)",
             flush=True,
         )
+    ckpt = checkpoint_dir
+    use_resume = neural_resume
+
+    def _fit(
+        pairs: List[Tuple[str, str]],
+        st: str,
+        resume_from: Optional[Path] = None,
+    ) -> Dict[str, object]:
+        return neural.fit(
+            pairs,
+            val_pairs,
+            stage=st,
+            resume_from=resume_from,
+            checkpoint_dir=ckpt,
+            resume=use_resume,
+        )
+
     if regime == "synthetic_plus_real":
         synth_pairs = _split_pairs_by_source(rows, split="train", source_type="synthetic")
         real_pairs = _split_pairs_by_source(rows, split="train", source_type="real")
@@ -217,26 +258,85 @@ def _train_neural(
                 "skipping pretrain stage and falling back to single-stage real fit.",
                 flush=True,
             )
-            return neural.fit(real_pairs, val_pairs, stage="train")
+            return _fit(real_pairs, "train")
         if not real_pairs:
             print(
                 "[neural] regime=synthetic_plus_real has no real train rows; "
                 "running synthetic stage only.",
                 flush=True,
             )
-            return neural.fit(synth_pairs, val_pairs, stage="train")
-        print(
-            f"[neural] regime=synthetic_plus_real -> stage 1 (pretrain) "
-            f"on {len(synth_pairs)} synthetic pairs",
-            flush=True,
+            return _fit(synth_pairs, "train")
+
+        pretrain_hf = ckpt / "pretrain_hf" if ckpt is not None else None
+        fin_resume = ckpt / "byt5_resume_finetune.pt" if ckpt is not None else None
+        pretrain_resume = ckpt / "byt5_resume_pretrain.pt" if ckpt is not None else None
+        pretrain_metrics_path = ckpt / "pretrain_training_metrics.json" if ckpt is not None else None
+        awaiting = ckpt / "awaiting_finetune" if ckpt is not None else None
+
+        if use_resume and ckpt is not None and fin_resume is not None and fin_resume.exists():
+            pre_metrics: Dict[str, object] = {}
+            if pretrain_metrics_path is not None and pretrain_metrics_path.exists():
+                pre_metrics = json.loads(pretrain_metrics_path.read_text(encoding="utf-8"))
+            print(
+                "[neural] regime=synthetic_plus_real -> resuming finetune only "
+                f"(checkpoint {fin_resume.name})",
+                flush=True,
+            )
+            finetune_metrics = _fit(real_pairs, "finetune")
+            if awaiting is not None and awaiting.exists():
+                awaiting.unlink()
+            return {
+                "stage": "pretrain_then_finetune",
+                "pretrain": pre_metrics,
+                "finetune": finetune_metrics,
+                "n_params": finetune_metrics.get("n_params"),
+                "device": finetune_metrics.get("device"),
+                "best_val_loss": finetune_metrics.get("best_val_loss"),
+                "total_train_seconds": float(finetune_metrics.get("total_train_seconds", 0.0)),
+            }
+
+        skipped_pretrain = (
+            use_resume
+            and ckpt is not None
+            and pretrain_hf is not None
+            and pretrain_hf.exists()
+            and (pretrain_resume is None or not pretrain_resume.exists())
+            and awaiting is not None
+            and awaiting.exists()
         )
-        pretrain_metrics = neural.fit(synth_pairs, val_pairs, stage="pretrain")
+        if not skipped_pretrain:
+            print(
+                f"[neural] regime=synthetic_plus_real -> stage 1 (pretrain) "
+                f"on {len(synth_pairs)} synthetic pairs",
+                flush=True,
+            )
+            pretrain_metrics = _fit(synth_pairs, "pretrain")
+            if awaiting is not None:
+                awaiting.write_text("1", encoding="utf-8")
+            if pretrain_metrics_path is not None:
+                pretrain_metrics_path.write_text(
+                    json.dumps(pretrain_metrics, ensure_ascii=False, indent=2),
+                    encoding="utf-8",
+                )
+        else:
+            print(
+                "[neural] regime=synthetic_plus_real -> skipping completed pretrain; "
+                "loading pretrain snapshot for finetune",
+                flush=True,
+            )
+            pretrain_metrics = {}
+            if pretrain_metrics_path is not None and pretrain_metrics_path.exists():
+                pretrain_metrics = json.loads(pretrain_metrics_path.read_text(encoding="utf-8"))
+
+        finetune_resume_from = pretrain_hf if skipped_pretrain else None
         print(
             f"[neural] regime=synthetic_plus_real -> stage 2 (finetune) "
             f"on {len(real_pairs)} real pairs",
             flush=True,
         )
-        finetune_metrics = neural.fit(real_pairs, val_pairs, stage="finetune")
+        finetune_metrics = _fit(real_pairs, "finetune", resume_from=finetune_resume_from)
+        if awaiting is not None and awaiting.exists():
+            awaiting.unlink()
         return {
             "stage": "pretrain_then_finetune",
             "pretrain": pretrain_metrics,
@@ -251,7 +351,7 @@ def _train_neural(
         }
     train_pairs = _to_sentence_pairs([r for r in rows if r["split"] == "train"])
     train_pairs = _maybe_cap_pairs(train_pairs, train_pair_cap, "train")
-    return neural.fit(train_pairs, val_pairs, stage="train")
+    return _fit(train_pairs, "train")
 
 
 def _train_word_counts(rows: List[Dict[str, object]]) -> Dict[str, int]:
@@ -457,6 +557,7 @@ def _run_one(
     primary_seed: int,
     classical_cfg: Optional[ClassicalConfig] = None,
     predict_sample_limit: Optional[int] = None,
+    neural_resume: bool = True,
 ) -> Dict[str, object]:
     print(f"[RUN] model={model_name} regime={regime} seed={seed}", flush=True)
     train_rows = [r for r in rows if r["split"] == "train"]
@@ -504,6 +605,9 @@ def _run_one(
     if not is_primary:
         model_dir = model_dir / f"seed{seed}"
     model_dir.mkdir(parents=True, exist_ok=True)
+    nn_ckpt_dir = _neural_train_checkpoint_dir(model_dir)
+    nn_ckpt_dir.mkdir(parents=True, exist_ok=True)
+    resume_nn = _neural_resume_effective(neural_resume)
     (model_dir / "run_config.json").write_text(
         json.dumps(
             {
@@ -515,6 +619,8 @@ def _run_one(
                 "hparams": frozen_hparams_dict(),
                 "predict_sample_limit": predict_sample_limit,
                 "short_neural_fit": predict_sample_limit is not None,
+                "neural_resume": neural_resume,
+                "neural_resume_effective": resume_nn,
             },
             ensure_ascii=False,
             indent=2,
@@ -549,7 +655,13 @@ def _run_one(
         )
         t_fit = time.perf_counter()
         training_metrics = _train_neural(
-            model, rows, regime, val_nn, train_pair_cap=nn_pair_cap
+            model,
+            rows,
+            regime,
+            val_nn,
+            train_pair_cap=nn_pair_cap,
+            checkpoint_dir=nn_ckpt_dir,
+            neural_resume=resume_nn,
         )
         print(f"[train] neural: training done in {time.perf_counter() - t_fit:.1f}s", flush=True)
         model.save(model_dir)
@@ -579,7 +691,13 @@ def _run_one(
         )
         t1 = time.perf_counter()
         training_metrics = _train_neural(
-            neural, rows, regime, val_nn, train_pair_cap=nn_pair_cap
+            neural,
+            rows,
+            regime,
+            val_nn,
+            train_pair_cap=nn_pair_cap,
+            checkpoint_dir=nn_ckpt_dir,
+            neural_resume=resume_nn,
         )
         print(f"[train] hybrid: neural fit done in {time.perf_counter() - t1:.1f}s", flush=True)
         classical.save(model_dir / "classical_assets")
@@ -856,6 +974,7 @@ def run_phase4(
     skip_manifests: bool = False,
     regimes: Optional[List[str]] = None,
     predict_sample_limit: Optional[int] = None,
+    neural_resume: bool = True,
 ) -> None:
     cfg = default_run_config(repo_root)
     cfg.output_dir.mkdir(parents=True, exist_ok=True)
@@ -1054,6 +1173,7 @@ def run_phase4(
                         primary_seed=primary_seed,
                         classical_cfg=classical_cfg,
                         predict_sample_limit=predict_sample_limit,
+                        neural_resume=neural_resume,
                     )
                     runs.append(result)
                     if seed == primary_seed:
@@ -1206,6 +1326,12 @@ def main():
         "and N test rows per model to prediction JSONL (and cross-domain A->B "
         "from the capped test set). Omit for full training and full predictions.",
     )
+    parser.add_argument(
+        "--no-neural-resume",
+        action="store_true",
+        help="Disable ByT5 mid-training resume (ignore epoch checkpoints under "
+        "models/.../_neural_train_checkpoint/). Default is to resume when files exist.",
+    )
     args = parser.parse_args()
     if args.neural_device != "auto":
         os.environ["PHASE4_NEURAL_DEVICE"] = args.neural_device
@@ -1229,6 +1355,7 @@ def main():
         skip_manifests=args.skip_manifests,
         regimes=regimes,
         predict_sample_limit=args.predict_sample,
+        neural_resume=not args.no_neural_resume,
     )
     print("Phase 4 completed.", flush=True)
 
