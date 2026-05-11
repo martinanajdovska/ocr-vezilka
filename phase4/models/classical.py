@@ -556,6 +556,7 @@ class ClassicalCorrector:
             flush=True,
         )
         t0 = time.perf_counter()
+        combos_done = 0
         for margin in margin_grid:
             for lm_w in lm_grid:
                 for ch_w in ch_grid:
@@ -565,7 +566,6 @@ class ClassicalCorrector:
                         lambda_lm=float(lm_w),
                         lambda_channel=float(ch_w),
                     )
-                    self._token_cache.clear()
                     cer_sum = 0.0
                     change_ct = 0
                     for noisy, clean in sample:
@@ -591,6 +591,16 @@ class ClassicalCorrector:
                         )
                     ):
                         best = entry
+                    combos_done += 1
+                    if combos_done == 1 or combos_done == n_combos or combos_done % 3 == 0:
+                        elapsed = time.perf_counter() - t0
+                        rate = elapsed / max(1, combos_done)
+                        eta = rate * (n_combos - combos_done)
+                        print(
+                            f"[classical] tune_thresholds: progress {combos_done}/{n_combos} "
+                            f"elapsed={elapsed:.1f}s eta={eta:.1f}s current={entry}",
+                            flush=True,
+                        )
         # Apply the best triple permanently.
         if best is not None:
             self.cfg = replace(
@@ -599,7 +609,6 @@ class ClassicalCorrector:
                 lambda_lm=float(best["lambda_lm"]),
                 lambda_channel=float(best["lambda_channel"]),
             )
-            self._token_cache.clear()
         print(
             f"[classical] tune_thresholds: done in {time.perf_counter() - t0:.1f}s "
             f"selected={best}",
