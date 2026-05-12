@@ -398,6 +398,90 @@ def _jsonl_write(path: Path, rows: List[Dict[str, object]]) -> None:
             f.write(json.dumps(row, ensure_ascii=False) + "\n")
 
 
+def _val_metric_payload(
+    val_records: List[Dict[str, object]],
+    model_name: str,
+    regime: str,
+    seed: int,
+) -> Dict[str, object]:
+    metric_payload: Dict[str, object] = aggregate_metrics(val_records)
+    metric_payload.update(rare_and_name_corruption(val_records))
+    metric_payload["per_domain"] = per_domain_breakdown(val_records)
+    bins = calibration_bins(val_records, n_bins=10)
+    metric_payload["calibration"] = {
+        "bins": bins,
+        "ece": expected_calibration_error(bins),
+    }
+    metric_payload["runs_on"] = {"model": model_name, "regime": regime, "seed": seed}
+    return metric_payload
+
+
+def _val_prediction_candidates(
+    out_dir: Path,
+    model_name: str,
+    regime: str,
+    seed: int,
+    primary_seed: int,
+) -> List[Path]:
+    val_dir = out_dir / "predictions" / "val" / model_name
+    unsuffixed = val_dir / f"{regime}.jsonl"
+    suffixed = val_dir / f"{regime}__seed{seed}.jsonl"
+    if seed == primary_seed and model_name != "identity":
+        return [unsuffixed, suffixed]
+    return [suffixed, unsuffixed]
+
+
+def rebuild_val_metrics_from_predictions(
+    repo_root: Path,
+    model_name: str,
+    regime: str,
+    seed: int = SEEDS[0],
+    primary_seed: int = SEEDS[0],
+    rebuild_paper_tables: bool = False,
+) -> Path:
+    """Recreate ``val_metrics`` from an existing val prediction JSONL.
+
+    This is a recovery helper for runs that finished prediction but stopped
+    before writing the metadata/metrics tail of Phase 4. It does not load,
+    train, or run a model; it only reads the saved validation predictions.
+    """
+    cfg = default_run_config(repo_root)
+    candidates = _val_prediction_candidates(
+        cfg.output_dir,
+        model_name=model_name,
+        regime=regime,
+        seed=seed,
+        primary_seed=primary_seed,
+    )
+    val_path = next((p for p in candidates if p.exists()), None)
+    if val_path is None:
+        tried = ", ".join(str(p) for p in candidates)
+        raise FileNotFoundError(
+            f"No val prediction JSONL found for {model_name}/{regime}/seed={seed}. "
+            f"Tried: {tried}"
+        )
+    val_records = load_jsonl(val_path)
+    validate_prediction_records(val_records, blind_test=False)
+    metric_payload = _val_metric_payload(val_records, model_name, regime, seed)
+
+    seed_suffix = "" if seed == primary_seed and model_name != "identity" else f"__seed{seed}"
+    metrics_path = cfg.output_dir / "val_metrics" / model_name / f"{regime}{seed_suffix}.json"
+    metrics_path.parent.mkdir(parents=True, exist_ok=True)
+    metrics_path.write_text(
+        json.dumps(metric_payload, ensure_ascii=False, indent=2), encoding="utf-8"
+    )
+    print(f"[recover] read val predictions -> {val_path}", flush=True)
+    print(f"[recover] wrote val metrics -> {metrics_path}", flush=True)
+
+    if rebuild_paper_tables:
+        table_paths = build_all_tables(
+            out_dir=cfg.output_dir, primary_seed=primary_seed, all_seeds=[seed]
+        )
+        for name, path in table_paths.items():
+            print(f"[recover] paper_table[{name}] -> {path}", flush=True)
+    return metrics_path
+
+
 def _predict_records(
     model_name: str,
     correct_fn,
@@ -797,15 +881,7 @@ def _run_one(
             flush=True,
         )
 
-    metric_payload = aggregate_metrics(val_records)
-    metric_payload.update(rare_and_name_corruption(val_records))
-    metric_payload["per_domain"] = per_domain_breakdown(val_records)
-    bins = calibration_bins(val_records, n_bins=10)
-    metric_payload["calibration"] = {
-        "bins": bins,
-        "ece": expected_calibration_error(bins),
-    }
-    metric_payload["runs_on"] = {"model": model_name, "regime": regime, "seed": seed}
+    metric_payload = _val_metric_payload(val_records, model_name, regime, seed)
     metrics_path = out_dir / "val_metrics" / model_name / f"{regime}{seed_suffix}.json"
     metrics_path.parent.mkdir(parents=True, exist_ok=True)
     metrics_path.write_text(
@@ -1332,6 +1408,27 @@ def main():
         help="Disable ByT5 mid-training resume (ignore epoch checkpoints under "
         "models/.../_neural_train_checkpoint/). Default is to resume when files exist.",
     )
+    parser.add_argument(
+        "--rebuild-val-metrics",
+        action="store_true",
+        help="Recovery mode: rebuild val_metrics JSON from existing val prediction "
+        "JSONL files for the selected --regimes/--seeds/--metrics-models, then exit "
+        "without training or predicting.",
+    )
+    parser.add_argument(
+        "--metrics-models",
+        type=str,
+        default=None,
+        help="Comma-separated models for --rebuild-val-metrics "
+        "(identity,classical,neural,hybrid). Default follows the normal "
+        "--skip-classical/--skip-neural/--skip-hybrid selection.",
+    )
+    parser.add_argument(
+        "--rebuild-paper-tables",
+        action="store_true",
+        help="With --rebuild-val-metrics, refresh phase4_output/paper_tables/*.csv "
+        "after rebuilding the selected val metrics.",
+    )
     args = parser.parse_args()
     if args.neural_device != "auto":
         os.environ["PHASE4_NEURAL_DEVICE"] = args.neural_device
@@ -1343,6 +1440,60 @@ def main():
     if args.regimes:
         regimes = [r.strip() for r in args.regimes.split(",") if r.strip()]
     repo_root = Path(__file__).resolve().parents[1]
+    if args.rebuild_val_metrics:
+        all_regimes = ("real_only", "synthetic_only", "synthetic_plus_real")
+        regimes_to_rebuild = regimes or list(all_regimes)
+        bad_regimes = [r for r in regimes_to_rebuild if r not in all_regimes]
+        if bad_regimes:
+            raise ValueError(f"Unknown regime(s): {bad_regimes}. Allowed: {all_regimes}")
+
+        if args.metrics_models:
+            models_to_rebuild = [m.strip() for m in args.metrics_models.split(",") if m.strip()]
+        else:
+            models_to_rebuild = []
+            if not args.skip_classical:
+                models_to_rebuild.append("classical")
+            if not args.skip_neural:
+                models_to_rebuild.append("neural")
+            if not args.skip_hybrid:
+                models_to_rebuild.append("hybrid")
+        all_metric_models = ("identity", "classical", "neural", "hybrid")
+        bad_models = [m for m in models_to_rebuild if m not in all_metric_models]
+        if bad_models:
+            raise ValueError(f"Unknown metrics model(s): {bad_models}. Allowed: {all_metric_models}")
+        if not models_to_rebuild:
+            raise ValueError("No models selected for --rebuild-val-metrics.")
+
+        seeds_to_rebuild = seeds or list(SEEDS)
+        primary_seed = seeds_to_rebuild[0]
+        print(
+            f"[recover] rebuilding val metrics for models={models_to_rebuild} "
+            f"regimes={regimes_to_rebuild} seeds={seeds_to_rebuild}",
+            flush=True,
+        )
+        for seed in seeds_to_rebuild:
+            for regime in regimes_to_rebuild:
+                for model_name in models_to_rebuild:
+                    rebuild_val_metrics_from_predictions(
+                        repo_root=repo_root,
+                        model_name=model_name,
+                        regime=regime,
+                        seed=seed,
+                        primary_seed=primary_seed,
+                        rebuild_paper_tables=False,
+                    )
+        if args.rebuild_paper_tables:
+            cfg = default_run_config(repo_root)
+            table_paths = build_all_tables(
+                out_dir=cfg.output_dir,
+                primary_seed=primary_seed,
+                all_seeds=seeds_to_rebuild,
+            )
+            for name, path in table_paths.items():
+                print(f"[recover] paper_table[{name}] -> {path}", flush=True)
+        print("Phase 4 val metrics recovery completed.", flush=True)
+        return
+
     run_phase4(
         repo_root,
         seeds=seeds,
