@@ -1,36 +1,36 @@
 {
-  "cer": 0.6081806943293524,
-  "wer": 0.7219771176069243,
-  "chrf": 0.6260049956198184,
-  "input_cer": 0.7832297036587191,
-  "cer_reduction_rate": 0.22349638747312087,
-  "correction_rate": 0.8100558659217877,
+  "cer": 0.5891779954100276,
+  "wer": 0.7113486407534724,
+  "chrf": 0.6929405066841711,
+  "input_cer": 0.7832297036587182,
+  "cer_reduction_rate": 0.24775836174523594,
+  "correction_rate": 0.6871508379888268,
   "overcorrection_rate": 0.0,
-  "sentence_accuracy": 0.002793296089385475,
+  "sentence_accuracy": 0.004888268156424581,
   "n_records": 1432,
-  "rare_word_corruption_rate": 0.7097452061991069,
-  "proper_name_corruption_rate": 0.6455301455301455,
-  "rare_token_total": 7614,
-  "proper_token_total": 2886,
+  "rare_word_corruption_rate": 0.7413853521784838,
+  "proper_name_corruption_rate": 0.7372769332452082,
+  "rare_token_total": 8561,
+  "proper_token_total": 3026,
   "per_domain": {
     "A": {
-      "cer": 0.668705792558686,
-      "wer": 0.7864284046721658,
-      "chrf": 0.6092429305198358,
-      "input_cer": 0.9213167541813382,
-      "cer_reduction_rate": 0.27418470409464846,
-      "correction_rate": 0.7980049875311721,
+      "cer": 0.6614755116004345,
+      "wer": 0.792564446558707,
+      "chrf": 0.6736767959285482,
+      "input_cer": 0.9213167541813386,
+      "cer_reduction_rate": 0.2820324729813399,
+      "correction_rate": 0.6699916874480466,
       "overcorrection_rate": 0.0,
-      "sentence_accuracy": 0.0033250207813798837,
+      "sentence_accuracy": 0.005818786367414797,
       "n_records": 1203
     },
     "B": {
-      "cer": 0.2902257023211065,
-      "wer": 0.3833967755131018,
-      "chrf": 0.7140607349878486,
-      "input_cer": 0.057820438249501484,
+      "cer": 0.20937925315212594,
+      "wer": 0.2846996696456265,
+      "chrf": 0.7941380789069441,
+      "input_cer": 0.05782043824950149,
       "cer_reduction_rate": -1.0,
-      "correction_rate": 0.8733624454148472,
+      "correction_rate": 0.777292576419214,
       "overcorrection_rate": 0.0,
       "sentence_accuracy": 0.0,
       "n_records": 229
@@ -106,10 +106,10 @@
         "hi": 1.0,
         "count": 1432,
         "mean_confidence": 1.0,
-        "mean_accuracy": 0.002793296089385475
+        "mean_accuracy": 0.004888268156424581
       }
     ],
-    "ece": 0.9972067039106145
+    "ece": 0.9951117318435754
   },
   "runs_on": {
     "model": "neural",

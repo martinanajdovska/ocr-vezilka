@@ -59,7 +59,6 @@ classical,synthetic_plus_real,0.22264,0.6,0.7,136,0.66037,0.0
 classical,synthetic_plus_real,0.22264,0.7,0.8,79,0.74994,0.0
 classical,synthetic_plus_real,0.22264,0.8,0.9,77,0.84749,0.0
 classical,synthetic_plus_real,0.22264,0.9,1.0,1039,0.99662,0.01347
-<<<<<<<< HEAD:phase4/phase4_output/paper_tables_neural/calibration.csv
 neural,real_only,0.99511,0.0,0.1,0,0.0,0.0
 neural,real_only,0.99511,0.1,0.2,0,0.0,0.0
 neural,real_only,0.99511,0.2,0.3,0,0.0,0.0
@@ -90,17 +89,6 @@ neural,synthetic_plus_real,0.95525,0.6,0.7,0,0.0,0.0
 neural,synthetic_plus_real,0.95525,0.7,0.8,0,0.0,0.0
 neural,synthetic_plus_real,0.95525,0.8,0.9,0,0.0,0.0
 neural,synthetic_plus_real,0.95525,0.9,1.0,6391,1.0,0.04475
-========
-neural,real_only,0.99721,0.0,0.1,0,0.0,0.0
-neural,real_only,0.99721,0.1,0.2,0,0.0,0.0
-neural,real_only,0.99721,0.2,0.3,0,0.0,0.0
-neural,real_only,0.99721,0.3,0.4,0,0.0,0.0
-neural,real_only,0.99721,0.4,0.5,0,0.0,0.0
-neural,real_only,0.99721,0.5,0.6,0,0.0,0.0
-neural,real_only,0.99721,0.6,0.7,0,0.0,0.0
-neural,real_only,0.99721,0.7,0.8,0,0.0,0.0
-neural,real_only,0.99721,0.8,0.9,0,0.0,0.0
-neural,real_only,0.99721,0.9,1.0,1432,1.0,0.00279
 hybrid,real_only,0.26451,0.0,0.1,1018,0.00047,0.0
 hybrid,real_only,0.26451,0.1,0.2,12,0.16086,0.0
 hybrid,real_only,0.26451,0.2,0.3,6,0.2325,0.0
@@ -131,4 +119,3 @@ hybrid,synthetic_plus_real,0.39457,0.6,0.7,50,0.65157,0.0
 hybrid,synthetic_plus_real,0.39457,0.7,0.8,52,0.76006,0.0
 hybrid,synthetic_plus_real,0.39457,0.8,0.9,60,0.84993,0.0
 hybrid,synthetic_plus_real,0.39457,0.9,1.0,2363,0.99911,0.02158
->>>>>>>> 0d4429687786a259500443e610980f32ee0fcfad:phase4/phase4_output/paper_tables_hybrid/calibration.csv
