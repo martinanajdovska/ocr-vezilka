@@ -227,30 +227,17 @@ class _ByT5Dataset(Dataset):
             truncation=True,
             return_tensors=None,
         )
-        with self.tokenizer.as_target_tokenizer() if hasattr(
-            self.tokenizer, "as_target_tokenizer"
-        ) else _nullcontext():
-            dec = self.tokenizer(
-                tgt,
-                max_length=self.max_target_bytes,
-                truncation=True,
-                return_tensors=None,
-            )
+        dec = self.tokenizer(
+            text_target=tgt,
+            max_length=self.max_target_bytes,
+            truncation=True,
+            return_tensors=None,
+        )
         return {
             "input_ids": torch.tensor(enc["input_ids"], dtype=torch.long),
             "attention_mask": torch.tensor(enc["attention_mask"], dtype=torch.long),
             "labels": torch.tensor(dec["input_ids"], dtype=torch.long),
         }
-
-
-class _nullcontext:
-    """Trivial fallback when the tokenizer does not expose ``as_target_tokenizer``."""
-
-    def __enter__(self):
-        return self
-
-    def __exit__(self, *args):
-        return False
 
 
 def _collate_byt5(batch: List[Dict[str, torch.Tensor]], pad_id: int) -> Dict[str, torch.Tensor]:
@@ -669,7 +656,19 @@ class ByT5Corrector:
                     flush=True,
                 )
 
+            print(
+                f"[byt5] {stage} epoch {epoch + 1}/{n_epochs}: "
+                f"train steps done; computing val_loss on {len(val_loader)} batches...",
+                flush=True,
+            )
             val_loss = self._eval_loss(val_loader)
+            n_mini = min(len(val_kept), max(1, int(self.cfg.eval_cer_pairs)))
+            print(
+                f"[byt5] {stage} epoch {epoch + 1}/{n_epochs}: "
+                f"computing mini-CER on {n_mini} val sentences "
+                f"(beam={int(self.cfg.eval_cer_beam)}) — can take several minutes...",
+                flush=True,
+            )
             val_cer = self._eval_mini_cer(
                 val_kept,
                 max_pairs=int(self.cfg.eval_cer_pairs),
@@ -686,14 +685,17 @@ class ByT5Corrector:
                 }
             )
 
+
+            if math.isfinite(val_loss) and val_loss < best_val_loss:
+                best_val_loss = val_loss
+            if math.isfinite(val_cer) and val_cer < best_val_cer:
+                pass  # ``best_val_cer`` is updated below when it drives selection
             if early_metric == "val_cer":
                 improved = val_cer < best_val_cer - 1e-4
                 if improved:
                     best_val_cer = val_cer
             else:
                 improved = val_loss < best_val_loss - 1e-4
-                if improved:
-                    best_val_loss = val_loss
             if improved:
                 best_state = {
                     k: v.detach().cpu().clone() for k, v in self.model.state_dict().items()
@@ -742,7 +744,8 @@ class ByT5Corrector:
         }
         print(
             f"[byt5] {stage} finished in {self.training_metrics['total_train_seconds']:.1f}s "
-            f"best_val_loss={best_val_loss:.4f}",
+            f"best_val_cer={best_val_cer:.4f} best_val_loss={best_val_loss:.4f} "
+            f"early_stop_metric={early_metric}",
             flush=True,
         )
 
@@ -770,10 +773,29 @@ class ByT5Corrector:
         sample = list(val_pairs[: max(1, max_pairs)])
         cer_sum = 0.0
         self.model.eval()
+        t0 = time.perf_counter()
+        gen_batch = max(1, int(getattr(self.cfg, "eval_gen_batch_size", 16)))
+
+        order = sorted(range(len(sample)), key=lambda k: len(sample[k][0]))
         try:
-            for noisy, clean in sample:
-                pred, _ = self.correct_sentence(noisy, beam_size=beam_size)
-                cer_sum += cer(clean, pred)
+            done = 0
+            for start in range(0, len(order), gen_batch):
+                idxs = order[start : start + gen_batch]
+                noisy = [sample[i][0] for i in idxs]
+                clean = [sample[i][1] for i in idxs]
+                preds = self.correct_batch(noisy, beam_size=beam_size)
+                for ref, pred in zip(clean, preds):
+                    cer_sum += cer(ref, pred)
+                done += len(idxs)
+                elapsed = time.perf_counter() - t0
+                rate = elapsed / max(1, done)
+                eta = rate * (len(order) - done)
+                print(
+                    f"[byt5] mini-CER: {done}/{len(order)} "
+                    f"elapsed={elapsed:.1f}s eta={eta:.1f}s "
+                    f"(batch={len(idxs)})",
+                    flush=True,
+                )
         finally:
             # ``correct_sentence`` toggles use_cache=True and disables
             # gradient checkpointing for fast generation. Restore the
@@ -844,6 +866,157 @@ class ByT5Corrector:
         if hasattr(self.model, "config"):
             self.model.config.use_cache = True
 
+    def correct_batch(
+        self,
+        sentences: Sequence[str],
+        beam_size: Optional[int] = None,
+    ) -> List[str]:
+        """Batched generation. ~10-20x faster than calling correct_sentence
+        in a loop on CUDA, because all sequences share one ``model.generate``
+        call (KV cache + matmul utilization scale with batch).
+        """
+        if self.model is None or self.tokenizer is None:
+            raise ValueError("Model is not fitted.")
+        if not sentences:
+            return []
+        if self.model.training:
+            self.model.eval()
+        self._configure_model_for_inference()
+        prefixed: List[str] = []
+        for s in sentences:
+            if not s:
+                prefixed.append("")
+                continue
+            src = s
+            if self.cfg.task_prefix and not src.startswith(self.cfg.task_prefix):
+                src = self.cfg.task_prefix + src
+            prefixed.append(src)
+        non_empty_idx = [i for i, s in enumerate(prefixed) if s]
+        if not non_empty_idx:
+            return list(sentences)
+        enc = self.tokenizer(
+            [prefixed[i] for i in non_empty_idx],
+            max_length=self.cfg.max_input_bytes,
+            truncation=True,
+            padding=True,
+            return_tensors="pt",
+        ).to(self.device)
+        max_in_bytes = max(
+            len(s.encode("utf-8")) for s in (sentences[i] for i in non_empty_idx)
+        )
+        max_new = min(
+            int(self.cfg.max_target_bytes),
+            max(32, int(max_in_bytes * 1.3) + 16),
+        )
+        beams = int(beam_size if beam_size is not None else self.cfg.beam_size)
+        gen_kwargs = {
+            "max_new_tokens": max_new,
+            "num_beams": beams,
+            "length_penalty": float(self.cfg.length_penalty),
+            "early_stopping": True,
+        }
+        if self.cfg.no_repeat_ngram_size:
+            gen_kwargs["no_repeat_ngram_size"] = int(self.cfg.no_repeat_ngram_size)
+        use_amp, amp_dtype = _cuda_amp_autocast_dtype(self.cfg, self.device)
+        amp_ctx = (
+            torch.amp.autocast("cuda", dtype=amp_dtype)
+            if use_amp and amp_dtype is not None
+            else contextlib.nullcontext()
+        )
+        with torch.no_grad(), amp_ctx:
+            out = self.model.generate(**enc, **gen_kwargs)
+        decoded = self.tokenizer.batch_decode(out, skip_special_tokens=True)
+        result = list(sentences)
+        for j, idx in enumerate(non_empty_idx):
+            result[idx] = decoded[j]
+        return result
+
+    def correct_batch_with_logs(
+        self,
+        sentences: Sequence[str],
+        beam_size: Optional[int] = None,
+    ) -> List[Tuple[str, List[Dict[str, object]]]]:
+        """Same return shape as ``correct_sentence`` but for a whole batch.
+
+        Sequence-level beam scores are returned via
+        ``out.sequences_scores`` (one per *batch* item, already
+        length-normalised by HF using ``length_penalty``); we squash to a
+        sigmoid-style confidence in [0, 1] consistent with the per-sentence
+        path. Empty inputs short-circuit with ``confidence=1.0``.
+        """
+        if self.model is None or self.tokenizer is None:
+            raise ValueError("Model is not fitted.")
+        if not sentences:
+            return []
+        if self.model.training:
+            self.model.eval()
+        self._configure_model_for_inference()
+        prefixed: List[str] = []
+        for s in sentences:
+            if not s:
+                prefixed.append("")
+                continue
+            src = s
+            if self.cfg.task_prefix and not src.startswith(self.cfg.task_prefix):
+                src = self.cfg.task_prefix + src
+            prefixed.append(src)
+        non_empty_idx = [i for i, s in enumerate(prefixed) if s]
+        results: List[Tuple[str, List[Dict[str, object]]]] = [
+            (s, [{"confidence": 1.0}]) for s in sentences
+        ]
+        if not non_empty_idx:
+            return results
+        enc = self.tokenizer(
+            [prefixed[i] for i in non_empty_idx],
+            max_length=self.cfg.max_input_bytes,
+            truncation=True,
+            padding=True,
+            return_tensors="pt",
+        ).to(self.device)
+        max_in_bytes = max(
+            len(sentences[i].encode("utf-8")) for i in non_empty_idx
+        )
+        max_new = min(
+            int(self.cfg.max_target_bytes),
+            max(32, int(max_in_bytes * 1.3) + 16),
+        )
+        beams = int(beam_size if beam_size is not None else self.cfg.beam_size)
+        gen_kwargs = {
+            "max_new_tokens": max_new,
+            "num_beams": beams,
+            "length_penalty": float(self.cfg.length_penalty),
+            "early_stopping": True,
+            "return_dict_in_generate": True,
+            "output_scores": beams > 1,
+        }
+        if self.cfg.no_repeat_ngram_size:
+            gen_kwargs["no_repeat_ngram_size"] = int(self.cfg.no_repeat_ngram_size)
+        use_amp, amp_dtype = _cuda_amp_autocast_dtype(self.cfg, self.device)
+        amp_ctx = (
+            torch.amp.autocast("cuda", dtype=amp_dtype)
+            if use_amp and amp_dtype is not None
+            else contextlib.nullcontext()
+        )
+        with torch.no_grad(), amp_ctx:
+            out = self.model.generate(**enc, **gen_kwargs)
+        sequences = out.sequences
+        decoded = self.tokenizer.batch_decode(sequences, skip_special_tokens=True)
+        seq_scores = None
+        if hasattr(out, "sequences_scores") and out.sequences_scores is not None:
+            seq_scores = out.sequences_scores.detach().to("cpu").tolist()
+        for j, idx in enumerate(non_empty_idx):
+            text = decoded[j]
+            if seq_scores is not None and j < len(seq_scores):
+                score = float(seq_scores[j])
+                confidence = float(min(1.0, math.exp(min(0.0, score))))
+            else:
+                # Greedy path has no per-sequence score; use a neutral
+                # confidence so calibration bins still get populated.
+                score = 0.0
+                confidence = 0.5
+            results[idx] = (text, [{"confidence": confidence, "score": score}])
+        return results
+
     def correct_sentence(
         self,
         sentence: str,
@@ -880,7 +1053,13 @@ class ByT5Corrector:
         }
         if self.cfg.no_repeat_ngram_size:
             gen_kwargs["no_repeat_ngram_size"] = int(self.cfg.no_repeat_ngram_size)
-        with torch.no_grad():
+        use_amp, amp_dtype = _cuda_amp_autocast_dtype(self.cfg, self.device)
+        amp_ctx = (
+            torch.amp.autocast("cuda", dtype=amp_dtype)
+            if use_amp and amp_dtype is not None
+            else contextlib.nullcontext()
+        )
+        with torch.no_grad(), amp_ctx:
             out = self.model.generate(**enc, **gen_kwargs)
         seq = out.sequences[0]
         text = self.tokenizer.decode(seq, skip_special_tokens=True)
@@ -901,21 +1080,21 @@ class ByT5Corrector:
             return float("-inf")
         if self.model.training:
             self.model.eval()
+        src = noisy
+        if self.cfg.task_prefix and not src.startswith(self.cfg.task_prefix):
+            src = self.cfg.task_prefix + src
         enc = self.tokenizer(
-            noisy,
+            src,
             max_length=self.cfg.max_input_bytes,
             truncation=True,
             return_tensors="pt",
         ).to(self.device)
-        with self.tokenizer.as_target_tokenizer() if hasattr(
-            self.tokenizer, "as_target_tokenizer"
-        ) else _nullcontext():
-            dec = self.tokenizer(
-                target,
-                max_length=self.cfg.max_target_bytes,
-                truncation=True,
-                return_tensors="pt",
-            )
+        dec = self.tokenizer(
+            text_target=target,
+            max_length=self.cfg.max_target_bytes,
+            truncation=True,
+            return_tensors="pt",
+        )
         labels = dec["input_ids"].to(self.device)
         # T5 ignores -100 in the loss; we want the per-token NLL summed and
         # then length-normalised, so manually compute via a forward pass.

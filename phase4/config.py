@@ -52,13 +52,13 @@ class TransformerConfig:
     max_input_bytes: int = 1024
     max_target_bytes: int = 1024
 
-    batch_size: int = 32
+    batch_size: int = 56
     gradient_accumulation_steps: int = 1
     dataloader_num_workers: int = 4
     pin_memory: bool = True
     # Gradient checkpointing trades ~25-30% throughput for ~3-4x activation
     # memory savings.
-    gradient_checkpointing: bool = False
+    gradient_checkpointing: bool = True
 
     max_epochs: int = 15
     pretrain_epochs: int = 10
@@ -81,7 +81,12 @@ class TransformerConfig:
     deterministic: bool = False
 
     eval_cer_pairs: int = 96
-    eval_cer_beam: int = 4
+    eval_cer_beam: int = 1
+    eval_gen_batch_size: int = 64
+    # Final val/test prediction also uses batched generation. Use the same
+    # value as eval_gen_batch_size unless you have specific VRAM headroom
+    # (e.g. shorter test split, or smaller cfg.beam_size at predict time).
+    predict_batch_size: int = 48
 
     use_window_context: bool = False
     window_context_sep: str = " <sep> "
