@@ -485,6 +485,84 @@ def rebuild_val_metrics_from_predictions(
     return metrics_path
 
 
+def _build_pred_record(
+    model_name: str,
+    row: Dict[str, object],
+    prediction: str,
+    logs: List[Dict[str, object]],
+    train_word_counts: Dict[str, int],
+    blind_test: bool,
+) -> Dict[str, object]:
+    noisy = str(row["noisy"])
+    clean = str(row["clean"])
+    changed = prediction != noisy
+    token_was_correct_before = noisy == clean
+    ref_value = None if blind_test else clean
+    sample_tokens = clean.split()
+    rare_flag = (
+        any(is_rare_word(tok, train_word_counts) for tok in sample_tokens)
+        if sample_tokens
+        else False
+    )
+    proper_flag = (
+        any(is_proper_name(tok) for tok in sample_tokens)
+        if sample_tokens
+        else False
+    )
+    confidence = max((float(d.get("confidence", 0.0)) for d in logs), default=0.0)
+    gate_decision: Optional[str] = None
+    if model_name == "hybrid" and logs:
+        gate_decision = str(logs[0].get("gate_decision", ""))
+    output: Dict[str, object] = {
+        "doc_id": row["doc_id"],
+        "split": row["split"],
+        "subset_domain": row["subset_domain"],
+        "sample_id": row["sample_id"],
+        "source_type": row.get("source_type"),
+        "input_noisy": noisy,
+        "prediction": prediction,
+        "reference": ref_value,
+        "changed_flag": changed,
+        "token_was_correct_before": token_was_correct_before if not blind_test else None,
+        "confidence": confidence,
+        "gate_decision": gate_decision,
+        "is_rare_word": rare_flag,
+        "is_proper_name": proper_flag,
+    }
+    if not blind_test:
+        ref_tokens = clean.split()
+        pred_tokens = prediction.split()
+        token_pairs = list(zip(ref_tokens, pred_tokens))
+        rare_total = rare_bad = name_total = name_bad = 0
+        for ref_tok, pred_tok in token_pairs:
+            tok_is_rare = is_rare_word(ref_tok, train_word_counts)
+            tok_is_name = is_proper_name(ref_tok)
+            changed_tok = ref_tok != pred_tok
+            if tok_is_rare:
+                rare_total += 1
+                if changed_tok:
+                    rare_bad += 1
+            if tok_is_name:
+                name_total += 1
+                if changed_tok:
+                    name_bad += 1
+        input_cer_val = cer(clean, noisy)
+        output_cer_val = cer(clean, prediction)
+        output["input_cer"] = input_cer_val
+        output["cer"] = output_cer_val
+        output["error_reduction"] = cer_reduction_rate(input_cer_val, output_cer_val)
+        output["wer"] = wer(clean, prediction)
+        output["chrf"] = chrf_score(clean, prediction)
+        output["overcorrected"] = bool(token_was_correct_before and changed)
+        output["corrupted_rare_word"] = rare_bad > 0
+        output["corrupted_proper_name"] = name_bad > 0
+        output["rare_token_total"] = rare_total
+        output["rare_token_corrupted"] = rare_bad
+        output["proper_token_total"] = name_total
+        output["proper_token_corrupted"] = name_bad
+    return output
+
+
 def _predict_records(
     model_name: str,
     correct_fn,
@@ -492,91 +570,84 @@ def _predict_records(
     train_word_counts: Dict[str, int],
     blind_test: bool,
     progress_every: int = 200,
+    batch_correct_fn=None,
+    batch_size: int = 1,
 ) -> Tuple[List[Dict[str, object]], List[float]]:
+    """Run model predictions over ``rows``.
+
+    If ``batch_correct_fn`` is provided and ``batch_size > 1``, sentences are
+    batched through it (one ``model.generate`` call per chunk) — typically
+    ~5-15x faster than calling ``correct_fn`` per sentence on a CUDA model.
+    Per-sentence latency is recorded as the chunk wall-time divided by the
+    chunk size, so the latency table still reflects amortized cost.
+    """
     outputs: List[Dict[str, object]] = []
     latencies_ms: List[float] = []
     label = "test_blind" if blind_test else "val"
-    print(f"[predict] {model_name} {label}: {len(rows)} rows", flush=True)
+    use_batch = batch_correct_fn is not None and batch_size > 1
+    mode = f"batch={batch_size}" if use_batch else "single"
+    print(
+        f"[predict] {model_name} {label}: {len(rows)} rows ({mode})",
+        flush=True,
+    )
     t0 = time.perf_counter()
-    for idx, row in enumerate(rows, start=1):
-        noisy = str(row["noisy"])
-        clean = str(row["clean"])
-        ts = time.perf_counter()
-        prediction, logs = correct_fn(noisy)
-        latencies_ms.append((time.perf_counter() - ts) * 1000.0)
-        changed = prediction != noisy
-        token_was_correct_before = noisy == clean
-        ref_value = None if blind_test else clean
-        sample_tokens = clean.split()
-        rare_flag = (
-            any(is_rare_word(tok, train_word_counts) for tok in sample_tokens)
-            if sample_tokens
-            else False
+
+    if use_batch:
+        # Length-bucket so each chunk's max_new_tokens is tight.
+        order = sorted(
+            range(len(rows)), key=lambda k: len(str(rows[k]["noisy"]))
         )
-        proper_flag = (
-            any(is_proper_name(tok) for tok in sample_tokens)
-            if sample_tokens
-            else False
-        )
-        confidence = max((float(d.get("confidence", 0.0)) for d in logs), default=0.0)
-        gate_decision: Optional[str] = None
-        if model_name == "hybrid" and logs:
-            gate_decision = str(logs[0].get("gate_decision", ""))
-        output: Dict[str, object] = {
-            "doc_id": row["doc_id"],
-            "split": row["split"],
-            "subset_domain": row["subset_domain"],
-            "sample_id": row["sample_id"],
-            "source_type": row.get("source_type"),
-            "input_noisy": noisy,
-            "prediction": prediction,
-            "reference": ref_value,
-            "changed_flag": changed,
-            "token_was_correct_before": token_was_correct_before if not blind_test else None,
-            "confidence": confidence,
-            "gate_decision": gate_decision,
-            "is_rare_word": rare_flag,
-            "is_proper_name": proper_flag,
-        }
-        if not blind_test:
-            ref_tokens = clean.split()
-            pred_tokens = prediction.split()
-            token_pairs = list(zip(ref_tokens, pred_tokens))
-            rare_total = rare_bad = name_total = name_bad = 0
-            for ref_tok, pred_tok in token_pairs:
-                tok_is_rare = is_rare_word(ref_tok, train_word_counts)
-                tok_is_name = is_proper_name(ref_tok)
-                changed_tok = ref_tok != pred_tok
-                if tok_is_rare:
-                    rare_total += 1
-                    if changed_tok:
-                        rare_bad += 1
-                if tok_is_name:
-                    name_total += 1
-                    if changed_tok:
-                        name_bad += 1
-            input_cer_val = cer(clean, noisy)
-            output_cer_val = cer(clean, prediction)
-            output["input_cer"] = input_cer_val
-            output["cer"] = output_cer_val
-            output["error_reduction"] = cer_reduction_rate(input_cer_val, output_cer_val)
-            output["wer"] = wer(clean, prediction)
-            output["chrf"] = chrf_score(clean, prediction)
-            output["overcorrected"] = bool(token_was_correct_before and changed)
-            output["corrupted_rare_word"] = rare_bad > 0
-            output["corrupted_proper_name"] = name_bad > 0
-            output["rare_token_total"] = rare_total
-            output["rare_token_corrupted"] = rare_bad
-            output["proper_token_total"] = name_total
-            output["proper_token_corrupted"] = name_bad
-        outputs.append(output)
-        if idx == 1 or idx % progress_every == 0:
-            dt = time.perf_counter() - t0
-            print(
-                f"[predict] {model_name} {label}: {idx}/{len(rows)} "
-                f"elapsed={dt:.1f}s",
-                flush=True,
+        per_idx_outputs: Dict[int, Dict[str, object]] = {}
+        done = 0
+        for start in range(0, len(order), batch_size):
+            idxs = order[start : start + batch_size]
+            chunk_rows = [rows[i] for i in idxs]
+            noisy_list = [str(r["noisy"]) for r in chunk_rows]
+            ts = time.perf_counter()
+            results = batch_correct_fn(noisy_list)
+            chunk_dt = (time.perf_counter() - ts) * 1000.0
+            per_call_ms = chunk_dt / max(1, len(idxs))
+            for j, src_idx in enumerate(idxs):
+                pred, logs = results[j]
+                per_idx_outputs[src_idx] = _build_pred_record(
+                    model_name,
+                    rows[src_idx],
+                    pred,
+                    logs,
+                    train_word_counts,
+                    blind_test,
+                )
+                latencies_ms.append(per_call_ms)
+            done += len(idxs)
+            if done == len(idxs) or done == len(rows) or done % progress_every < batch_size:
+                dt = time.perf_counter() - t0
+                rate = dt / max(1, done)
+                eta = rate * (len(rows) - done)
+                print(
+                    f"[predict] {model_name} {label}: {done}/{len(rows)} "
+                    f"elapsed={dt:.1f}s eta={eta:.1f}s "
+                    f"(batch={len(idxs)})",
+                    flush=True,
+                )
+        outputs = [per_idx_outputs[i] for i in range(len(rows))]
+    else:
+        for idx, row in enumerate(rows, start=1):
+            noisy = str(row["noisy"])
+            ts = time.perf_counter()
+            prediction, logs = correct_fn(noisy)
+            latencies_ms.append((time.perf_counter() - ts) * 1000.0)
+            outputs.append(
+                _build_pred_record(
+                    model_name, row, prediction, logs, train_word_counts, blind_test
+                )
             )
+            if idx == 1 or idx % progress_every == 0:
+                dt = time.perf_counter() - t0
+                print(
+                    f"[predict] {model_name} {label}: {idx}/{len(rows)} "
+                    f"elapsed={dt:.1f}s",
+                    flush=True,
+                )
     validate_prediction_records(outputs, blind_test=blind_test)
     dt = time.perf_counter() - t0
     print(f"[predict] {model_name} {label}: done in {dt:.1f}s", flush=True)
@@ -717,6 +788,7 @@ def _run_one(
 
     n_params: Optional[int] = None
     eff_classical_cfg = classical_cfg or ClassicalConfig()
+    neural_batch_correct_fn = None
     if model_name == "classical":
         model = ClassicalCorrector(
             cfg=eff_classical_cfg, phase2_train_only_dir=phase2_train_only_dir
@@ -762,6 +834,9 @@ def _run_one(
             json.dumps(training_metrics, ensure_ascii=False, indent=2), encoding="utf-8"
         )
         correct_fn = model.correct_sentence
+        # Neural model supports batched generation; the runner uses it
+        # below in ``_predict_records`` for ~5-15x faster val/test passes.
+        neural_batch_correct_fn = model.correct_batch_with_logs
     elif model_name == "hybrid":
         classical = ClassicalCorrector(
             cfg=eff_classical_cfg, phase2_train_only_dir=phase2_train_only_dir
@@ -843,8 +918,15 @@ def _run_one(
             flush=True,
         )
 
+    predict_batch = int(getattr(TransformerConfig(), "predict_batch_size", 1))
     val_records, val_latencies = _predict_records(
-        model_name, correct_fn, val_predict_rows, train_word_counts, blind_test=False
+        model_name,
+        correct_fn,
+        val_predict_rows,
+        train_word_counts,
+        blind_test=False,
+        batch_correct_fn=neural_batch_correct_fn,
+        batch_size=predict_batch if neural_batch_correct_fn is not None else 1,
     )
     val_path = out_dir / "predictions" / "val" / model_name / f"{regime}{seed_suffix}.jsonl"
     print(f"[write] val predictions -> {val_path}", flush=True)
@@ -861,7 +943,13 @@ def _run_one(
     _assert_artifacts_saved_before_test(artifact_check_paths, context=f"{model_name}/{regime}")
 
     test_records, _test_latencies = _predict_records(
-        model_name, correct_fn, test_predict_rows, train_word_counts, blind_test=True
+        model_name,
+        correct_fn,
+        test_predict_rows,
+        train_word_counts,
+        blind_test=True,
+        batch_correct_fn=neural_batch_correct_fn,
+        batch_size=predict_batch if neural_batch_correct_fn is not None else 1,
     )
     test_path = out_dir / "predictions" / "test_blind" / model_name / f"{regime}{seed_suffix}.jsonl"
     print(f"[write] test_blind predictions -> {test_path}", flush=True)
