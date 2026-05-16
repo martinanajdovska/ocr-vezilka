@@ -11,3 +11,9 @@ classical,synthetic_only,A,4068,0.06969,0.3048,0.85263,0.00221
 classical,synthetic_only,B,891,0.09033,0.32621,0.82815,0.00112
 classical,synthetic_plus_real,A,5271,0.26588,0.46964,0.83693,0.00209
 classical,synthetic_plus_real,B,1120,0.08507,0.28205,0.85168,0.00268
+neural,real_only,A,1203,0.66148,0.79256,0.67368,0.00582
+neural,real_only,B,229,0.20938,0.2847,0.79414,0.0
+neural,synthetic_only,A,4068,0.08232,0.22691,0.86557,0.13471
+neural,synthetic_only,B,891,0.10513,0.26453,0.82955,0.12009
+neural,synthetic_plus_real,A,5271,0.24249,0.41705,0.79828,0.04534
+neural,synthetic_plus_real,B,1120,0.19549,0.35884,0.80144,0.04196

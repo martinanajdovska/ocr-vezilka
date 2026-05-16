@@ -1,0 +1,34 @@
+{
+  "split_manifest_hash": "841d38047ebde623d64ab6a0be2ac15657431b2216d388a2b730872ca3aa1f55",
+  "hyperparameter_hash": "c8c8dedcba44b09e7c389ef7c1df6a39c9385d9edf794200af933bab0a1beef2",
+  "seeds": [
+    42
+  ],
+  "primary_seed": 42,
+  "selected_checkpoints": {
+    "neural:synthetic_only": {
+      "checkpoint_dir": "/home/hpc/users/martina.najdovska/ocr-vezilka/phase4/phase4_output/models/neural/synthetic_only",
+      "selection_rationale": "primary seed; hyperparameters frozen across seeds and regimes"
+    },
+    "neural:synthetic_plus_real": {
+      "checkpoint_dir": "/home/hpc/users/martina.najdovska/ocr-vezilka/phase4/phase4_output/models/neural/synthetic_plus_real",
+      "selection_rationale": "primary seed; hyperparameters frozen across seeds and regimes"
+    }
+  },
+  "failures": [],
+  "paper_tables": {
+    "main": "/home/hpc/users/martina.najdovska/ocr-vezilka/phase4/phase4_output/paper_tables/main_table.csv",
+    "cross_domain": "/home/hpc/users/martina.najdovska/ocr-vezilka/phase4/phase4_output/paper_tables/cross_domain_table.csv",
+    "calibration": "/home/hpc/users/martina.najdovska/ocr-vezilka/phase4/phase4_output/paper_tables/calibration.csv",
+    "oracle": "/home/hpc/users/martina.najdovska/ocr-vezilka/phase4/phase4_output/paper_tables/oracle_headroom.csv",
+    "significance": "/home/hpc/users/martina.najdovska/ocr-vezilka/phase4/phase4_output/paper_tables/significance.csv",
+    "seed_variance": "/home/hpc/users/martina.najdovska/ocr-vezilka/phase4/phase4_output/paper_tables/seed_variance.csv"
+  },
+  "leak_fix": {
+    "phase2_train_only_dir": "/home/hpc/users/martina.najdovska/ocr-vezilka/phase2/phase2_output_train_only",
+    "phase3_train_only_dir": "/home/hpc/users/martina.najdovska/ocr-vezilka/phase3/phase3_output_train_only"
+  },
+  "models_run": [
+    "neural"
+  ]
+}

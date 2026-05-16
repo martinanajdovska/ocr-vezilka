@@ -1,6 +1,6 @@
 {
   "model": "neural",
-  "regime": "real_only",
+  "regime": "synthetic_only",
   "seed": 42,
   "primary_seed": 42,
   "split_manifest_hash": "841d38047ebde623d64ab6a0be2ac15657431b2216d388a2b730872ca3aa1f55",

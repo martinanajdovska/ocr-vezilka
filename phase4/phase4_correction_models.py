@@ -6,7 +6,7 @@
 3. For each (model, regime, seed) triple, train the model under the regime,
    predict on val (with metrics) and test_blind (without metrics), persist
    models / predictions / metrics / efficiency.
-4. Generate identity baseline and per-regime cross-domain (A->B) predictions.
+4. Generate identity baseline for each regime.
 5. Aggregate paper-table CSVs and a top-level run manifest.
 
 All training-time decisions read only train rows. Hybrid calibration reads
@@ -864,20 +864,11 @@ def _run_one(
     print(f"[write] test_blind predictions -> {test_path}", flush=True)
     _jsonl_write(test_path, test_records)
 
-    a_to_b_rows = [r for r in test_predict_rows if r["subset_domain"] == "B"]
-    a_to_b_records, _ = _predict_records(
-        model_name, correct_fn, a_to_b_rows, train_word_counts, blind_test=True
-    )
-    cd_path = out_dir / "predictions" / "cross_domain" / model_name / f"{regime}{seed_suffix}_A_to_B.jsonl"
-    print(f"[write] cross_domain predictions -> {cd_path}", flush=True)
-    _jsonl_write(cd_path, a_to_b_records)
-
     if predict_sample_limit is not None:
         wall = time.strftime("%H:%M:%S")
         print(
             f"[predict] (predict-sample) {wall}  prediction pass done for "
-            f"{model_name}/{regime}: val={len(val_records)} test={len(test_records)} "
-            f"cross_domain={len(a_to_b_records)} lines.",
+            f"{model_name}/{regime}: val={len(val_records)} test={len(test_records)} lines.",
             flush=True,
         )
 
