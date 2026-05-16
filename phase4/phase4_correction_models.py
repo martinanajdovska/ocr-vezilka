@@ -593,12 +593,16 @@ def _predict_records(
     t0 = time.perf_counter()
 
     if use_batch:
-        # Length-bucket so each chunk's max_new_tokens is tight.
+        # Length-bucket so each chunk's max_new_tokens is tight: short
+        # sentences first, long sentences last.
+        byte_lengths = [len(str(r["noisy"]).encode("utf-8")) for r in rows]
+        total_bytes = max(1, sum(byte_lengths))
         order = sorted(
-            range(len(rows)), key=lambda k: len(str(rows[k]["noisy"]))
+            range(len(rows)), key=lambda k: byte_lengths[k]
         )
         per_idx_outputs: Dict[int, Dict[str, object]] = {}
         done = 0
+        done_bytes = 0
         for start in range(0, len(order), batch_size):
             idxs = order[start : start + batch_size]
             chunk_rows = [rows[i] for i in idxs]
@@ -618,17 +622,19 @@ def _predict_records(
                     blind_test,
                 )
                 latencies_ms.append(per_call_ms)
+                done_bytes += byte_lengths[src_idx]
             done += len(idxs)
-            if done == len(idxs) or done == len(rows) or done % progress_every < batch_size:
-                dt = time.perf_counter() - t0
-                rate = dt / max(1, done)
-                eta = rate * (len(rows) - done)
-                print(
-                    f"[predict] {model_name} {label}: {done}/{len(rows)} "
-                    f"elapsed={dt:.1f}s eta={eta:.1f}s "
-                    f"(batch={len(idxs)})",
-                    flush=True,
-                )
+            dt = time.perf_counter() - t0
+            # ETA from byte-progress (work-weighted), with a small floor
+            # so the very first chunk does not produce a meaningless number.
+            byte_rate = dt / max(1, done_bytes)
+            eta = byte_rate * max(0, total_bytes - done_bytes)
+            print(
+                f"[predict] {model_name} {label}: {done}/{len(rows)} "
+                f"elapsed={dt:.1f}s eta={eta:.1f}s "
+                f"(batch={len(idxs)} bytes_done={done_bytes}/{total_bytes})",
+                flush=True,
+            )
         outputs = [per_idx_outputs[i] for i in range(len(rows))]
     else:
         for idx, row in enumerate(rows, start=1):
