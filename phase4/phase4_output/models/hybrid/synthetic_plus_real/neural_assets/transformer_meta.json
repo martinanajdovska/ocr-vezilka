@@ -1,0 +1,84 @@
+{
+  "config": {
+    "pretrained_model": "google/byt5-small",
+    "learning_rate": 0.0001,
+    "warmup_ratio": 0.05,
+    "weight_decay": 0.01,
+    "label_smoothing": 0.1,
+    "grad_clip": 1.0,
+    "max_input_bytes": 256,
+    "max_target_bytes": 256,
+    "batch_size": 32,
+    "gradient_accumulation_steps": 2,
+    "max_epochs": 15,
+    "pretrain_epochs": 10,
+    "finetune_epochs": 5,
+    "early_stopping_patience": 3,
+    "early_stop_metric": "val_loss",
+    "beam_size": 1,
+    "length_penalty": 1.0,
+    "no_repeat_ngram_size": 0,
+    "length_norm_alpha": 0.6,
+    "identity_pair_ratio": 0.2,
+    "use_amp": true,
+    "deterministic": true,
+    "eval_cer_pairs": 64,
+    "eval_cer_beam": 1
+  },
+  "seed": 42,
+  "training_metrics": {
+    "stage": "finetune",
+    "epochs_run": 5,
+    "best_val_loss": 0.17677844062447548,
+    "skipped_train_pairs": 0,
+    "skipped_val_pairs": 0,
+    "kept_train_pairs": 3363,
+    "kept_val_pairs": 6391,
+    "total_train_seconds": 513.2093600481749,
+    "history": [
+      {
+        "epoch": 1,
+        "stage": "finetune",
+        "train_loss": 0.16059448450522604,
+        "val_loss": 0.17761302784085273,
+        "epoch_time_s": 99.85718756914139
+      },
+      {
+        "epoch": 2,
+        "stage": "finetune",
+        "train_loss": 0.1356203540597322,
+        "val_loss": 0.17677844062447548,
+        "epoch_time_s": 99.76924414560199
+      },
+      {
+        "epoch": 3,
+        "stage": "finetune",
+        "train_loss": 0.12845941791135185,
+        "val_loss": 0.1790228581428528,
+        "epoch_time_s": 99.83234923705459
+      },
+      {
+        "epoch": 4,
+        "stage": "finetune",
+        "train_loss": 0.1202600987733535,
+        "val_loss": 0.18142660856246948,
+        "epoch_time_s": 99.7536404505372
+      },
+      {
+        "epoch": 5,
+        "stage": "finetune",
+        "train_loss": 0.12243153906936916,
+        "val_loss": 0.1839056584984064,
+        "epoch_time_s": 99.72649911418557
+      }
+    ],
+    "n_params": 299637760,
+    "device": "cuda",
+    "effective_batch_size": 64,
+    "warmup_steps": 13,
+    "total_steps": 265,
+    "resumed": false,
+    "early_stopped": true
+  },
+  "model_kind": "byt5"
+}

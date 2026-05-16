@@ -11,9 +11,20 @@ classical,synthetic_only,A,4068,0.06969,0.3048,0.85263,0.00221
 classical,synthetic_only,B,891,0.09033,0.32621,0.82815,0.00112
 classical,synthetic_plus_real,A,5271,0.26588,0.46964,0.83693,0.00209
 classical,synthetic_plus_real,B,1120,0.08507,0.28205,0.85168,0.00268
+<<<<<<<< HEAD:phase4/phase4_output/paper_tables_neural/cross_domain_table.csv
 neural,real_only,A,1203,0.66148,0.79256,0.67368,0.00582
 neural,real_only,B,229,0.20938,0.2847,0.79414,0.0
 neural,synthetic_only,A,4068,0.08232,0.22691,0.86557,0.13471
 neural,synthetic_only,B,891,0.10513,0.26453,0.82955,0.12009
 neural,synthetic_plus_real,A,5271,0.24249,0.41705,0.79828,0.04534
 neural,synthetic_plus_real,B,1120,0.19549,0.35884,0.80144,0.04196
+========
+neural,real_only,A,1203,0.66871,0.78643,0.60924,0.00333
+neural,real_only,B,229,0.29023,0.3834,0.71406,0.0
+hybrid,real_only,A,1203,0.9338,1.02823,0.78462,0.00083
+hybrid,real_only,B,229,0.06591,0.10907,0.944,0.0131
+hybrid,synthetic_only,A,4068,0.07131,0.29724,0.85544,0.01401
+hybrid,synthetic_only,B,891,0.09458,0.32072,0.83129,0.0101
+hybrid,synthetic_plus_real,A,5271,0.272,0.47232,0.83618,0.00797
+hybrid,synthetic_plus_real,B,1120,0.09372,0.28053,0.85165,0.00804
+>>>>>>>> 0d4429687786a259500443e610980f32ee0fcfad:phase4/phase4_output/paper_tables_hybrid/cross_domain_table.csv

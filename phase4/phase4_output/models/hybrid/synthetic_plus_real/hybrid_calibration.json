@@ -1,0 +1,85 @@
+{
+  "config": {
+    "num_classical_candidates": 5,
+    "fusion_w_lm": 1.0,
+    "fusion_w_channel": 0.5,
+    "fusion_w_neural": 1.5,
+    "margin_default": 0.8,
+    "margin_proper_name": 1.6,
+    "margin_rare_word": 1.4,
+    "calibration_grid_w_neural": [
+      0.5,
+      1.5,
+      2.5
+    ],
+    "calibration_grid_margin": [
+      0.4,
+      1.2,
+      2.0
+    ]
+  },
+  "calibration": {
+    "w_lm": 1.0,
+    "w_channel": 0.5,
+    "w_neural": 2.5,
+    "margin_default": 2.0,
+    "margin_proper_name": 3.0,
+    "margin_rare_word": 2.6
+  },
+  "calibration_log": [
+    {
+      "w_neural": 0.5,
+      "margin": 0.4,
+      "mean_cer": 0.5565771839409936,
+      "change_rate": 0.74
+    },
+    {
+      "w_neural": 0.5,
+      "margin": 1.2,
+      "mean_cer": 0.5520921292450882,
+      "change_rate": 0.6475
+    },
+    {
+      "w_neural": 0.5,
+      "margin": 2.0,
+      "mean_cer": 0.5451498352973125,
+      "change_rate": 0.5625
+    },
+    {
+      "w_neural": 1.5,
+      "margin": 0.4,
+      "mean_cer": 0.5452791311478284,
+      "change_rate": 0.5325
+    },
+    {
+      "w_neural": 1.5,
+      "margin": 1.2,
+      "mean_cer": 0.5405639175167709,
+      "change_rate": 0.445
+    },
+    {
+      "w_neural": 1.5,
+      "margin": 2.0,
+      "mean_cer": 0.5372358290016673,
+      "change_rate": 0.3675
+    },
+    {
+      "w_neural": 2.5,
+      "margin": 0.4,
+      "mean_cer": 0.5327260367281057,
+      "change_rate": 0.4125
+    },
+    {
+      "w_neural": 2.5,
+      "margin": 1.2,
+      "mean_cer": 0.5303675405689997,
+      "change_rate": 0.305
+    },
+    {
+      "w_neural": 2.5,
+      "margin": 2.0,
+      "mean_cer": 0.5299060475786151,
+      "change_rate": 0.2575
+    }
+  ]
+}
