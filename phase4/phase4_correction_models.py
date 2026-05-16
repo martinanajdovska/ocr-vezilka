@@ -511,8 +511,10 @@ def _build_pred_record(
     )
     confidence = max((float(d.get("confidence", 0.0)) for d in logs), default=0.0)
     gate_decision: Optional[str] = None
-    if model_name == "hybrid" and logs:
-        gate_decision = str(logs[0].get("gate_decision", ""))
+    if logs and "gate_decision" in logs[0]:
+        raw_gate = logs[0].get("gate_decision")
+        if raw_gate is not None:
+            gate_decision = str(raw_gate)
     output: Dict[str, object] = {
         "doc_id": row["doc_id"],
         "split": row["split"],
@@ -829,16 +831,48 @@ def _run_one(
             neural_resume=resume_nn,
         )
         print(f"[train] neural: training done in {time.perf_counter() - t_fit:.1f}s", flush=True)
+        n_params = int(training_metrics.get("n_params") or 0) or None
+        (model_dir / "training_metrics.json").write_text(
+            json.dumps(training_metrics, ensure_ascii=False, indent=2), encoding="utf-8"
+        )
+
+        if bool(getattr(nn_cfg, "gate_enabled", True)) and val_nn:
+            print(
+                f"[train] neural: calibrating gate margin on val "
+                f"(grid={list(nn_cfg.gate_calibration_grid)}, "
+                f"max_pairs={min(int(nn_cfg.gate_calibration_max_pairs), len(val_nn))})",
+                flush=True,
+            )
+            t_cal = time.perf_counter()
+            gate_cal = model.calibrate_gate_on_val(
+                val_nn,
+                max_pairs=min(
+                    int(nn_cfg.gate_calibration_max_pairs), len(val_nn)
+                ),
+            )
+            print(
+                f"[train] neural: gate calibration done in "
+                f"{time.perf_counter() - t_cal:.1f}s",
+                flush=True,
+            )
+            (model_dir / "neural_gate_calibration.json").write_text(
+                json.dumps(gate_cal, ensure_ascii=False, indent=2),
+                encoding="utf-8",
+            )
+        else:
+            print(
+                "[train] neural: gate calibration skipped "
+                f"(gate_enabled={getattr(nn_cfg, 'gate_enabled', True)}, "
+                f"val_pairs={len(val_nn)})",
+                flush=True,
+            )
+
         model.save(model_dir)
         if predict_sample_limit is not None:
             print(
                 f"[train] neural: (predict-sample) checkpoint saved -> {model_dir / 'transformer.pt'}",
                 flush=True,
             )
-        n_params = int(training_metrics.get("n_params") or 0) or None
-        (model_dir / "training_metrics.json").write_text(
-            json.dumps(training_metrics, ensure_ascii=False, indent=2), encoding="utf-8"
-        )
         correct_fn = model.correct_sentence
         # Neural model supports batched generation; the runner uses it
         # below in ``_predict_records`` for ~5-15x faster val/test passes.
