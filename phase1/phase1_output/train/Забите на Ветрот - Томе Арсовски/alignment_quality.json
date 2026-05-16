@@ -1,0 +1,18 @@
+{
+  "n_pairs": 2919,
+  "n_ocr_sentences": 3457,
+  "n_gt_sentences": 4702,
+  "sentence_count_ratio": 0.7352,
+  "mean_similarity": 0.9012,
+  "median_similarity": 0.9565,
+  "min_similarity": 0.5502,
+  "max_similarity": 1.0,
+  "below_0_30_ratio": 0.0,
+  "below_0_50_ratio": 0.0,
+  "below_0_70_ratio": 0.0918,
+  "dropped_pairs_below_min_pair_sim": 158,
+  "n_unique_shingle_anchors": 25767,
+  "alignment_band_fraction": 0.2324,
+  "book": "Забите на Ветрот - Томе Арсовски",
+  "split": "train"
+}

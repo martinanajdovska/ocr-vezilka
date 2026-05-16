@@ -30,6 +30,7 @@ class ClassicalConfig:
     beam_size: int = 6
     lambda_lm: float = 1.0
     lambda_channel: float = 0.6
+    lambda_char_lm: float = 0.3
     correction_margin: float = 1.5
     proper_name_extra_margin: float = 1.0
     rare_word_extra_margin: float = 1.0
@@ -39,38 +40,52 @@ class ClassicalConfig:
 
 @dataclass(frozen=True)
 class TransformerConfig:
-    pretrained_model: str = "google/byt5-small"
+    pretrained_model: str = "google/byt5-base"
 
-    learning_rate: float = 1.0e-4
+    learning_rate: float = 5.0e-5
     warmup_ratio: float = 0.05
     weight_decay: float = 0.01
     label_smoothing: float = 0.1
     grad_clip: float = 1.0
 
-    max_input_bytes: int = 256
-    max_target_bytes: int = 256
+    # ByT5 byte tokens: 1024 bytes ~ 512 Cyrillic chars.
+    max_input_bytes: int = 1024
+    max_target_bytes: int = 1024
 
     batch_size: int = 32
-    gradient_accumulation_steps: int = 2
+    gradient_accumulation_steps: int = 1
+    dataloader_num_workers: int = 4
+    pin_memory: bool = True
+    # Gradient checkpointing trades ~25-30% throughput for ~3-4x activation
+    # memory savings.
+    gradient_checkpointing: bool = False
 
-    max_epochs:int  = 15
-    pretrain_epochs:int  = 10
-    finetune_epochs:int  = 5
-    early_stopping_patience:int = 3
-    early_stop_metric: str = "val_loss"
+    max_epochs: int = 15
+    pretrain_epochs: int = 10
+    finetune_epochs: int = 5
+    early_stopping_patience: int = 3
+    early_stop_metric: str = "val_cer"
 
-    beam_size:int  = 1
-    length_penalty: float = 1.0
-    no_repeat_ngram_size: int = 0
+    beam_size: int = 4
+    length_penalty: float = 0.6
+    no_repeat_ngram_size: int = 3
     length_norm_alpha: float = 0.6
 
     identity_pair_ratio: float = 0.2
+    finetune_lr_scale: float = 0.3
+    finetune_warmup_ratio: float = 0.0
+    task_prefix: str = "correct OCR: "
 
-    use_amp:bool = True
-    deterministic: bool = True
+    use_amp: bool = True
+    # False enables cudnn.benchmark + TF32 on CUDA (faster on A100).
+    deterministic: bool = False
 
-    eval_cer_pairs: int = 64
-    eval_cer_beam:int = 1
+    eval_cer_pairs: int = 96
+    eval_cer_beam: int = 4
+
+    use_window_context: bool = False
+    window_context_sep: str = " <sep> "
+    training_confusion_noise_prob: float = 0.1
 
 
 
@@ -84,6 +99,8 @@ class HybridConfig:
     margin_proper_name: float = 1.6
     margin_rare_word: float = 1.4
     calibration_grid_w_neural: List[float] = field(default_factory=lambda: [0.5, 1.5, 2.5])
+    calibration_grid_w_lm: List[float] = field(default_factory=lambda: [0.5, 1.0, 1.5])
+    calibration_grid_w_channel: List[float] = field(default_factory=lambda: [0.3, 0.6, 1.0])
     calibration_grid_margin: List[float] = field(default_factory=lambda: [0.4, 1.2, 2.0])
 
 
@@ -109,6 +126,9 @@ class RunConfig:
     fail_fast: bool = False
     force_rebuild_train_only_stats: bool = False
     force_rebuild_manifests: bool = False
+    synthetic_real_oversample_ratio: float = 4.0
+    manifest_min_pair_sim: float = 0.5
+    manifest_max_len_ratio_delta: float = 0.5
 
 
 def default_run_config(repo_root: Path) -> RunConfig:

@@ -1,5 +1,5 @@
 {
-  "matched_pairs": 204,
+  "matched_pairs": 290,
   "ocr_total_characters": 25779,
   "ocr_total_tokens": 4677,
   "ocr_total_sentences": 217,
@@ -8,9 +8,9 @@
   "gt_total_tokens": 4506,
   "gt_total_sentences": 221,
   "gt_avg_sentence_length": 20.3891,
-  "CER": 0.1724,
-  "WER": 0.1452,
-  "split_count": 84,
+  "CER": 0.0775,
+  "WER": 0.1066,
+  "split_count": 78,
   "merge_count": 34,
   "split_examples": [
     {
@@ -88,20 +88,21 @@
     {
       "type": "split",
       "ocr": [
-        "Душата:",
-        "„"
+        "Петел",
+        "И"
       ],
-      "gt": "Душата:",
-      "similarity": 1.0
+      "gt": "Петел",
+      "similarity": 0.9091
     },
     {
       "type": "split",
       "ocr": [
-        "Причесна-искушение",
-        "И"
+        "Стра-да-ње",
+        "“",
+        "21"
       ],
-      "gt": "Причесна-искушение",
-      "similarity": 0.9714
+      "gt": "Стра-да-ње“",
+      "similarity": 0.8889
     }
   ],
   "merge_examples": [
@@ -135,12 +136,12 @@
     },
     {
       "type": "merge",
-      "ocr": "Лик",
+      "ocr": "Имиња",
       "gt": [
-        "Лик",
-        "1"
+        "1",
+        "Имиња"
       ],
-      "similarity": 0.8571
+      "similarity": 0.9091
     },
     {
       "type": "merge",
@@ -189,10 +190,10 @@
     },
     {
       "type": "merge",
-      "ocr": "Му",
+      "ocr": "Ијас",
       "gt": [
-        "-",
-        "Му"
+        "И",
+        "јас"
       ],
       "similarity": 1.0
     }

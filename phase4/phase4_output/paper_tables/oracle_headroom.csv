@@ -1,4 +1,0 @@
-regime,n,oracle_cer,oracle_wer
-real_only,1432,0.51173,0.63886
-synthetic_only,4959,0.04922,0.21207
-synthetic_plus_real,6391,0.15777,0.33969

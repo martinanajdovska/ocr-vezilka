@@ -12,27 +12,19 @@ plt.style.use("seaborn-v0_8-darkgrid")
 sns.set_palette("husl")
 
 
-SPLITS = {
-    "train": [
-        "dnevnik_po_mnogu_godini",
-        "itar_pejo",
-        "Pesni",
-        "Prezir",
-        "Samecot",
-        "sina_pesna",
-        "tajnopis",
-        "Toj",
-        "viktor_kupidon"
-    ],
-    "val": [
-        "Забите на Ветрот - Томе Арсовски",
-        "Провиденија"
-    ],
-    "test": [
-        "Сите лица на смртта",
-        "Современост 7"
-    ]
-}
+def _load_splits():
+    import sys
+    from pathlib import Path
+
+    repo = Path(__file__).resolve().parents[1]
+    if str(repo) not in sys.path:
+        sys.path.insert(0, str(repo))
+    from phase4.data.splits import SPLITS
+
+    return SPLITS
+
+
+SPLITS = _load_splits()
 
 
 class Phase2:

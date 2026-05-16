@@ -475,7 +475,10 @@ def rebuild_val_metrics_from_predictions(
 
     if rebuild_paper_tables:
         table_paths = build_all_tables(
-            out_dir=cfg.output_dir, primary_seed=primary_seed, all_seeds=[seed]
+            out_dir=cfg.output_dir,
+            primary_seed=primary_seed,
+            all_seeds=[seed],
+            phase1_output_dir=cfg.phase1_output_dir,
         )
         for name, path in table_paths.items():
             print(f"[recover] paper_table[{name}] -> {path}", flush=True)
@@ -1145,6 +1148,9 @@ def run_phase4(
             phase1_output_dir=cfg.phase1_output_dir,
             phase3_output_dir=cfg.phase3_train_only_dir,
             manifests_dir=manifests_dir,
+            min_pair_sim=cfg.manifest_min_pair_sim,
+            max_len_ratio_delta=cfg.manifest_max_len_ratio_delta,
+            synthetic_real_oversample_ratio=cfg.synthetic_real_oversample_ratio,
         )
         print(f"[phase4] manifests: {manifest_paths}", flush=True)
         _predict_sample_progress(predict_sample_limit, "Manifests ready.")
@@ -1276,7 +1282,10 @@ def run_phase4(
     print("[phase4] building paper tables...", flush=True)
     _predict_sample_progress(predict_sample_limit, "Aggregating paper tables + run manifest...")
     table_paths = build_all_tables(
-        out_dir=cfg.output_dir, primary_seed=primary_seed, all_seeds=list(seeds)
+        out_dir=cfg.output_dir,
+        primary_seed=primary_seed,
+        all_seeds=list(seeds),
+        phase1_output_dir=cfg.phase1_output_dir,
     )
     for name, path in table_paths.items():
         print(f"[phase4] paper_table[{name}] -> {path}", flush=True)

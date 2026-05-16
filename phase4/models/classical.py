@@ -24,6 +24,7 @@ import json
 import math
 import re
 import time
+from difflib import SequenceMatcher
 from collections import Counter, defaultdict
 from dataclasses import asdict, replace
 from pathlib import Path
@@ -241,19 +242,90 @@ class KneserNeyWordLM:
 
 
 class EditChannelModel:
-    """Crude channel model based on per-class edit-operation log costs."""
+    """Channel model: Phase-2 confusion matrix when available, else edit-distance fallback."""
 
-    def __init__(self, sub_log_p: float = -2.0, ins_log_p: float = -3.0, del_log_p: float = -3.0):
+    def __init__(
+        self,
+        sub_log_p: float = -2.0,
+        ins_log_p: float = -3.0,
+        del_log_p: float = -3.0,
+        sub_log_probs: Optional[Dict[Tuple[str, str], float]] = None,
+    ):
         self.sub_log_p = sub_log_p
         self.ins_log_p = ins_log_p
         self.del_log_p = del_log_p
+        self.sub_log_probs = sub_log_probs or {}
+
+    def _char_sub_logp(self, noisy_ch: str, hyp_ch: str) -> float:
+        if noisy_ch == hyp_ch:
+            return 0.0
+        key = (noisy_ch, hyp_ch)
+        if key in self.sub_log_probs:
+            return self.sub_log_probs[key]
+        return self.sub_log_p
 
     def log_prob(self, noisy_token: str, hyp_token: str) -> float:
         if noisy_token == hyp_token:
             return 0.0
-        d = edit_distance(noisy_token.lower(), hyp_token.lower())
-        # Distribute the distance roughly evenly among substitutions
-        return d * self.sub_log_p + 0.5 * abs(len(noisy_token) - len(hyp_token)) * (self.ins_log_p + self.del_log_p) / 2.0
+        n_low = noisy_token.lower()
+        h_low = hyp_token.lower()
+        if not self.sub_log_probs:
+            d = edit_distance(n_low, h_low)
+            return d * self.sub_log_p + 0.5 * abs(len(noisy_token) - len(hyp_token)) * (
+                self.ins_log_p + self.del_log_p
+            ) / 2.0
+        total = 0.0
+        for tag, i1, i2, j1, j2 in SequenceMatcher(None, n_low, h_low).get_opcodes():
+            if tag == "equal":
+                continue
+            if tag == "replace":
+                m = min(i2 - i1, j2 - j1)
+                for k in range(m):
+                    total += self._char_sub_logp(n_low[i1 + k], h_low[j1 + k])
+                for k in range(m, i2 - i1):
+                    total += self.ins_log_p
+                for k in range(m, j2 - j1):
+                    total += self.del_log_p
+            elif tag == "delete":
+                total += (i2 - i1) * self.ins_log_p
+            elif tag == "insert":
+                total += (j2 - j1) * self.del_log_p
+        return total
+
+
+def _load_confusion_sub_log_probs(phase2_train_only_dir: Optional[Path]) -> Dict[Tuple[str, str], float]:
+    """Load per-character substitution log-probs from Phase 2 confusion matrix."""
+    if phase2_train_only_dir is None:
+        return {}
+    path = Path(phase2_train_only_dir) / "error_confusion_probs.csv"
+    if not path.exists():
+        return {}
+    text = path.read_text(encoding="utf-8")
+    lines = [ln for ln in text.splitlines() if ln.strip()]
+    if len(lines) < 2:
+        return {}
+    headers = [h.strip() for h in lines[0].split(",")]
+    out: Dict[Tuple[str, str], float] = {}
+    floor = 1e-8
+    for line in lines[1:]:
+        parts = line.split(",")
+        if len(parts) < 2:
+            continue
+        src = parts[0].strip()
+        for j, prob_s in enumerate(parts[1:], start=1):
+            if j >= len(headers):
+                break
+            tgt = headers[j]
+            if not src or not tgt or src == tgt:
+                continue
+            try:
+                p = float(prob_s)
+            except ValueError:
+                continue
+            if p <= 0:
+                continue
+            out[(src, tgt)] = math.log(max(p, floor))
+    return out
 
 
 
@@ -306,7 +378,8 @@ class ClassicalCorrector:
             order=self.cfg.word_lm_order,
             discount=self.cfg.word_lm_discount,
         )
-        self.channel = EditChannelModel()
+        sub_lp = _load_confusion_sub_log_probs(phase2_train_only_dir)
+        self.channel = EditChannelModel(sub_log_probs=sub_lp)
         self.by_len: Dict[int, List[str]] = {}
         self._token_cache: Dict[str, List[Tuple[str, float]]] = {}
         self.confusion_swaps: List[Tuple[str, str]] = _load_diacritic_homoglyph_pairs(
@@ -399,7 +472,12 @@ class ClassicalCorrector:
         ch_logp = 0.0
         for noisy, hyp in zip(noisy_tokens, hyp_full_tokens):
             ch_logp += self.channel.log_prob(noisy, hyp)
-        return lm_logp, ch_logp
+        char_lm = 0.0
+        if hyp_word_tokens:
+            char_lm = sum(self.lm.score_word(t.lower()) for t in hyp_word_tokens) / len(
+                hyp_word_tokens
+            )
+        return lm_logp, ch_logp, char_lm
 
     def correct_sentence_topk(
         self,
@@ -452,13 +530,16 @@ class ClassicalCorrector:
                     }
                     new_beam.append(new_state)
             for st in new_beam:
-                lm_logp, ch_logp = self._score_sentence(
+                lm_logp, ch_logp, char_lm = self._score_sentence(
                     tokens[: len(st["tokens"])], st["word_tokens"], st["tokens"]
                 )
                 st["lm_log_prob"] = lm_logp
                 st["channel_log_prob"] = ch_logp
+                st["char_lm_score"] = char_lm
                 st["joint_score"] = (
-                    self.cfg.lambda_lm * lm_logp + self.cfg.lambda_channel * ch_logp
+                    self.cfg.lambda_lm * lm_logp
+                    + self.cfg.lambda_channel * ch_logp
+                    + self.cfg.lambda_char_lm * char_lm
                 )
             new_beam.sort(key=lambda s: s["joint_score"], reverse=True)
             beam = new_beam[: self.cfg.beam_size]
@@ -501,6 +582,8 @@ class ClassicalCorrector:
         return results
 
     def correct_sentence(self, sentence: str) -> Tuple[str, List[Dict[str, object]]]:
+        from phase4.eval.metrics import is_proper_name, is_rare_word
+
         tokens = tokenize(sentence)
         topk = self.correct_sentence_topk(sentence, k=self.cfg.beam_size)
         identity = next((t for t in topk if t["is_identity"]), topk[-1])
@@ -509,14 +592,33 @@ class ClassicalCorrector:
             return sentence, [{"token": tok, "prediction": tok, "confidence": 0.0} for tok in tokens]
         best = max(non_identity, key=lambda t: t["joint_score"])
         delta = float(best["joint_score"]) - float(identity["joint_score"])
-        chosen = best if delta >= self.cfg.correction_margin else identity
+        required_margin = float(self.cfg.correction_margin)
+        for noisy in tokens:
+            if is_proper_name(noisy):
+                required_margin = max(
+                    required_margin,
+                    self.cfg.correction_margin + self.cfg.proper_name_extra_margin,
+                )
+            if is_rare_word(noisy, self.word_counts):
+                required_margin = max(
+                    required_margin,
+                    self.cfg.correction_margin + self.cfg.rare_word_extra_margin,
+                )
+        chosen = best if delta >= required_margin else identity
+        conf_scale = max(1e-6, required_margin)
         details: List[Dict[str, object]] = []
         for noisy, hyp in zip(tokens, chosen["tokens"]):
+            tok_conf = min(1.0, max(0.0, delta / conf_scale)) if hyp != noisy else 0.0
+            if noisy.isalpha() and hyp.isalpha():
+                id_sc = self.lm.score_word(noisy.lower())
+                hyp_sc = self.lm.score_word(hyp.lower())
+                if id_sc > 0:
+                    tok_conf = max(tok_conf, min(1.0, hyp_sc / id_sc))
             details.append(
                 {
                     "token": noisy,
                     "prediction": hyp,
-                    "confidence": max(0.0, delta),
+                    "confidence": tok_conf,
                 }
             )
         return chosen["prediction"], details

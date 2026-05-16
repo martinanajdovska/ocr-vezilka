@@ -342,7 +342,37 @@ def build_seed_variance_table(out_dir: Path, seeds: List[int]) -> Path:
     return out_path
 
 
-def build_all_tables(out_dir: Path, primary_seed: int = 42, all_seeds: Optional[List[int]] = None) -> Dict[str, Path]:
+def build_alignment_quality_table(
+    phase1_output_dir: Path,
+    out_dir: Path,
+) -> Path:
+    """Export per-book Phase 1 alignment_quality.json rows to CSV."""
+    src = phase1_output_dir / "alignment_quality_all.json"
+    out_path = out_dir / "paper_tables" / "phase1_alignment_quality.csv"
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    rows: List[Dict[str, object]] = []
+    if src.exists():
+        rows = json.loads(src.read_text(encoding="utf-8"))
+    else:
+        for aq in phase1_output_dir.glob("*/*/alignment_quality.json"):
+            data = json.loads(aq.read_text(encoding="utf-8"))
+            data["book"] = aq.parent.name
+            data["split"] = aq.parent.parent.name
+            rows.append(data)
+    fieldnames = sorted({k for r in rows for k in r.keys()})
+    with out_path.open("w", encoding="utf-8", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames, extrasaction="ignore")
+        writer.writeheader()
+        writer.writerows(rows)
+    return out_path
+
+
+def build_all_tables(
+    out_dir: Path,
+    primary_seed: int = 42,
+    all_seeds: Optional[List[int]] = None,
+    phase1_output_dir: Optional[Path] = None,
+) -> Dict[str, Path]:
     paths = {
         "main": build_main_table(out_dir, primary_seed=primary_seed),
         "cross_domain": build_cross_domain_table(out_dir, primary_seed=primary_seed),
@@ -351,4 +381,8 @@ def build_all_tables(out_dir: Path, primary_seed: int = 42, all_seeds: Optional[
         "significance": build_significance_table(out_dir, primary_seed=primary_seed),
         "seed_variance": build_seed_variance_table(out_dir, all_seeds or []),
     }
+    if phase1_output_dir is not None:
+        paths["alignment_quality"] = build_alignment_quality_table(
+            phase1_output_dir, out_dir
+        )
     return paths

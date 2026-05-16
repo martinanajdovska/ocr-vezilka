@@ -1,13 +1,13 @@
 {
-  "total_char_ops": 1056087,
-  "match_pct": 95.6141870887531,
-  "substitution_pct": 0.7076121569529783,
-  "deletion_pct": 2.1069286905340183,
-  "insertion_pct": 1.5712720637598985,
-  "split_count": 906,
-  "merge_count": 746,
-  "split_pct": 0.4944632127010462,
-  "merge_pct": 0.4071407910319873,
-  "structural_count": 1652,
-  "structural_pct": 0.9016040037330335
+  "total_char_ops": 1146918,
+  "match_pct": 92.18688694396636,
+  "substitution_pct": 1.2987850918723047,
+  "deletion_pct": 2.476724578391829,
+  "insertion_pct": 4.037603385769515,
+  "split_count": 2522,
+  "merge_count": 1015,
+  "split_pct": 1.2746386333771353,
+  "merge_pct": 0.5129889821085616,
+  "structural_count": 3537,
+  "structural_pct": 1.787627615485697
 }

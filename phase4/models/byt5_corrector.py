@@ -8,13 +8,15 @@ import random
 import time
 from dataclasses import asdict
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Sequence, Tuple, Union
+from typing import Any, Dict, List, Optional, Sequence, Tuple, Union  # noqa: F401
 
 import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader, Dataset
 
 from phase4.config import TransformerConfig
+from phase4.eval.metrics import cer
+from phase4.models.classical import _load_confusion_sub_log_probs
 
 
 def _import_hf():
@@ -125,6 +127,29 @@ def _torch_load_checkpoint(path: Path, map_location: Union[str, torch.device]) -
         return torch.load(path, map_location=map_location)
 
 
+def _pairs_with_context(
+    pairs: Sequence[Tuple[str, str]], sep: str
+) -> List[Tuple[str, str]]:
+    listed = list(pairs)
+    out: List[Tuple[str, str]] = []
+    for i, (src, tgt) in enumerate(listed):
+        prev_s = listed[i - 1][0] if i > 0 else ""
+        next_s = listed[i + 1][0] if i < len(listed) - 1 else ""
+        ctx = sep.join(p for p in (prev_s, src, next_s) if p)
+        out.append((ctx, tgt))
+    return out
+
+
+def _confusion_swap_table(
+    sub_log_probs: Dict[Tuple[str, str], float],
+) -> List[Tuple[str, str, float]]:
+    rows: List[Tuple[str, str, float]] = []
+    for (a, b), lp in sub_log_probs.items():
+        if a != b:
+            rows.append((a, b, math.exp(lp)))
+    return rows
+
+
 class _ByT5Dataset(Dataset):
     """Source/target pairs for ByT5 fine-tuning.
 
@@ -141,6 +166,9 @@ class _ByT5Dataset(Dataset):
         max_input_bytes: int,
         max_target_bytes: int,
         identity_pair_ratio: float = 0.0,
+        task_prefix: str = "",
+        confusion_swaps: Optional[List[Tuple[str, str, float]]] = None,
+        training_confusion_noise_prob: float = 0.0,
         rng: Optional[random.Random] = None,
     ):
         self.pairs = list(pairs)
@@ -148,10 +176,35 @@ class _ByT5Dataset(Dataset):
         self.max_input_bytes = max_input_bytes
         self.max_target_bytes = max_target_bytes
         self.identity_pair_ratio = float(identity_pair_ratio)
+        self.task_prefix = task_prefix or ""
+        self.confusion_swaps = confusion_swaps or []
+        self.training_confusion_noise_prob = float(training_confusion_noise_prob)
         self.rng = rng or random.Random(0)
 
     def __len__(self) -> int:
         return len(self.pairs)
+
+    def _apply_confusion_noise(self, text: str) -> str:
+        if not self.confusion_swaps or not text:
+            return text
+        chars = list(text)
+        alpha_idx = [i for i, c in enumerate(chars) if c.isalpha()]
+        if not alpha_idx:
+            return text
+        pos = self.rng.choice(alpha_idx)
+        ch = chars[pos]
+        candidates = [(a, b, w) for a, b, w in self.confusion_swaps if a == ch]
+        if not candidates:
+            return text
+        total = sum(w for _, _, w in candidates)
+        r = self.rng.random() * total
+        acc = 0.0
+        for a, b, w in candidates:
+            acc += w
+            if r <= acc:
+                chars[pos] = b
+                break
+        return "".join(chars)
 
     def __getitem__(self, idx: int) -> Dict[str, torch.Tensor]:
         src, tgt = self.pairs[idx]
@@ -161,6 +214,13 @@ class _ByT5Dataset(Dataset):
         # Applied at train time only (val/test datasets pass ``identity_pair_ratio=0``).
         if self.identity_pair_ratio > 0 and self.rng.random() < self.identity_pair_ratio:
             src = tgt
+        if (
+            self.training_confusion_noise_prob > 0
+            and self.rng.random() < self.training_confusion_noise_prob
+        ):
+            src = self._apply_confusion_noise(src)
+        if self.task_prefix and not src.startswith(self.task_prefix):
+            src = self.task_prefix + src
         enc = self.tokenizer(
             src,
             max_length=self.max_input_bytes,
@@ -227,6 +287,33 @@ class ByT5Corrector:
         print(f"[byt5] loading {src} on device={self.device}", flush=True)
         self.tokenizer = ByT5Tokenizer.from_pretrained(src)
         self.model = T5ForConditionalGeneration.from_pretrained(src).to(self.device)
+        self._configure_model_for_training()
+
+    def _configure_model_for_training(self) -> None:
+        """Enable gradient checkpointing / disable KV cache for training memory.
+
+        Must be called before each ``fit`` and re-disabled before generation
+        (which we do in ``correct_sentence`` / ``score_target`` if needed).
+        Gradient checkpointing requires ``use_cache=False`` (T5 raises an
+        error otherwise), and we prefer the non-reentrant variant to silence
+        torch deprecation warnings + play nicely with AMP.
+        """
+        if self.model is None:
+            return
+        if hasattr(self.model, "config"):
+            self.model.config.use_cache = False
+        if bool(getattr(self.cfg, "gradient_checkpointing", False)):
+            try:
+                self.model.gradient_checkpointing_enable(
+                    gradient_checkpointing_kwargs={"use_reentrant": False}
+                )
+            except TypeError:
+                try:
+                    self.model.gradient_checkpointing_enable()
+                except (AttributeError, ValueError):
+                    pass
+            except (AttributeError, ValueError):
+                pass
 
     def _filter_pairs(
         self, pairs: Sequence[Tuple[str, str]]
@@ -303,6 +390,14 @@ class ByT5Corrector:
                     flush=True,
                 )
 
+        if self.device.type == "cuda" and not self.cfg.deterministic:
+            torch.backends.cudnn.benchmark = True
+            torch.backends.cuda.matmul.allow_tf32 = True
+            torch.backends.cudnn.allow_tf32 = True
+            try:
+                torch.set_float32_matmul_precision("high")
+            except AttributeError:
+                pass
         if resume_bundle is None:
             _set_seed(self.seed)
 
@@ -316,6 +411,7 @@ class ByT5Corrector:
             self.model.load_state_dict(
                 {k: v.to(self.device) for k, v in sd.items()}, strict=True
             )
+            self._configure_model_for_training()
             _restore_training_rng_state(resume_bundle)
         elif self.model is None:
             if resume_from is not None and Path(resume_from).exists():
@@ -324,6 +420,8 @@ class ByT5Corrector:
                 self._load_pretrained(None)
         elif resume_from is not None and Path(resume_from).exists():
             self._load_pretrained(Path(resume_from))
+        else:
+            self._configure_model_for_training()
 
         train_kept, train_skipped = self._filter_pairs(train_pairs)
         val_kept, val_skipped = self._filter_pairs(val_pairs)
@@ -359,6 +457,16 @@ class ByT5Corrector:
             flush=True,
         )
 
+        if self.cfg.use_window_context:
+            sep = self.cfg.window_context_sep
+            train_kept = _pairs_with_context(train_kept, sep)
+            val_kept = _pairs_with_context(val_kept, sep)
+
+        sub_lp = _load_confusion_sub_log_probs(
+            Path(__file__).resolve().parents[2] / "phase2" / "phase2_output_train_only"
+        )
+        confusion_swaps = _confusion_swap_table(sub_lp)
+
         rng = random.Random(self.seed)
         train_ds = _ByT5Dataset(
             train_kept,
@@ -366,6 +474,11 @@ class ByT5Corrector:
             self.cfg.max_input_bytes,
             self.cfg.max_target_bytes,
             identity_pair_ratio=float(self.cfg.identity_pair_ratio),
+            task_prefix=self.cfg.task_prefix,
+            confusion_swaps=confusion_swaps,
+            training_confusion_noise_prob=float(
+                self.cfg.training_confusion_noise_prob
+            ),
             rng=rng,
         )
         val_ds = _ByT5Dataset(
@@ -374,6 +487,9 @@ class ByT5Corrector:
             self.cfg.max_input_bytes,
             self.cfg.max_target_bytes,
             identity_pair_ratio=0.0,
+            task_prefix=self.cfg.task_prefix,
+            confusion_swaps=[],
+            training_confusion_noise_prob=0.0,
             rng=random.Random(self.seed + 1),
         )
         pad_id = int(self.tokenizer.pad_token_id)
@@ -381,29 +497,45 @@ class ByT5Corrector:
         def _collate(batch):
             return _collate_byt5(batch, pad_id)
 
+        loader_workers = max(0, int(self.cfg.dataloader_num_workers))
+        pin_memory = bool(self.cfg.pin_memory and self.device.type == "cuda")
         train_loader = DataLoader(
             train_ds,
             batch_size=self.cfg.batch_size,
             shuffle=True,
             collate_fn=_collate,
+            num_workers=loader_workers,
+            pin_memory=pin_memory,
+            persistent_workers=loader_workers > 0,
         )
         val_loader = DataLoader(
             val_ds,
             batch_size=self.cfg.batch_size,
             shuffle=False,
             collate_fn=_collate,
+            num_workers=loader_workers,
+            pin_memory=pin_memory,
+            persistent_workers=loader_workers > 0,
         )
+
+        learning_rate = float(self.cfg.learning_rate)
+        warmup_ratio = float(self.cfg.warmup_ratio)
+        if stage == "finetune":
+            learning_rate = float(self.cfg.learning_rate) * float(
+                self.cfg.finetune_lr_scale
+            )
+            warmup_ratio = float(self.cfg.finetune_warmup_ratio)
 
         optimizer = torch.optim.AdamW(
             self.model.parameters(),
-            lr=self.cfg.learning_rate,
+            lr=learning_rate,
             weight_decay=self.cfg.weight_decay,
         )
 
         accum = max(1, int(self.cfg.gradient_accumulation_steps))
         steps_per_epoch = max(1, math.ceil(len(train_loader) / accum))
         total_steps = max(1, steps_per_epoch * n_epochs)
-        warmup_steps = max(1, int(round(total_steps * float(self.cfg.warmup_ratio))))
+        warmup_steps = max(1, int(round(total_steps * warmup_ratio)))
 
         def lr_lambda(step: int) -> float:
             if step < warmup_steps:
@@ -413,15 +545,11 @@ class ByT5Corrector:
 
         scheduler = torch.optim.lr_scheduler.LambdaLR(optimizer, lr_lambda)
 
-        # Hugging Face T5 already applies its own loss; we add label smoothing
-        # via the ``label_smoothing_factor`` argument (Trainer-style) by
-        # overriding the loss with ``nn.CrossEntropyLoss``. For simplicity we
-        # rely on T5's built-in CE here, since label smoothing on byte-level
-        # targets has been shown to make the model less confident on already
-        # correct bytes - which combined with our identity-pair augmentation
-        # is enough to control overcorrection. We keep the field in cfg for
-        # later experiments without changing the training contract.
-        _ = self.cfg.label_smoothing
+        loss_fn = nn.CrossEntropyLoss(
+            ignore_index=-100,
+            label_smoothing=float(self.cfg.label_smoothing),
+        )
+        early_metric = str(self.cfg.early_stop_metric).lower()
 
         use_amp, amp_dtype = _cuda_amp_autocast_dtype(self.cfg, self.device)
         use_grad_scaler = bool(use_amp and amp_dtype == torch.float16)
@@ -434,6 +562,7 @@ class ByT5Corrector:
             )
 
         best_val_loss = float("inf")
+        best_val_cer = float("inf")
         best_state: Optional[Dict[str, torch.Tensor]] = None
         patience = 0
         history: List[Dict[str, float]] = []
@@ -445,6 +574,7 @@ class ByT5Corrector:
             scheduler.load_state_dict(resume_bundle["scheduler_state_dict"])
             scaler.load_state_dict(resume_bundle["scaler_state_dict"])
             best_val_loss = float(resume_bundle["best_val_loss"])
+            best_val_cer = float(resume_bundle.get("best_val_cer", best_val_cer))
             bs = resume_bundle.get("best_state_dict")
             if isinstance(bs, dict):
                 best_state = {k: v.clone() for k, v in bs.items()}
@@ -465,6 +595,7 @@ class ByT5Corrector:
                 "next_epoch": next_epoch,
                 "global_step": global_step,
                 "best_val_loss": best_val_loss,
+                "best_val_cer": best_val_cer,
                 "best_state_dict": best_state,
                 "patience": patience,
                 "history": history,
@@ -497,8 +628,13 @@ class ByT5Corrector:
                 )
                 with amp_ctx:
                     outputs = self.model(**batch)
-                    loss = outputs.loss / accum
-                batch_loss = float(outputs.loss.detach().item())
+                    logits = outputs.logits
+                    labels = batch["labels"]
+                    flat_logits = logits.reshape(-1, logits.size(-1))
+                    flat_labels = labels.reshape(-1)
+                    raw_loss = loss_fn(flat_logits, flat_labels)
+                    loss = raw_loss / accum
+                batch_loss = float(raw_loss.detach().item())
                 scaler.scale(loss).backward()
                 running_loss += float(loss.item()) * accum
                 n_batches += 1
@@ -534,19 +670,31 @@ class ByT5Corrector:
                 )
 
             val_loss = self._eval_loss(val_loader)
+            val_cer = self._eval_mini_cer(
+                val_kept,
+                max_pairs=int(self.cfg.eval_cer_pairs),
+                beam_size=int(self.cfg.eval_cer_beam),
+            )
             history.append(
                 {
                     "epoch": epoch + 1,
                     "stage": stage,
                     "train_loss": train_loss,
                     "val_loss": val_loss,
+                    "val_cer": val_cer,
                     "epoch_time_s": time.perf_counter() - t_ep,
                 }
             )
 
-            improved = val_loss < best_val_loss - 1e-4
+            if early_metric == "val_cer":
+                improved = val_cer < best_val_cer - 1e-4
+                if improved:
+                    best_val_cer = val_cer
+            else:
+                improved = val_loss < best_val_loss - 1e-4
+                if improved:
+                    best_val_loss = val_loss
             if improved:
-                best_val_loss = val_loss
                 best_state = {
                     k: v.detach().cpu().clone() for k, v in self.model.state_dict().items()
                 }
@@ -555,8 +703,8 @@ class ByT5Corrector:
                 patience += 1
             print(
                 f"[byt5] {stage} epoch {epoch + 1}/{n_epochs}: "
-                f"train_loss={train_loss:.4f} val_loss={val_loss:.4f} "
-                f"best={best_val_loss:.4f} patience={patience}/{self.cfg.early_stopping_patience} "
+                f"train_loss={train_loss:.4f} val_loss={val_loss:.4f} val_cer={val_cer:.4f} "
+                f"best_val_cer={best_val_cer:.4f} patience={patience}/{self.cfg.early_stopping_patience} "
                 f"time={time.perf_counter() - t_ep:.1f}s",
                 flush=True,
             )
@@ -576,6 +724,8 @@ class ByT5Corrector:
             "stage": stage,
             "epochs_run": len(history),
             "best_val_loss": best_val_loss,
+            "best_val_cer": best_val_cer,
+            "early_stop_metric": early_metric,
             "skipped_train_pairs": train_skipped,
             "skipped_val_pairs": val_skipped,
             "kept_train_pairs": len(train_kept),
@@ -608,6 +758,29 @@ class ByT5Corrector:
             print(f"[byt5] wrote pretrain snapshot for finetune/resume -> {pre_dir}", flush=True)
 
         return self.training_metrics
+
+    def _eval_mini_cer(
+        self,
+        val_pairs: Sequence[Tuple[str, str]],
+        max_pairs: int,
+        beam_size: int,
+    ) -> float:
+        if not val_pairs:
+            return float("inf")
+        sample = list(val_pairs[: max(1, max_pairs)])
+        cer_sum = 0.0
+        self.model.eval()
+        try:
+            for noisy, clean in sample:
+                pred, _ = self.correct_sentence(noisy, beam_size=beam_size)
+                cer_sum += cer(clean, pred)
+        finally:
+            # ``correct_sentence`` toggles use_cache=True and disables
+            # gradient checkpointing for fast generation. Restore the
+            # training-time configuration before the next training epoch
+            # so we keep the activation-memory savings.
+            self._configure_model_for_training()
+        return cer_sum / max(1, len(sample))
 
     def _eval_loss(self, loader: DataLoader) -> float:
         """Compute mean validation loss with a CPU fallback on NaN.
@@ -660,25 +833,50 @@ class ByT5Corrector:
         return sum(losses) / len(losses)
 
 
-    def correct_sentence(self, sentence: str) -> Tuple[str, List[Dict[str, object]]]:
+    def _configure_model_for_inference(self) -> None:
+        """Disable gradient checkpointing and re-enable KV cache for fast generation."""
+        if self.model is None:
+            return
+        try:
+            self.model.gradient_checkpointing_disable()
+        except (AttributeError, ValueError):
+            pass
+        if hasattr(self.model, "config"):
+            self.model.config.use_cache = True
+
+    def correct_sentence(
+        self,
+        sentence: str,
+        beam_size: Optional[int] = None,
+    ) -> Tuple[str, List[Dict[str, object]]]:
         if not sentence:
             return sentence, [{"confidence": 1.0}]
         if self.model is None or self.tokenizer is None:
             raise ValueError("Model is not fitted.")
+        if self.model.training:
+            self.model.eval()
+        self._configure_model_for_inference()
+        src = sentence
+        if self.cfg.task_prefix and not src.startswith(self.cfg.task_prefix):
+            src = self.cfg.task_prefix + src
         enc = self.tokenizer(
-            sentence,
+            src,
             max_length=self.cfg.max_input_bytes,
             truncation=True,
             return_tensors="pt",
         ).to(self.device)
-        max_new = min(int(self.cfg.max_target_bytes), max(32, int(len(sentence.encode("utf-8")) * 1.3) + 16))
+        max_new = min(
+            int(self.cfg.max_target_bytes),
+            max(32, int(len(sentence.encode("utf-8")) * 1.3) + 16),
+        )
+        beams = int(beam_size if beam_size is not None else self.cfg.beam_size)
         gen_kwargs = {
             "max_new_tokens": max_new,
-            "num_beams": int(self.cfg.beam_size),
+            "num_beams": beams,
             "length_penalty": float(self.cfg.length_penalty),
             "early_stopping": True,
             "return_dict_in_generate": True,
-            "output_scores": True,
+            "output_scores": beams > 1,
         }
         if self.cfg.no_repeat_ngram_size:
             gen_kwargs["no_repeat_ngram_size"] = int(self.cfg.no_repeat_ngram_size)
@@ -687,12 +885,12 @@ class ByT5Corrector:
         seq = out.sequences[0]
         text = self.tokenizer.decode(seq, skip_special_tokens=True)
         score = 0.0
-        # ``sequences_scores`` is the length-penalised log-prob HF reports for
-        # the best beam; missing only when we run with num_beams=1, where we
-        # fall back to a neutral confidence of 1.0.
         if hasattr(out, "sequences_scores") and out.sequences_scores is not None:
             score = float(out.sequences_scores[0].item())
-        confidence = float(math.exp(min(0.0, score))) if score < 0 else 1.0
+            confidence = float(min(1.0, math.exp(min(0.0, score))))
+        else:
+            lp = self.score_target(sentence, text)
+            confidence = float(1.0 / (1.0 + math.exp(-lp / max(1.0, len(text) / 8.0))))
         return text, [{"confidence": confidence, "score": score}]
 
     def score_target(self, noisy: str, target: str) -> float:
@@ -701,6 +899,8 @@ class ByT5Corrector:
             raise ValueError("Model is not fitted.")
         if not target:
             return float("-inf")
+        if self.model.training:
+            self.model.eval()
         enc = self.tokenizer(
             noisy,
             max_length=self.cfg.max_input_bytes,

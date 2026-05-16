@@ -1,5 +1,5 @@
 {
-  "matched_pairs": 216,
+  "matched_pairs": 207,
   "ocr_total_characters": 28220,
   "ocr_total_tokens": 5002,
   "ocr_total_sentences": 346,
@@ -8,10 +8,10 @@
   "gt_total_tokens": 5048,
   "gt_total_sentences": 277,
   "gt_avg_sentence_length": 18.2238,
-  "CER": 0.3041,
-  "WER": 0.5528,
-  "split_count": 60,
-  "merge_count": 99,
+  "CER": 0.2276,
+  "WER": 0.5235,
+  "split_count": 53,
+  "merge_count": 86,
   "split_examples": [
     {
       "type": "split",
@@ -25,47 +25,11 @@
     {
       "type": "split",
       "ocr": [
-        "бдее",
-        "м"
-      ],
-      "gt": "бдее",
-      "similarity": 0.8889
-    },
-    {
-      "type": "split",
-      "ocr": [
         "земја",
         "м"
       ],
       "gt": "земја",
       "similarity": 0.9091
-    },
-    {
-      "type": "split",
-      "ocr": [
-        "глувотија",
-        "м"
-      ],
-      "gt": "глувотија",
-      "similarity": 0.9474
-    },
-    {
-      "type": "split",
-      "ocr": [
-        "меч",
-        "м"
-      ],
-      "gt": "меч",
-      "similarity": 0.8571
-    },
-    {
-      "type": "split",
-      "ocr": [
-        "реч",
-        "м"
-      ],
-      "gt": "реч",
-      "similarity": 0.8571
     },
     {
       "type": "split",
@@ -102,6 +66,42 @@
       ],
       "gt": "јаренцата,",
       "similarity": 0.8421
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "распука",
+        "а"
+      ],
+      "gt": "распука",
+      "similarity": 0.9333
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "животот",
+        "з"
+      ],
+      "gt": "животот",
+      "similarity": 0.9333
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "раката",
+        "м"
+      ],
+      "gt": "раката",
+      "similarity": 0.9231
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "чузствувам",
+        "х"
+      ],
+      "gt": "чувствувам",
+      "similarity": 0.8571
     }
   ],
   "merge_examples": [
@@ -113,24 +113,6 @@
         "птиците,"
       ],
       "similarity": 0.9333
-    },
-    {
-      "type": "merge",
-      "ocr": "само",
-      "gt": [
-        "и",
-        "само"
-      ],
-      "similarity": 0.8889
-    },
-    {
-      "type": "merge",
-      "ocr": "човек",
-      "gt": [
-        "човек",
-        "-"
-      ],
-      "similarity": 1.0
     },
     {
       "type": "merge",
@@ -180,21 +162,39 @@
     },
     {
       "type": "merge",
-      "ocr": "коб,",
+      "ocr": "свето!",
       "gt": [
         "и",
-        "коб,"
+        "свето!"
       ],
-      "similarity": 0.8571
+      "similarity": 0.9091
     },
     {
       "type": "merge",
-      "ocr": "окото",
+      "ocr": "утре",
+      "gt": [
+        "—",
+        "утре"
+      ],
+      "similarity": 1.0
+    },
+    {
+      "type": "merge",
+      "ocr": "дечињата",
+      "gt": [
+        "a",
+        "дечињата"
+      ],
+      "similarity": 0.9412
+    },
+    {
+      "type": "merge",
+      "ocr": "дечињата,",
       "gt": [
         "и",
-        "окото"
+        "дечињата,"
       ],
-      "similarity": 0.9091
+      "similarity": 0.9412
     }
   ],
   "book": "sina_pesna",

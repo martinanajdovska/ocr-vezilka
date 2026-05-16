@@ -1,13 +1,18 @@
 {
-  "n_pairs": 718,
-  "n_ocr_sentences": 734,
-  "n_gt_sentences": 727,
-  "sentence_count_ratio": 1.0096,
-  "mean_similarity": 0.9912,
+  "n_pairs": 746,
+  "n_ocr_sentences": 765,
+  "n_gt_sentences": 758,
+  "sentence_count_ratio": 1.0092,
+  "mean_similarity": 0.9932,
   "median_similarity": 1.0,
-  "min_similarity": 0.4691,
+  "min_similarity": 0.5895,
   "max_similarity": 1.0,
   "below_0_30_ratio": 0.0,
-  "below_0_50_ratio": 0.0014,
-  "below_0_70_ratio": 0.007
+  "below_0_50_ratio": 0.0,
+  "below_0_70_ratio": 0.0027,
+  "dropped_pairs_below_min_pair_sim": 3,
+  "n_unique_shingle_anchors": 15572,
+  "alignment_band_fraction": 0.1046,
+  "book": "Провиденија",
+  "split": "val"
 }

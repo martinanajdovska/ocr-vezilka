@@ -1,5 +1,5 @@
 {
-  "matched_pairs": 201,
+  "matched_pairs": 198,
   "ocr_total_characters": 20419,
   "ocr_total_tokens": 3748,
   "ocr_total_sentences": 261,
@@ -8,10 +8,10 @@
   "gt_total_tokens": 4257,
   "gt_total_sentences": 268,
   "gt_avg_sentence_length": 15.8843,
-  "CER": 0.3529,
-  "WER": 0.5022,
+  "CER": 0.2775,
+  "WER": 0.4541,
   "split_count": 48,
-  "merge_count": 128,
+  "merge_count": 120,
   "split_examples": [
     {
       "type": "split",

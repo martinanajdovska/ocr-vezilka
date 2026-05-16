@@ -1,17 +1,17 @@
 {
-  "matched_pairs": 1383,
-  "ocr_total_characters": 127499,
-  "ocr_total_tokens": 23261,
+  "matched_pairs": 1363,
+  "ocr_total_characters": 124995,
+  "ocr_total_tokens": 23013,
   "ocr_total_sentences": 1780,
-  "ocr_avg_sentence_length": 13.068,
-  "gt_total_characters": 113466,
-  "gt_total_tokens": 20814,
+  "ocr_avg_sentence_length": 12.9287,
+  "gt_total_characters": 111168,
+  "gt_total_tokens": 20585,
   "gt_total_sentences": 1438,
-  "gt_avg_sentence_length": 14.4743,
-  "CER": 0.1576,
-  "WER": 0.2039,
-  "split_count": 556,
-  "merge_count": 131,
+  "gt_avg_sentence_length": 14.315,
+  "CER": 0.1205,
+  "WER": 0.1737,
+  "split_count": 504,
+  "merge_count": 112,
   "split_examples": [
     {
       "type": "split",
@@ -44,16 +44,7 @@
     {
       "type": "split",
       "ocr": [
-        "ј",
-        "=====",
-        "008.JPG"
-      ],
-      "gt": "008.JPG",
-      "similarity": 0.9231
-    },
-    {
-      "type": "split",
-      "ocr": [
+        "|",
         "ОБЛОГ",
         "-С)"
       ],
@@ -106,6 +97,16 @@
       ],
       "gt": "Ами",
       "similarity": 1.0
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "ПОПОТ",
+        "|",
+        "Ја"
+      ],
+      "gt": "ПОПОТ",
+      "similarity": 0.8333
     }
   ],
   "merge_examples": [
@@ -122,10 +123,10 @@
       "type": "merge",
       "ocr": "Бре",
       "gt": [
-        "=====",
+        "8",
         "Бре"
       ],
-      "similarity": 1.0
+      "similarity": 0.8571
     },
     {
       "type": "merge",
@@ -166,6 +167,15 @@
     },
     {
       "type": "merge",
+      "ocr": "Пеја:",
+      "gt": [
+        "Пеја:",
+        "-"
+      ],
+      "similarity": 1.0
+    },
+    {
+      "type": "merge",
       "ocr": "Пејо",
       "gt": [
         "ПЕЈО",
@@ -190,15 +200,6 @@
         "и"
       ],
       "similarity": 0.9412
-    },
-    {
-      "type": "merge",
-      "ocr": "ипак",
-      "gt": [
-        "и",
-        "пак"
-      ],
-      "similarity": 1.0
     }
   ],
   "book": "itar_pejo",

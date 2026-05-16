@@ -1,0 +1,18 @@
+{
+  "n_pairs": 77,
+  "n_ocr_sentences": 3341,
+  "n_gt_sentences": 3379,
+  "sentence_count_ratio": 0.9888,
+  "mean_similarity": 0.8485,
+  "median_similarity": 0.9326,
+  "min_similarity": 0.5532,
+  "max_similarity": 1.0,
+  "below_0_30_ratio": 0.0,
+  "below_0_50_ratio": 0.0,
+  "below_0_70_ratio": 0.3117,
+  "dropped_pairs_below_min_pair_sim": 44,
+  "n_unique_shingle_anchors": 19981,
+  "alignment_band_fraction": 0.1056,
+  "book": "Клуч за одредување на рибите и змииорките во Република Македонија",
+  "split": "train"
+}

@@ -1,13 +1,18 @@
 {
-  "n_pairs": 2217,
-  "n_ocr_sentences": 2293,
-  "n_gt_sentences": 2312,
-  "sentence_count_ratio": 0.9918,
-  "mean_similarity": 0.9909,
+  "n_pairs": 2466,
+  "n_ocr_sentences": 2550,
+  "n_gt_sentences": 2570,
+  "sentence_count_ratio": 0.9922,
+  "mean_similarity": 0.9913,
   "median_similarity": 1.0,
-  "min_similarity": 0.5888,
+  "min_similarity": 0.6344,
   "max_similarity": 1.0,
   "below_0_30_ratio": 0.0,
   "below_0_50_ratio": 0.0,
-  "below_0_70_ratio": 0.0009
+  "below_0_70_ratio": 0.0008,
+  "dropped_pairs_below_min_pair_sim": 1,
+  "n_unique_shingle_anchors": 34268,
+  "alignment_band_fraction": 0.1039,
+  "book": "dnevnik_po_mnogu_godini",
+  "split": "train"
 }

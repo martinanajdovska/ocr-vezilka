@@ -28,12 +28,35 @@ from phase4.data.splits import (
     assert_no_unknown_docs,
     get_split,
     get_subset_domain,
+    normalize_doc_id,
 )
 
 
 
-def _read_phase1_real_pairs(phase1_output_dir: Path) -> Dict[str, List[Tuple[str, str]]]:
+def _passes_pair_quality(
+    noisy: str,
+    clean: str,
+    min_pair_sim: float,
+    max_len_ratio_delta: float,
+) -> bool:
+    if not noisy or not clean:
+        return False
+    sim = SequenceMatcher(None, noisy, clean).ratio()
+    if sim < min_pair_sim:
+        return False
+    denom = max(1, len(clean))
+    if abs(len(noisy) - len(clean)) / denom > max_len_ratio_delta:
+        return False
+    return True
+
+
+def _read_phase1_real_pairs(
+    phase1_output_dir: Path,
+    min_pair_sim: float = 0.5,
+    max_len_ratio_delta: float = 0.5,
+) -> Tuple[Dict[str, List[Tuple[str, str]]], int]:
     pairs_by_doc: Dict[str, List[Tuple[str, str]]] = {}
+    dropped = 0
     for split_dir in phase1_output_dir.iterdir():
         if not split_dir.is_dir():
             continue
@@ -48,13 +71,16 @@ def _read_phase1_real_pairs(phase1_output_dir: Path) -> Dict[str, List[Tuple[str
             for r in data:
                 noisy = str(r.get("ocr", "")).strip()
                 clean = str(r.get("gt", "")).strip()
-                if not noisy or not clean:
-                    continue
                 if noisy == clean:
                     continue
+                if not _passes_pair_quality(
+                    noisy, clean, min_pair_sim, max_len_ratio_delta
+                ):
+                    dropped += 1
+                    continue
                 pairs.append((noisy, clean))
-            pairs_by_doc[doc_dir.name] = pairs
-    return pairs_by_doc
+            pairs_by_doc[normalize_doc_id(doc_dir.name)] = pairs
+    return pairs_by_doc, dropped
 
 
 def _read_phase3_synth_pairs(
@@ -81,7 +107,7 @@ def _read_phase3_synth_pairs(
         flush=True,
     )
     for idx, pair_path in enumerate(pair_files, start=1):
-        doc_id = pair_path.stem.replace("_pairs", "")
+        doc_id = normalize_doc_id(pair_path.stem.replace("_pairs", ""))
         pairs: List[Tuple[str, str]] = []
         sims: List[float] = []
         with pair_path.open("r", encoding="utf-8") as f:
@@ -208,11 +234,33 @@ def _write_jsonl(path: Path, rows: List[Dict[str, object]]) -> None:
             f.write(json.dumps(row, ensure_ascii=False) + "\n")
 
 
+def _oversample_real_rows(
+    real_rows: List[Dict[str, object]],
+    synth_rows: List[Dict[str, object]],
+    ratio: float,
+) -> List[Dict[str, object]]:
+    """Replicate real manifest rows so combined training sees ~1/ratio real share."""
+    if ratio <= 1.0 or not real_rows:
+        return list(real_rows)
+    reps = max(1, int(round(len(synth_rows) / max(1, len(real_rows)) / ratio)))
+    out: List[Dict[str, object]] = []
+    for row in real_rows:
+        for k in range(reps):
+            dup = dict(row)
+            if k > 0:
+                dup["sample_id"] = f"{row['sample_id']}__dup{k}"
+            out.append(dup)
+    return out
+
+
 def build_phase4_manifests(
     phase1_output_dir: Path,
     phase3_output_dir: Path,
     manifests_dir: Path,
     synthetic_subdir: str = "structure_aware_noise",
+    min_pair_sim: float = 0.5,
+    max_len_ratio_delta: float = 0.5,
+    synthetic_real_oversample_ratio: float = 4.0,
 ) -> Dict[str, Path]:
     """Assemble the three Phase 4 manifests from Phase 1 and Phase 3 outputs.
 
@@ -222,8 +270,16 @@ def build_phase4_manifests(
     print("[manifest] build_phase4_manifests: start", flush=True)
     assert_disjoint_splits()
     print(f"[manifest] loading real pairs from {phase1_output_dir} ...", flush=True)
-    real_pairs = _read_phase1_real_pairs(phase1_output_dir)
-    print(f"[manifest] real docs loaded: {len(real_pairs)}", flush=True)
+    real_pairs, dropped_real = _read_phase1_real_pairs(
+        phase1_output_dir,
+        min_pair_sim=min_pair_sim,
+        max_len_ratio_delta=max_len_ratio_delta,
+    )
+    print(
+        f"[manifest] real docs loaded: {len(real_pairs)} "
+        f"(dropped_low_quality_pairs={dropped_real})",
+        flush=True,
+    )
 
     synth_pairs, synth_qa = _read_phase3_synth_pairs(
         phase3_output_dir,
@@ -235,8 +291,11 @@ def build_phase4_manifests(
     print("[manifest] building manifest rows...", flush=True)
     real_rows = _build_manifest_rows(real_pairs, "real")
     synth_rows = _build_manifest_rows(synth_pairs, "synthetic")
+    real_for_combined = _oversample_real_rows(
+        real_rows, synth_rows, synthetic_real_oversample_ratio
+    )
     combined_rows = sorted(
-        real_rows + synth_rows,
+        real_for_combined + synth_rows,
         key=lambda r: (r["doc_id"], r["order_key"], r["source_type"]),
     )
 
@@ -276,6 +335,10 @@ def build_phase4_manifests(
     manifest_summary["alignment_config"] = {
         "method": "phase3_native_pairs",
         "synthetic_subdir": synthetic_subdir,
+        "min_pair_sim": min_pair_sim,
+        "max_len_ratio_delta": max_len_ratio_delta,
+        "dropped_real_pairs": dropped_real,
+        "synthetic_real_oversample_ratio": synthetic_real_oversample_ratio,
     }
     (manifests_dir / "manifest_summary.json").write_text(
         json.dumps(manifest_summary, ensure_ascii=False, indent=2),
