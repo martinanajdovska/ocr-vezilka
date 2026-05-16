@@ -85,6 +85,12 @@ class TransformerConfig:
     )
     gate_calibration_max_pairs: int = 400
 
+    # Post-decode script filter: map Russian/Ukrainian Cyrillic confusions
+    # (``ё``, ``й``, ``ы``, …) to Macedonian graphemes and drop any remaining
+    # non-MK Cyrillic.  ByT5 is multilingual and often emits these even when
+    # the training targets are Macedonian-only.
+    sanitize_macedonian_output: bool = True
+
     # ``identity_pair_ratio`` bumped 0.2 -> 0.4: the prior run still emitted an
     # edit for ~20% of inputs even though only ~5% of input chars were wrong,
     # so teach the model that "input was already clean" is a frequent target.

@@ -17,6 +17,7 @@ from torch.utils.data import DataLoader, Dataset
 from phase4.config import TransformerConfig
 from phase4.eval.metrics import cer
 from phase4.models.classical import _load_confusion_sub_log_probs
+from phase4.models.macedonian_script import sanitize_batch, sanitize_macedonian
 
 
 def _import_hf():
@@ -907,6 +908,12 @@ class ByT5Corrector:
         if hasattr(self.model, "config"):
             self.model.config.use_cache = True
 
+    def _sanitize_decoded(self, texts: Sequence[str]) -> List[str]:
+        """Optional post-decode Macedonian script filter (see ``macedonian_script``)."""
+        if not bool(getattr(self.cfg, "sanitize_macedonian_output", True)):
+            return list(texts)
+        return sanitize_batch(list(texts))
+
     def correct_batch(
         self,
         sentences: Sequence[str],
@@ -974,7 +981,9 @@ class ByT5Corrector:
         )
         with torch.no_grad(), amp_ctx:
             out = self.model.generate(**enc, **gen_kwargs)
-        decoded = self.tokenizer.batch_decode(out, skip_special_tokens=True)
+        decoded = self._sanitize_decoded(
+            self.tokenizer.batch_decode(out, skip_special_tokens=True)
+        )
         result = list(sentences)
         for j, idx in enumerate(non_empty_idx):
             result[idx] = decoded[j]
@@ -1062,7 +1071,9 @@ class ByT5Corrector:
         with torch.no_grad(), amp_ctx:
             out = self.model.generate(**enc, **gen_kwargs)
         sequences = out.sequences
-        decoded = self.tokenizer.batch_decode(sequences, skip_special_tokens=True)
+        decoded = self._sanitize_decoded(
+            self.tokenizer.batch_decode(sequences, skip_special_tokens=True)
+        )
         seq_scores = None
         if hasattr(out, "sequences_scores") and out.sequences_scores is not None:
             seq_scores = out.sequences_scores.detach().to("cpu").tolist()
@@ -1150,7 +1161,9 @@ class ByT5Corrector:
         with torch.no_grad(), amp_ctx:
             out = self.model.generate(**enc, **gen_kwargs)
         seq = out.sequences[0]
-        text = self.tokenizer.decode(seq, skip_special_tokens=True)
+        text = self._sanitize_decoded(
+            [self.tokenizer.decode(seq, skip_special_tokens=True)]
+        )[0]
         score = 0.0
         if hasattr(out, "sequences_scores") and out.sequences_scores is not None:
             score = float(out.sequences_scores[0].item())
