@@ -1,0 +1,11 @@
+model,regime,ece,bin_lo,bin_hi,count,mean_confidence,mean_accuracy
+identity,real_only,0.35365,0.0,0.1,0,0.0,0.0
+identity,real_only,0.35365,0.1,0.2,0,0.0,0.0
+identity,real_only,0.35365,0.2,0.3,0,0.0,0.0
+identity,real_only,0.35365,0.3,0.4,0,0.0,0.0
+identity,real_only,0.35365,0.4,0.5,0,0.0,0.0
+identity,real_only,0.35365,0.5,0.6,0,0.0,0.0
+identity,real_only,0.35365,0.6,0.7,0,0.0,0.0
+identity,real_only,0.35365,0.7,0.8,0,0.0,0.0
+identity,real_only,0.35365,0.8,0.9,0,0.0,0.0
+identity,real_only,0.35365,0.9,1.0,200,1.0,0.64635
