@@ -1,0 +1,84 @@
+{
+  "model": "hybrid",
+  "regime": "real_only",
+  "seed": 42,
+  "primary_seed": 42,
+  "split_manifest_hash": "841d38047ebde623d64ab6a0be2ac15657431b2216d388a2b730872ca3aa1f55",
+  "hparams": {
+    "seeds": [
+      42
+    ],
+    "classical": {
+      "max_edit_distance": 2,
+      "top_k_candidates": 8,
+      "char_ngram_order": 4,
+      "add_k_smoothing": 0.1,
+      "word_lm_order": 3,
+      "word_lm_discount": 0.75,
+      "candidate_pool_max": 64,
+      "beam_size": 6,
+      "lambda_lm": 1.0,
+      "lambda_channel": 0.6,
+      "correction_margin": 1.5,
+      "proper_name_extra_margin": 1.0,
+      "rare_word_extra_margin": 1.0,
+      "case_preserving": true
+    },
+    "transformer": {
+      "pretrained_model": "google/byt5-small",
+      "learning_rate": 0.0001,
+      "warmup_ratio": 0.05,
+      "weight_decay": 0.01,
+      "label_smoothing": 0.1,
+      "grad_clip": 1.0,
+      "max_input_bytes": 256,
+      "max_target_bytes": 256,
+      "batch_size": 32,
+      "gradient_accumulation_steps": 2,
+      "max_epochs": 15,
+      "pretrain_epochs": 10,
+      "finetune_epochs": 5,
+      "early_stopping_patience": 3,
+      "early_stop_metric": "val_loss",
+      "beam_size": 1,
+      "length_penalty": 1.0,
+      "no_repeat_ngram_size": 0,
+      "length_norm_alpha": 0.6,
+      "identity_pair_ratio": 0.2,
+      "use_amp": true,
+      "deterministic": true,
+      "eval_cer_pairs": 64,
+      "eval_cer_beam": 1
+    },
+    "hybrid": {
+      "num_classical_candidates": 5,
+      "fusion_w_lm": 1.0,
+      "fusion_w_channel": 0.5,
+      "fusion_w_neural": 1.5,
+      "margin_default": 0.8,
+      "margin_proper_name": 1.6,
+      "margin_rare_word": 1.4,
+      "calibration_grid_w_neural": [
+        0.5,
+        1.5,
+        2.5
+      ],
+      "calibration_grid_margin": [
+        0.4,
+        1.2,
+        2.0
+      ]
+    },
+    "manifest": {
+      "band": 8,
+      "chunk_window": 20,
+      "min_align_sim": 0.3,
+      "qa_max_mismatch_ratio": 0.55,
+      "qa_max_low_alignment_ratio": 0.55
+    }
+  },
+  "predict_sample_limit": null,
+  "short_neural_fit": false,
+  "neural_resume": true,
+  "neural_resume_effective": true
+}

@@ -1,4 +1,5 @@
 {
+  "_name_or_path": "google/byt5-small",
   "architectures": [
     "T5ForConditionalGeneration"
   ],
@@ -9,12 +10,10 @@
   "decoder_start_token_id": 0,
   "dense_act_fn": "gelu_new",
   "dropout_rate": 0.1,
-  "dtype": "float32",
   "eos_token_id": 1,
   "feed_forward_proj": "gated-gelu",
   "gradient_checkpointing": false,
   "initializer_factor": 1.0,
-  "is_decoder": false,
   "is_encoder_decoder": true,
   "is_gated_act": true,
   "layer_norm_epsilon": 1e-06,
@@ -25,10 +24,10 @@
   "pad_token_id": 0,
   "relative_attention_max_distance": 128,
   "relative_attention_num_buckets": 32,
-  "scale_decoder_outputs": true,
-  "tie_word_embeddings": true,
+  "tie_word_embeddings": false,
   "tokenizer_class": "ByT5Tokenizer",
-  "transformers_version": "5.0.0",
+  "torch_dtype": "float32",
+  "transformers_version": "4.49.0",
   "use_cache": true,
   "vocab_size": 384
 }

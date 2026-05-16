@@ -31,10 +31,10 @@
       "weight_decay": 0.01,
       "label_smoothing": 0.1,
       "grad_clip": 1.0,
-      "max_input_bytes": 192,
-      "max_target_bytes": 192,
-      "batch_size": 8,
-      "gradient_accumulation_steps": 1,
+      "max_input_bytes": 256,
+      "max_target_bytes": 256,
+      "batch_size": 32,
+      "gradient_accumulation_steps": 2,
       "max_epochs": 15,
       "pretrain_epochs": 10,
       "finetune_epochs": 5,
@@ -45,7 +45,7 @@
       "no_repeat_ngram_size": 0,
       "length_norm_alpha": 0.6,
       "identity_pair_ratio": 0.2,
-      "use_amp": false,
+      "use_amp": true,
       "deterministic": true,
       "eval_cer_pairs": 64,
       "eval_cer_beam": 1
@@ -78,5 +78,7 @@
     }
   },
   "predict_sample_limit": null,
-  "short_neural_fit": false
+  "short_neural_fit": false,
+  "neural_resume": true,
+  "neural_resume_effective": true
 }

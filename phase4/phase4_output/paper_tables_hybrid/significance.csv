@@ -1,0 +1,12 @@
+regime,system,vs_baseline,n,cer_mean_delta,cer_ci_low,cer_ci_high,cer_p_value,wer_mean_delta,wer_p_value
+real_only,classical,identity,1432,0.001419,-0.000493,0.003001,0.128,0.005405,0.0
+real_only,neural,identity,1432,-0.175049,-0.21337,-0.137005,0.0,-0.14529,0.0
+real_only,neural,classical,1432,-0.176468,-0.214872,-0.138596,0.0,-0.150695,0.0
+real_only,hybrid,identity,1432,0.011784,0.007517,0.016881,0.0,0.013971,0.0
+real_only,hybrid,classical,1432,0.010364,0.006347,0.01542,0.0,0.008565,0.0
+synthetic_only,classical,identity,4959,0.000911,-0.000112,0.00187,0.078,0.002183,0.0
+synthetic_only,hybrid,identity,4959,0.003003,0.001482,0.004548,0.0,-0.005002,0.0
+synthetic_only,hybrid,classical,4959,0.002092,0.000937,0.003346,0.0,-0.007184,0.0
+synthetic_plus_real,classical,identity,6391,0.002452,0.001273,0.003662,0.002,0.004645,0.0
+synthetic_plus_real,hybrid,identity,6391,0.009015,0.007068,0.011077,0.0,0.006589,0.0
+synthetic_plus_real,hybrid,classical,6391,0.006563,0.004823,0.008402,0.0,0.001944,0.004
