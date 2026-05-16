@@ -1,7 +1,0 @@
-model,regime,n,input_cer,cer,cer_reduction_rate,wer,chrf,sentence_accuracy,correction_rate,overcorrection_rate,rare_word_corruption_rate,proper_name_corruption_rate,median_ms_per_sentence,p95_ms_per_sentence,n_params
-identity,real_only,1432,0.78323,0.78323,0.0,0.86727,0.81265,0.0,0.0,0.0,0.69205,0.62112,,,
-identity,synthetic_only,4959,0.07249,0.07249,0.0,0.30646,0.84886,0.0,0.0,0.0,0.53148,0.39281,,,
-identity,synthetic_plus_real,6391,0.23174,0.23174,0.0,0.43212,0.84075,0.0,0.0,0.0,0.58126,0.45687,,,
-classical,real_only,1432,0.78323,0.78465,-0.00181,0.87267,0.81175,0.00209,0.05098,0.0,0.6938,0.62198,360.8329160001631,1732.4304580001808,
-classical,synthetic_only,4959,0.07249,0.0734,-0.01256,0.30865,0.84823,0.00202,0.06695,0.0,0.53915,0.39774,347.12512500027515,1318.5390839998945,
-classical,synthetic_plus_real,6391,0.23174,0.23419,-0.01058,0.43676,0.83952,0.00219,0.08168,0.0,0.58889,0.46151,259.56191700061026,1465.3042499994626,

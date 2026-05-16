@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import contextlib
 import json
 import math
 import os
@@ -46,6 +47,17 @@ def _select_device() -> torch.device:
     if hasattr(torch.backends, "mps") and torch.backends.mps.is_available():
         return torch.device("mps")
     return torch.device("cpu")
+
+
+def _cuda_amp_autocast_dtype(
+    cfg: TransformerConfig, device: torch.device
+) -> tuple[bool, Optional[torch.dtype]]:
+    """CUDA mixed precision: prefer bfloat16 (Ampere+); else float16 + GradScaler."""
+    if not (cfg.use_amp and device.type == "cuda"):
+        return False, None
+    if torch.cuda.is_bf16_supported():
+        return True, torch.bfloat16
+    return True, torch.float16
 
 
 def _set_seed(seed: int) -> None:
@@ -411,8 +423,15 @@ class ByT5Corrector:
         # later experiments without changing the training contract.
         _ = self.cfg.label_smoothing
 
-        use_amp = bool(self.cfg.use_amp and self.device.type == "cuda")
-        scaler = torch.amp.GradScaler("cuda", enabled=use_amp)
+        use_amp, amp_dtype = _cuda_amp_autocast_dtype(self.cfg, self.device)
+        use_grad_scaler = bool(use_amp and amp_dtype == torch.float16)
+        scaler = torch.amp.GradScaler("cuda", enabled=use_grad_scaler)
+        if use_amp and amp_dtype is not None:
+            print(
+                f"[byt5] CUDA AMP: autocast dtype={amp_dtype}, "
+                f"GradScaler={'on' if use_grad_scaler else 'off'}",
+                flush=True,
+            )
 
         best_val_loss = float("inf")
         best_state: Optional[Dict[str, torch.Tensor]] = None
@@ -471,7 +490,12 @@ class ByT5Corrector:
             train_opt_steps = 0
             for batch_idx, batch in enumerate(train_loader):
                 batch = {k: v.to(self.device, non_blocking=True) for k, v in batch.items()}
-                with torch.amp.autocast("cuda", enabled=use_amp):
+                amp_ctx = (
+                    torch.amp.autocast("cuda", dtype=amp_dtype)
+                    if use_amp and amp_dtype is not None
+                    else contextlib.nullcontext()
+                )
+                with amp_ctx:
                     outputs = self.model(**batch)
                     loss = outputs.loss / accum
                 batch_loss = float(outputs.loss.detach().item())
@@ -602,12 +626,19 @@ class ByT5Corrector:
         self.model.eval()
         losses: List[float] = []
         cpu_model = None
+        use_amp, amp_dtype = _cuda_amp_autocast_dtype(self.cfg, self.device)
+        amp_ctx = (
+            torch.amp.autocast("cuda", dtype=amp_dtype)
+            if use_amp and amp_dtype is not None
+            else contextlib.nullcontext()
+        )
         with torch.no_grad():
             for batch in loader:
                 gpu_batch = {
                     k: v.to(self.device, non_blocking=True) for k, v in batch.items()
                 }
-                outputs = self.model(**gpu_batch)
+                with amp_ctx:
+                    outputs = self.model(**gpu_batch)
                 loss_val = float(outputs.loss.item())
                 if not math.isfinite(loss_val) and self.device.type == "mps":
                     if cpu_model is None:

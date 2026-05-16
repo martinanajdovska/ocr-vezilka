@@ -47,11 +47,11 @@ class TransformerConfig:
     label_smoothing: float = 0.1
     grad_clip: float = 1.0
 
-    max_input_bytes: int = 192
-    max_target_bytes: int = 192
+    max_input_bytes: int = 256
+    max_target_bytes: int = 256
 
-    batch_size: int = 8
-    gradient_accumulation_steps: int = 1
+    batch_size: int = 32
+    gradient_accumulation_steps: int = 2
 
     max_epochs:int  = 15
     pretrain_epochs:int  = 10
@@ -66,7 +66,7 @@ class TransformerConfig:
 
     identity_pair_ratio: float = 0.2
 
-    use_amp:bool = False
+    use_amp:bool = True
     deterministic: bool = True
 
     eval_cer_pairs: int = 64
