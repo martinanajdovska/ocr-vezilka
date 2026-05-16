@@ -183,7 +183,7 @@ What it does:
   - `classical`
   - `neural` (ByT5)
   - `hybrid`
-- Writes val predictions + metrics, blind test predictions, cross-domain predictions, efficiency metrics, paper tables, run manifest.
+- Writes val predictions + metrics, blind test predictions, efficiency metrics, paper tables, run manifest.
 - Emits identity baseline for each regime.
 
 Run:
@@ -207,7 +207,6 @@ Output root:
 Key phase4 artifacts:
 - `predictions/val/<model>/<regime>[__seedX].jsonl`
 - `predictions/test_blind/<model>/<regime>[__seedX].jsonl`
-- `predictions/cross_domain/<model>/<regime>[__seedX]_A_to_B.jsonl`
 - `val_metrics/<model>/<regime>[__seedX].json`
 - `efficiency/<model>/<regime>[__seedX].json`
 - `models/<model>/<regime>/...`
