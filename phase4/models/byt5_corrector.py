@@ -915,6 +915,10 @@ class ByT5Corrector:
             "length_penalty": float(self.cfg.length_penalty),
             "early_stopping": True,
         }
+
+        if beams > 1:
+            gen_kwargs["length_penalty"] = float(self.cfg.length_penalty)
+            gen_kwargs["early_stopping"] = True
         if self.cfg.no_repeat_ngram_size:
             gen_kwargs["no_repeat_ngram_size"] = int(self.cfg.no_repeat_ngram_size)
         use_amp, amp_dtype = _cuda_amp_autocast_dtype(self.cfg, self.device)
@@ -989,6 +993,9 @@ class ByT5Corrector:
             "return_dict_in_generate": True,
             "output_scores": beams > 1,
         }
+        if beams > 1:
+            gen_kwargs["length_penalty"] = float(self.cfg.length_penalty)
+            gen_kwargs["early_stopping"] = True
         if self.cfg.no_repeat_ngram_size:
             gen_kwargs["no_repeat_ngram_size"] = int(self.cfg.no_repeat_ngram_size)
         use_amp, amp_dtype = _cuda_amp_autocast_dtype(self.cfg, self.device)
@@ -1046,11 +1053,12 @@ class ByT5Corrector:
         gen_kwargs = {
             "max_new_tokens": max_new,
             "num_beams": beams,
-            "length_penalty": float(self.cfg.length_penalty),
-            "early_stopping": True,
             "return_dict_in_generate": True,
             "output_scores": beams > 1,
         }
+        if beams > 1:
+            gen_kwargs["length_penalty"] = float(self.cfg.length_penalty)
+            gen_kwargs["early_stopping"] = True
         if self.cfg.no_repeat_ngram_size:
             gen_kwargs["no_repeat_ngram_size"] = int(self.cfg.no_repeat_ngram_size)
         use_amp, amp_dtype = _cuda_amp_autocast_dtype(self.cfg, self.device)
