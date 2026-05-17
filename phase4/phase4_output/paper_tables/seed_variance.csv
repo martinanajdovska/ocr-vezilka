@@ -1,0 +1,4 @@
+model,regime,n_seeds,cer_mean,cer_std,wer_mean,wer_std,chrf_mean,sent_acc_mean
+identity,real_only,1,0.05333,0.0,0.16668,0.0,0.91216,0.0
+identity,synthetic_only,1,0.1049,0.0,0.47133,0.0,0.75953,0.0
+identity,synthetic_plus_real,1,0.09495,0.0,0.41255,0.0,0.78898,0.0

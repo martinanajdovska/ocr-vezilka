@@ -1,0 +1,108 @@
+{
+  "cer": 0.05330420149741467,
+  "wer": 0.16649916054338043,
+  "chrf": 0.9122392736053712,
+  "input_cer": 0.053331209545813094,
+  "cer_reduction_rate": 0.0005064210736721697,
+  "correction_rate": 0.00089126559714795,
+  "overcorrection_rate": 0.0,
+  "sentence_accuracy": 0.00089126559714795,
+  "n_records": 1122,
+  "rare_word_corruption_rate": 0.3178334184977006,
+  "proper_name_corruption_rate": 0.24529212940608403,
+  "rare_token_total": 5871,
+  "proper_token_total": 2071,
+  "per_domain": {
+    "prose": {
+      "cer": 0.05330420149741467,
+      "wer": 0.16649916054338043,
+      "chrf": 0.9122392736053712,
+      "input_cer": 0.053331209545813094,
+      "cer_reduction_rate": 0.0005064210736721697,
+      "correction_rate": 0.00089126559714795,
+      "overcorrection_rate": 0.0,
+      "sentence_accuracy": 0.00089126559714795,
+      "n_records": 1122
+    }
+  },
+  "calibration": {
+    "bins": [
+      {
+        "lo": 0.0,
+        "hi": 0.1,
+        "count": 1121,
+        "mean_confidence": 0.0,
+        "mean_accuracy": 0.6861112431213591
+      },
+      {
+        "lo": 0.1,
+        "hi": 0.2,
+        "count": 0,
+        "mean_confidence": 0.0,
+        "mean_accuracy": 0.0
+      },
+      {
+        "lo": 0.2,
+        "hi": 0.3,
+        "count": 0,
+        "mean_confidence": 0.0,
+        "mean_accuracy": 0.0
+      },
+      {
+        "lo": 0.3,
+        "hi": 0.4,
+        "count": 0,
+        "mean_confidence": 0.0,
+        "mean_accuracy": 0.0
+      },
+      {
+        "lo": 0.4,
+        "hi": 0.5,
+        "count": 0,
+        "mean_confidence": 0.0,
+        "mean_accuracy": 0.0
+      },
+      {
+        "lo": 0.5,
+        "hi": 0.6,
+        "count": 0,
+        "mean_confidence": 0.0,
+        "mean_accuracy": 0.0
+      },
+      {
+        "lo": 0.6,
+        "hi": 0.7,
+        "count": 0,
+        "mean_confidence": 0.0,
+        "mean_accuracy": 0.0
+      },
+      {
+        "lo": 0.7,
+        "hi": 0.8,
+        "count": 0,
+        "mean_confidence": 0.0,
+        "mean_accuracy": 0.0
+      },
+      {
+        "lo": 0.8,
+        "hi": 0.9,
+        "count": 0,
+        "mean_confidence": 0.0,
+        "mean_accuracy": 0.0
+      },
+      {
+        "lo": 0.9,
+        "hi": 1.0,
+        "count": 1,
+        "mean_confidence": 1.0,
+        "mean_accuracy": 1.0
+      }
+    ],
+    "ece": 0.6854997357745486
+  },
+  "runs_on": {
+    "model": "classical",
+    "regime": "real_only",
+    "seed": 42
+  }
+}

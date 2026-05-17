@@ -1,0 +1,7 @@
+model,regime,n,input_cer,cer,cer_reduction_rate,wer,chrf,sentence_accuracy,correction_rate,overcorrection_rate,rare_word_corruption_rate,proper_name_corruption_rate,median_ms_per_sentence,p95_ms_per_sentence,n_params
+identity,real_only,1122,0.05333,0.05333,0.0,0.16668,0.91216,0.0,0.0,0.0,0.318,0.24577,,,
+identity,synthetic_only,4693,0.1049,0.1049,0.0,0.47133,0.75953,0.0,0.0,0.0,0.67178,0.45305,,,
+identity,synthetic_plus_real,5815,0.09495,0.09495,0.0,0.41255,0.78898,0.0,0.0,0.0,0.58342,0.40238,,,
+classical,real_only,1122,0.05333,0.0533,0.00051,0.1665,0.91224,0.00089,0.00089,0.0,0.31783,0.24529,306.1719574034214,1060.119915753603,
+classical,synthetic_only,4693,0.1049,0.10465,0.00243,0.46838,0.76128,0.00661,0.02024,0.0,0.67205,0.45135,489.59093913435936,1837.4290987849236,
+classical,synthetic_plus_real,5815,0.09495,0.09473,0.00239,0.41004,0.79045,0.0055,0.01651,0.0,0.58349,0.40099,455.54597675800323,1686.7891401052475,
