@@ -40,25 +40,24 @@ class ClassicalConfig:
 
 @dataclass(frozen=True)
 class TransformerConfig:
-    pretrained_model: str = "google/byt5-base"
+    pretrained_model: str = "google/byt5-small"
 
-    learning_rate: float = 5.0e-5
+    learning_rate: float = 1.0e-4
     warmup_ratio: float = 0.05
     weight_decay: float = 0.01
     label_smoothing: float = 0.1
     grad_clip: float = 1.0
 
-    # ByT5 byte tokens: 1024 bytes ~ 512 Cyrillic chars.
-    max_input_bytes: int = 1024
-    max_target_bytes: int = 1024
+    max_input_bytes: int = 512
+    max_target_bytes: int = 512
 
-    batch_size: int = 40
-    gradient_accumulation_steps: int = 1
+
+    batch_size: int = 32
+    gradient_accumulation_steps: int = 2
     dataloader_num_workers: int = 4
     pin_memory: bool = True
-    # Gradient checkpointing trades ~25-30% throughput for ~3-4x activation
-    # memory savings.
-    gradient_checkpointing: bool = True
+
+    gradient_checkpointing: bool = False
 
     max_epochs: int = 15
     pretrain_epochs: int = 10
@@ -67,11 +66,37 @@ class TransformerConfig:
     early_stop_metric: str = "val_cer"
 
     beam_size: int = 4
-    length_penalty: float = 0.6
-    no_repeat_ngram_size: int = 3
+    length_penalty: float = 1.0
+    no_repeat_ngram_size: int = 0
     length_norm_alpha: float = 0.6
+    min_new_token_ratio: float = 0.5
 
-    identity_pair_ratio: float = 0.2
+    # ``gate_log_prob_margin`` is the *fallback* value used when no per-model
+    # calibration has run. After training, the runner calls
+    # ``ByT5Corrector.calibrate_gate_on_val`` which sweeps
+    # ``gate_calibration_grid`` on a capped val subset, picks the entry with
+    # the lowest mean CER (tie-break: prefer the more conservative margin),
+    # and stores it on the corrector as ``tuned_gate_margin``. The tuned value
+    # takes precedence over this default at inference
+    gate_enabled: bool = True
+    gate_log_prob_margin: float = 0.0
+    gate_calibration_grid: List[float] = field(
+        default_factory=lambda: [-0.2, -0.1, 0.0, 0.05, 0.1, 0.2, 0.3]
+    )
+    gate_calibration_max_pairs: int = 400
+
+    # Post-decode script filter: map Russian/Ukrainian Cyrillic confusions
+    # (``ё``, ``й``, ``ы``, …) to Macedonian graphemes and drop any remaining
+    # non-MK Cyrillic.  ByT5 is multilingual and often emits these even when
+    # the training targets are Macedonian-only.
+    sanitize_macedonian_output: bool = True
+
+    # ``identity_pair_ratio`` bumped 0.2 -> 0.4: the prior run still emitted an
+    # edit for ~20% of inputs even though only ~5% of input chars were wrong,
+    # so teach the model that "input was already clean" is a frequent target.
+    # Combined with the inference-time gate this lowers both spurious edits and
+    # the wasted gate work.
+    identity_pair_ratio: float = 0.4
     finetune_lr_scale: float = 0.3
     finetune_warmup_ratio: float = 0.0
     task_prefix: str = "correct OCR: "
@@ -82,15 +107,17 @@ class TransformerConfig:
 
     eval_cer_pairs: int = 96
     eval_cer_beam: int = 1
-    eval_gen_batch_size: int = 32
-    # Final val/test prediction also uses batched generation. Use the same
-    # value as eval_gen_batch_size unless you have specific VRAM headroom
-    # (e.g. shorter test split, or smaller cfg.beam_size at predict time).
-    predict_batch_size: int = 32
+
+    eval_gen_batch_size: int = 128
+    predict_batch_size: int = 128
 
     use_window_context: bool = False
     window_context_sep: str = " <sep> "
-    training_confusion_noise_prob: float = 0.1
+    # Bumped 0.1 -> 0.25 so that training batches see noise distributions
+    # closer to the Phase-2 confusion stats. This improves edit precision when
+    # the gate does let an edit through (the gate is only as good as the
+    # model's per-character probability calibration).
+    training_confusion_noise_prob: float = 0.25
 
 
 

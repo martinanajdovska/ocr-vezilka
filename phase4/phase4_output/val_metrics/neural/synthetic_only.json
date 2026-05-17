@@ -1,0 +1,108 @@
+{
+  "cer": 0.07382862666141311,
+  "wer": 0.30526025909260485,
+  "chrf": 0.832016601540421,
+  "input_cer": 0.10490331908677754,
+  "cer_reduction_rate": 0.2962222043676139,
+  "correction_rate": 0.8069465160877903,
+  "overcorrection_rate": 0.0,
+  "sentence_accuracy": 0.10568932452588962,
+  "n_records": 4693,
+  "rare_word_corruption_rate": 0.4696956011200434,
+  "proper_name_corruption_rate": 0.32136698542091235,
+  "rare_token_total": 11071,
+  "proper_token_total": 6379,
+  "per_domain": {
+    "prose": {
+      "cer": 0.07382862666141311,
+      "wer": 0.30526025909260485,
+      "chrf": 0.832016601540421,
+      "input_cer": 0.10490331908677754,
+      "cer_reduction_rate": 0.2962222043676139,
+      "correction_rate": 0.8069465160877903,
+      "overcorrection_rate": 0.0,
+      "sentence_accuracy": 0.10568932452588962,
+      "n_records": 4693
+    }
+  },
+  "calibration": {
+    "bins": [
+      {
+        "lo": 0.0,
+        "hi": 0.1,
+        "count": 0,
+        "mean_confidence": 0.0,
+        "mean_accuracy": 0.0
+      },
+      {
+        "lo": 0.1,
+        "hi": 0.2,
+        "count": 1,
+        "mean_confidence": 0.1546175998310732,
+        "mean_accuracy": 0.0
+      },
+      {
+        "lo": 0.2,
+        "hi": 0.3,
+        "count": 0,
+        "mean_confidence": 0.0,
+        "mean_accuracy": 0.0
+      },
+      {
+        "lo": 0.3,
+        "hi": 0.4,
+        "count": 1,
+        "mean_confidence": 0.3425879605079648,
+        "mean_accuracy": 0.0
+      },
+      {
+        "lo": 0.4,
+        "hi": 0.5,
+        "count": 0,
+        "mean_confidence": 0.0,
+        "mean_accuracy": 0.0
+      },
+      {
+        "lo": 0.5,
+        "hi": 0.6,
+        "count": 5,
+        "mean_confidence": 0.5559793287935534,
+        "mean_accuracy": 0.0
+      },
+      {
+        "lo": 0.6,
+        "hi": 0.7,
+        "count": 5,
+        "mean_confidence": 0.6404548995610246,
+        "mean_accuracy": 0.2
+      },
+      {
+        "lo": 0.7,
+        "hi": 0.8,
+        "count": 27,
+        "mean_confidence": 0.7653799789486251,
+        "mean_accuracy": 0.2703703703703703
+      },
+      {
+        "lo": 0.8,
+        "hi": 0.9,
+        "count": 805,
+        "mean_confidence": 0.8819195757598636,
+        "mean_accuracy": 0.4979418135872416
+      },
+      {
+        "lo": 0.9,
+        "hi": 1.0,
+        "count": 3849,
+        "mean_confidence": 0.9204795084350406,
+        "mean_accuracy": 0.6603748364575066
+      }
+    ],
+    "ece": 0.2832068223149827
+  },
+  "runs_on": {
+    "model": "neural",
+    "regime": "synthetic_only",
+    "seed": 42
+  }
+}

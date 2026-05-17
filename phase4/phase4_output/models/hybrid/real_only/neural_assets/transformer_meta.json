@@ -1,0 +1,182 @@
+{
+  "config": {
+    "pretrained_model": "google/byt5-small",
+    "learning_rate": 0.0001,
+    "warmup_ratio": 0.05,
+    "weight_decay": 0.01,
+    "label_smoothing": 0.1,
+    "grad_clip": 1.0,
+    "max_input_bytes": 512,
+    "max_target_bytes": 512,
+    "batch_size": 32,
+    "gradient_accumulation_steps": 2,
+    "dataloader_num_workers": 4,
+    "pin_memory": true,
+    "gradient_checkpointing": false,
+    "max_epochs": 15,
+    "pretrain_epochs": 10,
+    "finetune_epochs": 5,
+    "early_stopping_patience": 3,
+    "early_stop_metric": "val_cer",
+    "beam_size": 4,
+    "length_penalty": 1.0,
+    "no_repeat_ngram_size": 0,
+    "length_norm_alpha": 0.6,
+    "min_new_token_ratio": 0.5,
+    "gate_enabled": true,
+    "gate_log_prob_margin": 0.0,
+    "gate_calibration_grid": [
+      -0.2,
+      -0.1,
+      0.0,
+      0.05,
+      0.1,
+      0.2,
+      0.3
+    ],
+    "gate_calibration_max_pairs": 400,
+    "sanitize_macedonian_output": true,
+    "identity_pair_ratio": 0.4,
+    "finetune_lr_scale": 0.3,
+    "finetune_warmup_ratio": 0.0,
+    "task_prefix": "correct OCR: ",
+    "use_amp": true,
+    "deterministic": false,
+    "eval_cer_pairs": 96,
+    "eval_cer_beam": 1,
+    "eval_gen_batch_size": 128,
+    "predict_batch_size": 128,
+    "use_window_context": false,
+    "window_context_sep": " <sep> ",
+    "training_confusion_noise_prob": 0.25
+  },
+  "seed": 42,
+  "training_metrics": {
+    "stage": "train",
+    "epochs_run": 13,
+    "best_val_loss": 0.1423067007627752,
+    "best_val_cer": 0.040730709387801343,
+    "early_stop_metric": "val_cer",
+    "skipped_train_pairs": 0,
+    "skipped_val_pairs": 0,
+    "kept_train_pairs": 3011,
+    "kept_val_pairs": 1122,
+    "total_train_seconds": 796.323277823627,
+    "history": [
+      {
+        "epoch": 1,
+        "stage": "train",
+        "train_loss": 3.531158094657095,
+        "val_loss": 0.16738225954274336,
+        "val_cer": 0.09930099168894581,
+        "epoch_time_s": 58.00205396488309
+      },
+      {
+        "epoch": 2,
+        "stage": "train",
+        "train_loss": 1.2967681545960277,
+        "val_loss": 0.14553997707035807,
+        "val_cer": 0.06429914019373446,
+        "epoch_time_s": 58.176810938864946
+      },
+      {
+        "epoch": 3,
+        "stage": "train",
+        "train_loss": 1.1608071904433401,
+        "val_loss": 0.1423067007627752,
+        "val_cer": 0.047231765769540225,
+        "epoch_time_s": 57.79007378593087
+      },
+      {
+        "epoch": 4,
+        "stage": "train",
+        "train_loss": 1.1212998829389873,
+        "val_loss": 0.14423737674951553,
+        "val_cer": 0.047367047154821616,
+        "epoch_time_s": 57.62277987971902
+      },
+      {
+        "epoch": 5,
+        "stage": "train",
+        "train_loss": 1.1017366584978605,
+        "val_loss": 0.14793367187182108,
+        "val_cer": 0.04751585667863114,
+        "epoch_time_s": 58.06866352260113
+      },
+      {
+        "epoch": 6,
+        "stage": "train",
+        "train_loss": 1.0896994553114239,
+        "val_loss": 0.14617008301946852,
+        "val_cer": 0.04513696394506712,
+        "epoch_time_s": 58.008941635489464
+      },
+      {
+        "epoch": 7,
+        "stage": "train",
+        "train_loss": 1.077766638053091,
+        "val_loss": 0.14600256623493302,
+        "val_cer": 0.046686848604813376,
+        "epoch_time_s": 58.24009094759822
+      },
+      {
+        "epoch": 8,
+        "stage": "train",
+        "train_loss": 1.0710084036776895,
+        "val_loss": 0.14874142739507887,
+        "val_cer": 0.042316637876844025,
+        "epoch_time_s": 58.40955115109682
+      },
+      {
+        "epoch": 9,
+        "stage": "train",
+        "train_loss": 1.0667899257258364,
+        "val_loss": 0.1472986446072658,
+        "val_cer": 0.045100920115770694,
+        "epoch_time_s": 57.790912948548794
+      },
+      {
+        "epoch": 10,
+        "stage": "train",
+        "train_loss": 1.0604385300686485,
+        "val_loss": 0.14778578012353843,
+        "val_cer": 0.040730709387801343,
+        "epoch_time_s": 58.5683510042727
+      },
+      {
+        "epoch": 11,
+        "stage": "train",
+        "train_loss": 1.0609545117930361,
+        "val_loss": 0.15079664004345736,
+        "val_cer": 0.040766753217097766,
+        "epoch_time_s": 58.09019875153899
+      },
+      {
+        "epoch": 12,
+        "stage": "train",
+        "train_loss": 1.0551944676198457,
+        "val_loss": 0.1482163460718261,
+        "val_cer": 0.04068561559270755,
+        "epoch_time_s": 58.59986870735884
+      },
+      {
+        "epoch": 13,
+        "stage": "train",
+        "train_loss": 1.0491173154429385,
+        "val_loss": 0.14972287602722645,
+        "val_cer": 0.040730709387801343,
+        "epoch_time_s": 57.850588757544756
+      }
+    ],
+    "n_params": 299637760,
+    "device": "cuda",
+    "effective_batch_size": 64,
+    "warmup_steps": 36,
+    "total_steps": 720,
+    "resumed": false,
+    "early_stopped": true
+  },
+  "model_kind": "byt5",
+  "tuned_gate_margin": null,
+  "gate_calibration_summary": null
+}

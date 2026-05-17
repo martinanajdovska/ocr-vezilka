@@ -17,6 +17,7 @@ from torch.utils.data import DataLoader, Dataset
 from phase4.config import TransformerConfig
 from phase4.eval.metrics import cer
 from phase4.models.classical import _load_confusion_sub_log_probs
+from phase4.models.macedonian_script import sanitize_batch, sanitize_macedonian
 
 
 def _import_hf():
@@ -150,6 +151,42 @@ def _confusion_swap_table(
     return rows
 
 
+def _min_new_tokens_value(
+    cfg: TransformerConfig, input_bytes: int, max_new: int
+) -> int:
+    """Floor ``min_new_tokens`` at a fraction of the *input* byte length so the
+    beam cannot collapse to a 5-byte stub when the model is uncertain. The
+    untrained ByT5 head has been observed to terminate after a handful of
+    tokens on hard inputs, which produced predictions that were ~1/3 the input
+    length on average; this prevents that failure mode without bounding the
+    upper length (``max_new_tokens`` still does).
+    """
+    ratio = float(getattr(cfg, "min_new_token_ratio", 0.0) or 0.0)
+    if ratio <= 0 or input_bytes <= 0:
+        return 0
+    floor = int(input_bytes * ratio)
+    return max(1, min(floor, max(0, max_new - 1)))
+
+
+def _min_new_tokens_for_batch(
+    cfg: TransformerConfig,
+    sentences: Sequence[str],
+    non_empty_idx: Sequence[int],
+    max_new: int,
+) -> int:
+    """Return a single ``min_new_tokens`` value for a batched ``generate``.
+
+    HF generate expects a scalar, but inputs in a batch may have very different
+    lengths. Use the *shortest* non-empty input as the floor so we never force
+    long generation on a short sentence, but still keep the floor high enough
+    to stop catastrophic truncation.
+    """
+    if not non_empty_idx:
+        return 0
+    min_in_bytes = min(len(sentences[i].encode("utf-8")) for i in non_empty_idx)
+    return _min_new_tokens_value(cfg, min_in_bytes, max_new)
+
+
 class _ByT5Dataset(Dataset):
     """Source/target pairs for ByT5 fine-tuning.
 
@@ -266,6 +303,11 @@ class ByT5Corrector:
         self.model = None
         self.training_metrics: Dict[str, object] = {}
         self.checkpoint_path: Optional[Path] = None
+        # Filled in by ``calibrate_gate_on_val`` (or restored from
+        # ``transformer_meta.json``). Takes precedence over
+        # ``cfg.gate_log_prob_margin`` whenever the gate runs.
+        self.tuned_gate_margin: Optional[float] = None
+        self.gate_calibration: Optional[Dict[str, object]] = None
 
 
     def _load_pretrained(self, source: Optional[Path] = None) -> None:
@@ -866,10 +908,17 @@ class ByT5Corrector:
         if hasattr(self.model, "config"):
             self.model.config.use_cache = True
 
+    def _sanitize_decoded(self, texts: Sequence[str]) -> List[str]:
+        """Optional post-decode Macedonian script filter (see ``macedonian_script``)."""
+        if not bool(getattr(self.cfg, "sanitize_macedonian_output", True)):
+            return list(texts)
+        return sanitize_batch(list(texts))
+
     def correct_batch(
         self,
         sentences: Sequence[str],
         beam_size: Optional[int] = None,
+        apply_gate: Optional[bool] = None,
     ) -> List[str]:
         """Batched generation. ~10-20x faster than calling correct_sentence
         in a loop on CUDA, because all sequences share one ``model.generate``
@@ -911,7 +960,12 @@ class ByT5Corrector:
         beams = int(beam_size if beam_size is not None else self.cfg.beam_size)
         gen_kwargs = {
             "max_new_tokens": max_new,
+            "min_new_tokens": _min_new_tokens_for_batch(
+                self.cfg, sentences, non_empty_idx, max_new
+            ),
             "num_beams": beams,
+            "length_penalty": float(self.cfg.length_penalty),
+            "early_stopping": True,
         }
 
         if beams > 1:
@@ -927,16 +981,25 @@ class ByT5Corrector:
         )
         with torch.no_grad(), amp_ctx:
             out = self.model.generate(**enc, **gen_kwargs)
-        decoded = self.tokenizer.batch_decode(out, skip_special_tokens=True)
+        decoded = self._sanitize_decoded(
+            self.tokenizer.batch_decode(out, skip_special_tokens=True)
+        )
         result = list(sentences)
         for j, idx in enumerate(non_empty_idx):
             result[idx] = decoded[j]
-        return result
+        # Neural log-prob gate: drop edits that the model itself rates lower
+        # than the original noisy input. Operates on the full batch (including
+        # the no-op empty sentences) so indices stay aligned.
+        gated, _decisions = self._maybe_apply_gate(
+            list(sentences), result, enabled_override=apply_gate
+        )
+        return gated
 
     def correct_batch_with_logs(
         self,
         sentences: Sequence[str],
         beam_size: Optional[int] = None,
+        apply_gate: Optional[bool] = None,
     ) -> List[Tuple[str, List[Dict[str, object]]]]:
         """Same return shape as ``correct_sentence`` but for a whole batch.
 
@@ -985,7 +1048,12 @@ class ByT5Corrector:
         beams = int(beam_size if beam_size is not None else self.cfg.beam_size)
         gen_kwargs = {
             "max_new_tokens": max_new,
+            "min_new_tokens": _min_new_tokens_for_batch(
+                self.cfg, sentences, non_empty_idx, max_new
+            ),
             "num_beams": beams,
+            "length_penalty": float(self.cfg.length_penalty),
+            "early_stopping": True,
             "return_dict_in_generate": True,
             "output_scores": beams > 1,
         }
@@ -1003,12 +1071,21 @@ class ByT5Corrector:
         with torch.no_grad(), amp_ctx:
             out = self.model.generate(**enc, **gen_kwargs)
         sequences = out.sequences
-        decoded = self.tokenizer.batch_decode(sequences, skip_special_tokens=True)
+        decoded = self._sanitize_decoded(
+            self.tokenizer.batch_decode(sequences, skip_special_tokens=True)
+        )
         seq_scores = None
         if hasattr(out, "sequences_scores") and out.sequences_scores is not None:
             seq_scores = out.sequences_scores.detach().to("cpu").tolist()
+
+        raw_preds: List[str] = list(sentences)
+        per_log: List[Dict[str, object]] = [
+            {"confidence": 1.0, "score": 0.0, "gate_decision": "identity"}
+            for _ in range(len(sentences))
+        ]
         for j, idx in enumerate(non_empty_idx):
             text = decoded[j]
+            raw_preds[idx] = text
             if seq_scores is not None and j < len(seq_scores):
                 score = float(seq_scores[j])
                 confidence = float(min(1.0, math.exp(min(0.0, score))))
@@ -1017,13 +1094,28 @@ class ByT5Corrector:
                 # confidence so calibration bins still get populated.
                 score = 0.0
                 confidence = 0.5
-            results[idx] = (text, [{"confidence": confidence, "score": score}])
+            per_log[idx] = {
+                "confidence": confidence,
+                "score": score,
+                "gate_decision": "identity",
+            }
+        # Apply the neural log-prob gate over the full batch (so indices
+        # stay aligned). Empty inputs short-circuit inside the gate.
+        gated, decisions = self._maybe_apply_gate(
+            list(sentences), raw_preds, enabled_override=apply_gate
+        )
+        for idx in range(len(sentences)):
+            decision = decisions[idx] if idx < len(decisions) else {}
+            log_row: Dict[str, object] = dict(per_log[idx])
+            log_row.update(decision)
+            results[idx] = (gated[idx], [log_row])
         return results
 
     def correct_sentence(
         self,
         sentence: str,
         beam_size: Optional[int] = None,
+        apply_gate: Optional[bool] = None,
     ) -> Tuple[str, List[Dict[str, object]]]:
         if not sentence:
             return sentence, [{"confidence": 1.0}]
@@ -1041,13 +1133,16 @@ class ByT5Corrector:
             truncation=True,
             return_tensors="pt",
         ).to(self.device)
+        in_bytes = len(sentence.encode("utf-8"))
         max_new = min(
             int(self.cfg.max_target_bytes),
-            max(32, int(len(sentence.encode("utf-8")) * 1.3) + 16),
+            max(32, int(in_bytes * 1.3) + 16),
         )
+        min_new = _min_new_tokens_value(self.cfg, in_bytes, max_new)
         beams = int(beam_size if beam_size is not None else self.cfg.beam_size)
         gen_kwargs = {
             "max_new_tokens": max_new,
+            "min_new_tokens": min_new,
             "num_beams": beams,
             "return_dict_in_generate": True,
             "output_scores": beams > 1,
@@ -1066,7 +1161,9 @@ class ByT5Corrector:
         with torch.no_grad(), amp_ctx:
             out = self.model.generate(**enc, **gen_kwargs)
         seq = out.sequences[0]
-        text = self.tokenizer.decode(seq, skip_special_tokens=True)
+        text = self._sanitize_decoded(
+            [self.tokenizer.decode(seq, skip_special_tokens=True)]
+        )[0]
         score = 0.0
         if hasattr(out, "sequences_scores") and out.sequences_scores is not None:
             score = float(out.sequences_scores[0].item())
@@ -1074,58 +1171,419 @@ class ByT5Corrector:
         else:
             lp = self.score_target(sentence, text)
             confidence = float(1.0 / (1.0 + math.exp(-lp / max(1.0, len(text) / 8.0))))
-        return text, [{"confidence": confidence, "score": score}]
+        gated_batch, gate_logs = self._maybe_apply_gate(
+            [sentence], [text], enabled_override=apply_gate
+        )
+        log: Dict[str, object] = {
+            "confidence": confidence,
+            "score": score,
+        }
+        if gate_logs:
+            log.update(gate_logs[0])
+        return gated_batch[0], [log]
 
     def score_target(self, noisy: str, target: str) -> float:
         """Length-normalized log P(target | noisy). Used by the hybrid head."""
+        scores = self.score_targets_batch([noisy], [target])
+        return scores[0] if scores else float("-inf")
+
+    def score_targets_batch(
+        self,
+        noisy_list: Sequence[str],
+        target_list: Sequence[str],
+        chunk_size: Optional[int] = None,
+    ) -> List[float]:
+        """Length-normalized log P(target | noisy) for many pairs at once.
+
+        Implemented as a single (or chunked) batched forward pass instead of
+        ``len(pairs)`` independent ``score_target`` calls. The neural gate in
+        ``correct_batch_with_logs`` needs this twice per request batch (once
+        for the prediction, once for the original noisy input), and per-sample
+        calls dominate inference wall time on small batches.
+        """
         if self.model is None or self.tokenizer is None:
             raise ValueError("Model is not fitted.")
-        if not target:
-            return float("-inf")
+        if len(noisy_list) != len(target_list):
+            raise ValueError(
+                f"score_targets_batch: noisy/target length mismatch "
+                f"({len(noisy_list)} vs {len(target_list)})"
+            )
+        if not noisy_list:
+            return []
         if self.model.training:
             self.model.eval()
-        src = noisy
-        if self.cfg.task_prefix and not src.startswith(self.cfg.task_prefix):
-            src = self.cfg.task_prefix + src
-        enc = self.tokenizer(
-            src,
-            max_length=self.cfg.max_input_bytes,
-            truncation=True,
-            return_tensors="pt",
-        ).to(self.device)
-        dec = self.tokenizer(
-            text_target=target,
-            max_length=self.cfg.max_target_bytes,
-            truncation=True,
-            return_tensors="pt",
+        n = len(noisy_list)
+        cs = int(chunk_size) if chunk_size is not None else int(
+            getattr(self.cfg, "predict_batch_size", 32) or 32
         )
-        labels = dec["input_ids"].to(self.device)
-        # T5 ignores -100 in the loss; we want the per-token NLL summed and
-        # then length-normalised, so manually compute via a forward pass.
-        with torch.no_grad():
-            outputs = self.model(
-                input_ids=enc["input_ids"],
-                attention_mask=enc["attention_mask"],
-                labels=labels,
+        cs = max(1, cs)
+        alpha = float(self.cfg.length_norm_alpha)
+        use_amp, amp_dtype = _cuda_amp_autocast_dtype(self.cfg, self.device)
+        amp_ctx = (
+            torch.amp.autocast("cuda", dtype=amp_dtype)
+            if use_amp and amp_dtype is not None
+            else contextlib.nullcontext()
+        )
+        out_scores: List[float] = [float("-inf")] * n
+        for start in range(0, n, cs):
+            stop = min(n, start + cs)
+            chunk_noisy = list(noisy_list[start:stop])
+            chunk_target = list(target_list[start:stop])
+            keep_idx: List[int] = []
+            srcs: List[str] = []
+            tgts: List[str] = []
+            for j, (src, tgt) in enumerate(zip(chunk_noisy, chunk_target)):
+                if not tgt:
+                    continue
+                if self.cfg.task_prefix and not src.startswith(self.cfg.task_prefix):
+                    src = self.cfg.task_prefix + src
+                keep_idx.append(j)
+                srcs.append(src)
+                tgts.append(tgt)
+            if not srcs:
+                continue
+            enc = self.tokenizer(
+                srcs,
+                max_length=self.cfg.max_input_bytes,
+                truncation=True,
+                padding=True,
+                return_tensors="pt",
+            ).to(self.device)
+            dec = self.tokenizer(
+                text_target=tgts,
+                max_length=self.cfg.max_target_bytes,
+                truncation=True,
+                padding=True,
+                return_tensors="pt",
             )
-            logits = outputs.logits  # (1, T, V)
-            log_probs = torch.log_softmax(logits, dim=-1)
-            # Drop EOS-pad slots: the gathered NLL is over the *labels* which
-            # include the final EOS but not any padding (we only padded across
-            # batch in the loader; here batch=1 so labels have no -100).
-            target_log_probs = log_probs.gather(2, labels.unsqueeze(-1)).squeeze(-1)
-            mask = (labels != -100).float()
-            total = float((target_log_probs * mask).sum().item())
-            n = float(mask.sum().item())
-        if n <= 0:
-            return float("-inf")
-        # Same length-norm formula as the legacy byte Transformer so the
-        # hybrid fusion weights stay calibrated to comparable magnitudes.
-        return total / (((5 + int(n)) / 6.0) ** float(self.cfg.length_norm_alpha))
+            labels = dec["input_ids"].to(self.device)
+            # ByT5 pads target ids with ``pad_token_id``; the T5 loss expects
+            # ``-100`` on padded positions, so we mask before forwarding.
+            pad_id = int(self.tokenizer.pad_token_id)
+            labels_for_loss = labels.clone()
+            labels_for_loss[labels_for_loss == pad_id] = -100
+            with torch.no_grad(), amp_ctx:
+                outputs = self.model(
+                    input_ids=enc["input_ids"],
+                    attention_mask=enc["attention_mask"],
+                    labels=labels_for_loss,
+                )
+                logits = outputs.logits  # (B, T, V)
+                log_probs = torch.log_softmax(logits.float(), dim=-1)
+                gathered = log_probs.gather(
+                    2, labels.unsqueeze(-1).clamp(min=0)
+                ).squeeze(-1)
+                mask = (labels_for_loss != -100).float()
+                totals = (gathered * mask).sum(dim=1)
+                lengths = mask.sum(dim=1)
+            totals_l = totals.detach().to("cpu").tolist()
+            lengths_l = lengths.detach().to("cpu").tolist()
+            for k, j in enumerate(keep_idx):
+                tok_len = int(lengths_l[k])
+                if tok_len <= 0:
+                    out_scores[start + j] = float("-inf")
+                    continue
+                denom = ((5 + tok_len) / 6.0) ** alpha
+                out_scores[start + j] = float(totals_l[k]) / denom
+        return out_scores
 
-    # ------------------------------------------------------------------
-    # Persistence
-    # ------------------------------------------------------------------
+    def _effective_gate_margin(self) -> float:
+        """Margin actually used by the gate.
+
+        ``tuned_gate_margin`` (set by :meth:`calibrate_gate_on_val` and restored
+        from ``transformer_meta.json``) takes precedence over the static
+        ``cfg.gate_log_prob_margin`` fallback.
+        """
+        if self.tuned_gate_margin is not None:
+            return float(self.tuned_gate_margin)
+        return float(getattr(self.cfg, "gate_log_prob_margin", 0.0) or 0.0)
+
+    def _maybe_apply_gate(
+        self,
+        noisy_list: Sequence[str],
+        predictions: Sequence[str],
+        enabled_override: Optional[bool] = None,
+    ) -> Tuple[List[str], List[Dict[str, object]]]:
+        """Run the neural log-prob gate over a batch of generations.
+
+        For each pair we compute the (length-normalized) model log-probability
+        of the generated prediction *and* of the original noisy input as if it
+        had been emitted unchanged, then keep the edit only when
+        ``log P(pred | noisy) - log P(noisy | noisy) >= effective_margin``,
+        where ``effective_margin`` is the tuned per-model margin if present,
+        else ``cfg.gate_log_prob_margin``. Otherwise we revert to the noisy
+        input. The gate is a no-op when the prediction already equals the
+        input (``identity`` branch) or when gating is disabled (via
+        ``cfg.gate_enabled`` or ``enabled_override=False``).
+        """
+        n = len(noisy_list)
+        decisions: List[Dict[str, object]] = [
+            {
+                "gate_decision": "identity",
+                "pred_score": 0.0,
+                "input_score": 0.0,
+                "score_margin": 0.0,
+            }
+            for _ in range(n)
+        ]
+        if not n:
+            return list(predictions), decisions
+        gate_enabled = (
+            bool(enabled_override)
+            if enabled_override is not None
+            else bool(getattr(self.cfg, "gate_enabled", True))
+        )
+        margin = self._effective_gate_margin()
+        results = list(predictions)
+        if not gate_enabled:
+            for j in range(n):
+                if results[j] != noisy_list[j]:
+                    decisions[j] = {
+                        "gate_decision": "kept_no_gate",
+                        "pred_score": 0.0,
+                        "input_score": 0.0,
+                        "score_margin": 0.0,
+                    }
+            return results, decisions
+        diff_idx = [
+            j for j in range(n)
+            if results[j] and results[j] != noisy_list[j]
+        ]
+        if not diff_idx:
+            return results, decisions
+        diff_noisy = [noisy_list[j] for j in diff_idx]
+        diff_preds = [results[j] for j in diff_idx]
+        pred_scores = self.score_targets_batch(diff_noisy, diff_preds)
+        input_scores = self.score_targets_batch(diff_noisy, diff_noisy)
+        for k, j in enumerate(diff_idx):
+            ps = pred_scores[k]
+            is_ = input_scores[k]
+            delta = ps - is_
+            if not math.isfinite(ps) or not math.isfinite(is_):
+                kept = True
+                tag = "kept_unscored"
+            elif delta >= margin:
+                kept = True
+                tag = "kept_pred"
+            else:
+                kept = False
+                tag = "reverted_to_input"
+                results[j] = noisy_list[j]
+            decisions[j] = {
+                "gate_decision": tag,
+                "pred_score": ps,
+                "input_score": is_,
+                "score_margin": delta,
+            }
+            _ = kept  # keep variable for future logging extensions
+        return results, decisions
+
+
+    def calibrate_gate_on_val(
+        self,
+        val_pairs: Sequence[Tuple[str, str]],
+        max_pairs: Optional[int] = None,
+        candidate_margins: Optional[Sequence[float]] = None,
+        beam_size: Optional[int] = None,
+    ) -> Dict[str, object]:
+        """Sweep ``gate_log_prob_margin`` on val and set the best value.
+
+        Strategy: generate **ungated** predictions on the val subset (one
+        ``generate`` pass), score ``(noisy, pred)`` and ``(noisy, noisy)``
+        once per edited record (two batched forward passes total), then
+        evaluate every margin in ``candidate_margins`` against val CER purely
+        from the cached ``delta = pred_score - input_score`` values. The grid
+        sweep itself is CPU-only.
+
+        Selection metric: mean character-error-rate.
+        Tie-break: prefer the **more conservative** margin (higher value).
+
+        The chosen margin is stored on ``self.tuned_gate_margin``, takes
+        precedence over ``cfg.gate_log_prob_margin`` at inference time, and is
+        persisted in ``transformer_meta.json`` by :meth:`save` so it survives
+        save/load.
+        """
+        from phase4.eval.metrics import cer  # local to avoid import cycle
+
+        if self.model is None or self.tokenizer is None:
+            raise ValueError("Model is not fitted; cannot calibrate gate.")
+        if not bool(getattr(self.cfg, "gate_enabled", True)):
+            print("[byt5] calibrate-gate: cfg.gate_enabled=False, skipping", flush=True)
+            return {"selected": None, "tested": 0, "grid_size": 0, "log": []}
+        if not val_pairs:
+            print("[byt5] calibrate-gate: empty val_pairs, skipping", flush=True)
+            return {"selected": None, "tested": 0, "grid_size": 0, "log": []}
+
+        grid = (
+            list(candidate_margins)
+            if candidate_margins is not None
+            else list(getattr(self.cfg, "gate_calibration_grid", [0.0]))
+        )
+        if not grid:
+            grid = [float(getattr(self.cfg, "gate_log_prob_margin", 0.0) or 0.0)]
+
+        n_max = (
+            int(max_pairs)
+            if max_pairs is not None
+            else int(getattr(self.cfg, "gate_calibration_max_pairs", 400))
+        )
+        sample = list(val_pairs[: max(1, n_max)])
+        noisy_all = [n for n, _ in sample]
+        clean_all = [c for _, c in sample]
+        n_total = len(sample)
+
+        print(
+            f"[byt5] calibrate-gate: generating raw (ungated) predictions on "
+            f"{n_total} val pairs and scoring (noisy, pred) + (noisy, noisy) "
+            "for edited records...",
+            flush=True,
+        )
+        t0 = time.perf_counter()
+
+        # 1. Generate raw predictions with the gate disabled. Length-bucket so
+        #    each chunk's ``max_new_tokens`` is tight, identical to the
+        #    runner's prediction path.
+        gen_batch = max(1, int(getattr(self.cfg, "eval_gen_batch_size", 16)))
+        order = sorted(range(n_total), key=lambda k: len(noisy_all[k]))
+        raw_preds: List[str] = [""] * n_total
+        beam_confs: List[float] = [0.0] * n_total
+        done = 0
+        for start in range(0, len(order), gen_batch):
+            idxs = order[start : start + gen_batch]
+            chunk_noisy = [noisy_all[i] for i in idxs]
+            with_logs = self.correct_batch_with_logs(
+                chunk_noisy, beam_size=beam_size, apply_gate=False
+            )
+            for j, src_idx in enumerate(idxs):
+                pred, logs = with_logs[j]
+                raw_preds[src_idx] = pred
+                if logs:
+                    beam_confs[src_idx] = float(logs[0].get("confidence", 0.0))
+            done += len(idxs)
+            elapsed = time.perf_counter() - t0
+            rate = elapsed / max(1, done)
+            eta = rate * (n_total - done)
+            print(
+                f"[byt5] calibrate-gate: generated {done}/{n_total} "
+                f"elapsed={elapsed:.1f}s eta={eta:.1f}s",
+                flush=True,
+            )
+
+        # 2. Score (noisy, pred) and (noisy, noisy) for records the beam edited.
+        diff_idx = [
+            j for j in range(n_total)
+            if raw_preds[j] and raw_preds[j] != noisy_all[j]
+        ]
+        t_score = time.perf_counter()
+        if diff_idx:
+            diff_noisy = [noisy_all[j] for j in diff_idx]
+            diff_preds = [raw_preds[j] for j in diff_idx]
+            pred_scores = self.score_targets_batch(diff_noisy, diff_preds)
+            input_scores = self.score_targets_batch(diff_noisy, diff_noisy)
+        else:
+            pred_scores = []
+            input_scores = []
+        score_elapsed = time.perf_counter() - t_score
+
+        # 3. Cache delta per generated edit. Treat non-finite deltas as
+        #    "always keep" so the sweep doesn't silently reject them.
+        delta_per_idx: Dict[int, float] = {}
+        for k, j in enumerate(diff_idx):
+            ps = pred_scores[k]
+            is_ = input_scores[k]
+            if math.isfinite(ps) and math.isfinite(is_):
+                delta_per_idx[j] = float(ps - is_)
+            else:
+                delta_per_idx[j] = float("inf")
+
+        # Precompute identity CER and full-edit CER so the sweep only has to
+        # branch per-record between the two.
+        pred_cer = [cer(clean_all[j], raw_preds[j]) for j in range(n_total)]
+        noisy_cer = [cer(clean_all[j], noisy_all[j]) for j in range(n_total)]
+        identity_only_cer = sum(noisy_cer) / max(1, n_total)
+        all_edits_cer = sum(pred_cer) / max(1, n_total)
+
+        print(
+            f"[byt5] calibrate-gate: precompute done in "
+            f"{time.perf_counter() - t0:.1f}s "
+            f"(scoring took {score_elapsed:.1f}s); "
+            f"sweeping {len(grid)} margins on {n_total} pairs "
+            f"({len(diff_idx)} edited).  baseline mean_cer="
+            f"{identity_only_cer:.4f} (identity), {all_edits_cer:.4f} (no-gate)",
+            flush=True,
+        )
+
+        log: List[Dict[str, object]] = []
+        best: Optional[Dict[str, object]] = None
+        for margin in grid:
+            cer_sum = 0.0
+            kept_ct = 0
+            for j in range(n_total):
+                delta = delta_per_idx.get(j)
+                if delta is None or delta >= float(margin):
+                    if delta is not None:
+                        kept_ct += 1
+                    cer_sum += pred_cer[j]
+                else:
+                    cer_sum += noisy_cer[j]
+            mean_cer = cer_sum / max(1, n_total)
+            change_rate = kept_ct / max(1, n_total)
+            entry = {
+                "gate_log_prob_margin": float(margin),
+                "mean_cer": float(mean_cer),
+                "kept": int(kept_ct),
+                "n_pairs": int(n_total),
+                "n_generated_edits": int(len(diff_idx)),
+                "change_rate": float(change_rate),
+            }
+            log.append(entry)
+            if (
+                best is None
+                or float(entry["mean_cer"]) < float(best["mean_cer"]) - 1e-6
+                or (
+                    abs(float(entry["mean_cer"]) - float(best["mean_cer"])) < 1e-6
+                    and float(entry["gate_log_prob_margin"])
+                    > float(best["gate_log_prob_margin"])
+                )
+            ):
+                best = entry
+
+        if best is None:
+            print("[byt5] calibrate-gate: no valid margin found; leaving tuned_gate_margin unset", flush=True)
+            return {
+                "selected": None,
+                "baseline_identity_cer": float(identity_only_cer),
+                "baseline_no_gate_cer": float(all_edits_cer),
+                "tested": 0,
+                "grid_size": len(grid),
+                "n_generated_edits": int(len(diff_idx)),
+                "log": [],
+            }
+
+        self.tuned_gate_margin = float(best["gate_log_prob_margin"])
+        self.gate_calibration = {
+            "selected": dict(best),
+            "tested": len(log),
+            "grid_size": len(grid),
+            "n_generated_edits": int(len(diff_idx)),
+            "baseline_identity_cer": float(identity_only_cer),
+            "baseline_no_gate_cer": float(all_edits_cer),
+            "fallback_margin": float(
+                getattr(self.cfg, "gate_log_prob_margin", 0.0) or 0.0
+            ),
+            "log": log,
+        }
+        print(
+            f"[byt5] calibrate-gate: selected margin="
+            f"{self.tuned_gate_margin:.4f}  mean_cer={best['mean_cer']:.4f}  "
+            f"kept={best['kept']}/{best['n_pairs']}  "
+            f"(identity baseline={identity_only_cer:.4f}, "
+            f"no-gate={all_edits_cer:.4f})  "
+            f"total={time.perf_counter() - t0:.1f}s",
+            flush=True,
+        )
+        return dict(self.gate_calibration)
+
 
     def save(self, output_dir: Path) -> None:
         if self.model is None or self.tokenizer is None:
@@ -1139,14 +1597,35 @@ class ByT5Corrector:
             "seed": self.seed,
             "training_metrics": self.training_metrics,
             "model_kind": "byt5",
+            "tuned_gate_margin": (
+                float(self.tuned_gate_margin)
+                if self.tuned_gate_margin is not None
+                else None
+            ),
+            "gate_calibration_summary": (
+                {
+                    k: self.gate_calibration[k]
+                    for k in (
+                        "selected",
+                        "baseline_identity_cer",
+                        "baseline_no_gate_cer",
+                        "fallback_margin",
+                        "grid_size",
+                        "tested",
+                        "n_generated_edits",
+                    )
+                    if isinstance(self.gate_calibration, dict)
+                    and k in self.gate_calibration
+                }
+                if isinstance(self.gate_calibration, dict)
+                else None
+            ),
         }
         (output_dir / "transformer_meta.json").write_text(
             json.dumps(meta, ensure_ascii=False, indent=2),
             encoding="utf-8",
         )
-        # ``transformer.pt`` sentinel keeps backwards compatibility with the
-        # runner's ``_assert_artifacts_saved_before_test`` check (which looks
-        # for that file as evidence the neural model was persisted).
+
         (output_dir / "transformer.pt").write_text(
             "byt5 weights saved via huggingface (model.safetensors). "
             "This sentinel file exists to satisfy the legacy artifact check.\n",
@@ -1162,6 +1641,11 @@ class ByT5Corrector:
             meta = json.loads(meta_path.read_text(encoding="utf-8"))
             self.cfg = TransformerConfig(**meta["config"])
             self.training_metrics = meta.get("training_metrics", {})
+            tuned = meta.get("tuned_gate_margin")
+            self.tuned_gate_margin = float(tuned) if tuned is not None else None
+            gate_summary = meta.get("gate_calibration_summary")
+            if isinstance(gate_summary, dict):
+                self.gate_calibration = dict(gate_summary)
         self.tokenizer = ByT5Tokenizer.from_pretrained(output_dir)
         self.model = T5ForConditionalGeneration.from_pretrained(output_dir).to(self.device)
         self.checkpoint_path = output_dir
