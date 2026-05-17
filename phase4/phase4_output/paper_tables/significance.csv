@@ -1,13 +1,16 @@
 regime,system,vs_baseline,n,cer_mean_delta,cer_ci_low,cer_ci_high,cer_p_value,wer_mean_delta,wer_p_value
-<<<<<<< HEAD
 real_only,classical,identity,1122,-2.7e-05,-8.1e-05,0.0,0.76,-0.000178,0.76
-synthetic_only,classical,identity,4693,-0.000254,-0.000657,0.000183,0.198,-0.002952,0.0
-synthetic_plus_real,classical,identity,5815,-0.000227,-0.000561,0.00016,0.228,-0.002506,0.0
-=======
 real_only,neural,identity,1122,0.008117,0.003594,0.012444,0.002,0.009527,0.0
+real_only,neural,classical,1122,0.008144,0.003596,0.012491,0.002,0.009705,0.0
 real_only,hybrid,identity,1122,-2.6e-05,-9.8e-05,3.4e-05,0.418,-0.00016,0.428
+real_only,hybrid,classical,1122,1e-06,-3.3e-05,4.4e-05,1.0,1.8e-05,0.912
+synthetic_only,classical,identity,4693,-0.000254,-0.000657,0.000183,0.198,-0.002952,0.0
 synthetic_only,neural,identity,4693,-0.031075,-0.033302,-0.028833,0.0,-0.16607,0.0
+synthetic_only,neural,classical,4693,-0.03082,-0.03304,-0.02854,0.0,-0.163118,0.0
 synthetic_only,hybrid,identity,4693,-0.00515,-0.00632,-0.004074,0.0,-0.033035,0.0
+synthetic_only,hybrid,classical,4693,-0.004896,-0.006081,-0.003756,0.0,-0.030084,0.0
+synthetic_plus_real,classical,identity,5815,-0.000227,-0.000561,0.00016,0.228,-0.002506,0.0
 synthetic_plus_real,neural,identity,5815,-0.025383,-0.027434,-0.023432,0.0,-0.138258,0.0
+synthetic_plus_real,neural,classical,5815,-0.025155,-0.02717,-0.023193,0.0,-0.135752,0.0
 synthetic_plus_real,hybrid,identity,5815,-0.003786,-0.004768,-0.002934,0.0,-0.024135,0.0
->>>>>>> f63292e90f38c7a631509fb40585669c54279132
+synthetic_plus_real,hybrid,classical,5815,-0.003559,-0.004619,-0.002654,0.0,-0.021629,0.0

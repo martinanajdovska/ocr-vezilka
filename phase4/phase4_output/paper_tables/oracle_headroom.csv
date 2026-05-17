@@ -1,10 +1,4 @@
 regime,n,oracle_cer,oracle_wer
-<<<<<<< HEAD
-real_only,1122,0.0533,0.1665
-synthetic_only,4693,0.10419,0.46775
-synthetic_plus_real,5815,0.09435,0.40947
-=======
 real_only,1122,0.05132,0.16632
-synthetic_only,4693,0.06785,0.30497
-synthetic_plus_real,5815,0.06357,0.27045
->>>>>>> f63292e90f38c7a631509fb40585669c54279132
+synthetic_only,4693,0.06777,0.3044
+synthetic_plus_real,5815,0.06351,0.26994

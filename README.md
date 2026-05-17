@@ -2,263 +2,329 @@
 
 This repository implements a 4-phase pipeline for analyzing OCR errors in Macedonian Cyrillic text, generating realistic synthetic OCR noise, and training/evaluating correction models.
 
-The intended workflow is:
-1. Align noisy OCR text with corrected text (`phase1`).
+**Workflow**
+
+1. Align noisy OCR text with corrected references (`phase1`).
 2. Analyze observed OCR error patterns (`phase2`).
 3. Generate synthetic OCR noise from those patterns (`phase3`).
-4. Train/evaluate correction models with real/synthetic regimes (`phase4`).
+4. Train and evaluate correction models under real / synthetic data regimes (`phase4`).
 
 ---
 
 ## Quick Start
 
 ### Requirements
-- Python 3.10+ recommended.
-- Install dependencies:
-  - `python -m pip install -r requirements.txt`
 
-If you are on Linux with CUDA, install PyTorch CUDA first (as noted in `requirements.txt` comments), then run:
-- `pip install -r requirements.txt`
+- Python **3.10+** recommended.
+- Install dependencies from the repository root:
+
+```bash
+python -m pip install -r requirements.txt
+```
+
+On Linux with CUDA, install a CUDA-enabled PyTorch wheel first (see comments in `requirements.txt`), then run `pip install -r requirements.txt`.
 
 ### Minimal run sequence
-From repository root:
-- `python phase1/phase1_alignment.py`
-- `python phase2/ocr_error_analysis.py`
-- `python phase3/phase3_synthetic_noise.py`
-- `python phase4/phase4_correction_models.py`
 
-Notes:
-- `phase2` and `phase3` default `main()` runs both full and train-only modes.
-- `phase4` can rebuild dependencies automatically unless skip flags are used.
+From the repository root:
+
+```bash
+cd phase1 && python phase1_alignment.py && cd ..
+python phase2/ocr_error_analysis.py
+python phase3/phase3_synthetic_noise.py
+python phase4/phase4_correction_models.py
+```
+
+**Notes**
+
+- `phase2` and `phase3` default `main()` runs **both** full-corpus and train-only modes.
+- `phase4` can rebuild upstream artifacts automatically unless skip flags are set (see below).
+- For iteration after a successful full build, reuse artifacts:
+
+```bash
+python phase4/phase4_correction_models.py \
+  --skip-phase1 --skip-phase2-stats --skip-phase3-noise --skip-manifests
+```
+
+### GPU smoke test (neural only)
+
+After train-only Phase 2/3 artifacts exist:
+
+```bash
+python -u phase4/phase4_correction_models.py \
+  --skip-phase1 --skip-phase2-stats --skip-phase3-noise \
+  --skip-classical --skip-hybrid --regimes real_only --seeds 42 \
+  --neural-device cuda --predict-sample 200
+```
+
+`--predict-sample N` caps ByT5 training pairs, uses one epoch per stage, and writes at most `N` val/test prediction rows per model.
 
 ---
 
 ## Repository Map
 
-- `phase1/`
-  - `phase1_alignment.py`: sentence alignment + character/word edit extraction + boundary error detection.
-  - `raw_ocr/`: noisy OCR inputs (`*_ocr_raw.txt`).
-  - `corrected_ocr/`: corrected references (`*_corrected.txt`).
-  - `phase1_output/`: split/book outputs + corpus summaries.
+| Path | Role |
+|------|------|
+| `phase1/phase1_alignment.py` | Sentence alignment, char/word edits, boundary errors |
+| `phase1/raw_ocr/` | Noisy OCR inputs (`<book>_ocr_raw.txt`) |
+| `phase1/corrected_ocr/` | Corrected references (`<book>_corrected.txt`) |
+| `phase1/phase1_output/` | Per-split/book JSON artifacts + corpus summary |
+| `phase2/ocr_error_analysis.py` | Confusion matrices, substitution families, plots |
+| `phase2/phase2_output_train_only/` | **Train-only** stats (leak-safe; used by phase3/4) |
+| `phase3/phase3_synthetic_noise.py` | Three synthetic noise generators + realism eval |
+| `phase3/phase3_output_train_only/` | Train-only synthetic corpora and `*_pairs.jsonl` |
+| `phase4/phase4_correction_models.py` | End-to-end training/evaluation orchestrator |
+| `phase4/config.py` | Frozen hyperparameters (hashed into run metadata) |
+| `phase4/data/splits.py` | **Authoritative** train/val/test document splits |
+| `phase4/data/build_phase4_dataset.py` | Manifest construction for the three regimes |
+| `phase4/data/text_segmentation.py` | Segmentation/chunking helpers |
+| `phase4/data/manifests/` | Built `real_only`, `synthetic_only`, `synthetic_plus_real` JSONL |
+| `phase4/models/classical.py` | Lexicon + channel + Kneser–Ney LM baseline |
+| `phase4/models/byt5_corrector.py` | ByT5 fine-tuning, gate calibration, inference |
+| `phase4/models/transformer_seq2seq.py` | Thin alias → `ByT5Corrector` (used by the runner) |
+| `phase4/models/hybrid.py` | Classical candidates + neural reranking/fusion |
+| `phase4/models/macedonian_script.py` | Post-decode Macedonian Cyrillic sanitization |
+| `phase4/eval/metrics.py` | CER, WER, chrF, calibration, bootstrap, diagnostics |
+| `phase4/eval/paper_tables.py` | Aggregate CSV tables for publication |
+| `phase4/io/schemas.py` | Prediction record schema validation |
+| `phase4/phase4_output/` | Predictions, metrics, checkpoints, paper tables |
+| `requirements.txt` | Pinned dependency ranges |
 
-- `phase2/`
-  - `ocr_error_analysis.py`: confusion matrices, substitution categories (diacritic/homoglyph/punctuation), split/merge rates, visualizations.
-  - `phase2_output_train_only/`: train-only artifacts for leak-safe downstream phases.
+---
 
-- `phase3/`
-  - `phase3_synthetic_noise.py`: synthetic noise generators and realism evaluation.
-  - `phase3_output_train_only/`: generated synthetic corpora and sentence pairs (used in phase4).
+## Corpus and Splits
 
-- `phase4/`
-  - `phase4_correction_models.py`: end-to-end training/evaluation orchestrator.
-  - `config.py`: frozen hyperparameters and run configuration.
-  - `data/`
-    - `splits.py`: authoritative train/val/test doc split and split integrity checks.
-    - `build_phase4_dataset.py`: manifest construction for training regimes.
-    - `text_segmentation.py`: segmentation/chunking helpers.
-  - `models/`
-    - `classical.py`: lexicon + channel + language model baseline.
-    - `byt5_corrector.py`: ByT5 fine-tuning and inference.
-    - `hybrid.py`: classical candidate generation + neural reranking/fusion.
-    - `transformer_seq2seq.py`: alias wrapper used by phase4 runner.
-  - `eval/`
-    - `metrics.py`: CER/WER/chrF, calibration, bootstrap, diagnostics.
-    - `paper_tables.py`: aggregate outputs into publication-ready tables.
-  - `io/schemas.py`: prediction record schema validation.
-  - `phase4_output/`: predictions, metrics, checkpoints, efficiency metrics, metadata.
+**Authoritative source:** `phase4/data/splits.py` (imported by phase1, phase2, and phase4).
 
-- `requirements.txt`: dependency pin ranges for analysis + neural training stack.
+The corpus comprises **14 Macedonian Cyrillic documents** (prose and poetry). OCR/corrected file pairing uses the shared `<book_name>` stem (see [Data contract](#data-contract)).
+
+| Split | Documents | Genre |
+|-------|-----------|-------|
+| **train** (10) | `dnevnik_po_mnogu_godini`, `itar_pejo`, `Pesni`, `Prezir`, `sina_pesna`, `tajnopis`, `Toj`, `viktor_kupidon`, `Забите на Ветрот - Томе Арсовски`, `Клуч за одредување на рибите и змииорките во Република Македонија` | prose except `Pesni`, `sina_pesna` (poetry) |
+| **val** (2) | `Провиденија`, `Samecot` | prose |
+| **test** (2) | `Сите лица на смртта`, `Современост 7` | prose |
+
+**Doc ID alias:** corrected file  
+`Клуч за одредување на рибите и змииорките во Република Македонија поправено_corrected.txt`  
+maps to doc id `Клуч за одредување на рибите и змииорките во Република Македонија`.
+
+**Subset domain** (`prose` vs `poetry`) replaces a hash-based A/B split for cross-domain evaluation in phase4 metrics and paper tables.
 
 ---
 
 ## Data Contract
 
-### Input naming conventions (phase1)
-- OCR file: `<book_name>_ocr_raw.txt` in `phase1/raw_ocr/`
-- Corrected file: `<book_name>_corrected.txt` in `phase1/corrected_ocr/`
+### Input naming (phase1)
+
+- OCR: `phase1/raw_ocr/<book_name>_ocr_raw.txt`
+- Corrected: `phase1/corrected_ocr/<book_name>_corrected.txt`
 - Pairing is by `<book_name>` stem.
 
-### Split assignment
-Split membership is hardcoded in phase scripts (`phase1` and `phase2`) and reused in phase4 split checks. Current split IDs:
-- Train: `dnevnik_po_mnogu_godini`, `itar_pejo`, `Pesni`, `Prezir`, `Samecot`, `sina_pesna`, `tajnopis`, `Toj`, `viktor_kupidon`
-- Val: `Забите на Ветрот - Томе Арсовски`, `Провиденија`
-- Test: `Сите лица на смртта`, `Современост 7`
+### Leakage rules
+
+- **Phase 2 train-only** (`phase2_output_train_only/`): confusion statistics from **train** documents only.
+- **Phase 3 train-only** (`phase3_output_train_only/`): noise calibrated from train-only phase2 stats; synthetic text generated from **train** clean sources.
+- **Phase 4**: all training-time decisions use **train** manifest rows only; hybrid fusion weights and neural **gate** margins are tuned on **val** only; **test** is blind (predictions written, no threshold tuning).
 
 ---
 
 ## End-to-End Pipeline
 
 ### Phase 1: Alignment and edit extraction
-File: `phase1/phase1_alignment.py`
 
-What it does:
-- Cleans OCR/reference text (page markers, batch metadata, dash noise, garbage lines).
-- Splits text into sentences.
-- Aligns OCR-vs-GT sentence sequences with dynamic programming.
-- Extracts:
-  - character edit operations (`match/substitution/deletion/insertion`)
-  - word edit operations
-  - word boundary errors (`split` / `merge`)
-- Computes per-book metrics and corpus-level statistics.
+**File:** `phase1/phase1_alignment.py`
 
-Run:
-- `python phase1/phase1_alignment.py`
+- Cleans OCR and reference text (page markers, OCR batch metadata, dash noise, garbage lines).
+- Splits into sentences and aligns OCR vs. GT with dynamic programming (`MIN_PAIR_SIM=0.55` by default).
+- Extracts character edits, word edits, and word-boundary errors (`split` / `merge`).
+- Assigns each book to train/val/test via `phase4.data.splits.SPLITS`.
 
-Important:
-- Script expects current working directory to be `phase1/` when using default relative paths (`raw_ocr`, `corrected_ocr`, `phase1_output`).
-- `phase4` handles this internally when it re-runs phase1.
+**Run** (from `phase1/`, default relative paths):
 
-Main outputs:
-- `phase1/phase1_output/summary.json` (corpus summary)
-- `phase1/phase1_output/<split>/<book>/matched_pairs.json`
-- `phase1/phase1_output/<split>/<book>/char_ops.json`
-- `phase1/phase1_output/<split>/<book>/word_ops.json`
-- `phase1/phase1_output/<split>/<book>/word_boundary_errors.json`
-- `phase1/phase1_output/<split>/<book>/stats.json`
-- `phase1/phase1_output/<split>/<book>/alignment_quality.json`
+```bash
+cd phase1
+python phase1_alignment.py
+# optional: --output-root, --raw-dir, --corrected-dir, --min-pair-sim
+```
+
+Phase 4 re-runs phase1 by `chdir` into `phase1/` when `--skip-phase1` is not set.
+
+**Main outputs**
+
+- `phase1/phase1_output/summary.json`
+- `phase1/phase1_output/<split>/<book>/matched_pairs.json` — fields `ocr`, `gt`
+- `char_ops.json`, `word_ops.json`, `word_boundary_errors.json`, `stats.json`, `alignment_quality.json`
 
 ### Phase 2: OCR error analysis
-File: `phase2/ocr_error_analysis.py`
 
-What it does:
-- Loads phase1 outputs.
-- Builds confusion matrices and normalized probabilities.
-- Computes error distributions and structural boundary rates.
-- Extracts top substitutions and confusion families (diacritic/homoglyph/punctuation).
-- Produces plots and summary tables.
+**File:** `phase2/ocr_error_analysis.py`
 
-Run options:
-- Full corpus mode:
-  - `python -c "from phase2.ocr_error_analysis import run_full_mode; run_full_mode()"`
-- Train-only mode (leak-safe downstream stats):
-  - `python -c "from phase2.ocr_error_analysis import run_train_only_mode; run_train_only_mode()"`
-- Script default (`main`) runs both:
-  - `python phase2/ocr_error_analysis.py`
+- Loads phase1 outputs; builds confusion matrices and normalized probabilities.
+- Computes error distributions, boundary rates, and top substitution families (diacritic / homoglyph / punctuation).
+- Writes CSV/JSON summaries and matplotlib/seaborn plots.
 
-Main outputs:
-- `phase2/phase2_output/` (full mode)
-- `phase2/phase2_output_train_only/` (train-only mode), including:
-  - `error_distribution.json`
-  - `error_confusion_counts.csv`
-  - `error_confusion_probs.csv`
-  - `word_boundary_stats.json`
-  - `phase2_summary.json`
-  - plots and doc/split tables
+**Run**
+
+```bash
+# default: full + train-only
+python phase2/ocr_error_analysis.py
+
+# or individually:
+python -c "from phase2.ocr_error_analysis import run_full_mode; run_full_mode()"
+python -c "from phase2.ocr_error_analysis import run_train_only_mode; run_train_only_mode()"
+```
+
+**Main outputs**
+
+- `phase2/phase2_output/` — full corpus
+- `phase2/phase2_output_train_only/` — **use this for modeling**, including:
+  - `error_distribution.json`, `error_confusion_probs.csv`, `phase2_summary.json`
+  - `word_boundary_stats.json`, plots, per-document tables
 
 ### Phase 3: Synthetic OCR noise generation
-File: `phase3/phase3_synthetic_noise.py`
 
-What it does:
-- Reads phase2 error statistics.
-- Calibrates event rates and structure-aware transformations.
-- Generates synthetic noisy text using three methods:
+**File:** `phase3/phase3_synthetic_noise.py`
+
+- Reads phase2 error statistics; calibrates event rates and structure-aware transforms.
+- Three generators per document:
   - `random_edit_noise`
   - `confusion_matrix_noise`
-  - `structure_aware_noise`
-- Exports synthetic text and sentence-level noisy/clean pairs.
-- Compares synthetic error profile to real OCR profile.
+  - `structure_aware_noise` ← **used for phase4 manifests**
+- Emits `<doc>_synthetic.txt` and aligned `<doc>_pairs.jsonl` (`clean` / `noisy` per sentence).
+- Compares synthetic error profiles to real OCR.
 
-Run options:
-- Full mode:
-  - `python -c "from phase3.phase3_synthetic_noise import run_full_mode; run_full_mode()"`
-- Train-only-statistics mode (recommended for modeling):
-  - `python -c "from phase3.phase3_synthetic_noise import run_train_only_mode; run_train_only_mode()"`
-- Script default (`main`) runs both:
-  - `python phase3/phase3_synthetic_noise.py`
+**Run**
 
-Main outputs:
-- `phase3/phase3_output/` (full mode)
-- `phase3/phase3_output_train_only/` (train-only mode), containing per-regime synthetic docs and `*_pairs.jsonl`.
+```bash
+python phase3/phase3_synthetic_noise.py
+
+# train-only (recommended for phase4):
+python -c "from phase3.phase3_synthetic_noise import run_train_only_mode; run_train_only_mode()"
+```
+
+**Main outputs**
+
+- `phase3/phase3_output_train_only/<regime>/` — synthetic text + `*_pairs.jsonl`
 
 ### Phase 4: Model training and evaluation
-File: `phase4/phase4_correction_models.py`
 
-What it does:
-- Optionally re-runs phase1 and (re)builds train-only phase2/phase3 artifacts.
-- Builds phase4 manifests for regimes:
-  - `real_only`
-  - `synthetic_only`
-  - `synthetic_plus_real` (two-stage neural pretrain->finetune)
-- Trains/evaluates:
-  - `classical`
-  - `neural` (ByT5)
-  - `hybrid`
-- Writes val predictions + metrics, blind test predictions, efficiency metrics, paper tables, run manifest.
-- Emits identity baseline for each regime.
+**File:** `phase4/phase4_correction_models.py`
 
-Run:
-- `python phase4/phase4_correction_models.py`
+**Orchestration**
 
-Useful flags:
-- `--seeds 42,1337,2026`
-- `--regimes real_only,synthetic_only,synthetic_plus_real`
-- `--skip-classical`
-- `--skip-neural`
-- `--skip-hybrid`
-- `--skip-phase1`
-- `--skip-phase2-stats`
-- `--skip-phase3-noise`
-- `--skip-manifests`
-- `--neural-device auto|cpu|mps|cuda`
+1. Optionally re-run phase1; ensure train-only phase2 + phase3 artifacts exist.
+2. Build manifests (`real_only`, `synthetic_only`, `synthetic_plus_real`) from phase1 pairs and phase3 `structure_aware_noise` pairs (with real oversampling for `synthetic_plus_real`, ratio `4.0` in `RunConfig`).
+3. For each **(model × regime × seed)**:
+   - **classical** — lexicon + confusion channel + word LM; val-tuned correction margin
+   - **neural** — fine-tuned `google/byt5-small` with identity-pair mixing, optional confusion noise at train time, val-tuned log-prob **gate**, Macedonian script sanitization
+   - **hybrid** — classical candidate pool + ByT5 rerank; fusion weights calibrated on val
+4. Emit **identity** baseline per regime; write val metrics, blind test predictions, efficiency JSON, paper tables, run manifest.
 
-Output root:
-- `phase4/phase4_output/`
+**Default seed:** `42` only (`SECONDARY_SEEDS` is empty in `phase4/config.py`; override with `--seeds`).
 
-Key phase4 artifacts:
-- `predictions/val/<model>/<regime>[__seedX].jsonl`
-- `predictions/test_blind/<model>/<regime>[__seedX].jsonl`
-- `val_metrics/<model>/<regime>[__seedX].json`
-- `efficiency/<model>/<regime>[__seedX].json`
-- `models/<model>/<regime>/...`
-- `metadata/run_manifest.json`
-- `metadata/run_table.csv`
+**Run**
 
----
+```bash
+python phase4/phase4_correction_models.py
+```
 
-## Modeling and Evaluation Notes
+**CLI flags**
 
-- Primary seed is `42`; additional seeds are configured in `phase4/config.py`.
-- Hyperparameters are centralized and hashable via `frozen_hparams_dict()`.
-- Train/val/test leak barriers are enforced at runtime in phase4.
-- Test split is treated as blind for metrics in main prediction flow.
-- Validation metrics include CER, WER, chrF, overcorrection indicators, rare/proper-name corruption checks, and calibration summaries.
+| Flag | Purpose |
+|------|---------|
+| `--seeds 42,1337` | Override seed list |
+| `--regimes real_only,synthetic_only,synthetic_plus_real` | Subset of training regimes |
+| `--skip-classical` / `--skip-neural` / `--skip-hybrid` | Skip model families |
+| `--skip-phase1` | Reuse `phase1/phase1_output/` |
+| `--skip-phase2-stats` | Reuse `phase2/phase2_output_train_only/` |
+| `--skip-phase3-noise` | Reuse `phase3/phase3_output_train_only/` |
+| `--skip-manifests` | Reuse `phase4/data/manifests/*.jsonl` |
+| `--neural-device auto\|cpu\|mps\|cuda` | ByT5 device (`auto`: cuda → mps → cpu) |
+| `--predict-sample N` | Short sanity run (capped train/predict) |
+| `--no-neural-resume` | Ignore ByT5 epoch checkpoints (or set `PHASE4_NEURAL_RESUME=0`) |
+| `--rebuild-val-metrics` | Recompute val metrics from existing prediction JSONL |
+| `--rebuild-paper-tables` | With above, refresh `paper_tables/*.csv` |
+| `--metrics-models identity,classical,neural,hybrid` | Models for metrics recovery |
 
----
+**Neural resume:** checkpoints under  
+`phase4/phase4_output/models/<neural|hybrid>/<regime>/_neural_train_checkpoint/`  
+(`byt5_resume_<stage>.pt`, `pretrain_hf/` for `synthetic_plus_real`, etc.).
 
-## Reproducibility and Safety Constraints
+**Output root:** `phase4/phase4_output/`
 
-- Use train-only phase2/phase3 outputs for any training-time decisions to avoid leakage from val/test statistics.
-- Do not tune thresholds on test outputs.
-- Keep split definitions synchronized with `phase4/data/splits.py` and phase scripts.
-- If running phase1 standalone, run it from the `phase1/` directory or adapt paths.
-- Neural training runtime depends on hardware; use `--neural-device cpu` as fallback if MPS/CUDA issues occur.
+| Artifact | Path pattern |
+|----------|----------------|
+| Val predictions | `predictions/val/<model>/<regime>__seed<seed>.jsonl` |
+| Blind test predictions | `predictions/test_blind/<model>/<regime>__seed<seed>.jsonl` |
+| Val metrics | `val_metrics/<model>/<regime>__seed<seed>.json` |
+| Efficiency | `efficiency/<model>/<regime>__seed<seed>.json` |
+| Model weights | `models/<model>/<regime>/...` |
+| Paper tables | `paper_tables/*.csv` |
+| Run metadata | `metadata/run_manifest.json`, `metadata/run_table.csv` |
 
 ---
 
-## What a New Agent Should Check First
+## Models and Configuration
 
-1. Read `phase4/phase4_correction_models.py` to understand the orchestrated full pipeline.
-2. Read `phase4/config.py` for all frozen hyperparameters and path defaults.
-3. Inspect `phase4/data/splits.py` and `phase2/ocr_error_analysis.py` split constants for data partitioning assumptions.
-4. Verify that `phase1/raw_ocr/` and `phase1/corrected_ocr/` contain correctly named file pairs.
-5. Confirm required train-only artifacts exist:
-   - `phase2/phase2_output_train_only/error_distribution.json`
-   - `phase3/phase3_output_train_only/structure_aware_noise/*_synthetic.txt`
+Hyperparameters live in `phase4/config.py` and are hashed via `frozen_hparams_dict()` into run metadata.
 
----
+| Component | Highlights |
+|-----------|------------|
+| **Classical** | `max_edit_distance=2`, beam search, λ_lm / λ_channel / λ_char_lm, val-tuned `correction_margin` |
+| **Neural (ByT5)** | `google/byt5-small`, `identity_pair_ratio=0.4`, gate calibration on val, `sanitize_macedonian_output=True`, `synthetic_plus_real`: 10 pretrain + 5 finetune epochs (defaults) |
+| **Hybrid** | Top classical candidates + neural score fusion; grid search on val |
+| **Manifests** | Band/chunk settings in `ManifestConfig`; pair QA thresholds in `RunConfig` |
 
-## Current Gaps (Important)
+Key neural behaviors (see `phase4/models/byt5_corrector.py`):
 
-- No automated test suite is included.
-- No CI/lint configuration is included.
-- `.gitignore` is minimal (`.idea` only), so generated artifacts may appear in git status unless ignored manually.
+- **Gate:** after training, sweeps `gate_calibration_grid` on a capped val subset; keeps the margin with lowest mean CER (prefers more conservative ties).
+- **Macedonian sanitization:** maps Russian/Ukrainian Cyrillic confusions to Macedonian graphemes (`phase4/models/macedonian_script.py`).
 
 ---
 
-## One-command practical run (after first successful build)
+## Evaluation
 
-For quick iteration on model experiments while reusing artifacts:
+Validation metrics (per model/regime/seed) include:
 
-- `python phase4/phase4_correction_models.py --skip-phase1 --skip-phase2-stats --skip-phase3-noise --skip-manifests`
+- **CER**, **WER**, **chrF** (character n-gram F-score, implemented in `metrics.py`)
+- Sentence accuracy, correction / overcorrection rates
+- Rare-word and proper-name corruption diagnostics
+- Calibration bins and expected calibration error (when confidence is available)
+- **Per-domain** breakdown (`prose` vs `poetry`)
+- Paired bootstrap significance tests (paper tables)
 
-Use this only when you trust existing phase1/2/3 outputs and manifests.
+Test split predictions are written without using test labels for any tuning.
+
+---
+
+## Reproducibility Checklist
+
+1. Keep splits synchronized — edit only `phase4/data/splits.py` (phase1/2 import it).
+2. Use **train-only** phase2/phase3 outputs for any statistic that informs training or synthetic data.
+3. Do not tune thresholds on test predictions.
+4. Run phase1 from `phase1/` for standalone use, or let phase4 invoke it.
+5. If MPS/CUDA fails, use `--neural-device cpu`.
+
+**Artifacts phase4 expects before a skip-heavy run:**
+
+- `phase2/phase2_output_train_only/error_distribution.json`
+- `phase3/phase3_output_train_only/structure_aware_noise/*_pairs.jsonl`
+- `phase4/data/manifests/{real_only,synthetic_only,synthetic_plus_real}.jsonl` (if using `--skip-manifests`)
+
+---
+
+## What to Read First (new contributors)
+
+1. `phase4/phase4_correction_models.py` — full orchestration and CLI
+2. `phase4/config.py` — hyperparameters and paths
+3. `phase4/data/splits.py` — document splits and genres
+4. `phase4/data/build_phase4_dataset.py` — manifest construction
+5. `phase1/phase1_alignment.py` — alignment and cleaning logic
+
+---
+
+## Known Gaps
+
+- No automated test suite or CI configuration.
+- `.gitignore` is minimal; generated artifacts under `phase*_output/` may appear in `git status` unless ignored locally.
+- Some books may exist only under `phase1_output/` if raw/corrected inputs were removed from `raw_ocr/` / `corrected_ocr/` after an earlier alignment run.
