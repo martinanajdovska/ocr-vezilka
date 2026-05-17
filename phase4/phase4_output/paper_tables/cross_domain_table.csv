@@ -1,0 +1,10 @@
+model,regime,subset_domain,n,cer,wer,chrf,sentence_accuracy
+identity,real_only,prose,1122,0.05333,0.16668,0.91216,0.0
+identity,synthetic_only,prose,4693,0.1049,0.47133,0.75953,0.0
+identity,synthetic_plus_real,prose,5815,0.09495,0.41255,0.78898,0.0
+neural,real_only,prose,1122,0.06145,0.1762,0.90409,0.00624
+neural,synthetic_only,prose,4693,0.07383,0.30526,0.83202,0.10569
+neural,synthetic_plus_real,prose,5815,0.06957,0.27429,0.85131,0.12451
+hybrid,real_only,prose,1122,0.05331,0.16652,0.91226,0.00357
+hybrid,synthetic_only,prose,4693,0.09975,0.43829,0.77841,0.02727
+hybrid,synthetic_plus_real,prose,5815,0.09117,0.38841,0.80308,0.02115

@@ -1,0 +1,77 @@
+{
+  "stage": "train",
+  "epochs_run": 7,
+  "best_val_loss": 0.17869724941496945,
+  "best_val_cer": 0.08675229130947866,
+  "early_stop_metric": "val_cer",
+  "skipped_train_pairs": 0,
+  "skipped_val_pairs": 0,
+  "kept_train_pairs": 15758,
+  "kept_val_pairs": 4693,
+  "total_train_seconds": 2063.805570360273,
+  "history": [
+    {
+      "epoch": 1,
+      "stage": "train",
+      "train_loss": 2.1618203715426927,
+      "val_loss": 0.244337190778888,
+      "val_cer": 0.09740602012582006,
+      "epoch_time_s": 393.31552166864276
+    },
+    {
+      "epoch": 2,
+      "stage": "train",
+      "train_loss": 1.099062327197309,
+      "val_loss": 0.2091858749892436,
+      "val_cer": 0.0955322195666037,
+      "epoch_time_s": 341.44994508847594
+    },
+    {
+      "epoch": 3,
+      "stage": "train",
+      "train_loss": 1.0633109815222255,
+      "val_loss": 0.1944418254555488,
+      "val_cer": 0.09193480872873465,
+      "epoch_time_s": 261.0730638280511
+    },
+    {
+      "epoch": 4,
+      "stage": "train",
+      "train_loss": 1.0468746551877346,
+      "val_loss": 0.19111612783808288,
+      "val_cer": 0.08675229130947866,
+      "epoch_time_s": 261.340143032372
+    },
+    {
+      "epoch": 5,
+      "stage": "train",
+      "train_loss": 1.0353236030371629,
+      "val_loss": 0.18452381408538948,
+      "val_cer": 0.08677384961591889,
+      "epoch_time_s": 260.477896373719
+    },
+    {
+      "epoch": 6,
+      "stage": "train",
+      "train_loss": 1.0280356888355155,
+      "val_loss": 0.17869724941496945,
+      "val_cer": 0.09904777038565499,
+      "epoch_time_s": 261.18239368870854
+    },
+    {
+      "epoch": 7,
+      "stage": "train",
+      "train_loss": 1.0215358308556113,
+      "val_loss": 0.17946296220734007,
+      "val_cer": 0.09983211351665533,
+      "epoch_time_s": 260.06528198346496
+    }
+  ],
+  "n_params": 299637760,
+  "device": "cuda",
+  "effective_batch_size": 64,
+  "warmup_steps": 185,
+  "total_steps": 3705,
+  "resumed": false,
+  "early_stopped": true
+}

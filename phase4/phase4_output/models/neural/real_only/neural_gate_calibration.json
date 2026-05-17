@@ -1,0 +1,74 @@
+{
+  "selected": {
+    "gate_log_prob_margin": -0.2,
+    "mean_cer": 0.045325613359564254,
+    "kept": 10,
+    "n_pairs": 400,
+    "n_generated_edits": 109,
+    "change_rate": 0.025
+  },
+  "tested": 7,
+  "grid_size": 7,
+  "n_generated_edits": 109,
+  "baseline_identity_cer": 0.04492149673371227,
+  "baseline_no_gate_cer": 0.11194353424488063,
+  "fallback_margin": 0.0,
+  "log": [
+    {
+      "gate_log_prob_margin": -0.2,
+      "mean_cer": 0.045325613359564254,
+      "kept": 10,
+      "n_pairs": 400,
+      "n_generated_edits": 109,
+      "change_rate": 0.025
+    },
+    {
+      "gate_log_prob_margin": -0.1,
+      "mean_cer": 0.0453674639729321,
+      "kept": 5,
+      "n_pairs": 400,
+      "n_generated_edits": 109,
+      "change_rate": 0.0125
+    },
+    {
+      "gate_log_prob_margin": 0.0,
+      "mean_cer": 0.0453674639729321,
+      "kept": 4,
+      "n_pairs": 400,
+      "n_generated_edits": 109,
+      "change_rate": 0.01
+    },
+    {
+      "gate_log_prob_margin": 0.05,
+      "mean_cer": 0.0453674639729321,
+      "kept": 4,
+      "n_pairs": 400,
+      "n_generated_edits": 109,
+      "change_rate": 0.01
+    },
+    {
+      "gate_log_prob_margin": 0.1,
+      "mean_cer": 0.045331749687217815,
+      "kept": 3,
+      "n_pairs": 400,
+      "n_generated_edits": 109,
+      "change_rate": 0.0075
+    },
+    {
+      "gate_log_prob_margin": 0.2,
+      "mean_cer": 0.045331749687217815,
+      "kept": 3,
+      "n_pairs": 400,
+      "n_generated_edits": 109,
+      "change_rate": 0.0075
+    },
+    {
+      "gate_log_prob_margin": 0.3,
+      "mean_cer": 0.045331749687217815,
+      "kept": 3,
+      "n_pairs": 400,
+      "n_generated_edits": 109,
+      "change_rate": 0.0075
+    }
+  ]
+}
