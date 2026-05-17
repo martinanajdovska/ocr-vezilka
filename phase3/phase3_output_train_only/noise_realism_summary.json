@@ -2,97 +2,97 @@
   {
     "generator": "random_edit_noise",
     "documents_compared": 13,
-    "js_divergence_confusion_distribution": 0.03808204710678041,
-    "js_divergence_error_profile": 0.014484448448387994,
+    "js_divergence_confusion_distribution": 0.08510676661611452,
+    "js_divergence_error_profile": 0.009075023138202343,
     "real_avg_length_ratio": 1.0014247474975302,
-    "synthetic_avg_length_ratio": 0.9822717125948841,
-    "length_ratio_abs_diff": 0.019153034902646082,
-    "length_ratio_ks_distance": 0.6923076923076923,
-    "length_ratio_quantile_abs_diff": 0.02876658381710774,
+    "synthetic_avg_length_ratio": 1.0031724215031441,
+    "length_ratio_abs_diff": 0.0017476740056139306,
+    "length_ratio_ks_distance": 0.3076923076923077,
+    "length_ratio_quantile_abs_diff": 0.024913119212091692,
     "real_split_rate": 0.0012966093949917747,
-    "synthetic_split_rate": 0.02821535592804742,
-    "split_rate_abs_diff": 0.026918746533055645,
+    "synthetic_split_rate": 0.0169670546990876,
+    "split_rate_abs_diff": 0.015670445304095823,
     "real_merge_rate": 0.0016735971486017181,
-    "synthetic_merge_rate": 0.032814322087297676,
-    "merge_rate_abs_diff": 0.03114072493869596,
+    "synthetic_merge_rate": 0.01629005798013394,
+    "merge_rate_abs_diff": 0.014616460831532221,
     "real_error_profile": {
       "substitution": 0.09529470202580007,
       "deletion": 0.465754191920383,
       "insertion": 0.43895110605381693
     },
     "synthetic_error_profile": {
-      "substitution": 0.19398737091463944,
-      "deletion": 0.4085749769901545,
-      "insertion": 0.39743765209520604
+      "substitution": 0.16984877277156452,
+      "deletion": 0.41059246943628547,
+      "insertion": 0.41955875779215
     },
     "error_profile_abs_deltas": {
-      "substitution": 0.09869266888883937,
-      "deletion": 0.057179214930228484,
-      "insertion": 0.04151345395861089
+      "substitution": 0.07455407074576445,
+      "deletion": 0.05516172248409751,
+      "insertion": 0.019392348261666914
     }
   },
   {
     "generator": "confusion_matrix_noise",
     "documents_compared": 13,
-    "js_divergence_confusion_distribution": 0.04105623443429693,
-    "js_divergence_error_profile": 0.009657853525623476,
+    "js_divergence_confusion_distribution": 0.07323139190447854,
+    "js_divergence_error_profile": 0.015125798051524097,
     "real_avg_length_ratio": 1.0014247474975302,
-    "synthetic_avg_length_ratio": 0.982434723399326,
-    "length_ratio_abs_diff": 0.01899002409820416,
-    "length_ratio_ks_distance": 0.6923076923076923,
-    "length_ratio_quantile_abs_diff": 0.028546388647034255,
+    "synthetic_avg_length_ratio": 1.0035541943425965,
+    "length_ratio_abs_diff": 0.0021294468450663295,
+    "length_ratio_ks_distance": 0.3076923076923077,
+    "length_ratio_quantile_abs_diff": 0.025479185571379254,
     "real_split_rate": 0.0012966093949917747,
-    "synthetic_split_rate": 0.03027282849193987,
-    "split_rate_abs_diff": 0.028976219096948093,
+    "synthetic_split_rate": 0.012164857203679429,
+    "split_rate_abs_diff": 0.010868247808687654,
     "real_merge_rate": 0.0016735971486017181,
-    "synthetic_merge_rate": 0.0338778892454716,
-    "merge_rate_abs_diff": 0.03220429209686988,
+    "synthetic_merge_rate": 0.01136656470930949,
+    "merge_rate_abs_diff": 0.009692967560707772,
     "real_error_profile": {
       "substitution": 0.09529470202580007,
       "deletion": 0.465754191920383,
       "insertion": 0.43895110605381693
     },
     "synthetic_error_profile": {
-      "substitution": 0.17355490179716715,
-      "deletion": 0.41846477175919006,
-      "insertion": 0.4079803264436428
+      "substitution": 0.19560705631007178,
+      "deletion": 0.39740048599212596,
+      "insertion": 0.40699245769780223
     },
     "error_profile_abs_deltas": {
-      "substitution": 0.07826019977136708,
-      "deletion": 0.04728942016119292,
-      "insertion": 0.030970779610174137
+      "substitution": 0.10031235428427171,
+      "deletion": 0.06835370592825701,
+      "insertion": 0.031958648356014696
     }
   },
   {
     "generator": "structure_aware_noise",
     "documents_compared": 13,
-    "js_divergence_confusion_distribution": 0.037266558259938756,
-    "js_divergence_error_profile": 0.01396379360113328,
+    "js_divergence_confusion_distribution": 0.09262942222932075,
+    "js_divergence_error_profile": 0.009672454008177345,
     "real_avg_length_ratio": 1.0014247474975302,
-    "synthetic_avg_length_ratio": 0.9802738832818731,
-    "length_ratio_abs_diff": 0.02115086421565704,
-    "length_ratio_ks_distance": 0.6923076923076923,
-    "length_ratio_quantile_abs_diff": 0.030070449001131254,
+    "synthetic_avg_length_ratio": 1.0006797620445325,
+    "length_ratio_abs_diff": 0.0007449854529977262,
+    "length_ratio_ks_distance": 0.3076923076923077,
+    "length_ratio_quantile_abs_diff": 0.024833137866177087,
     "real_split_rate": 0.0012966093949917747,
-    "synthetic_split_rate": 0.027183336375250958,
-    "split_rate_abs_diff": 0.02588672698025918,
+    "synthetic_split_rate": 0.013319451324808213,
+    "split_rate_abs_diff": 0.012022841929816439,
     "real_merge_rate": 0.0016735971486017181,
-    "synthetic_merge_rate": 0.03172910202591714,
-    "merge_rate_abs_diff": 0.030055504877315422,
+    "synthetic_merge_rate": 0.012320282566044494,
+    "merge_rate_abs_diff": 0.010646685417442776,
     "real_error_profile": {
       "substitution": 0.09529470202580007,
       "deletion": 0.465754191920383,
       "insertion": 0.43895110605381693
     },
     "synthetic_error_profile": {
-      "substitution": 0.19197034650202516,
-      "deletion": 0.41055018034124263,
-      "insertion": 0.3974794731567322
+      "substitution": 0.17283270379971982,
+      "deletion": 0.41044022038169975,
+      "insertion": 0.4167270758185804
     },
     "error_profile_abs_deltas": {
-      "substitution": 0.09667564447622509,
-      "deletion": 0.055204011579140344,
-      "insertion": 0.04147163289708472
+      "substitution": 0.07753800177391976,
+      "deletion": 0.055313971538683226,
+      "insertion": 0.022224030235236558
     }
   }
 ]

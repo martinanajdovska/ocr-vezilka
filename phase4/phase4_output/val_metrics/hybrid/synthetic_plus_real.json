@@ -1,39 +1,28 @@
 {
-  "cer": 0.24075376474737675,
-  "wer": 0.438708500096887,
-  "chrf": 0.8388913542516193,
-  "input_cer": 0.23173859359848145,
-  "cer_reduction_rate": -0.03890232959864816,
-  "correction_rate": 0.26944140197152244,
+  "cer": 0.09116676134194382,
+  "wer": 0.3884128915607846,
+  "chrf": 0.8030776055786958,
+  "input_cer": 0.09495251824327579,
+  "cer_reduction_rate": 0.039869999989179464,
+  "correction_rate": 0.3030094582975065,
   "overcorrection_rate": 0.0,
-  "sentence_accuracy": 0.007979971835393522,
-  "n_records": 6391,
-  "rare_word_corruption_rate": 0.598503055689075,
-  "proper_name_corruption_rate": 0.46865028717294194,
-  "rare_token_total": 29126,
-  "proper_token_total": 12536,
+  "sentence_accuracy": 0.02115219260533104,
+  "n_records": 5815,
+  "rare_word_corruption_rate": 0.582392776523702,
+  "proper_name_corruption_rate": 0.3849056603773585,
+  "rare_token_total": 14176,
+  "proper_token_total": 8480,
   "per_domain": {
-    "A": {
-      "cer": 0.2719964600452743,
-      "wer": 0.47231910880661165,
-      "chrf": 0.8361808536800714,
-      "input_cer": 0.2629588708669965,
-      "cer_reduction_rate": -0.03436883170543035,
-      "correction_rate": 0.27015746537658886,
+    "prose": {
+      "cer": 0.09116676134194382,
+      "wer": 0.3884128915607846,
+      "chrf": 0.8030776055786958,
+      "input_cer": 0.09495251824327579,
+      "cer_reduction_rate": 0.039869999989179464,
+      "correction_rate": 0.3030094582975065,
       "overcorrection_rate": 0.0,
-      "sentence_accuracy": 0.00796812749003984,
-      "n_records": 5271
-    },
-    "B": {
-      "cer": 0.0937178300016562,
-      "wer": 0.28052857285675015,
-      "chrf": 0.8516476475664813,
-      "input_cer": 0.08480816370354281,
-      "cer_reduction_rate": -0.10505670573481826,
-      "correction_rate": 0.26607142857142857,
-      "overcorrection_rate": 0.0,
-      "sentence_accuracy": 0.008035714285714285,
-      "n_records": 1120
+      "sentence_accuracy": 0.02115219260533104,
+      "n_records": 5815
     }
   },
   "calibration": {
@@ -41,75 +30,75 @@
       {
         "lo": 0.0,
         "hi": 0.1,
-        "count": 3618,
-        "mean_confidence": 0.0005460919366458575,
-        "mean_accuracy": 0.0
+        "count": 3826,
+        "mean_confidence": 0.0003127139036192727,
+        "mean_accuracy": 0.5201094821246139
       },
       {
         "lo": 0.1,
         "hi": 0.2,
-        "count": 54,
-        "mean_confidence": 0.1491056316276486,
-        "mean_accuracy": 0.0
+        "count": 26,
+        "mean_confidence": 0.1505577405976699,
+        "mean_accuracy": 0.5188893905240057
       },
       {
         "lo": 0.2,
         "hi": 0.3,
-        "count": 48,
-        "mean_confidence": 0.2536281266289035,
-        "mean_accuracy": 0.0
+        "count": 19,
+        "mean_confidence": 0.24364142256197824,
+        "mean_accuracy": 0.42630941741256234
       },
       {
         "lo": 0.3,
         "hi": 0.4,
-        "count": 44,
-        "mean_confidence": 0.3472439863013477,
-        "mean_accuracy": 0.0
+        "count": 20,
+        "mean_confidence": 0.35460600287103594,
+        "mean_accuracy": 0.5893707319138353
       },
       {
         "lo": 0.4,
         "hi": 0.5,
-        "count": 49,
-        "mean_confidence": 0.4494476212375934,
-        "mean_accuracy": 0.0
+        "count": 19,
+        "mean_confidence": 0.44635217185999987,
+        "mean_accuracy": 0.5244635013948122
       },
       {
         "lo": 0.5,
         "hi": 0.6,
-        "count": 53,
-        "mean_confidence": 0.5510729732785745,
-        "mean_accuracy": 0.0
+        "count": 15,
+        "mean_confidence": 0.5556100015687837,
+        "mean_accuracy": 0.4396296296296296
       },
       {
         "lo": 0.6,
         "hi": 0.7,
-        "count": 50,
-        "mean_confidence": 0.6515654816320907,
-        "mean_accuracy": 0.0
+        "count": 15,
+        "mean_confidence": 0.6513780032435693,
+        "mean_accuracy": 0.5446889629734714
       },
       {
         "lo": 0.7,
         "hi": 0.8,
-        "count": 52,
-        "mean_confidence": 0.7600578614904927,
-        "mean_accuracy": 0.0
+        "count": 23,
+        "mean_confidence": 0.7620684631150934,
+        "mean_accuracy": 0.5797370202261506
       },
       {
         "lo": 0.8,
         "hi": 0.9,
-        "count": 60,
-        "mean_confidence": 0.849928001505604,
-        "mean_accuracy": 0.0
+        "count": 22,
+        "mean_confidence": 0.8499872627250287,
+        "mean_accuracy": 0.48340075172505514
       },
       {
         "lo": 0.9,
         "hi": 1.0,
-        "count": 2363,
-        "mean_confidence": 0.9991060015368719,
-        "mean_accuracy": 0.02158273381294964
+        "count": 1830,
+        "mean_confidence": 0.9993980360631408,
+        "mean_accuracy": 0.5010162061832978
       }
     ],
-    "ece": 0.3945696441614154
+    "ece": 0.5048334438774694
   },
   "runs_on": {
     "model": "hybrid",

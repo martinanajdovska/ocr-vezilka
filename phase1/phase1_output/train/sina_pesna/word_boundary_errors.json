@@ -18,33 +18,6 @@
     "similarity": 0.9333
   },
   {
-    "type": "split",
-    "ocr": [
-      "бдее",
-      "м"
-    ],
-    "gt": "бдее",
-    "similarity": 0.8889
-  },
-  {
-    "type": "merge",
-    "ocr": "само",
-    "gt": [
-      "и",
-      "само"
-    ],
-    "similarity": 0.8889
-  },
-  {
-    "type": "merge",
-    "ocr": "човек",
-    "gt": [
-      "човек",
-      "-"
-    ],
-    "similarity": 1.0
-  },
-  {
     "type": "merge",
     "ocr": "задушиве",
     "gt": [
@@ -98,60 +71,6 @@
       "—"
     ],
     "similarity": 1.0
-  },
-  {
-    "type": "split",
-    "ocr": [
-      "глувотија",
-      "м"
-    ],
-    "gt": "глувотија",
-    "similarity": 0.9474
-  },
-  {
-    "type": "merge",
-    "ocr": "коб,",
-    "gt": [
-      "и",
-      "коб,"
-    ],
-    "similarity": 0.8571
-  },
-  {
-    "type": "split",
-    "ocr": [
-      "меч",
-      "м"
-    ],
-    "gt": "меч",
-    "similarity": 0.8571
-  },
-  {
-    "type": "merge",
-    "ocr": "окото",
-    "gt": [
-      "и",
-      "окото"
-    ],
-    "similarity": 0.9091
-  },
-  {
-    "type": "split",
-    "ocr": [
-      "реч",
-      "м"
-    ],
-    "gt": "реч",
-    "similarity": 0.8571
-  },
-  {
-    "type": "merge",
-    "ocr": "еден",
-    "gt": [
-      "и",
-      "еден"
-    ],
-    "similarity": 0.8889
   },
   {
     "type": "split",
@@ -260,42 +179,6 @@
       "потоа"
     ],
     "similarity": 0.9091
-  },
-  {
-    "type": "split",
-    "ocr": [
-      "стебло",
-      "к"
-    ],
-    "gt": "стебло",
-    "similarity": 0.9231
-  },
-  {
-    "type": "merge",
-    "ocr": "тоа",
-    "gt": [
-      "и",
-      "тоа"
-    ],
-    "similarity": 0.8571
-  },
-  {
-    "type": "split",
-    "ocr": [
-      "долго,",
-      "се"
-    ],
-    "gt": "долго,",
-    "similarity": 0.8333
-  },
-  {
-    "type": "merge",
-    "ocr": "тимареше",
-    "gt": [
-      "ce",
-      "тимареше"
-    ],
-    "similarity": 0.8889
   },
   {
     "type": "merge",
@@ -431,24 +314,6 @@
       "како"
     ],
     "similarity": 0.8889
-  },
-  {
-    "type": "merge",
-    "ocr": "Богородица",
-    "gt": [
-      "и",
-      "Богородица"
-    ],
-    "similarity": 0.9524
-  },
-  {
-    "type": "merge",
-    "ocr": "пазарот",
-    "gt": [
-      "Ha",
-      "пазарот"
-    ],
-    "similarity": 0.875
   },
   {
     "type": "split",
@@ -649,15 +514,6 @@
     "similarity": 0.9
   },
   {
-    "type": "merge",
-    "ocr": "кладенче",
-    "gt": [
-      "кладенче",
-      "и"
-    ],
-    "similarity": 0.9412
-  },
-  {
     "type": "split",
     "ocr": [
       "г9",
@@ -750,15 +606,6 @@
   },
   {
     "type": "merge",
-    "ocr": "Мебаре",
-    "gt": [
-      "—",
-      "небаре"
-    ],
-    "similarity": 0.8333
-  },
-  {
-    "type": "merge",
     "ocr": "секој",
     "gt": [
       "Од",
@@ -783,15 +630,6 @@
       "едно"
     ],
     "similarity": 0.8889
-  },
-  {
-    "type": "merge",
-    "ocr": "стеблата",
-    "gt": [
-      "што",
-      "стеблата"
-    ],
-    "similarity": 0.8421
   },
   {
     "type": "merge",
@@ -908,24 +746,6 @@
       "—",
       "ќе"
     ],
-    "similarity": 1.0
-  },
-  {
-    "type": "merge",
-    "ocr": "Високо",
-    "gt": [
-      "високо",
-      "—"
-    ],
-    "similarity": 1.0
-  },
-  {
-    "type": "split",
-    "ocr": [
-      "главата",
-      "!"
-    ],
-    "gt": "главата.",
     "similarity": 1.0
   },
   {

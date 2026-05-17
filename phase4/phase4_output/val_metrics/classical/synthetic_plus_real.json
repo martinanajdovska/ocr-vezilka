@@ -1,39 +1,28 @@
 {
-  "cer": 0.23419036532234722,
-  "wer": 0.43676496359741473,
-  "chrf": 0.8395157403367791,
-  "input_cer": 0.23173859359848145,
-  "cer_reduction_rate": -0.010579902491830046,
-  "correction_rate": 0.08167735878579252,
+  "cer": 0.09472529321724595,
+  "wer": 0.4100416359533981,
+  "chrf": 0.7904492163240412,
+  "input_cer": 0.09495251824327579,
+  "cer_reduction_rate": 0.0023930384389350707,
+  "correction_rate": 0.01650902837489252,
   "overcorrection_rate": 0.0,
-  "sentence_accuracy": 0.002190580503833516,
-  "n_records": 6391,
-  "rare_word_corruption_rate": 0.5888930943123559,
-  "proper_name_corruption_rate": 0.46151389332481635,
-  "rare_token_total": 29063,
-  "proper_token_total": 12524,
+  "sentence_accuracy": 0.005503009458297506,
+  "n_records": 5815,
+  "rare_word_corruption_rate": 0.5834926028173002,
+  "proper_name_corruption_rate": 0.4009912674061836,
+  "rare_token_total": 14127,
+  "proper_token_total": 8474,
   "per_domain": {
-    "A": {
-      "cer": 0.2658758683060272,
-      "wer": 0.46963868201709263,
-      "chrf": 0.8369314963960675,
-      "input_cer": 0.2629588708669965,
-      "cer_reduction_rate": -0.011092979785824143,
-      "correction_rate": 0.08025042686397268,
+    "prose": {
+      "cer": 0.09472529321724595,
+      "wer": 0.4100416359533981,
+      "chrf": 0.7904492163240412,
+      "input_cer": 0.09495251824327579,
+      "cer_reduction_rate": 0.0023930384389350707,
+      "correction_rate": 0.01650902837489252,
       "overcorrection_rate": 0.0,
-      "sentence_accuracy": 0.0020868905331056726,
-      "n_records": 5271
-    },
-    "B": {
-      "cer": 0.0850704669054132,
-      "wer": 0.2820530262848106,
-      "chrf": 0.8516778383827591,
-      "input_cer": 0.08480816370354281,
-      "cer_reduction_rate": -0.0030929003814691644,
-      "correction_rate": 0.08839285714285715,
-      "overcorrection_rate": 0.0,
-      "sentence_accuracy": 0.0026785714285714286,
-      "n_records": 1120
+      "sentence_accuracy": 0.005503009458297506,
+      "n_records": 5815
     }
   },
   "calibration": {
@@ -41,75 +30,75 @@
       {
         "lo": 0.0,
         "hi": 0.1,
-        "count": 4532,
-        "mean_confidence": 0.0013891072413712263,
-        "mean_accuracy": 0.0
+        "count": 5719,
+        "mean_confidence": 0.0,
+        "mean_accuracy": 0.49762491216362237
       },
       {
         "lo": 0.1,
         "hi": 0.2,
-        "count": 115,
-        "mean_confidence": 0.15154954010557214,
+        "count": 0,
+        "mean_confidence": 0.0,
         "mean_accuracy": 0.0
       },
       {
         "lo": 0.2,
         "hi": 0.3,
-        "count": 102,
-        "mean_confidence": 0.25166409886394675,
+        "count": 0,
+        "mean_confidence": 0.0,
         "mean_accuracy": 0.0
       },
       {
         "lo": 0.3,
         "hi": 0.4,
-        "count": 106,
-        "mean_confidence": 0.3450555997867863,
+        "count": 0,
+        "mean_confidence": 0.0,
         "mean_accuracy": 0.0
       },
       {
         "lo": 0.4,
         "hi": 0.5,
-        "count": 113,
-        "mean_confidence": 0.4511722406699597,
+        "count": 0,
+        "mean_confidence": 0.0,
         "mean_accuracy": 0.0
       },
       {
         "lo": 0.5,
         "hi": 0.6,
-        "count": 92,
-        "mean_confidence": 0.545118295976355,
+        "count": 0,
+        "mean_confidence": 0.0,
         "mean_accuracy": 0.0
       },
       {
         "lo": 0.6,
         "hi": 0.7,
-        "count": 136,
-        "mean_confidence": 0.6603696624210085,
+        "count": 0,
+        "mean_confidence": 0.0,
         "mean_accuracy": 0.0
       },
       {
         "lo": 0.7,
         "hi": 0.8,
-        "count": 79,
-        "mean_confidence": 0.7499445398285064,
+        "count": 0,
+        "mean_confidence": 0.0,
         "mean_accuracy": 0.0
       },
       {
         "lo": 0.8,
         "hi": 0.9,
-        "count": 77,
-        "mean_confidence": 0.8474943143228824,
+        "count": 0,
+        "mean_confidence": 0.0,
         "mean_accuracy": 0.0
       },
       {
         "lo": 0.9,
         "hi": 1.0,
-        "count": 1039,
-        "mean_confidence": 0.9966240821524873,
-        "mean_accuracy": 0.013474494706448507
+        "count": 96,
+        "mean_confidence": 1.0,
+        "mean_accuracy": 0.6346637348067602
       }
     ],
-    "ece": 0.22264246370084378
+    "ece": 0.49544095513711217
   },
   "runs_on": {
     "model": "classical",

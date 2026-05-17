@@ -270,9 +270,25 @@ def calibration_bins(
         conf = max(0.0, min(1.0, conf))
         idx = min(n_bins - 1, int(conf * n_bins))
         bucket_conf[idx].append(conf)
-        bucket_acc[idx].append(
-            1.0 if str(r.get("prediction", "")) == str(r.get("reference", "")) else 0.0
-        )
+        pred = str(r.get("prediction", ""))
+        ref = str(r.get("reference", ""))
+        if pred and ref:
+            # Token-level accuracy: fraction of reference tokens matching prediction.
+            pw = pred.split()
+            rw = ref.split()
+            if rw:
+                matches = sum(
+                    1
+                    for i, w in enumerate(rw)
+                    if i < len(pw) and pw[i] == w
+                )
+                bucket_acc[idx].append(matches / len(rw))
+            else:
+                bucket_acc[idx].append(1.0 if pred == ref else 0.0)
+        else:
+            bucket_acc[idx].append(
+                1.0 if pred == ref else 0.0
+            )
     for k, b in enumerate(bins):
         if bucket_conf[k]:
             b["count"] = len(bucket_conf[k])

@@ -28,6 +28,6 @@
   "tokenizer_class": "ByT5Tokenizer",
   "torch_dtype": "float32",
   "transformers_version": "4.49.0",
-  "use_cache": true,
+  "use_cache": false,
   "vocab_size": 384
 }

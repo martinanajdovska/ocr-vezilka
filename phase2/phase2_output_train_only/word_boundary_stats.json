@@ -1,13 +1,13 @@
 {
-  "total_word_ops": 183229,
-  "total_boundary_errors": 1652,
-  "split_count": 906,
-  "merge_count": 746,
-  "split_pct_of_word_ops": 0.4944632127010462,
-  "merge_pct_of_word_ops": 0.4071407910319873,
-  "boundary_error_pct_of_word_ops": 0.9016040037330335,
-  "split_pct_within_boundary_errors": 54.842615012106535,
-  "merge_pct_within_boundary_errors": 45.157384987893465,
+  "total_word_ops": 197860,
+  "total_boundary_errors": 3537,
+  "split_count": 2522,
+  "merge_count": 1015,
+  "split_pct_of_word_ops": 1.2746386333771353,
+  "merge_pct_of_word_ops": 0.5129889821085616,
+  "boundary_error_pct_of_word_ops": 1.787627615485697,
+  "split_pct_within_boundary_errors": 71.30336443313543,
+  "merge_pct_within_boundary_errors": 28.696635566864575,
   "split_examples": [
     {
       "gt": "пците",
@@ -18,41 +18,9 @@
       "doc_id": "sina_pesna"
     },
     {
-      "gt": "бдее",
-      "ocr": [
-        "бдее",
-        "м"
-      ],
-      "doc_id": "sina_pesna"
-    },
-    {
       "gt": "земја",
       "ocr": [
         "земја",
-        "м"
-      ],
-      "doc_id": "sina_pesna"
-    },
-    {
-      "gt": "глувотија",
-      "ocr": [
-        "глувотија",
-        "м"
-      ],
-      "doc_id": "sina_pesna"
-    },
-    {
-      "gt": "меч",
-      "ocr": [
-        "меч",
-        "м"
-      ],
-      "doc_id": "sina_pesna"
-    },
-    {
-      "gt": "реч",
-      "ocr": [
-        "реч",
         "м"
       ],
       "doc_id": "sina_pesna"
@@ -94,22 +62,6 @@
       "ocr": [
         "распука",
         "а"
-      ],
-      "doc_id": "sina_pesna"
-    },
-    {
-      "gt": "стебло",
-      "ocr": [
-        "стебло",
-        "к"
-      ],
-      "doc_id": "sina_pesna"
-    },
-    {
-      "gt": "долго,",
-      "ocr": [
-        "долго,",
-        "се"
       ],
       "doc_id": "sina_pesna"
     },
@@ -168,6 +120,54 @@
         "со"
       ],
       "doc_id": "sina_pesna"
+    },
+    {
+      "gt": "себе.",
+      "ocr": [
+        "себе",
+        "Х"
+      ],
+      "doc_id": "sina_pesna"
+    },
+    {
+      "gt": "молчиш",
+      "ocr": [
+        "молчиш",
+        "м"
+      ],
+      "doc_id": "sina_pesna"
+    },
+    {
+      "gt": "земјата,",
+      "ocr": [
+        "земјата,",
+        "по"
+      ],
+      "doc_id": "sina_pesna"
+    },
+    {
+      "gt": "крајот",
+      "ocr": [
+        "крајот",
+        "м"
+      ],
+      "doc_id": "sina_pesna"
+    },
+    {
+      "gt": "пепелишта",
+      "ocr": [
+        "пепелишта",
+        "м"
+      ],
+      "doc_id": "sina_pesna"
+    },
+    {
+      "gt": "кретовите",
+      "ocr": [
+        "крстовите",
+        "а"
+      ],
+      "doc_id": "sina_pesna"
     }
   ],
   "merge_examples": [
@@ -177,22 +177,6 @@
         "птиците,"
       ],
       "ocr": "птиците,",
-      "doc_id": "sina_pesna"
-    },
-    {
-      "gt": [
-        "и",
-        "само"
-      ],
-      "ocr": "само",
-      "doc_id": "sina_pesna"
-    },
-    {
-      "gt": [
-        "човек",
-        "-"
-      ],
-      "ocr": "човек",
       "doc_id": "sina_pesna"
     },
     {
@@ -234,30 +218,6 @@
         "—"
       ],
       "ocr": "смртта",
-      "doc_id": "sina_pesna"
-    },
-    {
-      "gt": [
-        "и",
-        "коб,"
-      ],
-      "ocr": "коб,",
-      "doc_id": "sina_pesna"
-    },
-    {
-      "gt": [
-        "и",
-        "окото"
-      ],
-      "ocr": "окото",
-      "doc_id": "sina_pesna"
-    },
-    {
-      "gt": [
-        "и",
-        "еден"
-      ],
-      "ocr": "еден",
       "doc_id": "sina_pesna"
     },
     {
@@ -318,18 +278,58 @@
     },
     {
       "gt": [
-        "и",
-        "тоа"
+        "—",
+        "заедно"
       ],
-      "ocr": "тоа",
+      "ocr": "зведно",
       "doc_id": "sina_pesna"
     },
     {
       "gt": [
-        "ce",
-        "тимареше"
+        "—",
+        "жената"
       ],
-      "ocr": "тимареше",
+      "ocr": "жежата",
+      "doc_id": "sina_pesna"
+    },
+    {
+      "gt": [
+        "и",
+        "раната"
+      ],
+      "ocr": "раната",
+      "doc_id": "sina_pesna"
+    },
+    {
+      "gt": [
+        "и",
+        "неговата"
+      ],
+      "ocr": "меговата",
+      "doc_id": "sina_pesna"
+    },
+    {
+      "gt": [
+        "—",
+        "ниту"
+      ],
+      "ocr": "ниту",
+      "doc_id": "sina_pesna"
+    },
+    {
+      "gt": [
+        "и",
+        "пак"
+      ],
+      "ocr": "пак",
+      "doc_id": "sina_pesna"
+    },
+    {
+      "gt": [
+        "е,",
+        "како"
+      ],
+      "ocr": "како",
       "doc_id": "sina_pesna"
     }
   ]

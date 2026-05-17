@@ -1,10 +1,12 @@
+import argparse
 import re
 import json
 import math
 import os
+import sys
 from pathlib import Path
 from dataclasses import dataclass
-from typing import Tuple
+from typing import Dict, List, Optional, Tuple
 from collections import Counter
 from difflib import SequenceMatcher
 
@@ -25,7 +27,8 @@ PAGE_MARKER_PATTERNS = [
 OCR_BATCH_PATTERNS = [
     re.compile(r"^\s*#\d+\s*$", re.MULTILINE),
     re.compile(r"^\s*BATCH\s+\d+\s*$", re.MULTILINE),
-    re.compile(r"^.*МАКЕДОНСКИ\s+OCR\s+ИЗВЕШТАЈ.*$", re.MULTILINE),
+    re.compile(r"^\s*={3,}.*={3,}\s*$", re.MULTILINE),
+    re.compile(r"^.*МАКЕДОНСКИ\s+OCR\s+ИЗВЕШТАЈ.*$", re.MULTILINE | re.IGNORECASE),
     re.compile(r"^\s*Датум:\s*\d.*$", re.MULTILINE),
     re.compile(r"^\s*[#=*]{3,}\s*$", re.MULTILINE),
 ]
@@ -42,7 +45,15 @@ DASH_NOISE_PATTERNS = [
 
 MIN_DIAGONAL_SIM = 0.30
 GAP_PENALTY = -0.5
-MIN_PAIR_SIM = 0.30
+MIN_PAIR_SIM = 0.55
+
+# Protect parenthetical year ranges from sentence splitting.
+_YEAR_RANGE_RE = re.compile(r"\(\d{3,4}-\d{3,4}\)")
+_YEAR_PLACEHOLDER = "\uE000YEAR\uE001"
+_CAP_LETTER = r"[A-ZА-ЯЁІЇЄҐ]"
+_OCR_SENT_BOUNDARY = re.compile(
+    rf"(?<=[.!?])\s+|(?<=[;:])\s+(?={_CAP_LETTER})"
+)
 
 
 def remove_dash_noise(text: str) -> str:
@@ -88,22 +99,44 @@ def is_garbage_line(line: str) -> bool:
     return False
 
 
-def extract_sentences(path: str):
+def _protect_year_ranges(text: str) -> str:
+    return _YEAR_RANGE_RE.sub(
+        lambda m: _YEAR_PLACEHOLDER + m.group(0) + _YEAR_PLACEHOLDER, text
+    )
+
+
+def _restore_year_ranges(text: str) -> str:
+    return text.replace(_YEAR_PLACEHOLDER, "")
+
+
+def _segment_paragraph(text: str) -> List[str]:
+    """Split one paragraph into sentences (Macedonian OCR-aware)."""
+    if not text.strip():
+        return []
+    protected = _protect_year_ranges(text)
+    parts = _OCR_SENT_BOUNDARY.split(protected)
+    out: List[str] = []
+    for part in parts:
+        s = _restore_year_ranges(part.strip())
+        if s:
+            out.append(s)
+    return out
+
+
+def extract_sentences(path: str) -> List[str]:
     raw = Path(path).read_text(encoding="utf-8")
     cleaned, _ = detect_and_strip_page_markers(raw)
     cleaned, _ = strip_ocr_batch_metadata(cleaned)
     cleaned = remove_dash_noise(cleaned)
 
-    lines = cleaned.splitlines()
-    filtered = []
-    for line in lines:
-        if is_garbage_line(line):
+    paragraphs = re.split(r"\n\s*\n+", cleaned)
+    sentences: List[str] = []
+    for para in paragraphs:
+        lines = [ln for ln in para.splitlines() if not is_garbage_line(ln)]
+        if not lines:
             continue
-        filtered.append(line)
-
-    text = re.sub(r"\s+", " ", " ".join(filtered)).strip()
-    sentences = re.split(r"(?<=[.!?])\s+", text)
-    sentences = [s.strip() for s in sentences if s.strip()]
+        text = re.sub(r"\s+", " ", " ".join(lines)).strip()
+        sentences.extend(_segment_paragraph(text))
     return sentences
 
 
@@ -130,40 +163,83 @@ def fast_similarity(a, b):
     return 0.75 * char + 0.25 * word
 
 
+def _alignment_band_fraction(m: int, n: int) -> float:
+    if m <= 0 or n <= 0:
+        return 0.4
+    len_ratio = m / n
+    return min(0.4, 0.10 + 0.5 * abs(1.0 - len_ratio))
+
+
+def _in_band(i: int, j: int, m: int, n: int, band: float) -> bool:
+    if m == 0 or n == 0:
+        return True
+    return abs(i / m - j / n) <= band
+
+
+def _unique_shingle_anchors(
+    ocr_sents: List[str], gt_sents: List[str], shingle_len: int = 5
+) -> List[Tuple[int, int]]:
+    """Map unique shared character shingles to (ocr_idx, gt_idx) anchor pairs."""
+    ocr_map: Dict[str, List[int]] = {}
+    gt_map: Dict[str, List[int]] = {}
+    for i, sent in enumerate(ocr_sents):
+        for k in range(max(0, len(sent) - shingle_len + 1)):
+            sh = sent[k : k + shingle_len].lower()
+            if len(sh) == shingle_len:
+                ocr_map.setdefault(sh, []).append(i)
+    for j, sent in enumerate(gt_sents):
+        for k in range(max(0, len(sent) - shingle_len + 1)):
+            sh = sent[k : k + shingle_len].lower()
+            if len(sh) == shingle_len:
+                gt_map.setdefault(sh, []).append(j)
+    anchors: List[Tuple[int, int]] = []
+    for sh, ocr_idxs in ocr_map.items():
+        gt_idxs = gt_map.get(sh)
+        if not gt_idxs or len(ocr_idxs) != 1 or len(gt_idxs) != 1:
+            continue
+        anchors.append((ocr_idxs[0], gt_idxs[0]))
+    anchors.sort()
+    return anchors
+
+
 def align_sentences(
-    ocr_sents,
-    gt_sents,
+    ocr_sents: List[str],
+    gt_sents: List[str],
     min_diagonal_sim: float = MIN_DIAGONAL_SIM,
     gap_penalty: float = GAP_PENALTY,
     min_pair_sim: float = MIN_PAIR_SIM,
-):
-    """Align OCR sentences to GT sentences via DP with quality guards.
+) -> Tuple[List[Tuple[str, str]], int]:
+    """Align OCR sentences to GT via banded DP with quality guards.
 
-    The diagonal (i+1, j+1) step is only allowed when ``sim(i, j)`` clears
-    ``min_diagonal_sim``; otherwise the DP must skip one side (paying
-    ``gap_penalty``). After backtracking we additionally drop pairs whose
-    final ``SequenceMatcher`` similarity is below ``min_pair_sim`` -
-    these are leftover forced matches when no good alignment exists.
+    Returns ``(matched_pairs, dropped_pairs_below_min_pair_sim)``.
     """
     ocr_feats = build_features(ocr_sents)
     gt_feats = build_features(gt_sents)
 
     m, n = len(ocr_sents), len(gt_sents)
+    if m == 0 or n == 0:
+        return [], 0
+
+    band = _alignment_band_fraction(m, n)
+    anchors = _unique_shingle_anchors(ocr_sents, gt_sents)
+
     dp = [[-1e18] * (n + 1) for _ in range(m + 1)]
-    back = [[None] * (n + 1) for _ in range(m + 1)]
+    back: List[List[Optional[Tuple[int, int]]]] = [[None] * (n + 1) for _ in range(m + 1)]
     dp[0][0] = 0.0
 
-    def sim(i, j):
+    def sim(i: int, j: int) -> float:
         return fast_similarity(ocr_feats[i], gt_feats[j])
 
     for i in range(m + 1):
         for j in range(n + 1):
             if dp[i][j] < -1e17:
                 continue
+            if not _in_band(i, j, m, n, band):
+                continue
 
             cur = dp[i][j]
 
-            if i < m and j < n:
+            if i < m and j < n and _in_band(i + 1, j + 1, m, n, band):
                 s = sim(i, j)
                 if s >= min_diagonal_sim:
                     val = cur + s
@@ -171,40 +247,45 @@ def align_sentences(
                         dp[i + 1][j + 1] = val
                         back[i + 1][j + 1] = (i, j)
 
-            if i < m:
+            if i < m and _in_band(i + 1, j, m, n, band):
                 val = cur + gap_penalty
                 if val > dp[i + 1][j]:
                     dp[i + 1][j] = val
                     back[i + 1][j] = (i, j)
 
-            if j < n:
+            if j < n and _in_band(i, j + 1, m, n, band):
                 val = cur + gap_penalty
                 if val > dp[i][j + 1]:
                     dp[i][j + 1] = val
                     back[i][j + 1] = (i, j)
 
     if back[m][n] is None:
-        min_len = min(len(ocr_sents), len(gt_sents))
+        min_len = min(m, n)
         raw_pairs = list(zip(ocr_sents[:min_len], gt_sents[:min_len]))
     else:
         i, j = m, n
-        raw_pairs = []
+        raw_pairs: List[Tuple[str, str]] = []
         while (i, j) != (0, 0):
-            pi, pj = back[i][j]
+            prev = back[i][j]
+            if prev is None:
+                break
+            pi, pj = prev
             if i > pi and j > pj:
                 raw_pairs.append((ocr_sents[i - 1], gt_sents[j - 1]))
             i, j = pi, pj
         raw_pairs.reverse()
 
-    pairs = []
+    pairs: List[Tuple[str, str]] = []
+    dropped = 0
     for ocr, gt in raw_pairs:
         if not ocr.strip() or not gt.strip():
             continue
         ratio = SequenceMatcher(None, ocr, gt).ratio()
         if ratio < min_pair_sim:
+            dropped += 1
             continue
         pairs.append((ocr, gt))
-    return pairs
+    return pairs, dropped
 
 
 @dataclass
@@ -631,13 +712,15 @@ def compute_corpus_boundary_stats(all_boundary_errors):
     }
 
 
-def compute_alignment_quality(ocr_sents, gt_sents, matched_pairs):
-    """Diagnostic alignment-quality metrics for a single document.
-
-    The ratios are over ``len(matched_pairs)``; ``sentence_count_ratio`` is
-    raw OCR sentences over GT sentences, useful for spotting docs where one
-    side is missing pages.
-    """
+def compute_alignment_quality(
+    ocr_sents: List[str],
+    gt_sents: List[str],
+    matched_pairs: List[Tuple[str, str]],
+    dropped_pairs_below_min_pair_sim: int = 0,
+    n_anchors: int = 0,
+    band_fraction: float = 0.0,
+) -> Dict[str, object]:
+    """Diagnostic alignment-quality metrics for a single document."""
     sims = [SequenceMatcher(None, o, g).ratio() for o, g in matched_pairs]
     n = len(sims)
     sims_sorted = sorted(sims)
@@ -653,9 +736,7 @@ def compute_alignment_quality(ocr_sents, gt_sents, matched_pairs):
         "n_pairs": n,
         "n_ocr_sentences": len(ocr_sents),
         "n_gt_sentences": len(gt_sents),
-        "sentence_count_ratio": (
-            round(len(ocr_sents) / max(1, len(gt_sents)), 4)
-        ),
+        "sentence_count_ratio": round(len(ocr_sents) / max(1, len(gt_sents)), 4),
         "mean_similarity": round(mean_sim, 4),
         "median_similarity": round(median, 4),
         "min_similarity": round(min(sims), 4) if n else 0.0,
@@ -663,7 +744,67 @@ def compute_alignment_quality(ocr_sents, gt_sents, matched_pairs):
         "below_0_30_ratio": round(_frac_below(0.30), 4),
         "below_0_50_ratio": round(_frac_below(0.50), 4),
         "below_0_70_ratio": round(_frac_below(0.70), 4),
+        "dropped_pairs_below_min_pair_sim": int(dropped_pairs_below_min_pair_sim),
+        "n_unique_shingle_anchors": int(n_anchors),
+        "alignment_band_fraction": round(band_fraction, 4),
     }
+
+
+def _resolve_gt_path(corrected_dir: Path, base: str) -> Optional[Path]:
+    candidates = [
+        corrected_dir / f"{base}_corrected.txt",
+        corrected_dir / f"{base} поправено_corrected.txt",
+        corrected_dir / f"{base}_поправено_corrected.txt",
+        corrected_dir / f"{base}_поправено.txt",
+        corrected_dir / f"{base} поправено.txt",
+        corrected_dir / f"{base}_поправено.txt",
+    ]
+    for p in candidates:
+        if p.exists():
+            return p
+    for p in corrected_dir.iterdir():
+        if not p.is_file():
+            continue
+        stem = p.stem.lower()
+        if base.lower() in stem and (
+            stem.endswith("corrected")
+            or "поправено" in stem
+            or "поправено" in p.name.lower()
+        ):
+            return p
+    return None
+
+
+def discover_book_pairs(raw_dir: str, corrected_dir: str) -> List[Dict[str, str]]:
+    """Discover OCR/GT book pairs, including non-standard filename variants."""
+    raw_path = Path(raw_dir)
+    corrected_path = Path(corrected_dir)
+    books: List[Dict[str, str]] = []
+    seen: set = set()
+
+    for file in sorted(os.listdir(raw_path)):
+        name: Optional[str] = None
+        if file.endswith("_ocr_raw.txt"):
+            name = file[: -len("_ocr_raw.txt")]
+        elif file.endswith("_ocr_raw.txt.txt"):
+            name = file[: -len("_ocr_raw.txt.txt")]
+        else:
+            continue
+        if name in seen:
+            continue
+        gt_path = _resolve_gt_path(corrected_path, name)
+        if gt_path is None:
+            print(f"[WARN] no corrected file for OCR book '{name}'", flush=True)
+            continue
+        seen.add(name)
+        books.append(
+            {
+                "name": name,
+                "ocr": str(raw_path / file),
+                "gt": str(gt_path),
+            }
+        )
+    return books
 
 
 def save_outputs(matched_pairs, char_ops, word_ops, boundary_errors, stats, out_dir, alignment_quality=None):
@@ -701,44 +842,41 @@ def save_outputs(matched_pairs, char_ops, word_ops, boundary_errors, stats, out_
     )
 
 
-if __name__ == "__main__":
-    OUTPUT_ROOT = Path("phase1_output")
-    raw_dir = "raw_ocr"
-    corrected_dir = "corrected_ocr"
+def _load_splits() -> Dict[str, list]:
+    repo_root = Path(__file__).resolve().parents[1]
+    if str(repo_root) not in sys.path:
+        sys.path.insert(0, str(repo_root))
+    try:
+        from phase4.data.splits import SPLITS
 
-    SPLITS = {
-        "train": [
-            "dnevnik_po_mnogu_godini", "itar_pejo", "Pesni",
-            "Prezir", "Samecot", "sina_pesna", "tajnopis",
-            "Toj", "viktor_kupidon"
-        ],
-        "val": [
-            "Забите на Ветрот - Томе Арсовски",
-            "Провиденија"
-        ],
-        "test": [
-            "Сите лица на смртта",
-            "Современост 7"
-        ]
-    }
+        return SPLITS
+    except ImportError:
+        return {
+            "train": [
+                "dnevnik_po_mnogu_godini",
+                "itar_pejo",
+                "Pesni",
+                "Prezir",
+                "Samecot",
+                "sina_pesna",
+                "tajnopis",
+                "Toj",
+                "viktor_kupidon",
+            ],
+            "val": ["Забите на Ветрот - Томе Арсовски", "Провиденија"],
+            "test": ["Сите лица на смртта", "Современост 7"],
+        }
 
-    book_to_split = {b: s for s, bs in SPLITS.items() for b in bs}
-    BOOKS = []
 
-    for file in os.listdir(raw_dir):
-        if file.endswith("_ocr_raw.txt"):
-            base = file[:-len("_ocr_raw.txt")]
-            gt_file = base + "_corrected.txt"
-
-            ocr_path = os.path.join(raw_dir, file)
-            gt_path = os.path.join(corrected_dir, gt_file)
-
-            if os.path.exists(gt_path):
-                BOOKS.append({
-                    "name": base,
-                    "ocr": ocr_path,
-                    "gt": gt_path
-                })
+def run_alignment(
+    output_root: Path,
+    raw_dir: str = "raw_ocr",
+    corrected_dir: str = "corrected_ocr",
+    min_pair_sim: float = MIN_PAIR_SIM,
+) -> List[Dict[str, object]]:
+    splits = _load_splits()
+    book_to_split = {b: s for s, bs in splits.items() for b in bs}
+    books = discover_book_pairs(raw_dir, corrected_dir)
 
     all_stats = []
     all_char_ops_global = []
@@ -752,18 +890,24 @@ if __name__ == "__main__":
     global_ocr_sentences = 0
     global_gt_sentences = 0
 
-    for book in BOOKS:
+    quality_rows: List[Dict[str, object]] = []
+
+    for book in books:
         name = book["name"]
         split = book_to_split.get(name, "unassigned")
 
-        print(f"[PROCESSING] {name} -> {split}")
+        print(f"[PROCESSING] {name} -> {split}", flush=True)
 
-        out_dir = OUTPUT_ROOT / split / name
+        out_dir = output_root / split / name
 
         ocr_sents = extract_sentences(book["ocr"])
         gt_sents = extract_sentences(book["gt"])
+        band = _alignment_band_fraction(len(ocr_sents), len(gt_sents))
+        n_anchors = len(_unique_shingle_anchors(ocr_sents, gt_sents))
 
-        matched_pairs = align_sentences(ocr_sents, gt_sents)
+        matched_pairs, dropped = align_sentences(
+            ocr_sents, gt_sents, min_pair_sim=min_pair_sim
+        )
 
         char_ops, word_ops, boundary_errors = align_all_pairs(matched_pairs)
 
@@ -787,12 +931,22 @@ if __name__ == "__main__":
         stats["book"] = name
         stats["split"] = split
 
-        alignment_quality = compute_alignment_quality(ocr_sents, gt_sents, matched_pairs)
+        alignment_quality = compute_alignment_quality(
+            ocr_sents,
+            gt_sents,
+            matched_pairs,
+            dropped_pairs_below_min_pair_sim=dropped,
+            n_anchors=n_anchors,
+            band_fraction=band,
+        )
+        alignment_quality["book"] = name
+        alignment_quality["split"] = split
+        quality_rows.append(dict(alignment_quality))
         print(
-            f"  -> pairs={alignment_quality['n_pairs']} "
+            f"[ALIGN] {name}: sent_ratio={alignment_quality['sentence_count_ratio']:.3f} "
             f"mean_sim={alignment_quality['mean_similarity']:.3f} "
-            f"<0.30={alignment_quality['below_0_30_ratio']:.3f} "
-            f"<0.50={alignment_quality['below_0_50_ratio']:.3f}"
+            f"dropped={dropped} pairs={alignment_quality['n_pairs']}",
+            flush=True,
         )
 
         save_outputs(
@@ -809,7 +963,12 @@ if __name__ == "__main__":
 
     corpus_boundary_stats = compute_corpus_boundary_stats(all_boundary_errors_global)
 
-    (OUTPUT_ROOT / "summary.json").write_text(
+    (output_root / "alignment_quality_all.json").write_text(
+        json.dumps(quality_rows, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+
+    (output_root / "summary.json").write_text(
         json.dumps({
             "books": len(all_stats),
             "ocr_total_characters": global_ocr_chars,
@@ -824,5 +983,21 @@ if __name__ == "__main__":
             "corpus_merge_count": corpus_boundary_stats["merge_count"],
             "corpus_total_boundary_errors": corpus_boundary_stats["total_boundary_errors"]
         }, indent=2, ensure_ascii=False),
-        encoding="utf-8"
+        encoding="utf-8",
+    )
+    return all_stats
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Phase 1 OCR/GT sentence alignment")
+    parser.add_argument("--output-root", default="phase1_output")
+    parser.add_argument("--raw-dir", default="raw_ocr")
+    parser.add_argument("--corrected-dir", default="corrected_ocr")
+    parser.add_argument("--min-pair-sim", type=float, default=MIN_PAIR_SIM)
+    args = parser.parse_args()
+    run_alignment(
+        Path(args.output_root),
+        raw_dir=args.raw_dir,
+        corrected_dir=args.corrected_dir,
+        min_pair_sim=args.min_pair_sim,
     )

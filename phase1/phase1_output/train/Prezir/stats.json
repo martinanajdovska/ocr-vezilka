@@ -1,5 +1,5 @@
 {
-  "matched_pairs": 2762,
+  "matched_pairs": 2804,
   "ocr_total_characters": 369492,
   "ocr_total_tokens": 61849,
   "ocr_total_sentences": 2790,
@@ -8,9 +8,9 @@
   "gt_total_tokens": 61768,
   "gt_total_sentences": 2768,
   "gt_avg_sentence_length": 22.315,
-  "CER": 0.0074,
-  "WER": 0.0094,
-  "split_count": 65,
+  "CER": 0.0043,
+  "WER": 0.0092,
+  "split_count": 62,
   "merge_count": 12,
   "split_examples": [
     {
@@ -70,24 +70,6 @@
     {
       "type": "split",
       "ocr": [
-        "просец",
-        "ност"
-      ],
-      "gt": "просечност",
-      "similarity": 0.9
-    },
-    {
-      "type": "split",
-      "ocr": [
-        "фантаа",
-        "зија"
-      ],
-      "gt": "фантазија",
-      "similarity": 0.9474
-    },
-    {
-      "type": "split",
-      "ocr": [
         "перспеки",
         "тивата"
       ],
@@ -102,6 +84,24 @@
       ],
       "gt": "завршена...",
       "similarity": 0.9412
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "изразја",
+        "ваше"
+      ],
+      "gt": "изразуваше",
+      "similarity": 0.8571
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "пр",
+        "ват"
+      ],
+      "gt": "прават",
+      "similarity": 0.9091
     }
   ],
   "merge_examples": [

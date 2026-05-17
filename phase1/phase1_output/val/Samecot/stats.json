@@ -1,0 +1,203 @@
+{
+  "matched_pairs": 4225,
+  "ocr_total_characters": 197566,
+  "ocr_total_tokens": 34333,
+  "ocr_total_sentences": 3829,
+  "ocr_avg_sentence_length": 8.9666,
+  "gt_total_characters": 198059,
+  "gt_total_tokens": 34308,
+  "gt_total_sentences": 3829,
+  "gt_avg_sentence_length": 8.96,
+  "CER": 0.0165,
+  "WER": 0.0465,
+  "split_count": 27,
+  "merge_count": 259,
+  "split_examples": [
+    {
+      "type": "split",
+      "ocr": [
+        "РЕДАКЦИ",
+        "ЈА"
+      ],
+      "gt": "РЕДАКЦИЈА",
+      "similarity": 1.0
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "ХЕКАТА",
+        "-"
+      ],
+      "gt": "ХЕКАТА",
+      "similarity": 1.0
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "Божицата",
+        "-"
+      ],
+      "gt": "Божицата",
+      "similarity": 1.0
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "светл",
+        "ата."
+      ],
+      "gt": "светлата.",
+      "similarity": 1.0
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "згадат",
+        "од"
+      ],
+      "gt": "згадатод",
+      "similarity": 1.0
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "ќе",
+        "ја"
+      ],
+      "gt": "ќеја",
+      "similarity": 1.0
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "веруваа",
+        "т",
+        "во"
+      ],
+      "gt": "веруваатво",
+      "similarity": 1.0
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "вечноста",
+        "е"
+      ],
+      "gt": "вечноста",
+      "similarity": 0.9412
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "рекол",
+        "Диофан.."
+      ],
+      "gt": "реколДиофан..",
+      "similarity": 1.0
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "домови",
+        "да"
+      ],
+      "gt": "домовида",
+      "similarity": 1.0
+    }
+  ],
+  "merge_examples": [
+    {
+      "type": "merge",
+      "ocr": "КОМПЈУТЕРСКА",
+      "gt": [
+        "КОМ",
+        "ЈУТЕРСКА"
+      ],
+      "similarity": 0.9565
+    },
+    {
+      "type": "merge",
+      "ocr": "223-810,111-332",
+      "gt": [
+        "223-810,",
+        "111-332"
+      ],
+      "similarity": 1.0
+    },
+    {
+      "type": "merge",
+      "ocr": "+389",
+      "gt": [
+        "+",
+        "389"
+      ],
+      "similarity": 1.0
+    },
+    {
+      "type": "merge",
+      "ocr": "821.163.3-31",
+      "gt": [
+        "821",
+        "163",
+        "3-31"
+      ],
+      "similarity": 1.0
+    },
+    {
+      "type": "merge",
+      "ocr": "-(119-194)",
+      "gt": [
+        "-",
+        "(119-194)"
+      ],
+      "similarity": 1.0
+    },
+    {
+      "type": "merge",
+      "ocr": "декатоа",
+      "gt": [
+        "дека",
+        "тоа"
+      ],
+      "similarity": 1.0
+    },
+    {
+      "type": "merge",
+      "ocr": "мал-ку",
+      "gt": [
+        "мал-",
+        "ку"
+      ],
+      "similarity": 1.0
+    },
+    {
+      "type": "merge",
+      "ocr": "Вегетирајќи",
+      "gt": [
+        "10",
+        "Вегетирајќи"
+      ],
+      "similarity": 0.9167
+    },
+    {
+      "type": "merge",
+      "ocr": "посте-пено",
+      "gt": [
+        "посте-",
+        "пено"
+      ],
+      "similarity": 1.0
+    },
+    {
+      "type": "merge",
+      "ocr": "дојде-на",
+      "gt": [
+        "дојде-",
+        "на"
+      ],
+      "similarity": 1.0
+    }
+  ],
+  "book": "Samecot",
+  "split": "val"
+}

@@ -1,13 +1,18 @@
 {
-  "n_pairs": 1383,
-  "n_ocr_sentences": 1780,
-  "n_gt_sentences": 1438,
-  "sentence_count_ratio": 1.2378,
-  "mean_similarity": 0.9356,
-  "median_similarity": 0.9853,
-  "min_similarity": 0.3087,
+  "n_pairs": 1363,
+  "n_ocr_sentences": 1819,
+  "n_gt_sentences": 1452,
+  "sentence_count_ratio": 1.2528,
+  "mean_similarity": 0.945,
+  "median_similarity": 0.9865,
+  "min_similarity": 0.5509,
   "max_similarity": 1.0,
   "below_0_30_ratio": 0.0,
-  "below_0_50_ratio": 0.013,
-  "below_0_70_ratio": 0.0651
+  "below_0_50_ratio": 0.0,
+  "below_0_70_ratio": 0.0448,
+  "dropped_pairs_below_min_pair_sim": 31,
+  "n_unique_shingle_anchors": 15390,
+  "alignment_band_fraction": 0.2264,
+  "book": "itar_pejo",
+  "split": "train"
 }

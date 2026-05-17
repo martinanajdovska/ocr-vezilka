@@ -1,0 +1,474 @@
+[
+  {
+    "type": "split",
+    "ocr": [
+      "одредува-",
+      "њето"
+    ],
+    "gt": "определувањето",
+    "similarity": 0.8462
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "начин",
+      "с"
+    ],
+    "gt": "начин",
+    "similarity": 0.9091
+  },
+  {
+    "type": "merge",
+    "ocr": "прилично",
+    "gt": [
+      "е",
+      "прилично"
+    ],
+    "similarity": 0.9412
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "најголе-",
+      "миот"
+    ],
+    "gt": "најголем",
+    "similarity": 0.8421
+  },
+  {
+    "type": "merge",
+    "ocr": "27",
+    "gt": [
+      "–",
+      "27"
+    ],
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "бе-",
+      "лези"
+    ],
+    "gt": "белези",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "так-",
+      "сономска"
+    ],
+    "gt": "таксономска",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "воде-",
+      "ната"
+    ],
+    "gt": "водената",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "хиерар-",
+      "хиски"
+    ],
+    "gt": "хиерархиски",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "семејст-",
+      "вото),"
+    ],
+    "gt": "семејството),",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ти-",
+      "пични"
+    ],
+    "gt": "типични",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "откривањето",
+      "Ha"
+    ],
+    "gt": "откривањето",
+    "similarity": 0.9167
+  },
+  {
+    "type": "merge",
+    "ocr": "вистинското",
+    "gt": [
+      "на",
+      "вистинското"
+    ],
+    "similarity": 0.9167
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "един-",
+      "ката"
+    ],
+    "gt": "единката",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ce",
+      "темели"
+    ],
+    "gt": "темели",
+    "similarity": 0.8571
+  },
+  {
+    "type": "merge",
+    "ocr": "разлики",
+    "gt": [
+      "разлики",
+      "кои"
+    ],
+    "similarity": 0.8235
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "риби-",
+      "|",
+      "те."
+    ],
+    "gt": "рибите.",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "внат-",
+      "решни"
+    ],
+    "gt": "внатрешни",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "по-",
+      "дели"
+    ],
+    "gt": "подели",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "змиор-",
+      "ките."
+    ],
+    "gt": "змииорките.",
+    "similarity": 0.9474
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "тело-",
+      "то,"
+    ],
+    "gt": "телото,",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "локо-",
+      "моторни"
+    ],
+    "gt": "локомоторни",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ци-",
+      "пата,"
+    ],
+    "gt": "ципата,",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "тело-",
+      "то"
+    ],
+    "gt": "телото",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ко-",
+      "ленца"
+    ],
+    "gt": "коленца",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "пер-",
+      "ки:"
+    ],
+    "gt": "перки:",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "ме-",
+      "ѓусебниот"
+    ],
+    "gt": "меѓусебниот",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "клу-",
+      "чот."
+    ],
+    "gt": "клучот.",
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "перка,",
+    "gt": [
+      "перка,",
+      "(p",
+      "i"
+    ],
+    "similarity": 0.8333
+  },
+  {
+    "type": "merge",
+    "ocr": "кратко",
+    "gt": [
+      "s",
+      "),",
+      "кратко"
+    ],
+    "similarity": 0.9231
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "phoxinus",
+      "+",
+      "+"
+    ],
+    "gt": "Phoxinus",
+    "similarity": 1.0
+  },
+  {
+    "type": "merge",
+    "ocr": "S.erythrophthalmus",
+    "gt": [
+      "erythrophthalmus",
+      "(L",
+      "i"
+    ],
+    "similarity": 0.9143
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "A.alburnus",
+      "+",
+      "ти"
+    ],
+    "gt": "Alburnus",
+    "similarity": 0.8421
+  },
+  {
+    "type": "merge",
+    "ocr": "bipunctatus",
+    "gt": [
+      "bipunctatus",
+      "B",
+      "l"
+    ],
+    "similarity": 0.9167
+  },
+  {
+    "type": "merge",
+    "ocr": "fluviatilis",
+    "gt": [
+      "fluviatilis",
+      "(A",
+      "s"
+    ],
+    "similarity": 0.9167
+  },
+  {
+    "type": "merge",
+    "ocr": "меки",
+    "gt": [
+      "7",
+      "меки"
+    ],
+    "similarity": 0.8889
+  },
+  {
+    "type": "merge",
+    "ocr": "зраци.",
+    "gt": [
+      "зраци",
+      "–",
+      "Ph."
+    ],
+    "similarity": 0.8333
+  },
+  {
+    "type": "merge",
+    "ocr": "trutta.",
+    "gt": [
+      "trutta,",
+      "S."
+    ],
+    "similarity": 0.9231
+  },
+  {
+    "type": "merge",
+    "ocr": "Според",
+    "gt": [
+      "Според",
+      "S",
+      "o"
+    ],
+    "similarity": 0.8571
+  },
+  {
+    "type": "merge",
+    "ocr": "водите",
+    "gt": [
+      "од",
+      "водите"
+    ],
+    "similarity": 0.8571
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "Phoxinellus",
+      "го"
+    ],
+    "gt": "Phoxinellus",
+    "similarity": 0.9167
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "alborella",
+      "F"
+    ],
+    "gt": "alborella",
+    "similarity": 0.9474
+  },
+  {
+    "type": "merge",
+    "ocr": "езеро.",
+    "gt": [
+      "Езеро",
+      "и",
+      "A."
+    ],
+    "similarity": 0.8333
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "stankoi",
+      "n."
+    ],
+    "gt": "stankoi.",
+    "similarity": 0.9333
+  },
+  {
+    "type": "merge",
+    "ocr": "ICHTHYOLOGIA.",
+    "gt": [
+      "–",
+      "ICHTHYOLOGIA,",
+      "8,"
+    ],
+    "similarity": 0.96
+  },
+  {
+    "type": "merge",
+    "ocr": "ICHTHYOLOGIA.",
+    "gt": [
+      "ICHTHYOLOGIA,",
+      "5,",
+      "(1),"
+    ],
+    "similarity": 0.9231
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "fluvi-",
+      "atilis"
+    ],
+    "gt": "fluviatilis",
+    "similarity": 1.0
+  },
+  {
+    "type": "split",
+    "ocr": [
+      "(1975",
+      "a):"
+    ],
+    "gt": "(1975):",
+    "similarity": 0.8889
+  },
+  {
+    "type": "merge",
+    "ocr": "(1971):",
+    "gt": [
+      "(1971",
+      "a):"
+    ],
+    "similarity": 0.8889
+  },
+  {
+    "type": "merge",
+    "ocr": "(1971):",
+    "gt": [
+      "(1971",
+      "b):"
+    ],
+    "similarity": 0.8889
+  },
+  {
+    "type": "merge",
+    "ocr": "ohridanus.",
+    "gt": [
+      "Ohridanus",
+      "and"
+    ],
+    "similarity": 0.8571
+  }
+]

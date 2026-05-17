@@ -1,13 +1,18 @@
 {
-  "n_pairs": 2762,
-  "n_ocr_sentences": 2790,
-  "n_gt_sentences": 2768,
-  "sentence_count_ratio": 1.0079,
-  "mean_similarity": 0.9965,
+  "n_pairs": 2804,
+  "n_ocr_sentences": 2836,
+  "n_gt_sentences": 2813,
+  "sentence_count_ratio": 1.0082,
+  "mean_similarity": 0.9974,
   "median_similarity": 1.0,
-  "min_similarity": 0.3227,
+  "min_similarity": 0.5507,
   "max_similarity": 1.0,
   "below_0_30_ratio": 0.0,
-  "below_0_50_ratio": 0.0014,
-  "below_0_70_ratio": 0.0022
+  "below_0_50_ratio": 0.0,
+  "below_0_70_ratio": 0.0007,
+  "dropped_pairs_below_min_pair_sim": 5,
+  "n_unique_shingle_anchors": 22489,
+  "alignment_band_fraction": 0.1041,
+  "book": "Prezir",
+  "split": "train"
 }

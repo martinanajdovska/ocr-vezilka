@@ -1,5 +1,5 @@
 {
-  "matched_pairs": 1837,
+  "matched_pairs": 1883,
   "ocr_total_characters": 235508,
   "ocr_total_tokens": 38847,
   "ocr_total_sentences": 2035,
@@ -8,11 +8,20 @@
   "gt_total_tokens": 37862,
   "gt_total_sentences": 1978,
   "gt_avg_sentence_length": 19.1416,
-  "CER": 0.0742,
-  "WER": 0.1064,
-  "split_count": 121,
-  "merge_count": 120,
+  "CER": 0.0486,
+  "WER": 0.0839,
+  "split_count": 111,
+  "merge_count": 108,
   "split_examples": [
+    {
+      "type": "split",
+      "ocr": [
+        "облагородување",
+        "1X1"
+      ],
+      "gt": "облагородување",
+      "similarity": 0.9032
+    },
     {
       "type": "split",
       "ocr": [
@@ -94,18 +103,18 @@
       ],
       "gt": "плонови",
       "similarity": 1.0
-    },
-    {
-      "type": "split",
-      "ocr": [
-        "наЈ-",
-        "младите"
-      ],
-      "gt": "најмладите",
-      "similarity": 1.0
     }
   ],
   "merge_examples": [
+    {
+      "type": "merge",
+      "ocr": "човекот",
+      "gt": [
+        "на",
+        "човекот"
+      ],
+      "similarity": 0.875
+    },
     {
       "type": "merge",
       "ocr": "идеЈност-",
@@ -135,19 +144,20 @@
     },
     {
       "type": "merge",
-      "ocr": "заговори“",
+      "ocr": "1691",
       "gt": [
-        "заговори“",
-        "III,"
+        "1691",
+        ",,"
       ],
-      "similarity": 0.8421
+      "similarity": 1.0
     },
     {
       "type": "merge",
-      "ocr": "Пула-672",
+      "ocr": ".........",
       "gt": [
-        "Пула",
-        "672"
+        ",,",
+        ",,",
+        ":"
       ],
       "similarity": 1.0
     },
@@ -186,15 +196,6 @@
         "мојата"
       ],
       "similarity": 0.8571
-    },
-    {
-      "type": "merge",
-      "ocr": "измениш?...",
-      "gt": [
-        "измениш?…",
-        "Тоа"
-      ],
-      "similarity": 0.8235
     }
   ],
   "book": "Современост 7",

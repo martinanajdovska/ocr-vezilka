@@ -1,115 +1,29 @@
 {
-  "cer": 0.7832297036587182,
-  "wer": 0.8672669343487329,
-  "chrf": 0.8126487381373886,
-  "input_cer": 0.7832297036587182,
+  "cer": 0.053331209545813094,
+  "wer": 0.16667741366281003,
+  "chrf": 0.9121578717868769,
+  "input_cer": 0.053331209545813094,
   "cer_reduction_rate": 0.0,
   "correction_rate": 0.0,
   "overcorrection_rate": 0.0,
   "sentence_accuracy": 0.0,
-  "n_records": 1432,
-  "rare_word_corruption_rate": 0.6920499818906194,
-  "proper_name_corruption_rate": 0.6211215485340165,
-  "rare_token_total": 11044,
-  "proper_token_total": 3513,
+  "n_records": 1122,
+  "rare_word_corruption_rate": 0.3180037472321581,
+  "proper_name_corruption_rate": 0.24577498792853694,
+  "rare_token_total": 5871,
+  "proper_token_total": 2071,
   "per_domain": {
-    "A": {
-      "cer": 0.9213167541813386,
-      "wer": 1.012660326729036,
-      "chrf": 0.787152036481929,
-      "input_cer": 0.9213167541813386,
+    "prose": {
+      "cer": 0.053331209545813094,
+      "wer": 0.16667741366281003,
+      "chrf": 0.9121578717868769,
+      "input_cer": 0.053331209545813094,
       "cer_reduction_rate": 0.0,
       "correction_rate": 0.0,
       "overcorrection_rate": 0.0,
       "sentence_accuracy": 0.0,
-      "n_records": 1203
-    },
-    "B": {
-      "cer": 0.05782043824950149,
-      "wer": 0.1034754451194656,
-      "chrf": 0.946589926309957,
-      "input_cer": 0.05782043824950149,
-      "cer_reduction_rate": 0.0,
-      "correction_rate": 0.0,
-      "overcorrection_rate": 0.0,
-      "sentence_accuracy": 0.0,
-      "n_records": 229
+      "n_records": 1122
     }
-  },
-  "calibration": {
-    "bins": [
-      {
-        "lo": 0.0,
-        "hi": 0.1,
-        "count": 0,
-        "mean_confidence": 0.0,
-        "mean_accuracy": 0.0
-      },
-      {
-        "lo": 0.1,
-        "hi": 0.2,
-        "count": 0,
-        "mean_confidence": 0.0,
-        "mean_accuracy": 0.0
-      },
-      {
-        "lo": 0.2,
-        "hi": 0.3,
-        "count": 0,
-        "mean_confidence": 0.0,
-        "mean_accuracy": 0.0
-      },
-      {
-        "lo": 0.3,
-        "hi": 0.4,
-        "count": 0,
-        "mean_confidence": 0.0,
-        "mean_accuracy": 0.0
-      },
-      {
-        "lo": 0.4,
-        "hi": 0.5,
-        "count": 0,
-        "mean_confidence": 0.0,
-        "mean_accuracy": 0.0
-      },
-      {
-        "lo": 0.5,
-        "hi": 0.6,
-        "count": 0,
-        "mean_confidence": 0.0,
-        "mean_accuracy": 0.0
-      },
-      {
-        "lo": 0.6,
-        "hi": 0.7,
-        "count": 0,
-        "mean_confidence": 0.0,
-        "mean_accuracy": 0.0
-      },
-      {
-        "lo": 0.7,
-        "hi": 0.8,
-        "count": 0,
-        "mean_confidence": 0.0,
-        "mean_accuracy": 0.0
-      },
-      {
-        "lo": 0.8,
-        "hi": 0.9,
-        "count": 0,
-        "mean_confidence": 0.0,
-        "mean_accuracy": 0.0
-      },
-      {
-        "lo": 0.9,
-        "hi": 1.0,
-        "count": 1432,
-        "mean_confidence": 1.0,
-        "mean_accuracy": 0.0
-      }
-    ],
-    "ece": 1.0
   },
   "runs_on": {
     "model": "identity",

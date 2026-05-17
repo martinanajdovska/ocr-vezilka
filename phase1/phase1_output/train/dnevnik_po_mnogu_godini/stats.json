@@ -1,5 +1,5 @@
 {
-  "matched_pairs": 2217,
+  "matched_pairs": 2466,
   "ocr_total_characters": 163672,
   "ocr_total_tokens": 27422,
   "ocr_total_sentences": 2293,
@@ -8,21 +8,11 @@
   "gt_total_tokens": 27422,
   "gt_total_sentences": 2312,
   "gt_avg_sentence_length": 11.8607,
-  "CER": 0.0171,
-  "WER": 0.0463,
-  "split_count": 12,
-  "merge_count": 60,
+  "CER": 0.0158,
+  "WER": 0.0459,
+  "split_count": 11,
+  "merge_count": 55,
   "split_examples": [
-    {
-      "type": "split",
-      "ocr": [
-        "хроничарот;",
-        "На",
-        "се"
-      ],
-      "gt": "хроничарот.",
-      "similarity": 0.8333
-    },
     {
       "type": "split",
       "ocr": [
@@ -102,6 +92,15 @@
         ":"
       ],
       "gt": "обиколување“:",
+      "similarity": 1.0
+    },
+    {
+      "type": "split",
+      "ocr": [
+        "манпиот!“",
+        ":"
+      ],
+      "gt": "манпиот!“:",
       "similarity": 1.0
     }
   ],

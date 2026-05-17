@@ -10,7 +10,8 @@
     "beam_size": 6,
     "lambda_lm": 0.5,
     "lambda_channel": 1.0,
-    "correction_margin": 2.0,
+    "lambda_char_lm": 0.3,
+    "correction_margin": 1.5,
     "proper_name_extra_margin": 1.0,
     "rare_word_extra_margin": 1.0,
     "case_preserving": true
@@ -22,198 +23,198 @@
       "correction_margin": 1.0,
       "lambda_lm": 0.5,
       "lambda_channel": 0.3,
-      "mean_cer": 1.067001807888876,
-      "change_rate": 0.81
+      "mean_cer": 0.04592700698862999,
+      "change_rate": 0.0225
     },
     {
       "correction_margin": 1.0,
       "lambda_lm": 0.5,
       "lambda_channel": 0.6,
-      "mean_cer": 0.926570969927303,
-      "change_rate": 0.3825
+      "mean_cer": 0.04518033511755065,
+      "change_rate": 0.0075
     },
     {
       "correction_margin": 1.0,
       "lambda_lm": 0.5,
       "lambda_channel": 1.0,
-      "mean_cer": 0.8931453152859781,
-      "change_rate": 0.105
+      "mean_cer": 0.04492386415795469,
+      "change_rate": 0.005
     },
     {
       "correction_margin": 1.0,
       "lambda_lm": 1.0,
       "lambda_channel": 0.3,
-      "mean_cer": 1.191421267188772,
-      "change_rate": 0.9475
+      "mean_cer": 0.0979806476507744,
+      "change_rate": 0.415
     },
     {
       "correction_margin": 1.0,
       "lambda_lm": 1.0,
       "lambda_channel": 0.6,
-      "mean_cer": 1.0761668711680696,
-      "change_rate": 0.8775
+      "mean_cer": 0.053317603927439,
+      "change_rate": 0.1375
     },
     {
       "correction_margin": 1.0,
       "lambda_lm": 1.0,
       "lambda_channel": 1.0,
-      "mean_cer": 0.9674848546668029,
-      "change_rate": 0.6675
+      "mean_cer": 0.04586382065682759,
+      "change_rate": 0.04
     },
     {
       "correction_margin": 1.0,
       "lambda_lm": 1.5,
       "lambda_channel": 0.3,
-      "mean_cer": 1.2079712039559105,
-      "change_rate": 0.975
+      "mean_cer": 0.15868552052187468,
+      "change_rate": 0.735
     },
     {
       "correction_margin": 1.0,
       "lambda_lm": 1.5,
       "lambda_channel": 0.6,
-      "mean_cer": 1.1389856391397408,
-      "change_rate": 0.9325
+      "mean_cer": 0.08490168271687792,
+      "change_rate": 0.42
     },
     {
       "correction_margin": 1.0,
       "lambda_lm": 1.5,
       "lambda_channel": 1.0,
-      "mean_cer": 1.049534382361416,
-      "change_rate": 0.8725
+      "mean_cer": 0.05517718209774675,
+      "change_rate": 0.1875
     },
     {
       "correction_margin": 1.5,
       "lambda_lm": 0.5,
       "lambda_channel": 0.3,
-      "mean_cer": 1.0617416132593247,
-      "change_rate": 0.7575
+      "mean_cer": 0.045123516935732466,
+      "change_rate": 0.005
     },
     {
       "correction_margin": 1.5,
       "lambda_lm": 0.5,
       "lambda_channel": 0.6,
-      "mean_cer": 0.9215960267336061,
-      "change_rate": 0.2925
+      "mean_cer": 0.04490255733977287,
+      "change_rate": 0.005
     },
     {
       "correction_margin": 1.5,
       "lambda_lm": 0.5,
       "lambda_channel": 1.0,
-      "mean_cer": 0.8926513850418367,
-      "change_rate": 0.0825
+      "mean_cer": 0.04484573915795469,
+      "change_rate": 0.0025
     },
     {
       "correction_margin": 1.5,
       "lambda_lm": 1.0,
       "lambda_channel": 0.3,
-      "mean_cer": 1.190685722971085,
-      "change_rate": 0.94
+      "mean_cer": 0.09374727069672727,
+      "change_rate": 0.375
     },
     {
       "correction_margin": 1.5,
       "lambda_lm": 1.0,
       "lambda_channel": 0.6,
-      "mean_cer": 1.0742470556003603,
-      "change_rate": 0.84
+      "mean_cer": 0.05164961301291892,
+      "change_rate": 0.11
     },
     {
       "correction_margin": 1.5,
       "lambda_lm": 1.0,
       "lambda_channel": 1.0,
-      "mean_cer": 0.9652748716838542,
-      "change_rate": 0.6
+      "mean_cer": 0.04567761156139397,
+      "change_rate": 0.03
     },
     {
       "correction_margin": 1.5,
       "lambda_lm": 1.5,
       "lambda_channel": 0.3,
-      "mean_cer": 1.2076346654943722,
-      "change_rate": 0.965
+      "mean_cer": 0.1548207346396047,
+      "change_rate": 0.7025
     },
     {
       "correction_margin": 1.5,
       "lambda_lm": 1.5,
       "lambda_channel": 0.6,
-      "mean_cer": 1.1380272818756345,
-      "change_rate": 0.9225
+      "mean_cer": 0.08154808109117298,
+      "change_rate": 0.3725
     },
     {
       "correction_margin": 1.5,
       "lambda_lm": 1.5,
       "lambda_channel": 1.0,
-      "mean_cer": 1.04822383786914,
-      "change_rate": 0.85
+      "mean_cer": 0.05365172895559127,
+      "change_rate": 0.1575
     },
     {
       "correction_margin": 2.0,
       "lambda_lm": 0.5,
       "lambda_channel": 0.3,
-      "mean_cer": 1.0528811568827516,
-      "change_rate": 0.7
+      "mean_cer": 0.045123516935732466,
+      "change_rate": 0.005
     },
     {
       "correction_margin": 2.0,
       "lambda_lm": 0.5,
       "lambda_channel": 0.6,
-      "mean_cer": 0.9155603148845272,
-      "change_rate": 0.2075
+      "mean_cer": 0.04484573915795469,
+      "change_rate": 0.0025
     },
     {
       "correction_margin": 2.0,
       "lambda_lm": 0.5,
       "lambda_channel": 1.0,
-      "mean_cer": 0.8887141172466592,
-      "change_rate": 0.0525
+      "mean_cer": 0.04484573915795469,
+      "change_rate": 0.0025
     },
     {
       "correction_margin": 2.0,
       "lambda_lm": 1.0,
       "lambda_channel": 0.3,
-      "mean_cer": 1.189642161989019,
-      "change_rate": 0.9275
+      "mean_cer": 0.09155183687391116,
+      "change_rate": 0.355
     },
     {
       "correction_margin": 2.0,
       "lambda_lm": 1.0,
       "lambda_channel": 0.6,
-      "mean_cer": 1.067001807888876,
-      "change_rate": 0.81
+      "mean_cer": 0.04975034272583172,
+      "change_rate": 0.0875
     },
     {
       "correction_margin": 2.0,
       "lambda_lm": 1.0,
       "lambda_channel": 1.0,
-      "mean_cer": 0.9639999886644116,
-      "change_rate": 0.555
+      "mean_cer": 0.04565970225550998,
+      "change_rate": 0.025
     },
     {
       "correction_margin": 2.0,
       "lambda_lm": 1.5,
       "lambda_channel": 0.3,
-      "mean_cer": 1.2071477844891982,
-      "change_rate": 0.96
+      "mean_cer": 0.149862321666886,
+      "change_rate": 0.6625
     },
     {
       "correction_margin": 2.0,
       "lambda_lm": 1.5,
       "lambda_channel": 0.6,
-      "mean_cer": 1.1382810338562246,
-      "change_rate": 0.9125
+      "mean_cer": 0.08047555378708447,
+      "change_rate": 0.3525
     },
     {
       "correction_margin": 2.0,
       "lambda_lm": 1.5,
       "lambda_channel": 1.0,
-      "mean_cer": 1.0423507147807454,
-      "change_rate": 0.82
+      "mean_cer": 0.051706224607965895,
+      "change_rate": 0.1325
     }
   ],
   "best": {
-    "correction_margin": 2.0,
+    "correction_margin": 1.5,
     "lambda_lm": 0.5,
     "lambda_channel": 1.0,
-    "mean_cer": 0.8887141172466592,
-    "change_rate": 0.0525
+    "mean_cer": 0.04484573915795469,
+    "change_rate": 0.0025
   },
   "n_val_sample": 400
 }
