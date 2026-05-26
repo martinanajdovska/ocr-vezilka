@@ -86,7 +86,7 @@ python -u phase4/phase4_correction_models.py \
 | `phase4/models/macedonian_script.py` | Post-decode Macedonian Cyrillic sanitization |
 | `phase4/eval/metrics.py` | CER, WER, chrF, calibration, bootstrap, diagnostics |
 | `phase4/eval/paper_tables.py` | Aggregate CSV tables for publication |
-| `phase4/io/schemas.py` | Prediction record schema validation |
+| `phase4/io_safe/schemas.py` | Prediction record schema validation |
 | `phase4/phase4_output/` | Predictions, metrics, checkpoints, paper tables |
 | `requirements.txt` | Pinned dependency ranges |
 

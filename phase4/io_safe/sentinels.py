@@ -7,7 +7,7 @@ Granularity:
 - ``_SWEEP_STANDARD_DONE.json`` / ``_SWEEP_KFOLD_DONE.json`` -- per leg
 - ``_PIPELINE_DONE.json`` -- both legs of the chained pipeline
 
-All writes are atomic via :mod:`phase4.io.atomic`.
+All writes are atomic via :mod:`phase4.io_safe.atomic`.
 """
 
 from __future__ import annotations
@@ -17,7 +17,7 @@ from pathlib import Path
 import os
 from typing import Any, Dict, Optional
 
-from phase4.io.atomic import atomic_write_text
+from phase4.io_safe.atomic import atomic_write_text
 
 
 def force_rerun_active() -> bool:

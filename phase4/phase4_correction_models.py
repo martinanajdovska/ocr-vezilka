@@ -73,7 +73,7 @@ from phase4.eval.metrics import (
     wer,
 )
 from phase4.eval.paper_tables import build_all_tables
-from phase4.io.schemas import validate_prediction_records
+from phase4.io_safe.schemas import validate_prediction_records
 from phase4.models.classical import ClassicalCorrector, _load_top_confusions
 from phase4.models.hybrid import HybridCorrector
 from phase4.models.transformer_seq2seq import ByteTransformerCorrector
@@ -765,7 +765,7 @@ def _persist_progress_incremental(
     with the complete manifest, including paper-tables references.
     """
     import csv as _csv
-    from phase4.io.atomic import atomic_write_json, atomic_write_text
+    from phase4.io_safe.atomic import atomic_write_json, atomic_write_text
 
     metadata_dir = cfg.output_dir / "metadata"
     metadata_dir.mkdir(parents=True, exist_ok=True)
@@ -827,7 +827,7 @@ def _run_one(
     # written by this function on success; if a previous run already
     # produced it AND the hyperparameter / split hashes match, this whole
     # call short-circuits. ``PHASE4_FORCE_RERUN=1`` forces a full redo.
-    from phase4.io.sentinels import (
+    from phase4.io_safe.sentinels import (
         force_rerun_active,
         read_sentinel,
         sentinel_matches,
@@ -1918,7 +1918,7 @@ def run_phase4_kfold(
     """
     from phase4.data.splits import KFOLD_TEST_SETS, docs_for_fold, set_kfold_override
     from phase4.eval.kfold import build_kfold_table
-    from phase4.io.atomic import atomic_write_text
+    from phase4.io_safe.atomic import atomic_write_text
 
     assert n_folds >= 1, "n_folds must be >= 1"
     folds = list(range(min(n_folds, len(KFOLD_TEST_SETS))))
@@ -2032,7 +2032,7 @@ def run_pipeline(
     rerun re-enters that leg and benefits from the inner
     ``_DONE.json`` / ``_FOLD_DONE.json`` granularity.
     """
-    from phase4.io.atomic import atomic_write_text
+    from phase4.io_safe.atomic import atomic_write_text
 
     cfg = default_run_config(repo_root)
     std_marker = cfg.output_dir / "_SWEEP_STANDARD_DONE.json"

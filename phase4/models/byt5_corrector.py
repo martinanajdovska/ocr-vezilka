@@ -337,7 +337,9 @@ class ByT5Corrector:
         src = str(source) if source is not None else self.cfg.pretrained_model
         print(f"[byt5] loading {src} on device={self.device}", flush=True)
         self.tokenizer = ByT5Tokenizer.from_pretrained(src)
-        self.model = T5ForConditionalGeneration.from_pretrained(src).to(self.device)
+        self.model = T5ForConditionalGeneration.from_pretrained(
+            src, use_safetensors=True
+        ).to(self.device)
         self._configure_model_for_training()
         self._maybe_torch_compile()
 
@@ -507,7 +509,7 @@ class ByT5Corrector:
             T5ForConditionalGeneration, ByT5Tokenizer = _import_hf()
             self.tokenizer = ByT5Tokenizer.from_pretrained(self.cfg.pretrained_model)
             self.model = T5ForConditionalGeneration.from_pretrained(
-                self.cfg.pretrained_model
+                self.cfg.pretrained_model, use_safetensors=True
             ).to(self.device)
             sd = resume_bundle["model_state_dict"]
             self.model.load_state_dict(
@@ -871,7 +873,7 @@ class ByT5Corrector:
         if ckpt_root is not None and stage == "pretrain":
             pre_dir = ckpt_root / "pretrain_hf"
             pre_dir.mkdir(parents=True, exist_ok=True)
-            self.model.save_pretrained(pre_dir)
+            self.model.save_pretrained(pre_dir, safe_serialization=True)
             self.tokenizer.save_pretrained(pre_dir)
             print(f"[byt5] wrote pretrain snapshot for finetune/resume -> {pre_dir}", flush=True)
 
@@ -954,7 +956,7 @@ class ByT5Corrector:
                     if cpu_model is None:
                         T5ForConditionalGeneration, _ = _import_hf()
                         cpu_model = T5ForConditionalGeneration.from_pretrained(
-                            self.cfg.pretrained_model
+                            self.cfg.pretrained_model, use_safetensors=True
                         )
                         cpu_model.load_state_dict(
                             {k: v.detach().cpu() for k, v in self.model.state_dict().items()}
@@ -2409,7 +2411,7 @@ class ByT5Corrector:
         # the underlying ``_orig_mod`` so the on-disk artefact is loadable
         # by environments without the same compile graph.
         save_target = getattr(self.model, "_orig_mod", self.model)
-        save_target.save_pretrained(output_dir)
+        save_target.save_pretrained(output_dir, safe_serialization=True)
         self.tokenizer.save_pretrained(output_dir)
         meta = {
             "config": asdict(self.cfg),
@@ -2515,7 +2517,9 @@ class ByT5Corrector:
             if isinstance(gate_summary, dict):
                 self.gate_calibration = dict(gate_summary)
         self.tokenizer = ByT5Tokenizer.from_pretrained(output_dir)
-        self.model = T5ForConditionalGeneration.from_pretrained(output_dir).to(self.device)
+        self.model = T5ForConditionalGeneration.from_pretrained(
+            output_dir, use_safetensors=True
+        ).to(self.device)
         self._maybe_torch_compile()
         # restore HeadroomGate state (if persisted) so the
         # predict path can re-gate without recalibrating on val.
