@@ -44,6 +44,7 @@ if __package__ is None or __package__ == "":
     sys.path.append(str(Path(__file__).resolve().parents[1]))
 
 from phase4.config import (
+    IDENTITY_PAIR_RATIO_BY_REGIME,
     SEEDS,
     ClassicalConfig,
     HybridConfig,
@@ -73,7 +74,7 @@ from phase4.eval.metrics import (
 )
 from phase4.eval.paper_tables import build_all_tables
 from phase4.io.schemas import validate_prediction_records
-from phase4.models.classical import ClassicalCorrector
+from phase4.models.classical import ClassicalCorrector, _load_top_confusions
 from phase4.models.hybrid import HybridCorrector
 from phase4.models.transformer_seq2seq import ByteTransformerCorrector
 
@@ -511,10 +512,39 @@ def _build_pred_record(
     )
     confidence = max((float(d.get("confidence", 0.0)) for d in logs), default=0.0)
     gate_decision: Optional[str] = None
-    if logs and "gate_decision" in logs[0]:
-        raw_gate = logs[0].get("gate_decision")
-        if raw_gate is not None:
-            gate_decision = str(raw_gate)
+    headroom_estimate: Optional[float] = None
+    headroom_skipped: Optional[bool] = None
+    n_kept_windows: Optional[int] = None
+    n_reverted_windows: Optional[int] = None
+    if logs:
+        first = logs[0]
+        if "gate_decision" in first:
+            raw_gate = first.get("gate_decision")
+            if raw_gate is not None:
+                gate_decision = str(raw_gate)
+        # surface the headroom estimate so it can power the
+        # headline figure and the headroom_curve.csv. None on classical /
+        # hybrid runs (which don't attach the gate) and on neural runs
+        # before is integrated.
+        if "headroom_estimate_cer" in first:
+            est = first.get("headroom_estimate_cer")
+            try:
+                headroom_estimate = float(est) if est is not None else None
+            except (TypeError, ValueError):
+                headroom_estimate = None
+        if "headroom_skipped" in first:
+            headroom_skipped = bool(first.get("headroom_skipped"))
+        # telemetry: how many edit windows survived the per-edit gate.
+        if "n_kept_windows" in first:
+            try:
+                n_kept_windows = int(first.get("n_kept_windows") or 0)
+            except (TypeError, ValueError):
+                n_kept_windows = None
+        if "n_reverted_windows" in first:
+            try:
+                n_reverted_windows = int(first.get("n_reverted_windows") or 0)
+            except (TypeError, ValueError):
+                n_reverted_windows = None
     output: Dict[str, object] = {
         "doc_id": row["doc_id"],
         "split": row["split"],
@@ -528,6 +558,10 @@ def _build_pred_record(
         "token_was_correct_before": token_was_correct_before if not blind_test else None,
         "confidence": confidence,
         "gate_decision": gate_decision,
+        "headroom_estimate_cer": headroom_estimate,
+        "headroom_skipped": headroom_skipped,
+        "n_kept_windows": n_kept_windows,
+        "n_reverted_windows": n_reverted_windows,
         "is_rare_word": rare_flag,
         "is_proper_name": proper_flag,
     }
@@ -555,7 +589,8 @@ def _build_pred_record(
         output["error_reduction"] = cer_reduction_rate(input_cer_val, output_cer_val)
         output["wer"] = wer(clean, prediction)
         output["chrf"] = chrf_score(clean, prediction)
-        output["overcorrected"] = bool(token_was_correct_before and changed)
+        output["overcorrected"] = bool(changed and output_cer_val >= input_cer_val)
+        output["useful_correction"] = bool(changed and output_cer_val < input_cer_val)
         output["corrupted_rare_word"] = rare_bad > 0
         output["corrupted_proper_name"] = name_bad > 0
         output["rare_token_total"] = rare_total
@@ -713,6 +748,67 @@ def _tune_classical_on_real_val(
     return tuned_cfg
 
 
+def _persist_progress_incremental(
+    cfg,
+    runs: List[Dict[str, object]],
+    failures: List[Dict[str, object]],
+    selected_checkpoints: Dict[str, object],
+    models_to_run: List[str],
+    seeds: List[int],
+    primary_seed: int,
+) -> None:
+    """Crash-resume: write a partial run_manifest.json + run_table.csv
+    after every ``_run_one`` so an inspect-mid-run is meaningful and a
+    crash mid-sweep does not lose the progress record.
+
+    The final write at the end of :func:`run_phase4` overwrites this
+    with the complete manifest, including paper-tables references.
+    """
+    import csv as _csv
+    from phase4.io.atomic import atomic_write_json, atomic_write_text
+
+    metadata_dir = cfg.output_dir / "metadata"
+    metadata_dir.mkdir(parents=True, exist_ok=True)
+
+    hp_hash = hashlib.sha256(
+        json.dumps(frozen_hparams_dict(), sort_keys=True).encode("utf-8")
+    ).hexdigest()
+    manifest = {
+        "split_manifest_hash": split_manifest_hash(),
+        "hyperparameter_hash": hp_hash,
+        "seeds": list(seeds),
+        "primary_seed": int(primary_seed),
+        "selected_checkpoints": selected_checkpoints,
+        "failures": failures,
+        "models_run": list(models_to_run),
+        "progress_incremental": True,
+        "last_updated": _now_iso(),
+    }
+    atomic_write_json(metadata_dir / "run_manifest.json", manifest)
+
+    fieldnames = [
+        "model",
+        "regime",
+        "status",
+        "seed",
+        "primary_seed",
+        "val_predictions",
+        "test_predictions",
+        "val_metrics",
+        "efficiency",
+        "checkpoint_dir",
+        "error",
+    ]
+    # Render the CSV in-memory first so we can write atomically.
+    import io
+    buf = io.StringIO()
+    writer = _csv.DictWriter(buf, fieldnames=fieldnames, extrasaction="ignore")
+    writer.writeheader()
+    for row in runs:
+        writer.writerow({k: row.get(k) for k in fieldnames})
+    atomic_write_text(metadata_dir / "run_table.csv", buf.getvalue())
+
+
 def _run_one(
     model_name: str,
     regime: str,
@@ -726,6 +822,62 @@ def _run_one(
     neural_resume: bool = True,
 ) -> Dict[str, object]:
     print(f"[RUN] model={model_name} regime={regime} seed={seed}", flush=True)
+
+    # Crash-resume sentinel check. The ``_DONE.json`` is
+    # written by this function on success; if a previous run already
+    # produced it AND the hyperparameter / split hashes match, this whole
+    # call short-circuits. ``PHASE4_FORCE_RERUN=1`` forces a full redo.
+    from phase4.io.sentinels import (
+        force_rerun_active,
+        read_sentinel,
+        sentinel_matches,
+        write_sentinel,
+    )
+
+    is_primary_check = seed == primary_seed
+    model_dir_check = out_dir / "models" / model_name / regime
+    if not is_primary_check:
+        model_dir_check = model_dir_check / f"seed{seed}"
+    done_path_check = model_dir_check / "_DONE.json"
+    current_hp_hash = hashlib.sha256(
+        json.dumps(frozen_hparams_dict(), sort_keys=True).encode("utf-8")
+    ).hexdigest()
+    current_split_hash = split_manifest_hash()
+    if force_rerun_active():
+        if done_path_check.exists():
+            try:
+                done_path_check.unlink()
+                print(
+                    f"[resume] --force-rerun: removed {done_path_check}",
+                    flush=True,
+                )
+            except OSError:
+                pass
+    elif predict_sample_limit is None:
+        cached = read_sentinel(done_path_check)
+        if sentinel_matches(
+            cached,
+            hyperparameter_hash=current_hp_hash,
+            split_manifest_hash=current_split_hash,
+        ):
+            # Verify the declared artefacts exist; if any is missing, fall
+            # back to a full rerun to repopulate the disk.
+            artefact_paths = cached.get("artefacts") if cached else {}
+            missing = (
+                [p for p in artefact_paths.values() if not Path(p).exists()]
+                if isinstance(artefact_paths, dict)
+                else []
+            )
+            if not missing:
+                print(
+                    f"[resume] {model_name}/{regime}/seed={seed} ALREADY_DONE "
+                    f"(cached _DONE.json)",
+                    flush=True,
+                )
+                cached_row = dict(cached.get("row") or {})
+                if cached_row:
+                    return cached_row
+
     train_rows = [r for r in rows if r["split"] == "train"]
     val_rows = [r for r in rows if r["split"] == "val"]
     test_rows = [r for r in rows if r["split"] == "test"]
@@ -754,16 +906,19 @@ def _run_one(
     val_nn = _maybe_cap_pairs(val_pairs_all, nn_pair_cap, "val (ByT5)")
 
     base_nn = TransformerConfig()
-    nn_cfg = (
-        replace(
+    regime_identity_ratio = float(
+        IDENTITY_PAIR_RATIO_BY_REGIME.get(regime, base_nn.identity_pair_ratio)
+    )
+    if nn_pair_cap is not None:
+        nn_cfg = replace(
             base_nn,
             max_epochs=1,
             pretrain_epochs=1,
             finetune_epochs=1,
+            identity_pair_ratio=regime_identity_ratio,
         )
-        if nn_pair_cap is not None
-        else base_nn
-    )
+    else:
+        nn_cfg = replace(base_nn, identity_pair_ratio=regime_identity_ratio)
 
     is_primary = seed == primary_seed
     seed_suffix = "" if is_primary else f"__seed{seed}"
@@ -787,6 +942,7 @@ def _run_one(
                 "short_neural_fit": predict_sample_limit is not None,
                 "neural_resume": neural_resume,
                 "neural_resume_effective": resume_nn,
+                "identity_pair_ratio_resolved": float(regime_identity_ratio),
             },
             ensure_ascii=False,
             indent=2,
@@ -836,6 +992,51 @@ def _run_one(
             json.dumps(training_metrics, ensure_ascii=False, indent=2), encoding="utf-8"
         )
 
+        # attach the train lexicon and the empirical
+        # confusion whitelist BEFORE calibration so the gate sweep simulates
+        # the exact discipline used at inference (proper-name / rare-word
+        # extra margins, single-char substitution whitelist).
+        model.attach_lexicon(train_word_counts)
+        wl_k = int(getattr(nn_cfg, "gate_confusion_whitelist_k", 200) or 200)
+        whitelist = _load_top_confusions(phase2_train_only_dir, top_k=wl_k)
+        model.attach_confusion_whitelist(whitelist)
+        print(
+            f"[train] neural: attached lexicon ({len(train_word_counts)} words) "
+            f"and confusion whitelist ({len(whitelist)} entries, "
+            f"k={wl_k})",
+            flush=True,
+        )
+
+        # temperature calibration *before* the gate sweep so the
+        # gate's margin sweep operates on calibrated log-probabilities.
+        if val_nn:
+            print(
+                f"[train] neural: calibrating temperature on "
+                f"{min(2000, len(val_nn))} val pairs ...",
+                flush=True,
+            )
+            t_temp = time.perf_counter()
+            temp_cal = model.calibrate_temperature(
+                val_nn, max_pairs=min(2000, len(val_nn))
+            )
+            print(
+                f"[train] neural: temperature calibration done in "
+                f"{time.perf_counter() - t_temp:.1f}s "
+                f"(T={temp_cal.get('temperature')}, "
+                f"ECE {temp_cal.get('pre_ece')} -> {temp_cal.get('post_ece')})",
+                flush=True,
+            )
+            (model_dir / "neural_temperature.json").write_text(
+                json.dumps(temp_cal, ensure_ascii=False, indent=2),
+                encoding="utf-8",
+            )
+        else:
+            print(
+                "[train] neural: temperature calibration skipped "
+                f"(val_pairs={len(val_nn)})",
+                flush=True,
+            )
+
         if bool(getattr(nn_cfg, "gate_enabled", True)) and val_nn:
             print(
                 f"[train] neural: calibrating gate margin on val "
@@ -867,6 +1068,72 @@ def _run_one(
                 flush=True,
             )
 
+        # fit the headroom gate on val. Uses an ungated, post-edit-gate
+        # val predict pass to compute the headroom curve under the same
+        # conditions inference will run. The headroom gate
+        # *replaces* default neural inference: when attached, sentences with
+        # estimate_cer < tau short-circuit straight to identity.
+        hr_summary: Optional[Dict[str, object]] = None
+        if val_nn:
+            from phase4.models.headroom_gate import HeadroomGate, HeadroomGateConfig
+
+            hr_cap = min(int(nn_cfg.gate_calibration_max_pairs), len(val_nn))
+            hr_pairs = list(val_nn[:hr_cap])
+            print(
+                f"[train] neural: fitting headroom gate on {len(hr_pairs)} val pairs ...",
+                flush=True,
+            )
+            t_hr = time.perf_counter()
+            hr_gate = HeadroomGate(config=HeadroomGateConfig())
+            train_clean = [
+                str(r["clean"]) for r in train_rows
+                if r.get("clean") and r["split"] == "train"
+            ]
+            # Lowercase lexicon so the OOV proxy is case-insensitive (the
+            # Macedonian capitalised vs lowercase split is small relative
+            # to the OCR noise we're after).
+            hr_lex = {w.lower() for w, c in train_word_counts.items() if c >= 1}
+            hr_gate.fit(
+                train_clean,
+                lexicon=hr_lex,
+                phase2_train_only_dir=phase2_train_only_dir,
+            )
+            # Baseline val preds with the per-edit gate ON (so the headroom
+            # decision is layered on top of the calibrated downstream
+            # pipeline) but headroom OFF (it's not attached yet).
+            noisy_vals = [n for n, _ in hr_pairs]
+            with_logs = model.correct_batch_with_logs(
+                noisy_vals, apply_gate=True
+            )
+            baseline_preds = [p for p, _ in with_logs]
+            fit_result = hr_gate.fit_on_val(hr_pairs, val_preds=baseline_preds)
+            (model_dir / "headroom_calibration.json").write_text(
+                json.dumps(fit_result, ensure_ascii=False, indent=2),
+                encoding="utf-8",
+            )
+            model.attach_headroom_gate(hr_gate)
+            hr_summary = {
+                "threshold": float(hr_gate.threshold),
+                "selected": dict(fit_result.get("selected") or {}),
+                "baseline_input_cer": fit_result.get("baseline_input_cer"),
+                "baseline_pred_cer": fit_result.get("baseline_pred_cer"),
+                "coefficients": fit_result.get("coefficients"),
+                "n_val": fit_result.get("n_val"),
+            }
+            print(
+                f"[train] neural: headroom gate fit in "
+                f"{time.perf_counter() - t_hr:.1f}s "
+                f"(tau={hr_gate.threshold:.4f}, "
+                f"selected={hr_summary['selected']})",
+                flush=True,
+            )
+        else:
+            print(
+                "[train] neural: headroom gate skipped "
+                f"(val_pairs={len(val_nn)})",
+                flush=True,
+            )
+
         model.save(model_dir)
         if predict_sample_limit is not None:
             print(
@@ -891,17 +1158,82 @@ def _run_one(
             f"(predict_sample_limit={predict_sample_limit})",
             flush=True,
         )
-        t1 = time.perf_counter()
-        training_metrics = _train_neural(
-            neural,
-            rows,
-            regime,
-            val_nn,
-            train_pair_cap=nn_pair_cap,
-            checkpoint_dir=nn_ckpt_dir,
-            neural_resume=resume_nn,
+        # share the standalone neural checkpoint with hybrid
+        # when one exists for the same (regime, seed). loading
+        # restores ``self.temperature`` and ``self.tuned_*_margin`` straight
+        # out of ``transformer_meta.json``. Headroom gate is explicitly NOT
+        # attached on hybrid's inner neural so hybrid keeps its
+        # candidate-based pipeline on every sentence.
+        standalone_neural_dir = out_dir / "models" / "neural" / regime
+        if not is_primary:
+            standalone_neural_dir = standalone_neural_dir / f"seed{seed}"
+        shared_meta = standalone_neural_dir / "transformer_meta.json"
+        training_metrics_path = standalone_neural_dir / "training_metrics.json"
+        can_reuse = (
+            shared_meta.exists()
+            and training_metrics_path.exists()
+            and predict_sample_limit is None
         )
+        t1 = time.perf_counter()
+        if can_reuse:
+            print(
+                f"[train] hybrid: reusing standalone neural checkpoint at "
+                f"{standalone_neural_dir} (skipping retrain + temperature recal)",
+                flush=True,
+            )
+            neural.load(standalone_neural_dir)
+            # Headroom is for standalone neural only; clear it on hybrid.
+            neural.attach_headroom_gate(None)
+            training_metrics = json.loads(
+                training_metrics_path.read_text(encoding="utf-8")
+            )
+        else:
+            training_metrics = _train_neural(
+                neural,
+                rows,
+                regime,
+                val_nn,
+                train_pair_cap=nn_pair_cap,
+                checkpoint_dir=nn_ckpt_dir,
+                neural_resume=resume_nn,
+            )
         print(f"[train] hybrid: neural fit done in {time.perf_counter() - t1:.1f}s", flush=True)
+
+        # attach lexicon + confusion whitelist on hybrid's
+        # inner neural too. Even though hybrid's gate is candidate-based
+        # (not edit-based), the neural's ``score_targets_batch`` is what
+        # the hybrid head uses for reranking, and the calibration step
+        # benefits from the same discipline.
+        neural.attach_lexicon(train_word_counts)
+        hybrid_wl_k = int(getattr(nn_cfg, "gate_confusion_whitelist_k", 200) or 200)
+        hybrid_whitelist = _load_top_confusions(
+            phase2_train_only_dir, top_k=hybrid_wl_k
+        )
+        neural.attach_confusion_whitelist(hybrid_whitelist)
+
+        # calibrate temperature on the hybrid neural, but only if
+        # we just trained it from scratch. A reused checkpoint already has
+        # ``self.temperature`` set by ``load``.
+        if val_nn and not can_reuse:
+            t_temp = time.perf_counter()
+            temp_cal = neural.calibrate_temperature(
+                val_nn, max_pairs=min(2000, len(val_nn))
+            )
+            print(
+                f"[train] hybrid: temperature calibration done in "
+                f"{time.perf_counter() - t_temp:.1f}s "
+                f"(T={temp_cal.get('temperature')}, "
+                f"ECE {temp_cal.get('pre_ece')} -> {temp_cal.get('post_ece')})",
+                flush=True,
+            )
+            (model_dir / "neural_assets" / "neural_temperature.json").parent.mkdir(
+                parents=True, exist_ok=True
+            )
+            (model_dir / "neural_assets" / "neural_temperature.json").write_text(
+                json.dumps(temp_cal, ensure_ascii=False, indent=2),
+                encoding="utf-8",
+            )
+
         classical.save(model_dir / "classical_assets")
         neural.save(model_dir / "neural_assets")
         if predict_sample_limit is not None:
@@ -1017,7 +1349,7 @@ def _run_one(
     eff_path.write_text(json.dumps(eff_payload, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"[write] efficiency -> {eff_path}", flush=True)
 
-    return {
+    result_row = {
         "model": model_name,
         "regime": regime,
         "status": "success",
@@ -1029,6 +1361,36 @@ def _run_one(
         "efficiency": str(eff_path),
         "checkpoint_dir": str(model_dir),
     }
+
+    # Crash-resume sentinel: drop ``_DONE.json`` last, after
+    # every artefact is durable. The sentinel records the hashes needed to
+    # detect stale state on the next run plus the cached result row so the
+    # outer loop can skip without re-reading every JSONL.
+    if predict_sample_limit is None:
+        done_path = model_dir / "_DONE.json"
+        artefacts = {
+            "val_predictions": str(val_path),
+            "test_predictions": str(test_path),
+            "val_metrics": str(metrics_path),
+            "efficiency": str(eff_path),
+            "checkpoint_dir": str(model_dir),
+        }
+        write_sentinel(
+            done_path,
+            {
+                "model": model_name,
+                "regime": regime,
+                "seed": seed,
+                "completed_at": _now_iso(),
+                "hyperparameter_hash": current_hp_hash,
+                "split_manifest_hash": current_split_hash,
+                "artefacts": artefacts,
+                "row": result_row,
+            },
+        )
+        print(f"[resume] wrote sentinel -> {done_path}", flush=True)
+
+    return result_row
 
 
 def _emit_identity_baseline(
@@ -1173,8 +1535,14 @@ def run_phase4(
     regimes: Optional[List[str]] = None,
     predict_sample_limit: Optional[int] = None,
     neural_resume: bool = True,
+    output_dir: Optional[Path] = None,
 ) -> None:
     cfg = default_run_config(repo_root)
+    # the k-fold driver overrides ``output_dir`` to ``kfold/foldN/``
+    # so all artefacts (manifests, predictions, paper tables, sentinels)
+    # stay isolated per fold.
+    if output_dir is not None:
+        cfg = replace(cfg, output_dir=Path(output_dir))
     cfg.output_dir.mkdir(parents=True, exist_ok=True)
     assert_disjoint_splits()
 
@@ -1253,7 +1621,13 @@ def run_phase4(
         _ensure_train_only_stats(cfg)
     _predict_sample_progress(predict_sample_limit, "Train-only Phase 2/3 artifacts ready.")
 
-    manifests_dir = repo_root / "phase4" / "data" / "manifests"
+    # keep manifests inside the per-fold output_dir when the
+    # k-fold driver supplies an override so different folds don't trample
+    # each other's manifests. Standard runs keep the legacy path.
+    if output_dir is not None:
+        manifests_dir = cfg.output_dir / "manifests"
+    else:
+        manifests_dir = repo_root / "phase4" / "data" / "manifests"
     if skip_manifests:
         print("[phase4] (skip-manifests) reusing existing manifests/*.jsonl", flush=True)
         _predict_sample_progress(predict_sample_limit, "Reusing existing manifests.")
@@ -1406,6 +1780,20 @@ def run_phase4(
                     )
                     if cfg.fail_fast:
                         raise
+                # Crash-resume: after EVERY _run_one (success
+                # or fail), persist incremental run_manifest.json +
+                # run_table.csv. A reader of run_manifest.json mid-run sees
+                # actual current state, and a crash before the final write
+                # does not lose progress already made.
+                _persist_progress_incremental(
+                    cfg=cfg,
+                    runs=runs,
+                    failures=failures,
+                    selected_checkpoints=selected_checkpoints,
+                    models_to_run=models_to_run,
+                    seeds=seeds,
+                    primary_seed=primary_seed,
+                )
 
     print("[phase4] building paper tables...", flush=True)
     _predict_sample_progress(predict_sample_limit, "Aggregating paper tables + run manifest...")
@@ -1418,6 +1806,39 @@ def run_phase4(
     for name, path in table_paths.items():
         print(f"[phase4] paper_table[{name}] -> {path}", flush=True)
 
+    # Hidden-bug pass: enumerate new artefacts so the run_manifest.json is a
+    # complete inventory of what landed on disk. Reproducibility checkbox.
+    extra_artefacts: Dict[str, Dict[str, str]] = {
+        "temperature_calibrations": {},
+        "headroom_calibrations": {},
+        "gate_calibrations": {},
+    }
+    for model_name in models_to_run:
+        for regime in regimes_to_run:
+            for seed in seeds:
+                is_p = seed == primary_seed
+                mdir = cfg.output_dir / "models" / model_name / regime
+                if not is_p:
+                    mdir = mdir / f"seed{seed}"
+                key = f"{model_name}|{regime}|seed{seed}"
+                if model_name == "neural":
+                    if (mdir / "neural_temperature.json").exists():
+                        extra_artefacts["temperature_calibrations"][key] = str(
+                            mdir / "neural_temperature.json"
+                        )
+                    if (mdir / "headroom_calibration.json").exists():
+                        extra_artefacts["headroom_calibrations"][key] = str(
+                            mdir / "headroom_calibration.json"
+                        )
+                    if (mdir / "neural_gate_calibration.json").exists():
+                        extra_artefacts["gate_calibrations"][key] = str(
+                            mdir / "neural_gate_calibration.json"
+                        )
+                elif model_name == "hybrid":
+                    ntmp = mdir / "neural_assets" / "neural_temperature.json"
+                    if ntmp.exists():
+                        extra_artefacts["temperature_calibrations"][key] = str(ntmp)
+
     manifest = {
         "split_manifest_hash": split_manifest_hash(),
         "hyperparameter_hash": hashlib.sha256(
@@ -1428,6 +1849,7 @@ def run_phase4(
         "selected_checkpoints": selected_checkpoints,
         "failures": failures,
         "paper_tables": {k: str(v) for k, v in table_paths.items()},
+        "extra_artefacts": extra_artefacts,
         "leak_fix": {
             "phase2_train_only_dir": str(cfg.phase2_train_only_dir),
             "phase3_train_only_dir": str(cfg.phase3_train_only_dir),
@@ -1462,6 +1884,229 @@ def run_phase4(
             writer.writerow({k: row.get(k) for k in fieldnames})
     print(f"[phase4] wrote {table_path}", flush=True)
     _predict_sample_progress(predict_sample_limit, "All phase4 artifacts written; run complete.")
+
+
+
+def _now_iso() -> str:
+    import datetime as _dt
+    return _dt.datetime.now(_dt.timezone.utc).isoformat()
+
+
+def run_phase4_kfold(
+    repo_root: Path,
+    n_folds: int = 5,
+    seeds: Optional[List[int]] = None,
+    regimes: Optional[List[str]] = None,
+    skip_classical: bool = False,
+    skip_neural: bool = False,
+    skip_hybrid: bool = False,
+    skip_phase1: bool = True,
+    skip_phase2_stats: bool = True,
+    skip_phase3_noise: bool = True,
+    skip_manifests: bool = False,
+    predict_sample_limit: Optional[int] = None,
+    neural_resume: bool = True,
+) -> Dict[str, object]:
+    """Run a k-fold cross-document sweep.
+
+    Each fold rotates the test/val sets through ``KFOLD_TEST_SETS`` (see
+    :mod:`phase4.data.splits`), rebuilds manifests under
+    ``phase4_output/kfold/foldN/manifests/``, and re-uses the same
+    :func:`run_phase4` orchestrator the standard sweep does. Per-fold
+    sentinels (``_FOLD_DONE.json``) and a sweep-level sentinel
+    (``_SWEEP_KFOLD_DONE.json``) make crash recovery O(1).
+    """
+    from phase4.data.splits import KFOLD_TEST_SETS, docs_for_fold, set_kfold_override
+    from phase4.eval.kfold import build_kfold_table
+    from phase4.io.atomic import atomic_write_text
+
+    assert n_folds >= 1, "n_folds must be >= 1"
+    folds = list(range(min(n_folds, len(KFOLD_TEST_SETS))))
+    cfg = default_run_config(repo_root)
+    kfold_root = cfg.output_dir / "kfold"
+    kfold_root.mkdir(parents=True, exist_ok=True)
+
+    seeds = seeds or list(SEEDS)
+    primary_seed = seeds[0]
+    kfold_seeds = [primary_seed]
+
+    summary: Dict[str, object] = {
+        "folds_completed": [],
+        "folds_failed": [],
+        "kfold_root": str(kfold_root),
+    }
+    for fold_idx in folds:
+        fold_dir = kfold_root / f"fold{fold_idx}"
+        fold_dir.mkdir(parents=True, exist_ok=True)
+        sentinel = fold_dir / "_FOLD_DONE.json"
+        if sentinel.exists():
+            print(
+                f"[kfold] fold={fold_idx} _FOLD_DONE.json present -> "
+                "skipping (use --force-rerun to redo).",
+                flush=True,
+            )
+            summary["folds_completed"].append(fold_idx)  
+            continue
+
+        try:
+            split_assignment = docs_for_fold(fold_idx, k=len(folds))
+        except ValueError as exc:
+            print(f"[kfold] fold={fold_idx} skipped: {exc}", flush=True)
+            continue
+        print(
+            f"[kfold] === fold {fold_idx + 1}/{len(folds)} === "
+            f"train={sorted(split_assignment['train'])} "
+            f"val={sorted(split_assignment['val'])} "
+            f"test={sorted(split_assignment['test'])}",
+            flush=True,
+        )
+        set_kfold_override(split_assignment)
+        try:
+            run_phase4(
+                repo_root,
+                seeds=kfold_seeds,
+                skip_classical=skip_classical,
+                skip_neural=skip_neural,
+                skip_hybrid=skip_hybrid,
+                skip_phase1=skip_phase1,
+                skip_phase2_stats=skip_phase2_stats,
+                skip_phase3_noise=skip_phase3_noise,
+                # Each fold needs its own manifests because val/test
+                # are different. Force rebuild even if the caller
+                # passed --skip-manifests for the standard sweep.
+                skip_manifests=False,
+                regimes=regimes,
+                predict_sample_limit=predict_sample_limit,
+                neural_resume=neural_resume,
+                output_dir=fold_dir,
+            )
+            atomic_write_text(
+                sentinel,
+                json.dumps({
+                    "fold": fold_idx,
+                    "completed_at": _now_iso(),
+                    "split_assignment": {
+                        s: sorted(list(d)) for s, d in split_assignment.items()
+                    },
+                    "seeds": kfold_seeds,
+                }, ensure_ascii=False, indent=2),
+            )
+            summary["folds_completed"].append(fold_idx) 
+        except Exception as exc:
+            print(f"[kfold] fold={fold_idx} FAILED: {exc}", flush=True)
+            summary["folds_failed"].append({ 
+                "fold": fold_idx, "error": str(exc),
+            })
+            raise
+        finally:
+            set_kfold_override(None)
+
+    # Aggregate paper table across folds.
+    try:
+        path = build_kfold_table(cfg.output_dir, n_folds=len(folds), primary_seed=primary_seed)
+        summary["kfold_summary"] = str(path)
+        print(f"[kfold] paper_table[kfold] -> {path}", flush=True)
+    except Exception as exc:
+        print(f"[kfold] build_kfold_table failed: {exc}", flush=True)
+
+    return summary
+
+
+def run_pipeline(
+    repo_root: Path,
+    *,
+    kfold_n: int = 5,
+    skip_standard_sweep: bool = False,
+    **run_kwargs,
+) -> Dict[str, object]:
+    """Chained pipeline: standard sweep then k-fold sweep, with sentinels.
+
+    Sentinel hierarchy:
+
+    - ``_SWEEP_STANDARD_DONE.json`` written when the standard sweep finishes.
+    - ``_SWEEP_KFOLD_DONE.json``    written when the k-fold sweep finishes.
+    - ``_PIPELINE_DONE.json``       written when both legs finish.
+
+    Reruns are idempotent: each leg's sentinel short-circuits its work.
+    A crash mid-sweep leaves the per-leg sentinel *unwritten*, so the
+    rerun re-enters that leg and benefits from the inner
+    ``_DONE.json`` / ``_FOLD_DONE.json`` granularity.
+    """
+    from phase4.io.atomic import atomic_write_text
+
+    cfg = default_run_config(repo_root)
+    std_marker = cfg.output_dir / "_SWEEP_STANDARD_DONE.json"
+    kfold_marker = cfg.output_dir / "kfold" / "_SWEEP_KFOLD_DONE.json"
+    pipeline_marker = cfg.output_dir / "_PIPELINE_DONE.json"
+
+    summary: Dict[str, object] = {
+        "standard_marker": str(std_marker),
+        "kfold_marker": str(kfold_marker),
+        "pipeline_marker": str(pipeline_marker),
+    }
+
+    if pipeline_marker.exists():
+        print(f"[pipeline] _PIPELINE_DONE.json present at {pipeline_marker}; nothing to do.", flush=True)
+        summary["status"] = "already_done"
+        return summary
+
+    if skip_standard_sweep:
+        print("[pipeline] skip-standard-sweep set; jumping to k-fold leg.", flush=True)
+    elif std_marker.exists():
+        print(f"[pipeline] standard sweep cached -> {std_marker}", flush=True)
+    else:
+        run_phase4(repo_root, **run_kwargs)
+        atomic_write_text(
+            std_marker,
+            json.dumps({
+                "completed_at": _now_iso(),
+                "seeds": run_kwargs.get("seeds") or list(SEEDS),
+                "regimes": run_kwargs.get("regimes")
+                or ["real_only", "synthetic_only", "synthetic_plus_real"],
+            }, ensure_ascii=False, indent=2),
+        )
+        print(f"[pipeline] standard sweep done -> {std_marker}", flush=True)
+
+    if kfold_marker.exists():
+        print(f"[pipeline] k-fold sweep cached -> {kfold_marker}", flush=True)
+    else:
+        # Pass-through the same kwargs but the k-fold driver forces
+        # primary-seed-only inside. Phase1/2/3 are reused (they don't
+        # depend on the fold-time train/val/test split).
+        run_phase4_kfold(
+            repo_root,
+            n_folds=kfold_n,
+            seeds=None,  # k-fold driver pins to the primary seed
+            regimes=run_kwargs.get("regimes"),
+            skip_classical=bool(run_kwargs.get("skip_classical", False)),
+            skip_neural=bool(run_kwargs.get("skip_neural", False)),
+            skip_hybrid=bool(run_kwargs.get("skip_hybrid", False)),
+            skip_phase1=True,
+            skip_phase2_stats=True,
+            skip_phase3_noise=True,
+            skip_manifests=False,  # each fold rebuilds its own manifests
+            predict_sample_limit=run_kwargs.get("predict_sample_limit"),
+            neural_resume=bool(run_kwargs.get("neural_resume", True)),
+        )
+        atomic_write_text(
+            kfold_marker,
+            json.dumps({
+                "completed_at": _now_iso(),
+                "n_folds": int(kfold_n),
+            }, ensure_ascii=False, indent=2),
+        )
+        print(f"[pipeline] k-fold sweep done -> {kfold_marker}", flush=True)
+
+    atomic_write_text(
+        pipeline_marker,
+        json.dumps({
+            "completed_at": _now_iso(),
+            "standard": str(std_marker),
+            "kfold": str(kfold_marker),
+        }, ensure_ascii=False, indent=2),
+    )
+    summary["status"] = "done"
+    return summary
 
 
 def main():
@@ -1557,7 +2202,65 @@ def main():
         help="With --rebuild-val-metrics, refresh phase4_output/paper_tables/*.csv "
         "after rebuilding the selected val metrics.",
     )
+    parser.add_argument(
+        "--kfold",
+        type=int,
+        default=None,
+        metavar="N",
+        help="Run the k-fold cross-document sweep only (N folds). "
+        "Mutually exclusive with --also-kfold. Skips the standard 3-seed sweep.",
+    )
+    parser.add_argument(
+        "--also-kfold",
+        type=int,
+        default=None,
+        metavar="N",
+        help="Run the standard sweep AND THEN the k-fold sweep (N folds) "
+        "in one process; resume is automatic.",
+    )
+    parser.add_argument(
+        "--force-rerun",
+        action="store_true",
+        help="Delete all stage / sweep / pipeline sentinels and retrain from scratch.",
+    )
+    parser.add_argument(
+        "--skip-standard-sweep",
+        action="store_true",
+        help="When used with --also-kfold, do not run the standard sweep "
+        "(only run the k-fold leg). Useful when only the k-fold harness changed.",
+    )
     args = parser.parse_args()
+    if args.kfold is not None and args.also_kfold is not None:
+        raise SystemExit(
+            "--kfold and --also-kfold are mutually exclusive. Pick one."
+        )
+    if args.force_rerun:
+        os.environ["PHASE4_FORCE_RERUN"] = "1"
+        # Sweep / pipeline / fold sentinels live above _run_one's scope so
+        # we wipe them here before any sweep starts. The per-(model, regime,
+        # seed) _DONE.json files are wiped by _run_one itself when the env
+        # var is set, so we don't need to walk them here.
+        repo_root_force = Path(__file__).resolve().parents[1]
+        force_cfg = default_run_config(repo_root_force)
+        for marker_path in (
+            force_cfg.output_dir / "_SWEEP_STANDARD_DONE.json",
+            force_cfg.output_dir / "kfold" / "_SWEEP_KFOLD_DONE.json",
+            force_cfg.output_dir / "_PIPELINE_DONE.json",
+        ):
+            if marker_path.exists():
+                try:
+                    marker_path.unlink()
+                    print(f"[force-rerun] removed {marker_path}", flush=True)
+                except OSError:
+                    pass
+        kfold_root_force = force_cfg.output_dir / "kfold"
+        if kfold_root_force.exists():
+            for fold_done in kfold_root_force.glob("fold*/_FOLD_DONE.json"):
+                try:
+                    fold_done.unlink()
+                    print(f"[force-rerun] removed {fold_done}", flush=True)
+                except OSError:
+                    pass
     if args.neural_device != "auto":
         os.environ["PHASE4_NEURAL_DEVICE"] = args.neural_device
 
@@ -1622,8 +2325,7 @@ def main():
         print("Phase 4 val metrics recovery completed.", flush=True)
         return
 
-    run_phase4(
-        repo_root,
+    common_kwargs = dict(
         seeds=seeds,
         skip_classical=args.skip_classical,
         skip_neural=args.skip_neural,
@@ -1636,7 +2338,41 @@ def main():
         predict_sample_limit=args.predict_sample,
         neural_resume=not args.no_neural_resume,
     )
-    print("Phase 4 completed.", flush=True)
+    if args.also_kfold is not None:
+        run_pipeline(
+            repo_root,
+            kfold_n=int(args.also_kfold),
+            skip_standard_sweep=bool(args.skip_standard_sweep),
+            **common_kwargs,
+        )
+        print("Phase 4 pipeline (standard + k-fold) completed.", flush=True)
+    elif args.kfold is not None:
+        # K-fold only -- ignore --seeds because the k-fold driver pins
+        # itself to the primary seed; loud-fail if a list was passed.
+        if seeds and seeds != [seeds[0]]:
+            print(
+                f"[phase4] --kfold ignores --seeds beyond the primary; using {seeds[0]}",
+                flush=True,
+            )
+        run_phase4_kfold(
+            repo_root,
+            n_folds=int(args.kfold),
+            seeds=seeds,
+            regimes=regimes,
+            skip_classical=args.skip_classical,
+            skip_neural=args.skip_neural,
+            skip_hybrid=args.skip_hybrid,
+            skip_phase1=args.skip_phase1,
+            skip_phase2_stats=args.skip_phase2_stats,
+            skip_phase3_noise=args.skip_phase3_noise,
+            skip_manifests=False,
+            predict_sample_limit=args.predict_sample,
+            neural_resume=not args.no_neural_resume,
+        )
+        print("Phase 4 k-fold sweep completed.", flush=True)
+    else:
+        run_phase4(repo_root, **common_kwargs)
+        print("Phase 4 completed.", flush=True)
 
 
 if __name__ == "__main__":

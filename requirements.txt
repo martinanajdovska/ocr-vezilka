@@ -19,16 +19,18 @@
 #     (default PyPI torch wheel is CPU; no extra steps)
 
 # --- Phases 1–3: analysis & plotting ---
-numpy>=1.26
-pandas>=2.0
-matplotlib>=3.7
-seaborn>=0.13
+numpy>=1.26,<3
+pandas>=2.0,<3
+matplotlib>=3.7,<4
+seaborn>=0.13,<1
+scipy>=1.11,<2
 
 # --- Phase 4: neural stack (google/byt5-small) ---
 # transformers ships the model + ByT5 byte tokenizer; torch is the backend.
 # tokenizers is pinned for stable byte-level tokenizer behavior across versions.
 # accelerate is optional but enables device_map="auto" on multi-GPU hosts.
-transformers>=4.41,<5
-torch>=2.2
-tokenizers>=0.19
-accelerate>=0.30
+transformers>=4.41,<4.46
+torch>=2.2,<2.6
+tokenizers>=0.19,<0.21
+accelerate>=0.30,<0.34
+safetensors>=0.4,<1

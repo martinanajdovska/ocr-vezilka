@@ -5,8 +5,10 @@ import json
 import math
 import os
 import random
+import re
 import time
 from dataclasses import asdict
+from difflib import SequenceMatcher
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Sequence, Tuple, Union  # noqa: F401
 
@@ -15,9 +17,17 @@ import torch.nn as nn
 from torch.utils.data import DataLoader, Dataset
 
 from phase4.config import TransformerConfig
-from phase4.eval.metrics import cer
-from phase4.models.classical import _load_confusion_sub_log_probs
+from phase4.eval.metrics import cer, is_proper_name, is_rare_word
+from phase4.models.classical import (
+    _load_confusion_sub_log_probs,
+    _load_top_confusions,
+)
 from phase4.models.macedonian_script import sanitize_batch, sanitize_macedonian
+
+# Pre-compiled tokenizer for proper-name / rare-word lookups. Matches the
+# same word boundary heuristic used by the classical gate so the two
+# correctors agree on what a "token" is for purposes of margin boosts.
+_TOKEN_RE = re.compile(r"[\w'’ʼ\-]+", re.UNICODE)
 
 
 def _import_hf():
@@ -307,7 +317,19 @@ class ByT5Corrector:
         # ``transformer_meta.json``). Takes precedence over
         # ``cfg.gate_log_prob_margin`` whenever the gate runs.
         self.tuned_gate_margin: Optional[float] = None
+        self.tuned_per_edit_margin: Optional[float] = None
         self.gate_calibration: Optional[Dict[str, object]] = None
+        # temperature scaling. ``1.0`` means logits are unmodified;
+        # ``calibrate_temperature`` sets this to the val-NLL optimum (typically
+        # in [1.1, 1.5] for a slightly over-confident ByT5 fine-tune). Every
+        # log_softmax in ``score_targets_batch`` / per-edit gate divides
+        # logits by this value before softmaxing.
+        self.temperature: float = 1.0
+        self.temperature_calibration: Optional[Dict[str, object]] = None
+        self.confusion_whitelist: Optional[frozenset] = None
+        self.train_word_counts: Optional[Dict[str, int]] = None
+        self.lexicon: Optional[set] = None
+        self.headroom: Optional[object] = None  # HeadroomGate; typed weakly to avoid import cycle
 
 
     def _load_pretrained(self, source: Optional[Path] = None) -> None:
@@ -317,6 +339,39 @@ class ByT5Corrector:
         self.tokenizer = ByT5Tokenizer.from_pretrained(src)
         self.model = T5ForConditionalGeneration.from_pretrained(src).to(self.device)
         self._configure_model_for_training()
+        self._maybe_torch_compile()
+
+    def _maybe_torch_compile(self) -> None:
+        """Optionally torch.compile the model.
+
+        Opt-in via ``PHASE4_TORCH_COMPILE=1`` so deterministic timing tables
+        are unaffected by default.
+
+        ``PHASE4_TORCH_COMPILE_MODE`` overrides the compile mode (default,
+        reduce-overhead, max-autotune). ``default`` is the safest with
+        dynamic ByT5 padding lengths; ``reduce-overhead`` uses CUDA graphs
+        and recompiles on every new shape, which thrashes on variable-length
+        batches.
+        """
+        if self.model is None:
+            return
+        if os.environ.get("PHASE4_TORCH_COMPILE", "").strip().lower() not in (
+            "1", "true", "yes", "on"
+        ):
+            return
+        if self.device.type != "cuda":
+            print("[byt5] PHASE4_TORCH_COMPILE set but device is not CUDA; skipping.", flush=True)
+            return
+        mode = os.environ.get("PHASE4_TORCH_COMPILE_MODE", "default").strip() or "default"
+        try:
+            print(
+                f"[byt5] torch.compile(mode={mode!r}, dynamic=True) ... "
+                "(first batch is slow while the graph is captured)",
+                flush=True,
+            )
+            self.model = torch.compile(self.model, mode=mode, dynamic=True)
+        except Exception as exc:
+            print(f"[byt5] torch.compile failed ({exc}); continuing without it.", flush=True)
 
     def _configure_model_for_training(self) -> None:
         """Enable gradient checkpointing / disable KV cache for training memory.
@@ -349,11 +404,29 @@ class ByT5Corrector:
     ) -> Tuple[List[Tuple[str, str]], int]:
         kept: List[Tuple[str, str]] = []
         skipped = 0
+        # emit a one-time warning when input or target
+        # length exceeds ``max_input_bytes`` / ``max_target_bytes``.
+        max_in = int(getattr(self.cfg, "max_input_bytes", 0) or 0)
+        max_tg = int(getattr(self.cfg, "max_target_bytes", 0) or 0)
+        n_truncated_in = 0
+        n_truncated_tg = 0
         for src, tgt in pairs:
             if not src or not tgt:
                 skipped += 1
                 continue
+            if max_in and len(src.encode("utf-8")) > max_in:
+                n_truncated_in += 1
+            if max_tg and len(tgt.encode("utf-8")) > max_tg:
+                n_truncated_tg += 1
             kept.append((src, tgt))
+        if n_truncated_in or n_truncated_tg:
+            print(
+                f"[byt5] WARN: truncated {n_truncated_in} input / "
+                f"{n_truncated_tg} target pairs to max_input_bytes={max_in} "
+                f"/ max_target_bytes={max_tg}. "
+                "Consider bumping those config values if the figure is non-trivial.",
+                flush=True,
+            )
         return kept, skipped
 
 
@@ -914,6 +987,54 @@ class ByT5Corrector:
             return list(texts)
         return sanitize_batch(list(texts))
 
+    def _maybe_apply_headroom_skip(
+        self,
+        sentences: Sequence[str],
+        apply_gate: Optional[bool],
+    ) -> Tuple[List[bool], List[Dict[str, object]]]:
+        """Decide which sentences to short-circuit before generate.
+
+        Returns (skip_mask, per_sentence_headroom_logs). When
+        ``apply_gate=False`` (calibration paths) the headroom is forced
+        off so calibration always sees the model's behaviour on the full
+        distribution. When ``self.headroom is None`` no sentence is
+        skipped and estimates are ``None``.
+        """
+        n = len(sentences)
+        if apply_gate is False or self.headroom is None:
+            return [False] * n, [
+                {"headroom_estimate_cer": None, "headroom_skipped": False}
+                for _ in range(n)
+            ]
+        skip: List[bool] = []
+        logs: List[Dict[str, object]] = []
+        threshold = float(getattr(self.headroom, "threshold", 0.0) or 0.0)
+        for s in sentences:
+            if not s:
+                skip.append(False)
+                logs.append({
+                    "headroom_estimate_cer": None,
+                    "headroom_skipped": False,
+                })
+                continue
+            try:
+                est = float(self.headroom.estimate_cer(s)) 
+            except Exception:
+                est = float("nan")
+            if math.isfinite(est) and est < threshold:
+                skip.append(True)
+                logs.append({
+                    "headroom_estimate_cer": est,
+                    "headroom_skipped": True,
+                })
+            else:
+                skip.append(False)
+                logs.append({
+                    "headroom_estimate_cer": est if math.isfinite(est) else None,
+                    "headroom_skipped": False,
+                })
+        return skip, logs
+
     def correct_batch(
         self,
         sentences: Sequence[str],
@@ -931,9 +1052,12 @@ class ByT5Corrector:
         if self.model.training:
             self.model.eval()
         self._configure_model_for_inference()
+        # headroom gate -- skipped sentences pass through as identity
+        # without ever touching the GPU. Calibration paths force this off.
+        skip_mask, _hr_logs = self._maybe_apply_headroom_skip(sentences, apply_gate)
         prefixed: List[str] = []
-        for s in sentences:
-            if not s:
+        for i, s in enumerate(sentences):
+            if not s or skip_mask[i]:
                 prefixed.append("")
                 continue
             src = s
@@ -1016,9 +1140,12 @@ class ByT5Corrector:
         if self.model.training:
             self.model.eval()
         self._configure_model_for_inference()
+        # headroom gate -- skipped sentences pass through as identity
+        # and get tagged with ``gate_decision="headroom_skip"`` in their log.
+        skip_mask, hr_logs = self._maybe_apply_headroom_skip(sentences, apply_gate)
         prefixed: List[str] = []
-        for s in sentences:
-            if not s:
+        for i, s in enumerate(sentences):
+            if not s or skip_mask[i]:
                 prefixed.append("")
                 continue
             src = s
@@ -1026,9 +1153,20 @@ class ByT5Corrector:
                 src = self.cfg.task_prefix + src
             prefixed.append(src)
         non_empty_idx = [i for i, s in enumerate(prefixed) if s]
-        results: List[Tuple[str, List[Dict[str, object]]]] = [
-            (s, [{"confidence": 1.0}]) for s in sentences
-        ]
+        # Pre-populate per-sentence results with identity + headroom log so
+        # short-circuited (empty or headroom-skipped) sentences still get
+        # rich log rows.
+        results: List[Tuple[str, List[Dict[str, object]]]] = []
+        for i, s in enumerate(sentences):
+            base_log: Dict[str, object] = {
+                "confidence": 1.0,
+                "score": 0.0,
+                "gate_decision": (
+                    "headroom_skip" if skip_mask[i] else "identity"
+                ),
+            }
+            base_log.update(hr_logs[i])
+            results.append((s, [base_log]))
         if not non_empty_idx:
             return results
         enc = self.tokenizer(
@@ -1108,6 +1246,14 @@ class ByT5Corrector:
             decision = decisions[idx] if idx < len(decisions) else {}
             log_row: Dict[str, object] = dict(per_log[idx])
             log_row.update(decision)
+            # Stamp headroom metadata first, then let the per-edit gate
+            # decision override ``gate_decision`` for sentences that were
+            # actually fed through the model. Headroom-skipped sentences
+            # keep ``gate_decision="headroom_skip"`` (their pred == noisy).
+            log_row.update(hr_logs[idx])
+            if skip_mask[idx]:
+                log_row["gate_decision"] = "headroom_skip"
+                gated[idx] = sentences[idx]
             results[idx] = (gated[idx], [log_row])
         return results
 
@@ -1124,6 +1270,17 @@ class ByT5Corrector:
         if self.model.training:
             self.model.eval()
         self._configure_model_for_inference()
+        # single-sentence headroom check. Skipping means we return
+        # the input unchanged with ``gate_decision="headroom_skip"``.
+        skip_mask, hr_logs = self._maybe_apply_headroom_skip([sentence], apply_gate)
+        if skip_mask[0]:
+            log = {
+                "confidence": 1.0,
+                "score": 0.0,
+                "gate_decision": "headroom_skip",
+            }
+            log.update(hr_logs[0])
+            return sentence, [log]
         src = sentence
         if self.cfg.task_prefix and not src.startswith(self.cfg.task_prefix):
             src = self.cfg.task_prefix + src
@@ -1180,6 +1337,11 @@ class ByT5Corrector:
         }
         if gate_logs:
             log.update(gate_logs[0])
+        # Headroom metadata flows through every predict path so downstream
+        # JSONLs always carry the estimate (or ``None`` when no gate is
+        # attached / calibration disabled).
+        if hr_logs:
+            log.update(hr_logs[0])
         return gated_batch[0], [log]
 
     def score_target(self, noisy: str, target: str) -> float:
@@ -1187,29 +1349,32 @@ class ByT5Corrector:
         scores = self.score_targets_batch([noisy], [target])
         return scores[0] if scores else float("-inf")
 
-    def score_targets_batch(
+    def _score_targets_internal(
         self,
         noisy_list: Sequence[str],
         target_list: Sequence[str],
         chunk_size: Optional[int] = None,
-    ) -> List[float]:
-        """Length-normalized log P(target | noisy) for many pairs at once.
+        return_per_pos: bool = False,
+    ) -> Tuple[List[float], Optional[List[List[float]]]]:
+        """Teacher-forced log P(target | noisy) — internal core of both
+        :meth:`score_targets_batch` and the per-edit gate.
 
-        Implemented as a single (or chunked) batched forward pass instead of
-        ``len(pairs)`` independent ``score_target`` calls. The neural gate in
-        ``correct_batch_with_logs`` needs this twice per request batch (once
-        for the prediction, once for the original noisy input), and per-sample
-        calls dominate inference wall time on small batches.
+        Returns (sentence_scores, per_pos_logps_or_None). When
+        ``return_per_pos`` is True, ``per_pos_logps[i]`` is a list of
+        per-target-byte log-probabilities for the i-th pair (length =
+        number of non-pad target bytes; floats; empty list for skipped
+        rows). Temperature scaling is applied identically in
+        both views.
         """
         if self.model is None or self.tokenizer is None:
             raise ValueError("Model is not fitted.")
         if len(noisy_list) != len(target_list):
             raise ValueError(
-                f"score_targets_batch: noisy/target length mismatch "
+                f"score_targets_internal: noisy/target length mismatch "
                 f"({len(noisy_list)} vs {len(target_list)})"
             )
         if not noisy_list:
-            return []
+            return [], ([] if return_per_pos else None)
         if self.model.training:
             self.model.eval()
         n = len(noisy_list)
@@ -1225,6 +1390,9 @@ class ByT5Corrector:
             else contextlib.nullcontext()
         )
         out_scores: List[float] = [float("-inf")] * n
+        out_perpos: Optional[List[List[float]]] = (
+            [[] for _ in range(n)] if return_per_pos else None
+        )
         for start in range(0, n, cs):
             stop = min(n, start + cs)
             chunk_noisy = list(noisy_list[start:stop])
@@ -1268,8 +1436,12 @@ class ByT5Corrector:
                     attention_mask=enc["attention_mask"],
                     labels=labels_for_loss,
                 )
-                logits = outputs.logits  # (B, T, V)
-                log_probs = torch.log_softmax(logits.float(), dim=-1)
+                logits = outputs.logits  
+                # apply temperature scaling before log_softmax. With
+                # ``self.temperature == 1.0`` (default) this is a no-op so
+                # back-compat with already-trained checkpoints is preserved.
+                temperature = max(float(self.temperature), 1e-3)
+                log_probs = torch.log_softmax(logits.float() / temperature, dim=-1)
                 gathered = log_probs.gather(
                     2, labels.unsqueeze(-1).clamp(min=0)
                 ).squeeze(-1)
@@ -1278,14 +1450,280 @@ class ByT5Corrector:
                 lengths = mask.sum(dim=1)
             totals_l = totals.detach().to("cpu").tolist()
             lengths_l = lengths.detach().to("cpu").tolist()
+            if return_per_pos:
+                # Mask out pad positions so the downstream window sums are well-defined.
+                gathered_l = gathered.detach().to("cpu").tolist()
+                mask_l = mask.detach().to("cpu").tolist()
+            else:
+                gathered_l = None
+                mask_l = None
             for k, j in enumerate(keep_idx):
                 tok_len = int(lengths_l[k])
                 if tok_len <= 0:
                     out_scores[start + j] = float("-inf")
+                    if return_per_pos and out_perpos is not None:
+                        out_perpos[start + j] = []
                     continue
                 denom = ((5 + tok_len) / 6.0) ** alpha
                 out_scores[start + j] = float(totals_l[k]) / denom
-        return out_scores
+                if return_per_pos and out_perpos is not None and gathered_l is not None:
+                    row = gathered_l[k]
+                    m_row = mask_l[k] if mask_l is not None else None
+                    # Trim trailing pad positions so the returned vector
+                    # has length == number of non-pad target tokens.
+                    if m_row is not None:
+                        # m_row is a list of 0/1 floats; find last 1.
+                        last = -1
+                        for idx, v in enumerate(m_row):
+                            if v > 0.0:
+                                last = idx
+                        if last >= 0:
+                            out_perpos[start + j] = [float(x) for x in row[: last + 1]]
+                        else:
+                            out_perpos[start + j] = []
+                    else:
+                        out_perpos[start + j] = [float(x) for x in row]
+        return out_scores, out_perpos
+
+    def score_targets_batch(
+        self,
+        noisy_list: Sequence[str],
+        target_list: Sequence[str],
+        chunk_size: Optional[int] = None,
+    ) -> List[float]:
+        """Length-normalized log P(target | noisy) for many pairs at once.
+
+        Thin wrapper over :meth:`_score_targets_internal` that returns
+        sentence-level sums only. Used by the hybrid head and by the
+        sentence-level half of the gate.
+        """
+        scores, _ = self._score_targets_internal(
+            noisy_list, target_list, chunk_size=chunk_size, return_per_pos=False
+        )
+        return scores
+
+    def score_targets_with_perpos_batch(
+        self,
+        noisy_list: Sequence[str],
+        target_list: Sequence[str],
+        chunk_size: Optional[int] = None,
+    ) -> Tuple[List[float], List[List[float]]]:
+        """Both length-normalized sentence scores AND per-target-byte log
+        probabilities. Used by the per-edit gate.
+
+        Per-position logps are aligned to UTF-8 byte positions of the
+        target string plus a trailing EOS. ``len(per_pos_logps[i])`` may
+        be slightly larger than ``len(target_list[i].encode('utf-8'))``
+        due to EOS, and may be smaller if the target was truncated by
+        ``max_target_bytes``.
+        """
+        scores, perpos = self._score_targets_internal(
+            noisy_list, target_list, chunk_size=chunk_size, return_per_pos=True
+        )
+        return scores, (perpos or [[] for _ in noisy_list])
+
+    def calibrate_temperature(
+        self,
+        val_pairs: Sequence[Tuple[str, str]],
+        max_pairs: int = 2000,
+        grid: Optional[Sequence[float]] = None,
+    ) -> Dict[str, object]:
+        """Task C: fit a single scalar temperature ``T`` on val NLL.
+
+        Strategy: stream the val sample once through teacher-forced forward
+        passes; for every candidate T, accumulate (a) total negative log
+        likelihood of the gold tokens and (b) per-bin (confidence, accuracy)
+        histograms for token-level Expected Calibration Error. Pick the T
+        with the lowest NLL (tie-break: T closest to 1.0). Store on
+        ``self.temperature`` and persist alongside HF weights in
+        ``transformer_meta.json``.
+
+        Output dict reports ``temperature``, ``pre_ece``, ``post_ece``,
+        ``pre_nll``, ``post_nll``, plus the full grid log for the paper
+        table. The chosen ``T`` then applies in every place
+        :meth:`score_targets_batch` runs (the gate at predict time, the
+        gate calibration sweep, the per-edit gate in
+        :meth:`_maybe_apply_gate`).
+        """
+        if self.model is None or self.tokenizer is None:
+            raise ValueError("Model is not fitted; cannot calibrate temperature.")
+        if not val_pairs:
+            print("[byt5] calibrate-temperature: empty val_pairs, skipping", flush=True)
+            return {"temperature": 1.0, "tested": 0, "grid": [], "log": []}
+
+        grid_list = list(
+            grid
+            if grid is not None
+            else [0.5, 0.7, 0.85, 1.0, 1.15, 1.3, 1.5, 1.75, 2.0, 2.5]
+        )
+        sample = list(val_pairs[: max(1, int(max_pairs))])
+        n_total = len(sample)
+        if self.model.training:
+            self.model.eval()
+
+        # Always include 1.0 in the grid so we can report pre-calibration ECE.
+        if 1.0 not in grid_list:
+            grid_list = [1.0] + grid_list
+
+        cs = max(1, int(getattr(self.cfg, "predict_batch_size", 32) or 32))
+        use_amp, amp_dtype = _cuda_amp_autocast_dtype(self.cfg, self.device)
+        amp_ctx = (
+            torch.amp.autocast("cuda", dtype=amp_dtype)
+            if use_amp and amp_dtype is not None
+            else contextlib.nullcontext()
+        )
+
+        nll_sum: Dict[float, float] = {T: 0.0 for T in grid_list}
+        tok_total = 0
+        n_bins = 10
+        # Per-T calibration histograms: (conf_sum, correct_sum, count) per bin.
+        bins_conf: Dict[float, List[float]] = {T: [0.0] * n_bins for T in grid_list}
+        bins_correct: Dict[float, List[float]] = {T: [0.0] * n_bins for T in grid_list}
+        bins_count: Dict[float, List[int]] = {T: [0] * n_bins for T in grid_list}
+
+        print(
+            f"[byt5] calibrate-temperature: forwarding {n_total} val pairs "
+            f"over grid={grid_list} ...",
+            flush=True,
+        )
+        t0 = time.perf_counter()
+
+        for start in range(0, n_total, cs):
+            stop = min(n_total, start + cs)
+            chunk = sample[start:stop]
+            srcs: List[str] = []
+            tgts: List[str] = []
+            for noisy, clean in chunk:
+                if not clean:
+                    continue
+                src = (
+                    self.cfg.task_prefix + noisy
+                    if self.cfg.task_prefix and not noisy.startswith(self.cfg.task_prefix)
+                    else noisy
+                )
+                srcs.append(src)
+                tgts.append(clean)
+            if not srcs:
+                continue
+            enc = self.tokenizer(
+                srcs,
+                max_length=self.cfg.max_input_bytes,
+                truncation=True,
+                padding=True,
+                return_tensors="pt",
+            ).to(self.device)
+            dec = self.tokenizer(
+                text_target=tgts,
+                max_length=self.cfg.max_target_bytes,
+                truncation=True,
+                padding=True,
+                return_tensors="pt",
+            )
+            labels = dec["input_ids"].to(self.device)
+            pad_id = int(self.tokenizer.pad_token_id)
+            labels_for_loss = labels.clone()
+            labels_for_loss[labels_for_loss == pad_id] = -100
+            with torch.no_grad(), amp_ctx:
+                outputs = self.model(
+                    input_ids=enc["input_ids"],
+                    attention_mask=enc["attention_mask"],
+                    labels=labels_for_loss,
+                )
+                logits = outputs.logits.float()  # (B, T, V)
+            mask = (labels_for_loss != -100).float()
+            gold_safe = labels.clamp(min=0)
+            mask_flat = mask.reshape(-1)
+            kept = mask_flat > 0
+            n_kept_tokens = int(kept.sum().item())
+            if n_kept_tokens <= 0:
+                continue
+            tok_total += n_kept_tokens
+            for T in grid_list:
+                scaled = logits / max(float(T), 1e-3)
+                log_probs = torch.log_softmax(scaled, dim=-1)
+                gold_logp = log_probs.gather(2, gold_safe.unsqueeze(-1)).squeeze(-1)
+                nll_sum[T] += float(-(gold_logp * mask).sum().item())
+                # Per-token confidence / correctness for ECE binning.
+                probs = log_probs.exp()
+                conf, pred = probs.max(dim=-1)
+                correct = (pred == labels).float() * mask
+                conf_flat = conf.reshape(-1)[kept]
+                correct_flat = correct.reshape(-1)[kept]
+                # Bin index on CPU (the per-bin assignment is tiny).
+                conf_cpu = conf_flat.detach().to("cpu")
+                correct_cpu = correct_flat.detach().to("cpu")
+                idx = (conf_cpu * n_bins).clamp_(0, n_bins - 1).long()
+                for b in range(n_bins):
+                    sel = idx == b
+                    if not sel.any():
+                        continue
+                    bins_conf[T][b] += float(conf_cpu[sel].sum().item())
+                    bins_correct[T][b] += float(correct_cpu[sel].sum().item())
+                    bins_count[T][b] += int(sel.sum().item())
+
+        if tok_total == 0:
+            print(
+                "[byt5] calibrate-temperature: no labelled tokens collected, skipping.",
+                flush=True,
+            )
+            return {"temperature": 1.0, "tested": 0, "grid": grid_list, "log": []}
+
+        nll_mean = {T: nll_sum[T] / max(1, tok_total) for T in grid_list}
+
+        def _ece_for(T: float) -> float:
+            total = sum(bins_count[T])
+            if total == 0:
+                return 0.0
+            err = 0.0
+            for b in range(n_bins):
+                cnt = bins_count[T][b]
+                if cnt == 0:
+                    continue
+                mean_conf = bins_conf[T][b] / cnt
+                mean_acc = bins_correct[T][b] / cnt
+                err += (cnt / total) * abs(mean_conf - mean_acc)
+            return err
+
+        ece = {T: _ece_for(T) for T in grid_list}
+        best_T = min(
+            grid_list, key=lambda T: (nll_mean[T], abs(T - 1.0))
+        )
+
+        elapsed = time.perf_counter() - t0
+        log = [
+            {
+                "temperature": float(T),
+                "nll": float(nll_mean[T]),
+                "ece": float(ece[T]),
+                "n_tokens": int(tok_total),
+            }
+            for T in grid_list
+        ]
+
+        self.temperature = float(best_T)
+        result = {
+            "temperature": float(best_T),
+            "pre_temperature": 1.0,
+            "pre_nll": float(nll_mean[1.0]),
+            "post_nll": float(nll_mean[best_T]),
+            "pre_ece": float(ece[1.0]),
+            "post_ece": float(ece[best_T]),
+            "n_pairs": int(n_total),
+            "n_tokens": int(tok_total),
+            "n_bins": n_bins,
+            "grid": grid_list,
+            "log": log,
+            "elapsed_s": float(elapsed),
+        }
+        self.temperature_calibration = result
+        print(
+            f"[byt5] calibrate-temperature: T={best_T} "
+            f"NLL {nll_mean[1.0]:.4f} -> {nll_mean[best_T]:.4f}  "
+            f"ECE {ece[1.0]:.4f} -> {ece[best_T]:.4f} "
+            f"in {elapsed:.1f}s",
+            flush=True,
+        )
+        return result
 
     def _effective_gate_margin(self) -> float:
         """Margin actually used by the gate.
@@ -1297,6 +1735,91 @@ class ByT5Corrector:
         if self.tuned_gate_margin is not None:
             return float(self.tuned_gate_margin)
         return float(getattr(self.cfg, "gate_log_prob_margin", 0.0) or 0.0)
+
+    def _effective_per_edit_margin(self) -> float:
+        """Per-edit margin. Mirrors :meth:`_effective_gate_margin`
+        but for the per-edit-window log-prob delta. The tuned value from
+        :meth:`calibrate_gate_on_val` takes precedence over
+        ``cfg.gate_per_edit_margin``.
+        """
+        if self.tuned_per_edit_margin is not None:
+            return float(self.tuned_per_edit_margin)
+        return float(getattr(self.cfg, "gate_per_edit_margin", 0.0) or 0.0)
+
+    @staticmethod
+    def _utf8_char_offsets(s: str) -> List[int]:
+        """Cumulative UTF-8 byte offsets for each character boundary.
+
+        For a string ``s`` with ``L`` characters returns a list of length
+        ``L + 1`` such that ``offsets[i]`` is the byte offset of character
+        ``i`` (or end-of-string for ``i == L``). Used to translate
+        ``SequenceMatcher`` opcodes (character-indexed) to the byte-indexed
+        per-position log-prob arrays returned by
+        :meth:`score_targets_with_perpos_batch`.
+        """
+        offsets = [0]
+        cum = 0
+        for ch in s:
+            cum += len(ch.encode("utf-8"))
+            offsets.append(cum)
+        return offsets
+
+    def _window_logp(
+        self,
+        per_pos: Sequence[float],
+        byte_start: int,
+        byte_stop: int,
+    ) -> float:
+        """Sum per-byte log-probs over ``[byte_start, byte_stop)``.
+
+        Returns ``-inf`` when the requested window lies fully outside the
+        available per-position vector (e.g. tail of a truncated target).
+        Partial overlaps sum the available bytes; the caller treats
+        ``-inf`` as "unscored, keep edit conservatively".
+        """
+        if byte_stop <= byte_start:
+            # Pure insert/delete on this side: the window has zero length on
+            # this target. The caller cancels the comparison and uses a
+            # neutral (=0) contribution from the missing side.
+            return 0.0
+        if not per_pos:
+            return float("-inf")
+        lo = max(0, int(byte_start))
+        hi = min(len(per_pos), int(byte_stop))
+        if hi <= lo:
+            return float("-inf")
+        return float(sum(per_pos[lo:hi]))
+
+    def _token_containing(self, s: str, char_pos: int) -> str:
+        """Return the surface token in ``s`` that contains character offset
+        ``char_pos``. Empty string if the position falls on whitespace
+        between tokens. Used by the proper-name / rare-word margin
+        boost.
+        """
+        if not s or char_pos < 0 or char_pos >= len(s):
+            return ""
+        # Walk regex matches; pick the one straddling the position.
+        for m in _TOKEN_RE.finditer(s):
+            if m.start() <= char_pos < m.end():
+                return m.group(0)
+        return ""
+
+    def _per_edit_extra_margin_for(self, surface_token: str) -> float:
+        """extra log-prob margin required to accept an edit inside
+        ``surface_token``. Mirrors classical's proper-name / rare-word
+        margin discipline. Returns 0.0 when no lexicon is attached.
+        """
+        if not surface_token:
+            return 0.0
+        extra = 0.0
+        cfg = self.cfg
+        if is_proper_name(surface_token):
+            extra += float(getattr(cfg, "gate_proper_name_extra_margin", 0.0) or 0.0)
+        if self.train_word_counts is not None and is_rare_word(
+            surface_token, self.train_word_counts
+        ):
+            extra += float(getattr(cfg, "gate_rare_word_extra_margin", 0.0) or 0.0)
+        return float(extra)
 
     def _maybe_apply_gate(
         self,
@@ -1317,14 +1840,17 @@ class ByT5Corrector:
         ``cfg.gate_enabled`` or ``enabled_override=False``).
         """
         n = len(noisy_list)
+        default_decision = {
+            "gate_decision": "identity",
+            "pred_score": 0.0,
+            "input_score": 0.0,
+            "score_margin": 0.0,
+            "n_windows": 0,
+            "n_kept_windows": 0,
+            "n_reverted_windows": 0,
+        }
         decisions: List[Dict[str, object]] = [
-            {
-                "gate_decision": "identity",
-                "pred_score": 0.0,
-                "input_score": 0.0,
-                "score_margin": 0.0,
-            }
-            for _ in range(n)
+            dict(default_decision) for _ in range(n)
         ]
         if not n:
             return list(predictions), decisions
@@ -1334,6 +1860,7 @@ class ByT5Corrector:
             else bool(getattr(self.cfg, "gate_enabled", True))
         )
         margin = self._effective_gate_margin()
+        per_edit_margin = self._effective_per_edit_margin()
         results = list(predictions)
         if not gate_enabled:
             for j in range(n):
@@ -1343,6 +1870,9 @@ class ByT5Corrector:
                         "pred_score": 0.0,
                         "input_score": 0.0,
                         "score_margin": 0.0,
+                        "n_windows": 0,
+                        "n_kept_windows": 0,
+                        "n_reverted_windows": 0,
                     }
             return results, decisions
         diff_idx = [
@@ -1353,29 +1883,147 @@ class ByT5Corrector:
             return results, decisions
         diff_noisy = [noisy_list[j] for j in diff_idx]
         diff_preds = [results[j] for j in diff_idx]
-        pred_scores = self.score_targets_batch(diff_noisy, diff_preds)
-        input_scores = self.score_targets_batch(diff_noisy, diff_noisy)
+        # collect per-byte log-probs alongside sentence sums in the
+        # SAME forward pass so the per-edit walk pays no extra GPU cost.
+        pred_scores, pred_perpos = self.score_targets_with_perpos_batch(
+            diff_noisy, diff_preds
+        )
+        input_scores, input_perpos = self.score_targets_with_perpos_batch(
+            diff_noisy, diff_noisy
+        )
+        whitelist = self.confusion_whitelist
         for k, j in enumerate(diff_idx):
             ps = pred_scores[k]
             is_ = input_scores[k]
             delta = ps - is_
+            noisy_str = noisy_list[j]
+            pred_str = diff_preds[k]
             if not math.isfinite(ps) or not math.isfinite(is_):
-                kept = True
-                tag = "kept_unscored"
-            elif delta >= margin:
-                kept = True
-                tag = "kept_pred"
+                # Sentence-level scoring failed (truncated to nothing,
+                # tokenizer hiccup, etc.). Keep the edit but log it for
+                # post-hoc analysis; the per-edit pass cannot run reliably.
+                decisions[j] = {
+                    "gate_decision": "kept_unscored",
+                    "pred_score": ps,
+                    "input_score": is_,
+                    "score_margin": delta,
+                    "n_windows": 0,
+                    "n_kept_windows": 0,
+                    "n_reverted_windows": 0,
+                }
+                continue
+            if delta < margin:
+                # Sentence-level reject: cheaper to revert the whole sentence
+                # than to walk the edits.
+                results[j] = noisy_str
+                decisions[j] = {
+                    "gate_decision": "reverted_to_input",
+                    "pred_score": ps,
+                    "input_score": is_,
+                    "score_margin": delta,
+                    "n_windows": 0,
+                    "n_kept_windows": 0,
+                    "n_reverted_windows": 0,
+                }
+                continue
+
+            # Per-edit walk.
+            matcher = SequenceMatcher(None, noisy_str, pred_str, autojunk=False)
+            noisy_offsets = self._utf8_char_offsets(noisy_str)
+            pred_offsets = self._utf8_char_offsets(pred_str)
+            pp_pred = pred_perpos[k] or []
+            pp_input = input_perpos[k] or []
+            out_chars: List[str] = []
+            n_windows = 0
+            n_kept = 0
+            n_reverted = 0
+            window_logs: List[Dict[str, object]] = []
+            for tag, i1, i2, j1, j2 in matcher.get_opcodes():
+                if tag == "equal":
+                    out_chars.append(noisy_str[i1:i2])
+                    continue
+                n_windows += 1
+                noisy_window = noisy_str[i1:i2]
+                pred_window = pred_str[j1:j2]
+                b_n1, b_n2 = noisy_offsets[i1], noisy_offsets[i2]
+                b_p1, b_p2 = pred_offsets[j1], pred_offsets[j2]
+                pred_window_logp = self._window_logp(pp_pred, b_p1, b_p2)
+                input_window_logp = self._window_logp(pp_input, b_n1, b_n2)
+                # Compose a per-edit delta that compares the model's
+                # confidence in the *edit* against its confidence in *keeping
+                # the input*. For pure inserts (i1 == i2) input_window_logp
+                # is 0; for pure deletes (j1 == j2) pred_window_logp is 0.
+                delta_pos = float(pred_window_logp) - float(input_window_logp)
+                # surface-token-aware extra margin. Use the noisy
+                # token at i1 because that is what the human-readable
+                # alignment intuitively maps to.
+                surface_token = self._token_containing(noisy_str, i1)
+                extra = self._per_edit_extra_margin_for(surface_token)
+                effective_margin = per_edit_margin + extra
+                reject_reason = None
+                # empirical confusion-matrix constraint for
+                # single-character substitutions. Multi-char windows and
+                # word-boundary inserts/deletes bypass this check.
+                if (
+                    whitelist is not None
+                    and tag == "replace"
+                    and (i2 - i1) == 1
+                    and (j2 - j1) == 1
+                ):
+                    src_ch = noisy_window
+                    tgt_ch = pred_window
+                    if src_ch.isalpha() and tgt_ch.isalpha():
+                        if (src_ch, tgt_ch) not in whitelist:
+                            reject_reason = "off_whitelist"
+                if reject_reason is None and (
+                    not math.isfinite(delta_pos)
+                    or delta_pos < effective_margin
+                ):
+                    reject_reason = "below_per_edit_margin"
+                if reject_reason is None:
+                    out_chars.append(pred_window)
+                    n_kept += 1
+                    window_logs.append({
+                        "tag": tag,
+                        "src": noisy_window,
+                        "tgt": pred_window,
+                        "delta_pos": float(delta_pos)
+                        if math.isfinite(delta_pos) else None,
+                        "extra_margin": float(extra),
+                        "kept": True,
+                    })
+                else:
+                    out_chars.append(noisy_window)
+                    n_reverted += 1
+                    window_logs.append({
+                        "tag": tag,
+                        "src": noisy_window,
+                        "tgt": pred_window,
+                        "delta_pos": float(delta_pos)
+                        if math.isfinite(delta_pos) else None,
+                        "extra_margin": float(extra),
+                        "kept": False,
+                        "gate_reject_reason": reject_reason,
+                    })
+
+            new_pred = "".join(out_chars)
+            results[j] = new_pred
+            if new_pred == noisy_str:
+                final_tag = "reverted_to_input"
+            elif new_pred == pred_str:
+                final_tag = "kept_pred"
             else:
-                kept = False
-                tag = "reverted_to_input"
-                results[j] = noisy_list[j]
+                final_tag = "kept_pred_partial"
             decisions[j] = {
-                "gate_decision": tag,
+                "gate_decision": final_tag,
                 "pred_score": ps,
                 "input_score": is_,
                 "score_margin": delta,
+                "n_windows": n_windows,
+                "n_kept_windows": n_kept,
+                "n_reverted_windows": n_reverted,
+                "windows": window_logs,
             }
-            _ = kept  # keep variable for future logging extensions
         return results, decisions
 
 
@@ -1470,6 +2118,8 @@ class ByT5Corrector:
             )
 
         # 2. Score (noisy, pred) and (noisy, noisy) for records the beam edited.
+        #    capture per-byte log-probs alongside sentence sums so the
+        #    2-D sweep can simulate the per-edit gate from cached deltas only.
         diff_idx = [
             j for j in range(n_total)
             if raw_preds[j] and raw_preds[j] != noisy_all[j]
@@ -1478,36 +2128,126 @@ class ByT5Corrector:
         if diff_idx:
             diff_noisy = [noisy_all[j] for j in diff_idx]
             diff_preds = [raw_preds[j] for j in diff_idx]
-            pred_scores = self.score_targets_batch(diff_noisy, diff_preds)
-            input_scores = self.score_targets_batch(diff_noisy, diff_noisy)
+            pred_scores, pred_perpos = self.score_targets_with_perpos_batch(
+                diff_noisy, diff_preds
+            )
+            input_scores, input_perpos = self.score_targets_with_perpos_batch(
+                diff_noisy, diff_noisy
+            )
         else:
             pred_scores = []
             input_scores = []
+            pred_perpos = []
+            input_perpos = []
         score_elapsed = time.perf_counter() - t_score
 
-        # 3. Cache delta per generated edit. Treat non-finite deltas as
-        #    "always keep" so the sweep doesn't silently reject them.
-        delta_per_idx: Dict[int, float] = {}
+        # 3. Cache per-record info used by both the sentence-level and the
+        #    per-edit gate simulations. Treat non-finite sentence deltas as
+        #    "always keep at the sentence level" so the sweep keeps them.
+        whitelist = self.confusion_whitelist
+        per_record_cache: Dict[int, Dict[str, object]] = {}
         for k, j in enumerate(diff_idx):
             ps = pred_scores[k]
             is_ = input_scores[k]
-            if math.isfinite(ps) and math.isfinite(is_):
-                delta_per_idx[j] = float(ps - is_)
-            else:
-                delta_per_idx[j] = float("inf")
+            sentence_delta = (
+                float(ps - is_) if math.isfinite(ps) and math.isfinite(is_)
+                else float("inf")
+            )
+            noisy_str = noisy_all[j]
+            pred_str = raw_preds[j]
+            noisy_offsets = self._utf8_char_offsets(noisy_str)
+            pred_offsets = self._utf8_char_offsets(pred_str)
+            pp_pred = pred_perpos[k] if pred_perpos else []
+            pp_input = input_perpos[k] if input_perpos else []
+            matcher = SequenceMatcher(None, noisy_str, pred_str, autojunk=False)
+            windows: List[Dict[str, object]] = []
+            for tag, i1, i2, j1, j2 in matcher.get_opcodes():
+                if tag == "equal":
+                    windows.append({"tag": "equal", "i1": i1, "i2": i2,
+                                    "j1": j1, "j2": j2})
+                    continue
+                b_n1, b_n2 = noisy_offsets[i1], noisy_offsets[i2]
+                b_p1, b_p2 = pred_offsets[j1], pred_offsets[j2]
+                pred_window_logp = self._window_logp(pp_pred, b_p1, b_p2)
+                input_window_logp = self._window_logp(pp_input, b_n1, b_n2)
+                delta_pos = float(pred_window_logp) - float(input_window_logp)
+                surface_token = self._token_containing(noisy_str, i1)
+                extra = self._per_edit_extra_margin_for(surface_token)
+                # whitelist precheck (does not depend on margin grid).
+                off_whitelist = False
+                if (
+                    whitelist is not None
+                    and tag == "replace"
+                    and (i2 - i1) == 1
+                    and (j2 - j1) == 1
+                ):
+                    src_ch = noisy_str[i1:i2]
+                    tgt_ch = pred_str[j1:j2]
+                    if src_ch.isalpha() and tgt_ch.isalpha():
+                        off_whitelist = (src_ch, tgt_ch) not in whitelist
+                windows.append({
+                    "tag": tag, "i1": i1, "i2": i2, "j1": j1, "j2": j2,
+                    "delta_pos": delta_pos,
+                    "extra": float(extra),
+                    "off_whitelist": bool(off_whitelist),
+                })
+            per_record_cache[j] = {
+                "noisy": noisy_str,
+                "pred": pred_str,
+                "sentence_delta": sentence_delta,
+                "windows": windows,
+            }
 
         # Precompute identity CER and full-edit CER so the sweep only has to
-        # branch per-record between the two.
+        # branch per-record between the two when the sentence-level gate
+        # short-circuits.
         pred_cer = [cer(clean_all[j], raw_preds[j]) for j in range(n_total)]
         noisy_cer = [cer(clean_all[j], noisy_all[j]) for j in range(n_total)]
         identity_only_cer = sum(noisy_cer) / max(1, n_total)
         all_edits_cer = sum(pred_cer) / max(1, n_total)
 
+        # 2-D grid: same candidates on both axes by default. The grid is
+        # already shared by ``cfg.gate_calibration_grid`` for both
+        # ``gate_log_prob_margin`` and ``gate_per_edit_margin``.
+        per_edit_grid = list(grid)
+
+        # 4. Precompute the per-edit-margin gated string per record per
+        #    candidate ``pe_margin``. Per-edit walking is cheap; we cache
+        #    the CER so the outer sentence-margin loop is O(1) per record.
+        pe_cer_cache: Dict[Tuple[int, float], float] = {}
+        for j_idx, cache in per_record_cache.items():
+            clean_str = clean_all[j_idx]
+            noisy_str_j = str(cache["noisy"])
+            pred_str_j = str(cache["pred"])
+            for pe_margin in per_edit_grid:
+                out_chars: List[str] = []
+                for w in cache["windows"]:  
+                    if w["tag"] == "equal":
+                        out_chars.append(noisy_str_j[w["i1"]:w["i2"]]) 
+                        continue
+                    noisy_window = noisy_str_j[w["i1"]:w["i2"]]  
+                    pred_window = pred_str_j[w["j1"]:w["j2"]]  
+                    if bool(w["off_whitelist"]):
+                        out_chars.append(noisy_window)
+                        continue
+                    dp = float(w["delta_pos"]) 
+                    eff = float(pe_margin) + float(w["extra"])  
+                    if not math.isfinite(dp):
+                        # Truncated/unscored window: keep edit conservatively.
+                        out_chars.append(pred_window)
+                    elif dp >= eff:
+                        out_chars.append(pred_window)
+                    else:
+                        out_chars.append(noisy_window)
+                gated_str = "".join(out_chars)
+                pe_cer_cache[(j_idx, float(pe_margin))] = cer(clean_str, gated_str)
+
         print(
             f"[byt5] calibrate-gate: precompute done in "
             f"{time.perf_counter() - t0:.1f}s "
             f"(scoring took {score_elapsed:.1f}s); "
-            f"sweeping {len(grid)} margins on {n_total} pairs "
+            f"sweeping 2-D grid (|sentence|={len(grid)}, "
+            f"|per_edit|={len(per_edit_grid)}) on {n_total} pairs "
             f"({len(diff_idx)} edited).  baseline mean_cer="
             f"{identity_only_cer:.4f} (identity), {all_edits_cer:.4f} (no-gate)",
             flush=True,
@@ -1515,38 +2255,55 @@ class ByT5Corrector:
 
         log: List[Dict[str, object]] = []
         best: Optional[Dict[str, object]] = None
-        for margin in grid:
-            cer_sum = 0.0
-            kept_ct = 0
-            for j in range(n_total):
-                delta = delta_per_idx.get(j)
-                if delta is None or delta >= float(margin):
-                    if delta is not None:
+        for s_margin in grid:
+            for pe_margin in per_edit_grid:
+                cer_sum = 0.0
+                kept_ct = 0
+                for j in range(n_total):
+                    rec = per_record_cache.get(j)
+                    if rec is None:
+                        # Beam left this record unchanged; identity row.
+                        cer_sum += noisy_cer[j]
+                        continue
+                    sd = float(rec["sentence_delta"])
+                    if sd < float(s_margin):
+                        cer_sum += noisy_cer[j]
+                    else:
+                        cer_sum += pe_cer_cache[(j, float(pe_margin))]
                         kept_ct += 1
-                    cer_sum += pred_cer[j]
-                else:
-                    cer_sum += noisy_cer[j]
-            mean_cer = cer_sum / max(1, n_total)
-            change_rate = kept_ct / max(1, n_total)
-            entry = {
-                "gate_log_prob_margin": float(margin),
-                "mean_cer": float(mean_cer),
-                "kept": int(kept_ct),
-                "n_pairs": int(n_total),
-                "n_generated_edits": int(len(diff_idx)),
-                "change_rate": float(change_rate),
-            }
-            log.append(entry)
-            if (
-                best is None
-                or float(entry["mean_cer"]) < float(best["mean_cer"]) - 1e-6
-                or (
-                    abs(float(entry["mean_cer"]) - float(best["mean_cer"])) < 1e-6
-                    and float(entry["gate_log_prob_margin"])
-                    > float(best["gate_log_prob_margin"])
-                )
-            ):
-                best = entry
+                mean_cer = cer_sum / max(1, n_total)
+                change_rate = kept_ct / max(1, n_total)
+                entry = {
+                    "gate_log_prob_margin": float(s_margin),
+                    "gate_per_edit_margin": float(pe_margin),
+                    "mean_cer": float(mean_cer),
+                    "kept": int(kept_ct),
+                    "n_pairs": int(n_total),
+                    "n_generated_edits": int(len(diff_idx)),
+                    "change_rate": float(change_rate),
+                }
+                log.append(entry)
+                # Tie-break (in order): lower CER, then higher per-edit
+                # margin (more conservative per-edit), then higher
+                # sentence margin (more conservative sentence-level).
+                if (
+                    best is None
+                    or float(entry["mean_cer"]) < float(best["mean_cer"]) - 1e-6
+                    or (
+                        abs(float(entry["mean_cer"]) - float(best["mean_cer"])) < 1e-6
+                        and (
+                            float(entry["gate_per_edit_margin"])
+                            > float(best["gate_per_edit_margin"])
+                            or (
+                                float(entry["gate_per_edit_margin"])
+                                == float(best["gate_per_edit_margin"])
+                                and float(entry["gate_log_prob_margin"])
+                                > float(best["gate_log_prob_margin"])
+                            )
+                        )
+                    )
+                ):
+                    best = entry
 
         if best is None:
             print("[byt5] calibrate-gate: no valid margin found; leaving tuned_gate_margin unset", flush=True)
@@ -1555,27 +2312,33 @@ class ByT5Corrector:
                 "baseline_identity_cer": float(identity_only_cer),
                 "baseline_no_gate_cer": float(all_edits_cer),
                 "tested": 0,
-                "grid_size": len(grid),
+                "grid_size": len(grid) * len(per_edit_grid),
                 "n_generated_edits": int(len(diff_idx)),
                 "log": [],
             }
 
         self.tuned_gate_margin = float(best["gate_log_prob_margin"])
+        self.tuned_per_edit_margin = float(best["gate_per_edit_margin"])
         self.gate_calibration = {
             "selected": dict(best),
             "tested": len(log),
-            "grid_size": len(grid),
+            "grid_size": len(grid) * len(per_edit_grid),
             "n_generated_edits": int(len(diff_idx)),
             "baseline_identity_cer": float(identity_only_cer),
             "baseline_no_gate_cer": float(all_edits_cer),
             "fallback_margin": float(
                 getattr(self.cfg, "gate_log_prob_margin", 0.0) or 0.0
             ),
+            "fallback_per_edit_margin": float(
+                getattr(self.cfg, "gate_per_edit_margin", 0.0) or 0.0
+            ),
             "log": log,
         }
         print(
-            f"[byt5] calibrate-gate: selected margin="
-            f"{self.tuned_gate_margin:.4f}  mean_cer={best['mean_cer']:.4f}  "
+            f"[byt5] calibrate-gate: selected sentence_margin="
+            f"{self.tuned_gate_margin:.4f}  per_edit_margin="
+            f"{self.tuned_per_edit_margin:.4f}  "
+            f"mean_cer={best['mean_cer']:.4f}  "
             f"kept={best['kept']}/{best['n_pairs']}  "
             f"(identity baseline={identity_only_cer:.4f}, "
             f"no-gate={all_edits_cer:.4f})  "
@@ -1585,12 +2348,68 @@ class ByT5Corrector:
         return dict(self.gate_calibration)
 
 
+    def attach_lexicon(
+        self,
+        train_word_counts: Optional[Dict[str, int]],
+        lexicon: Optional[set] = None,
+    ) -> None:
+        """attach the train lexicon / word counts.
+
+        Used by the per-edit gate (proper-name / rare-word extra margins)
+        and by the HeadroomGate (OOV proxy). Idempotent: passing ``None``
+        clears the cached lexicon.
+        """
+        if train_word_counts is None:
+            self.train_word_counts = None
+            self.lexicon = None
+            return
+        self.train_word_counts = dict(train_word_counts)
+        if lexicon is None:
+            # Derive a lexicon from the counts (words seen at least once).
+            lexicon = {w for w, c in train_word_counts.items() if c >= 1}
+        self.lexicon = set(lexicon)
+
+    def attach_confusion_whitelist(
+        self,
+        whitelist: Optional[Union[frozenset, Sequence[Tuple[str, str]]]],
+    ) -> None:
+        """attach the empirical confusion-matrix whitelist.
+
+        ``whitelist`` is a set of ``(src, tgt)`` single-character
+        substitutions sourced from train-only phase-2 stats; passing
+        ``None`` (or ``frozenset()``) disables the constraint. The gate
+        is permissive when there is no whitelist (all single-char
+        substitutions are allowed), so omitting this hook on a cold-loaded
+        model is safe but loses the discipline.
+        """
+        if whitelist is None:
+            self.confusion_whitelist = None
+            return
+        if isinstance(whitelist, frozenset):
+            self.confusion_whitelist = whitelist
+        else:
+            self.confusion_whitelist = frozenset(whitelist)
+
+    def attach_headroom_gate(self, gate: Optional[object]) -> None:
+        """attach the HeadroomGate that pre-filters predict calls.
+
+        When attached, the public correct_* paths short-circuit and return
+        the input unchanged for sentences the gate judges to have too
+        little correctable noise. Calibration paths (calibrate_gate_on_val,
+        calibrate_temperature, score_targets_batch) never short-circuit.
+        """
+        self.headroom = gate
+
     def save(self, output_dir: Path) -> None:
         if self.model is None or self.tokenizer is None:
             raise ValueError("Cannot save unfitted model.")
         output_dir = Path(output_dir)
         output_dir.mkdir(parents=True, exist_ok=True)
-        self.model.save_pretrained(output_dir)
+        # The HF model may be wrapped by ``torch.compile``. Save
+        # the underlying ``_orig_mod`` so the on-disk artefact is loadable
+        # by environments without the same compile graph.
+        save_target = getattr(self.model, "_orig_mod", self.model)
+        save_target.save_pretrained(output_dir)
         self.tokenizer.save_pretrained(output_dir)
         meta = {
             "config": asdict(self.cfg),
@@ -1600,6 +2419,30 @@ class ByT5Corrector:
             "tuned_gate_margin": (
                 float(self.tuned_gate_margin)
                 if self.tuned_gate_margin is not None
+                else None
+            ),
+            "tuned_per_edit_margin": (
+                float(self.tuned_per_edit_margin)
+                if self.tuned_per_edit_margin is not None
+                else None
+            ),
+            "temperature": float(self.temperature),
+            "temperature_calibration_summary": (
+                {
+                    k: self.temperature_calibration[k]
+                    for k in (
+                        "temperature",
+                        "pre_nll",
+                        "post_nll",
+                        "pre_ece",
+                        "post_ece",
+                        "n_pairs",
+                        "n_tokens",
+                    )
+                    if isinstance(self.temperature_calibration, dict)
+                    and k in self.temperature_calibration
+                }
+                if isinstance(self.temperature_calibration, dict)
                 else None
             ),
             "gate_calibration_summary": (
@@ -1631,6 +2474,17 @@ class ByT5Corrector:
             "This sentinel file exists to satisfy the legacy artifact check.\n",
             encoding="utf-8",
         )
+        # persist the HeadroomGate state alongside HF weights so
+        # ``load`` can restore it without re-running the val sweep.
+        if self.headroom is not None:
+            try:
+                self.headroom.save(output_dir / "headroom_gate")  # type: ignore[attr-defined]
+            except Exception as exc:
+                print(
+                    f"[byt5] save: HeadroomGate.save failed ({exc}); "
+                    "continuing without it.",
+                    flush=True,
+                )
         self.checkpoint_path = output_dir
 
     def load(self, output_dir: Path) -> None:
@@ -1639,13 +2493,42 @@ class ByT5Corrector:
         meta_path = output_dir / "transformer_meta.json"
         if meta_path.exists():
             meta = json.loads(meta_path.read_text(encoding="utf-8"))
-            self.cfg = TransformerConfig(**meta["config"])
+            cfg_dict = dict(meta.get("config") or {})
+            # Drop unknown keys so checkpoints saved by older configs still
+            # load when new fields are added.
+            valid_field_names = {f.name for f in TransformerConfig.__dataclass_fields__.values()}
+            cfg_dict = {k: v for k, v in cfg_dict.items() if k in valid_field_names}
+            self.cfg = TransformerConfig(**cfg_dict)
             self.training_metrics = meta.get("training_metrics", {})
             tuned = meta.get("tuned_gate_margin")
             self.tuned_gate_margin = float(tuned) if tuned is not None else None
+            tuned_pe = meta.get("tuned_per_edit_margin")
+            self.tuned_per_edit_margin = (
+                float(tuned_pe) if tuned_pe is not None else None
+            )
+            temp = meta.get("temperature")
+            self.temperature = float(temp) if temp is not None else 1.0
+            temp_summary = meta.get("temperature_calibration_summary")
+            if isinstance(temp_summary, dict):
+                self.temperature_calibration = dict(temp_summary)
             gate_summary = meta.get("gate_calibration_summary")
             if isinstance(gate_summary, dict):
                 self.gate_calibration = dict(gate_summary)
         self.tokenizer = ByT5Tokenizer.from_pretrained(output_dir)
         self.model = T5ForConditionalGeneration.from_pretrained(output_dir).to(self.device)
+        self._maybe_torch_compile()
+        # restore HeadroomGate state (if persisted) so the
+        # predict path can re-gate without recalibrating on val.
+        hr_dir = output_dir / "headroom_gate"
+        if hr_dir.exists() and (hr_dir / "headroom_gate.json").exists():
+            try:
+                from phase4.models.headroom_gate import HeadroomGate  # local import to avoid cycle
+                self.headroom = HeadroomGate.load(hr_dir)
+            except Exception as exc:
+                print(
+                    f"[byt5] load: HeadroomGate.load failed ({exc}); "
+                    "predict will run without headroom.",
+                    flush=True,
+                )
+                self.headroom = None
         self.checkpoint_path = output_dir

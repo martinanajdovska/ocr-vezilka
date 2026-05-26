@@ -127,6 +127,8 @@ def aggregate_metrics(records: Iterable[Dict[str, object]]) -> Dict[str, float]:
             "cer_reduction_rate": 0.0,
             "correction_rate": 0.0,
             "overcorrection_rate": 0.0,
+            "useful_correction_rate": 0.0,
+            "edited_count": 0,
             "sentence_accuracy": 0.0,
             "n_records": 0,
         }
@@ -135,7 +137,6 @@ def aggregate_metrics(records: Iterable[Dict[str, object]]) -> Dict[str, float]:
     chrf_vals = [float(r["chrf"]) for r in records if "chrf" in r]
     chrf_avg = sum(chrf_vals) / len(chrf_vals) if chrf_vals else 0.0
     correction_rate = sum(1 for r in records if bool(r.get("changed_flag"))) / len(records)
-    overcorr_rate = sum(1 for r in records if bool(r.get("overcorrected"))) / len(records)
     sentence_acc = sum(
         1 for r in records if str(r.get("prediction", "")) == str(r.get("reference", ""))
     ) / len(records)
@@ -151,6 +152,22 @@ def aggregate_metrics(records: Iterable[Dict[str, object]]) -> Dict[str, float]:
             noisy = str(r.get("input_noisy", "") or "")
             input_cers.append(cer(ref, noisy))
     input_cer_avg = sum(input_cers) / max(1, len(input_cers))
+
+    edited = 0
+    harmful = 0
+    useful = 0
+    for r, in_cer in zip(records, input_cers):
+        if not bool(r.get("changed_flag")):
+            continue
+        out_cer = float(r["cer"])
+        edited += 1
+        if out_cer >= in_cer:
+            harmful += 1
+        else:
+            useful += 1
+    overcorr_rate = harmful / edited if edited else 0.0
+    useful_corr_rate = useful / edited if edited else 0.0
+
     return {
         "cer": cer_avg,
         "wer": wer_avg,
@@ -159,6 +176,8 @@ def aggregate_metrics(records: Iterable[Dict[str, object]]) -> Dict[str, float]:
         "cer_reduction_rate": cer_reduction_rate(input_cer_avg, cer_avg),
         "correction_rate": correction_rate,
         "overcorrection_rate": overcorr_rate,
+        "useful_correction_rate": useful_corr_rate,
+        "edited_count": edited,
         "sentence_accuracy": sentence_acc,
         "n_records": len(records),
     }

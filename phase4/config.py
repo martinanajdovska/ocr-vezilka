@@ -13,9 +13,16 @@ from typing import Dict, List
 
 
 PRIMARY_SEED = 42
-SECONDARY_SEEDS = []
-ALL_SEEDS = [PRIMARY_SEED]
+SECONDARY_SEEDS = [1337, 2024]
+ALL_SEEDS = [PRIMARY_SEED] + SECONDARY_SEEDS
 SEEDS = ALL_SEEDS
+
+
+IDENTITY_PAIR_RATIO_BY_REGIME: Dict[str, float] = {
+    "real_only": 0.6,
+    "synthetic_only": 0.4,
+    "synthetic_plus_real": 0.4,
+}
 
 
 @dataclass(frozen=True)
@@ -48,13 +55,13 @@ class TransformerConfig:
     label_smoothing: float = 0.1
     grad_clip: float = 1.0
 
-    max_input_bytes: int = 512
-    max_target_bytes: int = 512
+    max_input_bytes: int = 1024
+    max_target_bytes: int = 1024
 
 
-    batch_size: int = 32
-    gradient_accumulation_steps: int = 2
-    dataloader_num_workers: int = 4
+    batch_size: int = 128
+    gradient_accumulation_steps: int = 1
+    dataloader_num_workers: int = 8
     pin_memory: bool = True
 
     gradient_checkpointing: bool = False
@@ -80,10 +87,31 @@ class TransformerConfig:
     # takes precedence over this default at inference
     gate_enabled: bool = True
     gate_log_prob_margin: float = 0.0
+    # per-edit-position margin (log-prob delta between
+    # ``pred_window`` and ``noisy_window`` under the same source). The
+    # calibration grid in ``gate_calibration_grid`` is shared with the
+    # sentence-level sweep — both quantities are log-prob deltas on the
+    # same scale.
+    gate_per_edit_margin: float = 0.0
+    # extra log-prob margin required to accept an edit whose
+    # surface token is a proper name or rare word (count <= 1 in train
+    # lexicon). Mirrors ``ClassicalConfig.{proper_name,rare_word}_extra_margin``
+    # so the three model families enforce the same edit-acceptance discipline.
+    gate_proper_name_extra_margin: float = 1.0
+    gate_rare_word_extra_margin: float = 1.0
+    # cap on the number of empirical (src,tgt) substitution pairs
+    # the per-edit gate accepts for single-char Cyrillic/Latin substitutions.
+    # Smaller K is more conservative (rejects rare hallucinated swaps);
+    # 200 keeps every confusion that appeared at least a handful of times
+    # in train phase-2 stats.
+    gate_confusion_whitelist_k: int = 200
+    # (negative margins keep more edits; positive margins keep fewer). The
+    # per-edit margin shares the same grid since both are
+    # log-prob deltas on the same scale.
     gate_calibration_grid: List[float] = field(
-        default_factory=lambda: [-0.2, -0.1, 0.0, 0.05, 0.1, 0.2, 0.3]
+        default_factory=lambda: [-0.4, -0.2, -0.1, 0.0, 0.1, 0.2, 0.4, 0.6]
     )
-    gate_calibration_max_pairs: int = 400
+    gate_calibration_max_pairs: int = 1500
 
     # Post-decode script filter: map Russian/Ukrainian Cyrillic confusions
     # (``ё``, ``й``, ``ы``, …) to Macedonian graphemes and drop any remaining
@@ -91,9 +119,12 @@ class TransformerConfig:
     # the training targets are Macedonian-only.
     sanitize_macedonian_output: bool = True
 
-    # ``identity_pair_ratio`` bumped 0.2 -> 0.4: the prior run still emitted an
-    # edit for ~20% of inputs even though only ~5% of input chars were wrong,
-    # so teach the model that "input was already clean" is a frequent target.
+    # NOTE: ``identity_pair_ratio`` is overridden per-regime by
+    # ``IDENTITY_PAIR_RATIO_BY_REGIME`` below. The dataclass default is the
+    # ``synthetic_*`` value (0.4); the runner replaces it with 0.6 for
+    # ``real_only`` before constructing the dataset.
+    #
+    # ``identity_pair_ratio`` teach the model that "input was already clean" is a frequent target.
     # Combined with the inference-time gate this lowers both spurious edits and
     # the wasted gate work.
     identity_pair_ratio: float = 0.4
@@ -105,11 +136,11 @@ class TransformerConfig:
     # False enables cudnn.benchmark + TF32 on CUDA (faster on A100).
     deterministic: bool = False
 
-    eval_cer_pairs: int = 96
+    eval_cer_pairs: int = 256
     eval_cer_beam: int = 1
 
-    eval_gen_batch_size: int = 128
-    predict_batch_size: int = 128
+    eval_gen_batch_size: int = 256
+    predict_batch_size: int = 256
 
     use_window_context: bool = False
     window_context_sep: str = " <sep> "
@@ -159,7 +190,7 @@ class RunConfig:
     force_rebuild_train_only_stats: bool = False
     force_rebuild_manifests: bool = False
     synthetic_real_oversample_ratio: float = 4.0
-    manifest_min_pair_sim: float = 0.5
+    manifest_min_pair_sim: float = 0.55
     manifest_max_len_ratio_delta: float = 0.5
 
 
