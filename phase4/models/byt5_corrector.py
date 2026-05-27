@@ -38,7 +38,7 @@ def _import_hf():
 
 def _safetensors_available() -> bool:
     try:
-        import safetensors  # noqa: F401
+        import safetensors 
         return True
     except ImportError:
         return False
@@ -63,7 +63,6 @@ def _load_t5_from_pretrained(src: str):
     path = Path(src)
     is_local = path.exists() and path.is_dir()
 
-    # A local folder named like the hub id shadows the remote model.
     if not is_local and Path(src).exists():
         raise RuntimeError(
             f"[byt5] Found a local path {Path(src)!r} that shadows the Hugging "

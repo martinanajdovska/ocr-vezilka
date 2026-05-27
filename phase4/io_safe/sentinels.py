@@ -45,7 +45,7 @@ def expected_run_artefacts(
 
 
 def missing_artefacts(artefacts: Dict[str, Path]) -> List[str]:
-    """Return human-readable descriptions of missing or empty artefact paths."""
+    """Return descriptions of missing or empty artefact paths."""
     missing: List[str] = []
     for key, path in artefacts.items():
         if not path.exists():

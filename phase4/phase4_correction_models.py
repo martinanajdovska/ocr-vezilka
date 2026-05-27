@@ -193,6 +193,137 @@ def _neural_train_checkpoint_dir(model_dir: Path) -> Path:
     return model_dir / "_neural_train_checkpoint"
 
 
+def _neural_train_hf_dir(nn_ckpt_dir: Path) -> Path:
+    return nn_ckpt_dir / "train_hf"
+
+
+def _neural_has_loadable_weights(weights_dir: Path) -> bool:
+    weights_dir = Path(weights_dir)
+    if not weights_dir.is_dir():
+        return False
+    has_config = (weights_dir / "config.json").exists()
+    has_weights = (
+        (weights_dir / "model.safetensors").exists()
+        or (weights_dir / "pytorch_model.bin").exists()
+        or any(weights_dir.glob("model-*.safetensors"))
+    )
+    return has_config and has_weights
+
+
+def _neural_train_in_progress(nn_ckpt_dir: Path) -> bool:
+    nn_ckpt_dir = Path(nn_ckpt_dir)
+    if not nn_ckpt_dir.is_dir():
+        return False
+    return any(nn_ckpt_dir.glob("byt5_resume_*.pt"))
+
+
+def _find_neural_weights_dir(model_dir: Path, nn_ckpt_dir: Path) -> Optional[Path]:
+    """Prefer a full export under ``model_dir``, else the post-train HF snapshot."""
+    for candidate in (Path(model_dir), _neural_train_hf_dir(nn_ckpt_dir)):
+        if _neural_has_loadable_weights(candidate):
+            return candidate
+    return None
+
+
+def _persist_neural_train_hf(model, nn_ckpt_dir: Path) -> Path:
+    hf_dir = _neural_train_hf_dir(nn_ckpt_dir)
+    hf_dir.mkdir(parents=True, exist_ok=True)
+    if model.model is None or model.tokenizer is None:
+        raise ValueError("Cannot persist neural train weights from an unfitted model.")
+    save_target = getattr(model.model, "_orig_mod", model.model)
+    save_target.save_pretrained(hf_dir, safe_serialization=True)
+    model.tokenizer.save_pretrained(hf_dir)
+    print(f"[train] neural: saved train weights -> {hf_dir.resolve()}", flush=True)
+    return hf_dir
+
+
+def _write_neural_train_done(
+    *,
+    nn_ckpt_dir: Path,
+    regime: str,
+    seed: int,
+    hyperparameter_hash: str,
+    split_manifest_hash: str,
+    weights_dir: Path,
+) -> None:
+    _write_json_verified(
+        nn_ckpt_dir / "train_done.json",
+        {
+            "regime": regime,
+            "seed": seed,
+            "hyperparameter_hash": hyperparameter_hash,
+            "split_manifest_hash": split_manifest_hash,
+            "weights_dir": str(weights_dir.resolve()),
+            "completed_at": _now_iso(),
+        },
+    )
+
+
+def _maybe_restore_completed_neural_training(
+    model,
+    *,
+    model_dir: Path,
+    nn_ckpt_dir: Path,
+    regime: str,
+    seed: int,
+    hyperparameter_hash: str,
+    split_manifest_hash: str,
+    resume_nn: bool,
+) -> Optional[Dict[str, object]]:
+    """Skip ``fit`` when a previous run finished training but died before predict.
+
+    Completed training removes ``byt5_resume_*.pt`` and, until recently, did not
+    persist HF weights anywhere durable — the next restart always retrained from
+    the base ByT5 checkpoint.
+    """
+    from phase4.io_safe.sentinels import force_rerun_active
+
+    if force_rerun_active():
+        return None
+    if resume_nn and _neural_train_in_progress(nn_ckpt_dir):
+        return None
+
+    metrics_path = model_dir / "training_metrics.json"
+    if not metrics_path.exists():
+        return None
+
+    train_done_path = nn_ckpt_dir / "train_done.json"
+    if train_done_path.exists():
+        try:
+            train_done = json.loads(train_done_path.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            train_done = None
+        if train_done and (
+            str(train_done.get("hyperparameter_hash")) != hyperparameter_hash
+            or str(train_done.get("split_manifest_hash")) != split_manifest_hash
+            or int(train_done.get("seed", -1)) != int(seed)
+            or str(train_done.get("regime")) != regime
+        ):
+            print(
+                "[train] neural: stale train_done.json; will retrain.",
+                flush=True,
+            )
+            return None
+
+    weights_dir = _find_neural_weights_dir(model_dir, nn_ckpt_dir)
+    if weights_dir is None:
+        print(
+            "[train] neural: training_metrics.json exists but no loadable weights "
+            f"under {model_dir} or {_neural_train_hf_dir(nn_ckpt_dir)}; retraining.",
+            flush=True,
+        )
+        return None
+
+    model.load(weights_dir)
+    training_metrics = json.loads(metrics_path.read_text(encoding="utf-8"))
+    print(
+        f"[train] neural: reused completed training from {weights_dir.resolve()} "
+        f"(skipping fit; continuing calibration/predict)",
+        flush=True,
+    )
+    return training_metrics
+
+
 def _train_neural(
     neural,
     rows: List[Dict[str, object]],
@@ -520,12 +651,7 @@ def _maybe_restore_neural_calibration(
     *,
     val_nn: List[Tuple[str, str]],
 ) -> bool:
-    """Reuse temperature / gate / headroom calibration artefacts when present.
-
-    Gate and headroom calibration run GPU generation over hundreds of val
-    sentences. On HPC job restarts that work was being repeated every time,
-    often never reaching the official ``[write] val predictions`` pass.
-    """
+    """Reuse temperature / gate / headroom calibration artefacts when present."""
     if not val_nn:
         return False
     temp_path = model_dir / "neural_temperature.json"
@@ -892,9 +1018,63 @@ def _tune_classical_on_real_val(
         flush=True,
     )
     out_dir.mkdir(parents=True, exist_ok=True)
-    (out_dir / "classical_tuning.json").write_text(
-        json.dumps(tuning, ensure_ascii=False, indent=2),
-        encoding="utf-8",
+    payload: Dict[str, object] = {
+        **tuning,
+        "hyperparameter_hash": hashlib.sha256(
+            json.dumps(frozen_hparams_dict(), sort_keys=True).encode("utf-8")
+        ).hexdigest(),
+        "split_manifest_hash": split_manifest_hash(),
+        "completed_at": _now_iso(),
+    }
+    _write_json_verified(out_dir / "classical_tuning.json", payload)
+    return tuned_cfg
+
+
+def _maybe_load_classical_tuning(out_dir: Path) -> Optional[ClassicalConfig]:
+    """Reuse global classical threshold tuning when ``classical_tuning.json`` exists.
+
+    Per-(model, regime, seed) runs skip via ``_DONE.json``, but tuning used to
+    run on every pipeline restart because it lives outside that loop.
+    """
+    from phase4.io_safe.sentinels import force_rerun_active
+
+    path = out_dir / "classical_tuning.json"
+    if force_rerun_active() or not path.exists():
+        return None
+    try:
+        tuning = json.loads(path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError) as exc:
+        print(
+            f"[classical-tune] could not read {path} ({exc}); re-tuning.",
+            flush=True,
+        )
+        return None
+    current_hp = hashlib.sha256(
+        json.dumps(frozen_hparams_dict(), sort_keys=True).encode("utf-8")
+    ).hexdigest()
+    current_split = split_manifest_hash()
+    stored_hp = tuning.get("hyperparameter_hash")
+    stored_split = tuning.get("split_manifest_hash")
+    if stored_hp != current_hp or stored_split != current_split:
+        print(
+            "[classical-tune] stale classical_tuning.json "
+            f"(hp_match={stored_hp == current_hp}, "
+            f"split_match={stored_split == current_split}); re-tuning.",
+            flush=True,
+        )
+        return None
+    selected = tuning.get("selected")
+    if not isinstance(selected, dict) or not selected:
+        return None
+    valid = {f.name for f in ClassicalConfig.__dataclass_fields__.values()}
+    cfg_dict = {k: v for k, v in selected.items() if k in valid}
+    tuned_cfg = ClassicalConfig(**cfg_dict)
+    print(
+        f"[classical-tune] reused from disk "
+        f"(correction_margin={tuned_cfg.correction_margin}, "
+        f"lambda_lm={tuned_cfg.lambda_lm}, "
+        f"lambda_channel={tuned_cfg.lambda_channel})",
+        flush=True,
     )
     return tuned_cfg
 
@@ -1143,16 +1323,49 @@ def _run_one(
             f"(predict_sample_limit={predict_sample_limit})",
             flush=True,
         )
+        if force_rerun_active():
+            train_done_path = nn_ckpt_dir / "train_done.json"
+            if train_done_path.exists():
+                try:
+                    train_done_path.unlink()
+                    print(
+                        f"[resume] --force-rerun: removed {train_done_path}",
+                        flush=True,
+                    )
+                except OSError:
+                    pass
         t_fit = time.perf_counter()
-        training_metrics = _train_neural(
+        restored_metrics = _maybe_restore_completed_neural_training(
             model,
-            rows,
-            regime,
-            val_nn,
-            train_pair_cap=nn_pair_cap,
-            checkpoint_dir=nn_ckpt_dir,
-            neural_resume=resume_nn,
+            model_dir=model_dir,
+            nn_ckpt_dir=nn_ckpt_dir,
+            regime=regime,
+            seed=seed,
+            hyperparameter_hash=current_hp_hash,
+            split_manifest_hash=current_split_hash,
+            resume_nn=resume_nn,
         )
+        if restored_metrics is not None:
+            training_metrics = restored_metrics
+        else:
+            training_metrics = _train_neural(
+                model,
+                rows,
+                regime,
+                val_nn,
+                train_pair_cap=nn_pair_cap,
+                checkpoint_dir=nn_ckpt_dir,
+                neural_resume=resume_nn,
+            )
+            weights_dir = _persist_neural_train_hf(model, nn_ckpt_dir)
+            _write_neural_train_done(
+                nn_ckpt_dir=nn_ckpt_dir,
+                regime=regime,
+                seed=seed,
+                hyperparameter_hash=current_hp_hash,
+                split_manifest_hash=current_split_hash,
+                weights_dir=weights_dir,
+            )
         print(f"[train] neural: training done in {time.perf_counter() - t_fit:.1f}s", flush=True)
         n_params = int(training_metrics.get("n_params") or 0) or None
         (model_dir / "training_metrics.json").write_text(
@@ -1520,10 +1733,6 @@ def _run_one(
         artifact_check_paths.append(model_dir / "hybrid_calibration.json")
     _assert_artifacts_saved_before_test(artifact_check_paths, context=f"{model_name}/{regime}")
 
-    # Val metrics depend only on the val pass. Write them *before* the (much
-    # larger) test_blind predict so an OOM or crash during test scoring does
-    # not leave ``val_metrics/neural/`` empty while ``predictions/val/neural/``
-    # already exists.
     metric_payload = _val_metric_payload(val_records, model_name, regime, seed)
     metrics_path = (out_dir / "val_metrics" / model_name / f"{regime}{seed_suffix}.json").resolve()
     _write_json_verified(metrics_path, metric_payload)
@@ -1878,19 +2087,21 @@ def run_phase4(
         m in models_to_run for m in ("classical", "hybrid")
     )
     if needs_classical_val_tune:
+        classical_cfg = _maybe_load_classical_tuning(cfg.output_dir)
+        if classical_cfg is None:
+            _predict_sample_progress(
+                predict_sample_limit,
+                "Loading real_only manifest and running classical threshold tuning (full val; can take a few minutes)...",
+            )
+            real_rows_for_tuning = load_jsonl(manifest_paths["real_only"])
+            classical_cfg = _tune_classical_on_real_val(
+                real_rows=real_rows_for_tuning,
+                out_dir=cfg.output_dir,
+                phase2_train_only_dir=cfg.phase2_train_only_dir,
+            )
         _predict_sample_progress(
             predict_sample_limit,
-            "Loading real_only manifest and running classical threshold tuning (full val; can take a few minutes)...",
-        )
-        real_rows_for_tuning = load_jsonl(manifest_paths["real_only"])
-        classical_cfg = _tune_classical_on_real_val(
-            real_rows=real_rows_for_tuning,
-            out_dir=cfg.output_dir,
-            phase2_train_only_dir=cfg.phase2_train_only_dir,
-        )
-        _predict_sample_progress(
-            predict_sample_limit,
-            "Classical tuning done; starting regime / model loop.",
+            "Classical tuning ready; starting regime / model loop.",
         )
     else:
         classical_cfg = None
