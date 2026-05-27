@@ -16,23 +16,26 @@ This repository implements a 4-phase pipeline for analyzing OCR errors in Macedo
 ### Requirements
 
 - Python **3.10+** recommended.
-- Install dependencies from the repository root:
+- Install **PyTorch first**, then the rest (see `requirements.txt` header). On CUDA 12.x:
 
 ```bash
-python -m pip install -r requirements.txt
+python3 -m pip install --upgrade pip
+python3 -m pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
+python3 -m pip install -r requirements.txt
+huggingface-cli download google/byt5-small   
 ```
 
-On Linux with CUDA, install a CUDA-enabled PyTorch wheel first (see comments in `requirements.txt`), then run `pip install -r requirements.txt`.
+On Mac / CPU-only, install a matching `torch` wheel first, then `python3 -m pip install -r requirements.txt`.
 
 ### Minimal run sequence
 
 From the repository root:
 
 ```bash
-cd phase1 && python phase1_alignment.py && cd ..
-python phase2/ocr_error_analysis.py
-python phase3/phase3_synthetic_noise.py
-python phase4/phase4_correction_models.py
+cd phase1 && python3 phase1_alignment.py && cd ..
+python3 phase2/ocr_error_analysis.py
+python3 phase3/phase3_synthetic_noise.py
+python3 phase4/phase4_correction_models.py
 ```
 
 **Notes**
@@ -42,7 +45,7 @@ python phase4/phase4_correction_models.py
 - For iteration after a successful full build, reuse artifacts:
 
 ```bash
-python phase4/phase4_correction_models.py \
+python3 phase4/phase4_correction_models.py \
   --skip-phase1 --skip-phase2-stats --skip-phase3-noise --skip-manifests
 ```
 
@@ -51,7 +54,7 @@ python phase4/phase4_correction_models.py \
 After train-only Phase 2/3 artifacts exist:
 
 ```bash
-python -u phase4/phase4_correction_models.py \
+python3 -u phase4/phase4_correction_models.py \
   --skip-phase1 --skip-phase2-stats --skip-phase3-noise \
   --skip-classical --skip-hybrid --regimes real_only --seeds 42 \
   --neural-device cuda --predict-sample 200
@@ -143,7 +146,7 @@ maps to doc id `Клуч за одредување на рибите и змии
 
 ```bash
 cd phase1
-python phase1_alignment.py
+python3 phase1_alignment.py
 # optional: --output-root, --raw-dir, --corrected-dir, --min-pair-sim
 ```
 
@@ -167,11 +170,11 @@ Phase 4 re-runs phase1 by `chdir` into `phase1/` when `--skip-phase1` is not set
 
 ```bash
 # default: full + train-only
-python phase2/ocr_error_analysis.py
+python3 phase2/ocr_error_analysis.py
 
 # or individually:
-python -c "from phase2.ocr_error_analysis import run_full_mode; run_full_mode()"
-python -c "from phase2.ocr_error_analysis import run_train_only_mode; run_train_only_mode()"
+python3 -c "from phase2.ocr_error_analysis import run_full_mode; run_full_mode()"
+python3 -c "from phase2.ocr_error_analysis import run_train_only_mode; run_train_only_mode()"
 ```
 
 **Main outputs**
@@ -196,10 +199,10 @@ python -c "from phase2.ocr_error_analysis import run_train_only_mode; run_train_
 **Run**
 
 ```bash
-python phase3/phase3_synthetic_noise.py
+python3 phase3/phase3_synthetic_noise.py
 
 # train-only (recommended for phase4):
-python -c "from phase3.phase3_synthetic_noise import run_train_only_mode; run_train_only_mode()"
+python3 -c "from phase3.phase3_synthetic_noise import run_train_only_mode; run_train_only_mode()"
 ```
 
 **Main outputs**
@@ -225,7 +228,7 @@ python -c "from phase3.phase3_synthetic_noise import run_train_only_mode; run_tr
 **Run**
 
 ```bash
-python phase4/phase4_correction_models.py
+python3 phase4/phase4_correction_models.py
 ```
 
 **CLI flags**

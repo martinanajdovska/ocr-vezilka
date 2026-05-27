@@ -15,9 +15,72 @@ from __future__ import annotations
 import json
 from pathlib import Path
 import os
-from typing import Any, Dict, Optional
+from typing import Any, Dict, List, Optional
 
 from phase4.io_safe.atomic import atomic_write_text
+
+
+def seed_suffix_for(primary_seed: int, seed: int) -> str:
+    return "" if seed == primary_seed else f"__seed{seed}"
+
+
+def expected_run_artefacts(
+    out_dir: Path,
+    model_name: str,
+    regime: str,
+    seed: int,
+    primary_seed: int,
+) -> Dict[str, Path]:
+    """On-disk outputs that must exist before a (model, regime, seed) is
+    considered complete. Used by crash-resume; do not trust ``_DONE.json``
+    alone (an empty ``artefacts`` block used to short-circuit the whole run).
+    """
+    sfx = seed_suffix_for(primary_seed, seed)
+    return {
+        "val_predictions": out_dir / "predictions" / "val" / model_name / f"{regime}{sfx}.jsonl",
+        "test_predictions": out_dir / "predictions" / "test_blind" / model_name / f"{regime}{sfx}.jsonl",
+        "val_metrics": out_dir / "val_metrics" / model_name / f"{regime}{sfx}.json",
+        "efficiency": out_dir / "efficiency" / model_name / f"{regime}{sfx}.json",
+    }
+
+
+def missing_artefacts(artefacts: Dict[str, Path]) -> List[str]:
+    """Return human-readable descriptions of missing or empty artefact paths."""
+    missing: List[str] = []
+    for key, path in artefacts.items():
+        if not path.exists():
+            missing.append(f"{key}: {path}")
+            continue
+        if path.suffix == ".jsonl":
+            try:
+                if path.stat().st_size == 0:
+                    missing.append(f"{key}: empty {path}")
+            except OSError:
+                missing.append(f"{key}: unreadable {path}")
+    return missing
+
+
+def row_from_artefacts(
+    artefacts: Dict[str, Path],
+    *,
+    model_name: str,
+    regime: str,
+    seed: int,
+    primary_seed: int,
+    checkpoint_dir: Path,
+) -> Dict[str, object]:
+    return {
+        "model": model_name,
+        "regime": regime,
+        "status": "success",
+        "seed": seed,
+        "primary_seed": primary_seed,
+        "val_predictions": str(artefacts["val_predictions"]),
+        "test_predictions": str(artefacts["test_predictions"]),
+        "val_metrics": str(artefacts["val_metrics"]),
+        "efficiency": str(artefacts["efficiency"]),
+        "checkpoint_dir": str(checkpoint_dir),
+    }
 
 
 def force_rerun_active() -> bool:

@@ -1,22 +1,24 @@
 # OCR Vezilka — Python dependencies
 #
-# Phases 1–3 (alignment, error analysis, synthetic noise):
-#   stdlib + numpy/pandas/matplotlib/seaborn
-# Phase 4 (ByT5 correction models):
-#   transformers + torch (+ optional accelerate for multi-GPU device_map)
-#
 # Python 3.10+ recommended.
 #
-# Install (Mac / Apple MPS or CPU):
-#     python -m pip install -r requirements.txt
+# IMPORTANT: install PyTorch *before* this file. Do NOT rely on a bare
+# ``python3 -m pip install -r requirements.txt`` to get a CUDA build — PyPI's
+# default torch wheel is CPU-only and will break ``--neural-device cuda``.
 #
-# Install (Linux + CUDA 12):
-#     pip install --index-url https://download.pytorch.org/whl/cu121 torch
-#     pip install -r requirements.txt
+# --- Linux + CUDA 12.x (driver 560 / CUDA 12.6) ---
+#   python3 -m pip install --upgrade pip
+#   python3 -m pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
+#   python3 -m pip install -r requirements.txt
+#   huggingface-cli download google/byt5-small 
 #
-# Install (CPU only):
-#     python -m pip install -r requirements.txt
-#     (default PyPI torch wheel is CPU; no extra steps)
+# --- Mac / Apple MPS or CPU ---
+#   python3 -m pip install torch torchvision torchaudio
+#   python3 -m pip install -r requirements.txt
+#
+# --- CPU only (Linux, no GPU) ---
+#   python3 -m pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+#   python3 -m pip install -r requirements.txt
 
 # --- Phases 1–3: analysis & plotting ---
 numpy>=1.26,<3
@@ -26,11 +28,11 @@ seaborn>=0.13,<1
 scipy>=1.11,<2
 
 # --- Phase 4: neural stack (google/byt5-small) ---
-# transformers ships the model + ByT5 byte tokenizer; torch is the backend.
-# tokenizers is pinned for stable byte-level tokenizer behavior across versions.
-# accelerate is optional but enables device_map="auto" on multi-GPU hosts.
-transformers>=4.41,<4.46
-torch>=2.2,<2.6
-tokenizers>=0.19,<0.21
-accelerate>=0.30,<0.34
-safetensors>=0.4,<1
+# torch is installed separately (see top). Pinning it here caused pip to
+# downgrade a cu124/cu126 build back to an incompatible wheel after manual
+# torch upgrades.
+transformers>=4.41,<4.49
+tokenizers>=0.19,<0.22
+accelerate>=0.30,<0.35
+safetensors>=0.4.3,<1
+huggingface_hub>=0.23,<1

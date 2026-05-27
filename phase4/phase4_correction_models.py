@@ -393,10 +393,161 @@ def _assert_artifacts_saved_before_test(
 
 
 def _jsonl_write(path: Path, rows: List[Dict[str, object]]) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    with path.open("w", encoding="utf-8") as f:
-        for row in rows:
-            f.write(json.dumps(row, ensure_ascii=False) + "\n")
+    from phase4.io_safe.atomic import atomic_write_jsonl, count_jsonl_lines
+
+    path = Path(path).resolve()
+    n_written = atomic_write_jsonl(path, rows)
+    n_on_disk = count_jsonl_lines(path)
+    if n_on_disk != n_written:
+        raise RuntimeError(
+            f"JSONL write verification failed for {path}: "
+            f"wrote {n_written} rows but found {n_on_disk} on disk."
+        )
+    print(
+        f"[write] verified {n_on_disk} JSONL rows at {path}",
+        flush=True,
+    )
+
+
+def _write_json_verified(path: Path, payload: Dict[str, object]) -> None:
+    from phase4.io_safe.atomic import atomic_write_json
+
+    path = Path(path).resolve()
+    atomic_write_json(path, payload)
+    if not path.exists() or path.stat().st_size == 0:
+        raise RuntimeError(f"JSON write verification failed for {path}")
+
+
+def _load_neural_temperature_from_disk(model, path: Path) -> bool:
+    path = Path(path)
+    if not path.exists():
+        return False
+    temp_cal = json.loads(path.read_text(encoding="utf-8"))
+    model.temperature = float(temp_cal.get("temperature", 1.0))
+    model.temperature_calibration = temp_cal
+    return True
+
+
+def _load_neural_gate_from_disk(model, path: Path) -> bool:
+    path = Path(path)
+    if not path.exists():
+        return False
+    gate_cal = json.loads(path.read_text(encoding="utf-8"))
+    selected = gate_cal.get("selected") or {}
+    if isinstance(selected, dict) and selected:
+        model.tuned_gate_margin = float(selected.get("gate_log_prob_margin", 0.0))
+        model.tuned_per_edit_margin = float(
+            selected.get("gate_per_edit_margin", 0.0)
+        )
+    model.gate_calibration = gate_cal
+    return True
+
+
+def _neural_headroom_artefacts_present(model_dir: Path) -> bool:
+    hr_cal_path = model_dir / "headroom_calibration.json"
+    hr_gate_dir = model_dir / "headroom_gate"
+    return (
+        hr_cal_path.exists()
+        and hr_gate_dir.exists()
+        and (hr_gate_dir / "headroom_gate.json").exists()
+    )
+
+
+def _load_neural_headroom_from_disk(
+    model, model_dir: Path
+) -> Optional[Dict[str, object]]:
+    if not _neural_headroom_artefacts_present(model_dir):
+        return None
+    from phase4.models.headroom_gate import HeadroomGate
+
+    hr_gate = HeadroomGate.load(model_dir / "headroom_gate")
+    model.attach_headroom_gate(hr_gate)
+    fit_result = json.loads(
+        (model_dir / "headroom_calibration.json").read_text(encoding="utf-8")
+    )
+    return {
+        "threshold": float(hr_gate.threshold),
+        "selected": dict(fit_result.get("selected") or {}),
+        "baseline_input_cer": fit_result.get("baseline_input_cer"),
+        "baseline_pred_cer": fit_result.get("baseline_pred_cer"),
+        "coefficients": fit_result.get("coefficients"),
+        "n_val": fit_result.get("n_val"),
+    }
+
+
+def _headroom_baseline_predictions(
+    model,
+    noisy_vals: List[str],
+    *,
+    gen_batch: int,
+) -> List[str]:
+    """Chunked gated val baseline for headroom fit (mirrors gate calibration)."""
+    n_total = len(noisy_vals)
+    if n_total == 0:
+        return []
+    gen_batch = max(1, int(gen_batch))
+    order = sorted(range(n_total), key=lambda k: len(noisy_vals[k].encode("utf-8")))
+    baseline_preds: List[str] = [""] * n_total
+    done = 0
+    t0 = time.perf_counter()
+    print(
+        f"[train] neural: headroom baseline predict on {n_total} val pairs "
+        f"(batch={gen_batch}) ...",
+        flush=True,
+    )
+    for start in range(0, len(order), gen_batch):
+        idxs = order[start : start + gen_batch]
+        chunk_noisy = [noisy_vals[i] for i in idxs]
+        with_logs = model.correct_batch_with_logs(chunk_noisy, apply_gate=True)
+        for j, src_idx in enumerate(idxs):
+            pred, _ = with_logs[j]
+            baseline_preds[src_idx] = pred
+        done += len(idxs)
+        elapsed = time.perf_counter() - t0
+        rate = elapsed / max(1, done)
+        eta = rate * (n_total - done)
+        print(
+            f"[train] neural: headroom baseline {done}/{n_total} "
+            f"elapsed={elapsed:.1f}s eta={eta:.1f}s",
+            flush=True,
+        )
+    return baseline_preds
+
+
+def _maybe_restore_neural_calibration(
+    model,
+    model_dir: Path,
+    *,
+    val_nn: List[Tuple[str, str]],
+) -> bool:
+    """Reuse temperature / gate / headroom calibration artefacts when present.
+
+    Gate and headroom calibration run GPU generation over hundreds of val
+    sentences. On HPC job restarts that work was being repeated every time,
+    often never reaching the official ``[write] val predictions`` pass.
+    """
+    if not val_nn:
+        return False
+    temp_path = model_dir / "neural_temperature.json"
+    gate_path = model_dir / "neural_gate_calibration.json"
+    if not (
+        temp_path.exists()
+        and gate_path.exists()
+        and _neural_headroom_artefacts_present(model_dir)
+    ):
+        return False
+    _load_neural_temperature_from_disk(model, temp_path)
+    _load_neural_gate_from_disk(model, gate_path)
+    hr_summary = _load_neural_headroom_from_disk(model, model_dir)
+    hr_tau = hr_summary["threshold"] if hr_summary else None
+    print(
+        f"[train] neural: reused calibration from disk "
+        f"(temperature={model.temperature}, "
+        f"gate_margin={model.tuned_gate_margin}, "
+        f"headroom_tau={hr_tau})",
+        flush=True,
+    )
+    return True
 
 
 def _val_metric_payload(
@@ -828,8 +979,11 @@ def _run_one(
     # produced it AND the hyperparameter / split hashes match, this whole
     # call short-circuits. ``PHASE4_FORCE_RERUN=1`` forces a full redo.
     from phase4.io_safe.sentinels import (
+        expected_run_artefacts,
         force_rerun_active,
+        missing_artefacts,
         read_sentinel,
+        row_from_artefacts,
         sentinel_matches,
         write_sentinel,
     )
@@ -839,6 +993,9 @@ def _run_one(
     if not is_primary_check:
         model_dir_check = model_dir_check / f"seed{seed}"
     done_path_check = model_dir_check / "_DONE.json"
+    expected_artefacts = expected_run_artefacts(
+        out_dir, model_name, regime, seed, primary_seed
+    )
     current_hp_hash = hashlib.sha256(
         json.dumps(frozen_hparams_dict(), sort_keys=True).encode("utf-8")
     ).hexdigest()
@@ -855,28 +1012,38 @@ def _run_one(
                 pass
     elif predict_sample_limit is None:
         cached = read_sentinel(done_path_check)
+        missing = missing_artefacts(expected_artefacts)
         if sentinel_matches(
             cached,
             hyperparameter_hash=current_hp_hash,
             split_manifest_hash=current_split_hash,
         ):
-            # Verify the declared artefacts exist; if any is missing, fall
-            # back to a full rerun to repopulate the disk.
-            artefact_paths = cached.get("artefacts") if cached else {}
-            missing = (
-                [p for p in artefact_paths.values() if not Path(p).exists()]
-                if isinstance(artefact_paths, dict)
-                else []
-            )
             if not missing:
                 print(
                     f"[resume] {model_name}/{regime}/seed={seed} ALREADY_DONE "
-                    f"(cached _DONE.json)",
+                    f"(all prediction/metric artefacts present)",
                     flush=True,
                 )
-                cached_row = dict(cached.get("row") or {})
-                if cached_row:
-                    return cached_row
+                cached_row = dict(cached.get("row") or {}) if cached else {}
+                if not cached_row:
+                    cached_row = row_from_artefacts(
+                        expected_artefacts,
+                        model_name=model_name,
+                        regime=regime,
+                        seed=seed,
+                        primary_seed=primary_seed,
+                        checkpoint_dir=model_dir_check,
+                    )
+                return cached_row
+            print(
+                f"[resume] stale _DONE.json for {model_name}/{regime}/seed={seed} "
+                f"— missing on disk: {missing}; rerunning.",
+                flush=True,
+            )
+            try:
+                done_path_check.unlink()
+            except OSError:
+                pass
 
     train_rows = [r for r in rows if r["split"] == "train"]
     val_rows = [r for r in rows if r["split"] == "val"]
@@ -1007,132 +1174,166 @@ def _run_one(
             flush=True,
         )
 
-        # temperature calibration *before* the gate sweep so the
-        # gate's margin sweep operates on calibrated log-probabilities.
-        if val_nn:
-            print(
-                f"[train] neural: calibrating temperature on "
-                f"{min(2000, len(val_nn))} val pairs ...",
-                flush=True,
-            )
-            t_temp = time.perf_counter()
-            temp_cal = model.calibrate_temperature(
-                val_nn, max_pairs=min(2000, len(val_nn))
-            )
-            print(
-                f"[train] neural: temperature calibration done in "
-                f"{time.perf_counter() - t_temp:.1f}s "
-                f"(T={temp_cal.get('temperature')}, "
-                f"ECE {temp_cal.get('pre_ece')} -> {temp_cal.get('post_ece')})",
-                flush=True,
-            )
-            (model_dir / "neural_temperature.json").write_text(
-                json.dumps(temp_cal, ensure_ascii=False, indent=2),
-                encoding="utf-8",
-            )
-        else:
-            print(
-                "[train] neural: temperature calibration skipped "
-                f"(val_pairs={len(val_nn)})",
-                flush=True,
-            )
+        calibration_reused = _maybe_restore_neural_calibration(
+            model, model_dir, val_nn=val_nn
+        )
+        if not calibration_reused:
+            temp_path = model_dir / "neural_temperature.json"
+            gate_path = model_dir / "neural_gate_calibration.json"
+            # temperature calibration *before* the gate sweep so the
+            # gate's margin sweep operates on calibrated log-probabilities.
+            if val_nn:
+                if _load_neural_temperature_from_disk(model, temp_path):
+                    print(
+                        f"[train] neural: reused temperature from disk "
+                        f"(T={model.temperature})",
+                        flush=True,
+                    )
+                else:
+                    print(
+                        f"[train] neural: calibrating temperature on "
+                        f"{min(2000, len(val_nn))} val pairs ...",
+                        flush=True,
+                    )
+                    t_temp = time.perf_counter()
+                    temp_cal = model.calibrate_temperature(
+                        val_nn, max_pairs=min(2000, len(val_nn))
+                    )
+                    print(
+                        f"[train] neural: temperature calibration done in "
+                        f"{time.perf_counter() - t_temp:.1f}s "
+                        f"(T={temp_cal.get('temperature')}, "
+                        f"ECE {temp_cal.get('pre_ece')} -> {temp_cal.get('post_ece')})",
+                        flush=True,
+                    )
+                    _write_json_verified(temp_path, temp_cal)
+            else:
+                print(
+                    "[train] neural: temperature calibration skipped "
+                    f"(val_pairs={len(val_nn)})",
+                    flush=True,
+                )
 
-        if bool(getattr(nn_cfg, "gate_enabled", True)) and val_nn:
-            print(
-                f"[train] neural: calibrating gate margin on val "
-                f"(grid={list(nn_cfg.gate_calibration_grid)}, "
-                f"max_pairs={min(int(nn_cfg.gate_calibration_max_pairs), len(val_nn))})",
-                flush=True,
-            )
-            t_cal = time.perf_counter()
-            gate_cal = model.calibrate_gate_on_val(
-                val_nn,
-                max_pairs=min(
-                    int(nn_cfg.gate_calibration_max_pairs), len(val_nn)
-                ),
-            )
-            print(
-                f"[train] neural: gate calibration done in "
-                f"{time.perf_counter() - t_cal:.1f}s",
-                flush=True,
-            )
-            (model_dir / "neural_gate_calibration.json").write_text(
-                json.dumps(gate_cal, ensure_ascii=False, indent=2),
-                encoding="utf-8",
-            )
-        else:
-            print(
-                "[train] neural: gate calibration skipped "
-                f"(gate_enabled={getattr(nn_cfg, 'gate_enabled', True)}, "
-                f"val_pairs={len(val_nn)})",
-                flush=True,
-            )
+            if bool(getattr(nn_cfg, "gate_enabled", True)) and val_nn:
+                if _load_neural_gate_from_disk(model, gate_path):
+                    print(
+                        f"[train] neural: reused gate calibration from disk "
+                        f"(margin={model.tuned_gate_margin}, "
+                        f"per_edit={model.tuned_per_edit_margin})",
+                        flush=True,
+                    )
+                else:
+                    print(
+                        f"[train] neural: calibrating gate margin on val "
+                        f"(grid={list(nn_cfg.gate_calibration_grid)}, "
+                        f"max_pairs={min(int(nn_cfg.gate_calibration_max_pairs), len(val_nn))})",
+                        flush=True,
+                    )
+                    t_cal = time.perf_counter()
+                    gate_cal = model.calibrate_gate_on_val(
+                        val_nn,
+                        max_pairs=min(
+                            int(nn_cfg.gate_calibration_max_pairs), len(val_nn)
+                        ),
+                    )
+                    print(
+                        f"[train] neural: gate calibration done in "
+                        f"{time.perf_counter() - t_cal:.1f}s",
+                        flush=True,
+                    )
+                    _write_json_verified(gate_path, gate_cal)
+            else:
+                print(
+                    "[train] neural: gate calibration skipped "
+                    f"(gate_enabled={getattr(nn_cfg, 'gate_enabled', True)}, "
+                    f"val_pairs={len(val_nn)})",
+                    flush=True,
+                )
 
-        # fit the headroom gate on val. Uses an ungated, post-edit-gate
-        # val predict pass to compute the headroom curve under the same
-        # conditions inference will run. The headroom gate
-        # *replaces* default neural inference: when attached, sentences with
-        # estimate_cer < tau short-circuit straight to identity.
-        hr_summary: Optional[Dict[str, object]] = None
-        if val_nn:
-            from phase4.models.headroom_gate import HeadroomGate, HeadroomGateConfig
+            # Persist HF weights after gate calibration so a restart mid-headroom
+            # does not re-run training + gate sweep from scratch.
+            if val_nn and (temp_path.exists() or gate_path.exists()):
+                model.save(model_dir)
+                print(
+                    f"[train] neural: checkpoint saved before headroom fit -> "
+                    f"{model_dir.resolve()}",
+                    flush=True,
+                )
 
-            hr_cap = min(int(nn_cfg.gate_calibration_max_pairs), len(val_nn))
-            hr_pairs = list(val_nn[:hr_cap])
-            print(
-                f"[train] neural: fitting headroom gate on {len(hr_pairs)} val pairs ...",
-                flush=True,
-            )
-            t_hr = time.perf_counter()
-            hr_gate = HeadroomGate(config=HeadroomGateConfig())
-            train_clean = [
-                str(r["clean"]) for r in train_rows
-                if r.get("clean") and r["split"] == "train"
-            ]
-            # Lowercase lexicon so the OOV proxy is case-insensitive (the
-            # Macedonian capitalised vs lowercase split is small relative
-            # to the OCR noise we're after).
-            hr_lex = {w.lower() for w, c in train_word_counts.items() if c >= 1}
-            hr_gate.fit(
-                train_clean,
-                lexicon=hr_lex,
-                phase2_train_only_dir=phase2_train_only_dir,
-            )
-            # Baseline val preds with the per-edit gate ON (so the headroom
-            # decision is layered on top of the calibrated downstream
-            # pipeline) but headroom OFF (it's not attached yet).
-            noisy_vals = [n for n, _ in hr_pairs]
-            with_logs = model.correct_batch_with_logs(
-                noisy_vals, apply_gate=True
-            )
-            baseline_preds = [p for p, _ in with_logs]
-            fit_result = hr_gate.fit_on_val(hr_pairs, val_preds=baseline_preds)
-            (model_dir / "headroom_calibration.json").write_text(
-                json.dumps(fit_result, ensure_ascii=False, indent=2),
-                encoding="utf-8",
-            )
-            model.attach_headroom_gate(hr_gate)
-            hr_summary = {
-                "threshold": float(hr_gate.threshold),
-                "selected": dict(fit_result.get("selected") or {}),
-                "baseline_input_cer": fit_result.get("baseline_input_cer"),
-                "baseline_pred_cer": fit_result.get("baseline_pred_cer"),
-                "coefficients": fit_result.get("coefficients"),
-                "n_val": fit_result.get("n_val"),
-            }
-            print(
-                f"[train] neural: headroom gate fit in "
-                f"{time.perf_counter() - t_hr:.1f}s "
-                f"(tau={hr_gate.threshold:.4f}, "
-                f"selected={hr_summary['selected']})",
-                flush=True,
-            )
+            # fit the headroom gate on val. Uses an ungated, post-edit-gate
+            # val predict pass to compute the headroom curve under the same
+            # conditions inference will run. The headroom gate
+            # *replaces* default neural inference: when attached, sentences with
+            # estimate_cer < tau short-circuit straight to identity.
+            hr_summary: Optional[Dict[str, object]] = None
+            if val_nn:
+                loaded_hr = _load_neural_headroom_from_disk(model, model_dir)
+                if loaded_hr is not None:
+                    hr_summary = loaded_hr
+                    print(
+                        f"[train] neural: reused headroom gate from disk "
+                        f"(tau={hr_summary['threshold']:.4f}, "
+                        f"selected={hr_summary['selected']})",
+                        flush=True,
+                    )
+                else:
+                    from phase4.models.headroom_gate import HeadroomGate, HeadroomGateConfig
+
+                    hr_cap = min(int(nn_cfg.gate_calibration_max_pairs), len(val_nn))
+                    hr_pairs = list(val_nn[:hr_cap])
+                    print(
+                        f"[train] neural: fitting headroom gate on {len(hr_pairs)} val pairs ...",
+                        flush=True,
+                    )
+                    t_hr = time.perf_counter()
+                    hr_gate = HeadroomGate(config=HeadroomGateConfig())
+                    train_clean = [
+                        str(r["clean"]) for r in train_rows
+                        if r.get("clean") and r["split"] == "train"
+                    ]
+                    # Lowercase lexicon so the OOV proxy is case-insensitive.
+                    hr_lex = {w.lower() for w, c in train_word_counts.items() if c >= 1}
+                    hr_gate.fit(
+                        train_clean,
+                        lexicon=hr_lex,
+                        phase2_train_only_dir=phase2_train_only_dir,
+                    )
+                    # Baseline val preds with the per-edit gate ON (so the headroom
+                    # decision is layered on top of the calibrated downstream
+                    # pipeline) but headroom OFF (it's not attached yet).
+                    noisy_vals = [n for n, _ in hr_pairs]
+                    gen_batch = max(1, int(getattr(nn_cfg, "eval_gen_batch_size", 16)))
+                    baseline_preds = _headroom_baseline_predictions(
+                        model, noisy_vals, gen_batch=gen_batch
+                    )
+                    fit_result = hr_gate.fit_on_val(hr_pairs, val_preds=baseline_preds)
+                    _write_json_verified(
+                        model_dir / "headroom_calibration.json", fit_result
+                    )
+                    model.attach_headroom_gate(hr_gate)
+                    hr_summary = {
+                        "threshold": float(hr_gate.threshold),
+                        "selected": dict(fit_result.get("selected") or {}),
+                        "baseline_input_cer": fit_result.get("baseline_input_cer"),
+                        "baseline_pred_cer": fit_result.get("baseline_pred_cer"),
+                        "coefficients": fit_result.get("coefficients"),
+                        "n_val": fit_result.get("n_val"),
+                    }
+                    print(
+                        f"[train] neural: headroom gate fit in "
+                        f"{time.perf_counter() - t_hr:.1f}s "
+                        f"(tau={hr_gate.threshold:.4f}, "
+                        f"selected={hr_summary['selected']})",
+                        flush=True,
+                    )
+            else:
+                print(
+                    "[train] neural: headroom gate skipped "
+                    f"(val_pairs={len(val_nn)})",
+                    flush=True,
+                )
         else:
-            print(
-                "[train] neural: headroom gate skipped "
-                f"(val_pairs={len(val_nn)})",
-                flush=True,
-            )
+            hr_summary = None
 
         model.save(model_dir)
         if predict_sample_limit is not None:
@@ -1291,6 +1492,12 @@ def _run_one(
         )
 
     predict_batch = int(getattr(TransformerConfig(), "predict_batch_size", 1))
+    val_path = (out_dir / "predictions" / "val" / model_name / f"{regime}{seed_suffix}.jsonl").resolve()
+    print(
+        f"[predict] OFFICIAL val scoring pass for {model_name}/{regime}/seed={seed} "
+        f"-> {val_path}",
+        flush=True,
+    )
     val_records, val_latencies = _predict_records(
         model_name,
         correct_fn,
@@ -1300,7 +1507,6 @@ def _run_one(
         batch_correct_fn=neural_batch_correct_fn,
         batch_size=predict_batch if neural_batch_correct_fn is not None else 1,
     )
-    val_path = out_dir / "predictions" / "val" / model_name / f"{regime}{seed_suffix}.jsonl"
     print(f"[write] val predictions -> {val_path}", flush=True)
     _jsonl_write(val_path, val_records)
 
@@ -1314,6 +1520,26 @@ def _run_one(
         artifact_check_paths.append(model_dir / "hybrid_calibration.json")
     _assert_artifacts_saved_before_test(artifact_check_paths, context=f"{model_name}/{regime}")
 
+    # Val metrics depend only on the val pass. Write them *before* the (much
+    # larger) test_blind predict so an OOM or crash during test scoring does
+    # not leave ``val_metrics/neural/`` empty while ``predictions/val/neural/``
+    # already exists.
+    metric_payload = _val_metric_payload(val_records, model_name, regime, seed)
+    metrics_path = (out_dir / "val_metrics" / model_name / f"{regime}{seed_suffix}.json").resolve()
+    _write_json_verified(metrics_path, metric_payload)
+    print(f"[write] val metrics -> {metrics_path}", flush=True)
+
+    eff_payload = _latency_summary(val_latencies, n_params=n_params)
+    eff_path = (out_dir / "efficiency" / model_name / f"{regime}{seed_suffix}.json").resolve()
+    _write_json_verified(eff_path, eff_payload)
+    print(f"[write] efficiency -> {eff_path}", flush=True)
+
+    test_path = (out_dir / "predictions" / "test_blind" / model_name / f"{regime}{seed_suffix}.jsonl").resolve()
+    print(
+        f"[predict] OFFICIAL test_blind scoring pass for {model_name}/{regime}/seed={seed} "
+        f"-> {test_path}",
+        flush=True,
+    )
     test_records, _test_latencies = _predict_records(
         model_name,
         correct_fn,
@@ -1323,7 +1549,6 @@ def _run_one(
         batch_correct_fn=neural_batch_correct_fn,
         batch_size=predict_batch if neural_batch_correct_fn is not None else 1,
     )
-    test_path = out_dir / "predictions" / "test_blind" / model_name / f"{regime}{seed_suffix}.jsonl"
     print(f"[write] test_blind predictions -> {test_path}", flush=True)
     _jsonl_write(test_path, test_records)
 
@@ -1334,20 +1559,6 @@ def _run_one(
             f"{model_name}/{regime}: val={len(val_records)} test={len(test_records)} lines.",
             flush=True,
         )
-
-    metric_payload = _val_metric_payload(val_records, model_name, regime, seed)
-    metrics_path = out_dir / "val_metrics" / model_name / f"{regime}{seed_suffix}.json"
-    metrics_path.parent.mkdir(parents=True, exist_ok=True)
-    metrics_path.write_text(
-        json.dumps(metric_payload, ensure_ascii=False, indent=2), encoding="utf-8"
-    )
-    print(f"[write] val metrics -> {metrics_path}", flush=True)
-
-    eff_payload = _latency_summary(val_latencies, n_params=n_params)
-    eff_path = out_dir / "efficiency" / model_name / f"{regime}{seed_suffix}.json"
-    eff_path.parent.mkdir(parents=True, exist_ok=True)
-    eff_path.write_text(json.dumps(eff_payload, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"[write] efficiency -> {eff_path}", flush=True)
 
     result_row = {
         "model": model_name,

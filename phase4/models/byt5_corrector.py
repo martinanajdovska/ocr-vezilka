@@ -36,6 +36,84 @@ def _import_hf():
     return T5ForConditionalGeneration, ByT5Tokenizer
 
 
+def _safetensors_available() -> bool:
+    try:
+        import safetensors  # noqa: F401
+        return True
+    except ImportError:
+        return False
+
+
+def _torch_at_least(major: int, minor: int) -> bool:
+    try:
+        ver = tuple(int(x) for x in torch.__version__.split("+")[0].split(".")[:2])
+    except ValueError:
+        return False
+    return ver >= (major, minor)
+
+
+def _load_t5_from_pretrained(src: str):
+    """Load ByT5 weights with actionable errors for common HPC failures.
+
+    Prefer ``model.safetensors`` (works on all supported torch versions).
+    Fall back to ``pytorch_model.bin`` only when torch >= 2.6 and safetensors
+    loading fails but a legacy bin file is present locally.
+    """
+    T5ForConditionalGeneration, _ = _import_hf()
+    path = Path(src)
+    is_local = path.exists() and path.is_dir()
+
+    # A local folder named like the hub id shadows the remote model.
+    if not is_local and Path(src).exists():
+        raise RuntimeError(
+            f"[byt5] Found a local path {Path(src)!r} that shadows the Hugging "
+            f"Face model id {src!r}. Rename or remove it, or pass an absolute "
+            "path to a complete checkpoint directory."
+        )
+
+    if is_local:
+        has_st = (path / "model.safetensors").exists()
+        has_bin = (path / "pytorch_model.bin").exists()
+        if not has_st and not has_bin:
+            raise RuntimeError(
+                f"[byt5] Local checkpoint {path} has neither model.safetensors "
+                "nor pytorch_model.bin."
+            )
+        if not has_st and has_bin and not _torch_at_least(2, 6):
+            raise RuntimeError(
+                f"[byt5] Local checkpoint {path} only has pytorch_model.bin "
+                f"but torch=={torch.__version__} (<2.6) cannot load it. "
+                "Re-save the checkpoint (safe_serialization=True) or upgrade torch."
+            )
+
+    load_attempts: List[Tuple[str, Dict[str, object]]] = []
+    if _safetensors_available():
+        load_attempts.append(("safetensors", {"use_safetensors": True}))
+    load_attempts.append(("auto", {"use_safetensors": None}))
+    if _torch_at_least(2, 6):
+        load_attempts.append(("pytorch_bin", {"use_safetensors": False}))
+
+    errors: List[str] = []
+    for label, kwargs in load_attempts:
+        try:
+            print(f"[byt5] loading weights via {label} ...", flush=True)
+            return T5ForConditionalGeneration.from_pretrained(src, **kwargs)
+        except Exception as exc:
+            errors.append(f"  {label}: {exc}")
+
+    st_note = (
+        "safetensors is installed"
+        if _safetensors_available()
+        else "safetensors is NOT installed — run: python3 -m pip install 'safetensors>=0.4.3,<1'"
+    )
+    hint = (
+        f"[byt5] Failed to load {src!r} ({st_note}).\n"
+        "Tried: " + ", ".join(l for l, _ in load_attempts) + ".\n"
+        "Details:\n" + "\n".join(errors)
+    )
+    raise RuntimeError(hint)
+
+
 def _select_device() -> torch.device:
     """
     Override via ``PHASE4_NEURAL_DEVICE={cpu,mps,cuda,auto}`` env var (set by
@@ -337,9 +415,7 @@ class ByT5Corrector:
         src = str(source) if source is not None else self.cfg.pretrained_model
         print(f"[byt5] loading {src} on device={self.device}", flush=True)
         self.tokenizer = ByT5Tokenizer.from_pretrained(src)
-        self.model = T5ForConditionalGeneration.from_pretrained(
-            src, use_safetensors=True
-        ).to(self.device)
+        self.model = _load_t5_from_pretrained(src).to(self.device)
         self._configure_model_for_training()
         self._maybe_torch_compile()
 
@@ -364,6 +440,21 @@ class ByT5Corrector:
         if self.device.type != "cuda":
             print("[byt5] PHASE4_TORCH_COMPILE set but device is not CUDA; skipping.", flush=True)
             return
+
+        # Guard: gradient_checkpointing + torch.compile on torch < 2.6
+        # silently defeats checkpointing and OOMs. Refuse rather than
+        # crash mid-epoch.
+        torch_ver = tuple(int(x) for x in torch.__version__.split("+")[0].split(".")[:2])
+        if bool(getattr(self.cfg, "gradient_checkpointing", False)) and torch_ver < (2, 6):
+            print(
+                f"[byt5] PHASE4_TORCH_COMPILE set but gradient_checkpointing=True "
+                f"on torch=={torch.__version__} (<2.6) silently defeats checkpointing "
+                "and OOMs. Skipping compile. Either upgrade torch>=2.6 or set "
+                "gradient_checkpointing=False in TransformerConfig.",
+                flush=True,
+            )
+            return
+
         mode = os.environ.get("PHASE4_TORCH_COMPILE_MODE", "default").strip() or "default"
         try:
             print(
@@ -508,9 +599,7 @@ class ByT5Corrector:
         if resume_bundle is not None:
             T5ForConditionalGeneration, ByT5Tokenizer = _import_hf()
             self.tokenizer = ByT5Tokenizer.from_pretrained(self.cfg.pretrained_model)
-            self.model = T5ForConditionalGeneration.from_pretrained(
-                self.cfg.pretrained_model, use_safetensors=True
-            ).to(self.device)
+            self.model = _load_t5_from_pretrained(self.cfg.pretrained_model).to(self.device)
             sd = resume_bundle["model_state_dict"]
             self.model.load_state_dict(
                 {k: v.to(self.device) for k, v in sd.items()}, strict=True
@@ -955,9 +1044,7 @@ class ByT5Corrector:
                 if not math.isfinite(loss_val) and self.device.type == "mps":
                     if cpu_model is None:
                         T5ForConditionalGeneration, _ = _import_hf()
-                        cpu_model = T5ForConditionalGeneration.from_pretrained(
-                            self.cfg.pretrained_model, use_safetensors=True
-                        )
+                        cpu_model = _load_t5_from_pretrained(self.cfg.pretrained_model)
                         cpu_model.load_state_dict(
                             {k: v.detach().cpu() for k, v in self.model.state_dict().items()}
                         )
@@ -2517,9 +2604,7 @@ class ByT5Corrector:
             if isinstance(gate_summary, dict):
                 self.gate_calibration = dict(gate_summary)
         self.tokenizer = ByT5Tokenizer.from_pretrained(output_dir)
-        self.model = T5ForConditionalGeneration.from_pretrained(
-            output_dir, use_safetensors=True
-        ).to(self.device)
+        self.model = _load_t5_from_pretrained(str(output_dir)).to(self.device)
         self._maybe_torch_compile()
         # restore HeadroomGate state (if persisted) so the
         # predict path can re-gate without recalibrating on val.

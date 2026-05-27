@@ -59,8 +59,8 @@ class TransformerConfig:
     max_target_bytes: int = 1024
 
 
-    batch_size: int = 64
-    gradient_accumulation_steps: int = 2
+    batch_size: int = 32
+    gradient_accumulation_steps: int = 4
     dataloader_num_workers: int = 8
     pin_memory: bool = True
 
@@ -139,8 +139,8 @@ class TransformerConfig:
     eval_cer_pairs: int = 256
     eval_cer_beam: int = 1
 
-    eval_gen_batch_size: int = 128
-    predict_batch_size: int = 128
+    eval_gen_batch_size: int = 64
+    predict_batch_size: int = 64
 
     use_window_context: bool = False
     window_context_sep: str = " <sep> "

@@ -10,7 +10,7 @@ from __future__ import annotations
 import json
 import os
 from pathlib import Path
-from typing import Any
+from typing import Any, Dict, Iterable
 
 
 def _tmp_path(path: Path) -> Path:
@@ -37,3 +37,35 @@ def atomic_write_json(path: Path, data: Any, *, indent: int = 2) -> None:
     atomic_write_text(
         path, json.dumps(data, ensure_ascii=False, indent=indent) + "\n"
     )
+
+
+def atomic_write_jsonl(path: Path, rows: Iterable[Dict[str, Any]]) -> int:
+    """Write JSONL atomically; return the number of rows written."""
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp = _tmp_path(path)
+    n = 0
+    with tmp.open("w", encoding="utf-8", newline="\n") as f:
+        for row in rows:
+            f.write(json.dumps(row, ensure_ascii=False))
+            f.write("\n")
+            n += 1
+        f.flush()
+        try:
+            os.fsync(f.fileno())
+        except OSError:
+            pass
+    os.replace(tmp, path)
+    return n
+
+
+def count_jsonl_lines(path: Path) -> int:
+    path = Path(path)
+    if not path.exists():
+        return 0
+    n = 0
+    with path.open("r", encoding="utf-8") as f:
+        for line in f:
+            if line.strip():
+                n += 1
+    return n
