@@ -1,0 +1,596 @@
+{
+  "selected": {
+    "gate_log_prob_margin": 0.6,
+    "gate_per_edit_margin": 0.6,
+    "mean_cer": 0.05623817460223287,
+    "kept": 1,
+    "n_pairs": 1000,
+    "n_generated_edits": 99,
+    "change_rate": 0.001
+  },
+  "tested": 64,
+  "grid_size": 64,
+  "n_generated_edits": 99,
+  "baseline_identity_cer": 0.05622324922909854,
+  "baseline_no_gate_cer": 0.06106715709303769,
+  "fallback_margin": 0.0,
+  "fallback_per_edit_margin": 0.0,
+  "log": [
+    {
+      "gate_log_prob_margin": -0.4,
+      "gate_per_edit_margin": -0.4,
+      "mean_cer": 0.05935862671848965,
+      "kept": 56,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.056
+    },
+    {
+      "gate_log_prob_margin": -0.4,
+      "gate_per_edit_margin": -0.2,
+      "mean_cer": 0.05935862671848965,
+      "kept": 56,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.056
+    },
+    {
+      "gate_log_prob_margin": -0.4,
+      "gate_per_edit_margin": -0.1,
+      "mean_cer": 0.059353245552570356,
+      "kept": 56,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.056
+    },
+    {
+      "gate_log_prob_margin": -0.4,
+      "gate_per_edit_margin": 0.0,
+      "mean_cer": 0.05934542676448252,
+      "kept": 56,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.056
+    },
+    {
+      "gate_log_prob_margin": -0.4,
+      "gate_per_edit_margin": 0.1,
+      "mean_cer": 0.059303252447931665,
+      "kept": 56,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.056
+    },
+    {
+      "gate_log_prob_margin": -0.4,
+      "gate_per_edit_margin": 0.2,
+      "mean_cer": 0.05930906640142003,
+      "kept": 56,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.056
+    },
+    {
+      "gate_log_prob_margin": -0.4,
+      "gate_per_edit_margin": 0.4,
+      "mean_cer": 0.05917659856997405,
+      "kept": 56,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.056
+    },
+    {
+      "gate_log_prob_margin": -0.4,
+      "gate_per_edit_margin": 0.6,
+      "mean_cer": 0.059131642442355255,
+      "kept": 56,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.056
+    },
+    {
+      "gate_log_prob_margin": -0.2,
+      "gate_per_edit_margin": -0.4,
+      "mean_cer": 0.058568282687384204,
+      "kept": 37,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.037
+    },
+    {
+      "gate_log_prob_margin": -0.2,
+      "gate_per_edit_margin": -0.2,
+      "mean_cer": 0.058568282687384204,
+      "kept": 37,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.037
+    },
+    {
+      "gate_log_prob_margin": -0.2,
+      "gate_per_edit_margin": -0.1,
+      "mean_cer": 0.05856290152146491,
+      "kept": 37,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.037
+    },
+    {
+      "gate_log_prob_margin": -0.2,
+      "gate_per_edit_margin": 0.0,
+      "mean_cer": 0.058555082733377076,
+      "kept": 37,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.037
+    },
+    {
+      "gate_log_prob_margin": -0.2,
+      "gate_per_edit_margin": 0.1,
+      "mean_cer": 0.05855086332409438,
+      "kept": 37,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.037
+    },
+    {
+      "gate_log_prob_margin": -0.2,
+      "gate_per_edit_margin": 0.2,
+      "mean_cer": 0.05855086332409438,
+      "kept": 37,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.037
+    },
+    {
+      "gate_log_prob_margin": -0.2,
+      "gate_per_edit_margin": 0.4,
+      "mean_cer": 0.05845171036898653,
+      "kept": 37,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.037
+    },
+    {
+      "gate_log_prob_margin": -0.2,
+      "gate_per_edit_margin": 0.6,
+      "mean_cer": 0.058406754241367737,
+      "kept": 37,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.037
+    },
+    {
+      "gate_log_prob_margin": -0.1,
+      "gate_per_edit_margin": -0.4,
+      "mean_cer": 0.058036572324218945,
+      "kept": 30,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.03
+    },
+    {
+      "gate_log_prob_margin": -0.1,
+      "gate_per_edit_margin": -0.2,
+      "mean_cer": 0.058036572324218945,
+      "kept": 30,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.03
+    },
+    {
+      "gate_log_prob_margin": -0.1,
+      "gate_per_edit_margin": -0.1,
+      "mean_cer": 0.058031191158299654,
+      "kept": 30,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.03
+    },
+    {
+      "gate_log_prob_margin": -0.1,
+      "gate_per_edit_margin": 0.0,
+      "mean_cer": 0.058023372370211816,
+      "kept": 30,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.03
+    },
+    {
+      "gate_log_prob_margin": -0.1,
+      "gate_per_edit_margin": 0.1,
+      "mean_cer": 0.058023372370211816,
+      "kept": 30,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.03
+    },
+    {
+      "gate_log_prob_margin": -0.1,
+      "gate_per_edit_margin": 0.2,
+      "mean_cer": 0.058023372370211816,
+      "kept": 30,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.03
+    },
+    {
+      "gate_log_prob_margin": -0.1,
+      "gate_per_edit_margin": 0.4,
+      "mean_cer": 0.05795580204815719,
+      "kept": 30,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.03
+    },
+    {
+      "gate_log_prob_margin": -0.1,
+      "gate_per_edit_margin": 0.6,
+      "mean_cer": 0.05792779507308077,
+      "kept": 30,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.03
+    },
+    {
+      "gate_log_prob_margin": 0.0,
+      "gate_per_edit_margin": -0.4,
+      "mean_cer": 0.05793716530096495,
+      "kept": 23,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.023
+    },
+    {
+      "gate_log_prob_margin": 0.0,
+      "gate_per_edit_margin": -0.2,
+      "mean_cer": 0.05793716530096495,
+      "kept": 23,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.023
+    },
+    {
+      "gate_log_prob_margin": 0.0,
+      "gate_per_edit_margin": -0.1,
+      "mean_cer": 0.05793178413504568,
+      "kept": 23,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.023
+    },
+    {
+      "gate_log_prob_margin": 0.0,
+      "gate_per_edit_margin": 0.0,
+      "mean_cer": 0.05792909355208604,
+      "kept": 23,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.023
+    },
+    {
+      "gate_log_prob_margin": 0.0,
+      "gate_per_edit_margin": 0.1,
+      "mean_cer": 0.05792909355208604,
+      "kept": 23,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.023
+    },
+    {
+      "gate_log_prob_margin": 0.0,
+      "gate_per_edit_margin": 0.2,
+      "mean_cer": 0.05792909355208604,
+      "kept": 23,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.023
+    },
+    {
+      "gate_log_prob_margin": 0.0,
+      "gate_per_edit_margin": 0.4,
+      "mean_cer": 0.05786152323003141,
+      "kept": 23,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.023
+    },
+    {
+      "gate_log_prob_margin": 0.0,
+      "gate_per_edit_margin": 0.6,
+      "mean_cer": 0.05784501050782855,
+      "kept": 23,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.023
+    },
+    {
+      "gate_log_prob_margin": 0.1,
+      "gate_per_edit_margin": -0.4,
+      "mean_cer": 0.05704250736233496,
+      "kept": 11,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.011
+    },
+    {
+      "gate_log_prob_margin": 0.1,
+      "gate_per_edit_margin": -0.2,
+      "mean_cer": 0.05704250736233496,
+      "kept": 11,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.011
+    },
+    {
+      "gate_log_prob_margin": 0.1,
+      "gate_per_edit_margin": -0.1,
+      "mean_cer": 0.05703712619641568,
+      "kept": 11,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.011
+    },
+    {
+      "gate_log_prob_margin": 0.1,
+      "gate_per_edit_margin": 0.0,
+      "mean_cer": 0.05703443561345604,
+      "kept": 11,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.011
+    },
+    {
+      "gate_log_prob_margin": 0.1,
+      "gate_per_edit_margin": 0.1,
+      "mean_cer": 0.05703443561345604,
+      "kept": 11,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.011
+    },
+    {
+      "gate_log_prob_margin": 0.1,
+      "gate_per_edit_margin": 0.2,
+      "mean_cer": 0.05703443561345604,
+      "kept": 11,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.011
+    },
+    {
+      "gate_log_prob_margin": 0.1,
+      "gate_per_edit_margin": 0.4,
+      "mean_cer": 0.05698959256412869,
+      "kept": 11,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.011
+    },
+    {
+      "gate_log_prob_margin": 0.1,
+      "gate_per_edit_margin": 0.6,
+      "mean_cer": 0.05698959256412869,
+      "kept": 11,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.011
+    },
+    {
+      "gate_log_prob_margin": 0.2,
+      "gate_per_edit_margin": -0.4,
+      "mean_cer": 0.0568620385125661,
+      "kept": 5,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.005
+    },
+    {
+      "gate_log_prob_margin": 0.2,
+      "gate_per_edit_margin": -0.2,
+      "mean_cer": 0.0568620385125661,
+      "kept": 5,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.005
+    },
+    {
+      "gate_log_prob_margin": 0.2,
+      "gate_per_edit_margin": -0.1,
+      "mean_cer": 0.05685665734664681,
+      "kept": 5,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.005
+    },
+    {
+      "gate_log_prob_margin": 0.2,
+      "gate_per_edit_margin": 0.0,
+      "mean_cer": 0.056853966763687175,
+      "kept": 5,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.005
+    },
+    {
+      "gate_log_prob_margin": 0.2,
+      "gate_per_edit_margin": 0.1,
+      "mean_cer": 0.056853966763687175,
+      "kept": 5,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.005
+    },
+    {
+      "gate_log_prob_margin": 0.2,
+      "gate_per_edit_margin": 0.2,
+      "mean_cer": 0.056853966763687175,
+      "kept": 5,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.005
+    },
+    {
+      "gate_log_prob_margin": 0.2,
+      "gate_per_edit_margin": 0.4,
+      "mean_cer": 0.05680912371435982,
+      "kept": 5,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.005
+    },
+    {
+      "gate_log_prob_margin": 0.2,
+      "gate_per_edit_margin": 0.6,
+      "mean_cer": 0.05680912371435982,
+      "kept": 5,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.005
+    },
+    {
+      "gate_log_prob_margin": 0.4,
+      "gate_per_edit_margin": -0.4,
+      "mean_cer": 0.05623817460223287,
+      "kept": 1,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.001
+    },
+    {
+      "gate_log_prob_margin": 0.4,
+      "gate_per_edit_margin": -0.2,
+      "mean_cer": 0.05623817460223287,
+      "kept": 1,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.001
+    },
+    {
+      "gate_log_prob_margin": 0.4,
+      "gate_per_edit_margin": -0.1,
+      "mean_cer": 0.05623817460223287,
+      "kept": 1,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.001
+    },
+    {
+      "gate_log_prob_margin": 0.4,
+      "gate_per_edit_margin": 0.0,
+      "mean_cer": 0.05623817460223287,
+      "kept": 1,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.001
+    },
+    {
+      "gate_log_prob_margin": 0.4,
+      "gate_per_edit_margin": 0.1,
+      "mean_cer": 0.05623817460223287,
+      "kept": 1,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.001
+    },
+    {
+      "gate_log_prob_margin": 0.4,
+      "gate_per_edit_margin": 0.2,
+      "mean_cer": 0.05623817460223287,
+      "kept": 1,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.001
+    },
+    {
+      "gate_log_prob_margin": 0.4,
+      "gate_per_edit_margin": 0.4,
+      "mean_cer": 0.05623817460223287,
+      "kept": 1,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.001
+    },
+    {
+      "gate_log_prob_margin": 0.4,
+      "gate_per_edit_margin": 0.6,
+      "mean_cer": 0.05623817460223287,
+      "kept": 1,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.001
+    },
+    {
+      "gate_log_prob_margin": 0.6,
+      "gate_per_edit_margin": -0.4,
+      "mean_cer": 0.05623817460223287,
+      "kept": 1,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.001
+    },
+    {
+      "gate_log_prob_margin": 0.6,
+      "gate_per_edit_margin": -0.2,
+      "mean_cer": 0.05623817460223287,
+      "kept": 1,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.001
+    },
+    {
+      "gate_log_prob_margin": 0.6,
+      "gate_per_edit_margin": -0.1,
+      "mean_cer": 0.05623817460223287,
+      "kept": 1,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.001
+    },
+    {
+      "gate_log_prob_margin": 0.6,
+      "gate_per_edit_margin": 0.0,
+      "mean_cer": 0.05623817460223287,
+      "kept": 1,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.001
+    },
+    {
+      "gate_log_prob_margin": 0.6,
+      "gate_per_edit_margin": 0.1,
+      "mean_cer": 0.05623817460223287,
+      "kept": 1,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.001
+    },
+    {
+      "gate_log_prob_margin": 0.6,
+      "gate_per_edit_margin": 0.2,
+      "mean_cer": 0.05623817460223287,
+      "kept": 1,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.001
+    },
+    {
+      "gate_log_prob_margin": 0.6,
+      "gate_per_edit_margin": 0.4,
+      "mean_cer": 0.05623817460223287,
+      "kept": 1,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.001
+    },
+    {
+      "gate_log_prob_margin": 0.6,
+      "gate_per_edit_margin": 0.6,
+      "mean_cer": 0.05623817460223287,
+      "kept": 1,
+      "n_pairs": 1000,
+      "n_generated_edits": 99,
+      "change_rate": 0.001
+    }
+  ]
+}

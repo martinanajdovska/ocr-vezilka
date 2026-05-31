@@ -44,6 +44,8 @@ if __package__ is None or __package__ == "":
     sys.path.append(str(Path(__file__).resolve().parents[1]))
 
 from phase4.config import (
+    HEADROOM_MAX_OVERCORRECTION_BY_REGIME,
+    HEADROOM_MIN_KEPT_FRACTION_BY_REGIME,
     IDENTITY_PAIR_RATIO_BY_REGIME,
     SEEDS,
     ClassicalConfig,
@@ -189,6 +191,40 @@ def _neural_resume_effective(cli_neural_resume: bool) -> bool:
     return raw.lower() not in ("0", "false", "no", "off")
 
 
+def _headroom_gate_config_for_regime(
+    nn_cfg: TransformerConfig, regime: str
+) -> "HeadroomGateConfig":
+    from phase4.models.headroom_gate import HeadroomGateConfig
+
+    max_oc = float(
+        HEADROOM_MAX_OVERCORRECTION_BY_REGIME.get(
+            regime, nn_cfg.headroom_max_overcorrection
+        )
+    )
+    min_kept = float(
+        HEADROOM_MIN_KEPT_FRACTION_BY_REGIME.get(
+            regime, nn_cfg.headroom_min_kept_fraction
+        )
+    )
+    return HeadroomGateConfig(
+        threshold=float(nn_cfg.headroom_default_threshold),
+        max_overcorrection=max_oc,
+        min_kept_fraction=min_kept,
+        threshold_grid=tuple(float(x) for x in nn_cfg.headroom_threshold_grid),
+    )
+
+
+def _headroom_calibration_fresh(model_dir: Path) -> bool:
+    path = model_dir / "headroom_calibration.json"
+    if not path.exists():
+        return False
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return False
+    return int(payload.get("selection_version", 1)) >= 2
+
+
 def _neural_train_checkpoint_dir(model_dir: Path) -> Path:
     return model_dir / "_neural_train_checkpoint"
 
@@ -270,12 +306,7 @@ def _maybe_restore_completed_neural_training(
     split_manifest_hash: str,
     resume_nn: bool,
 ) -> Optional[Dict[str, object]]:
-    """Skip ``fit`` when a previous run finished training but died before predict.
-
-    Completed training removes ``byt5_resume_*.pt`` and, until recently, did not
-    persist HF weights anywhere durable — the next restart always retrained from
-    the base ByT5 checkpoint.
-    """
+    """Skip ``fit`` when a previous run finished training but died before predict."""
     from phase4.io_safe.sentinels import force_rerun_active
 
     if force_rerun_active():
@@ -578,7 +609,7 @@ def _neural_headroom_artefacts_present(model_dir: Path) -> bool:
     hr_cal_path = model_dir / "headroom_calibration.json"
     hr_gate_dir = model_dir / "headroom_gate"
     return (
-        hr_cal_path.exists()
+        _headroom_calibration_fresh(model_dir)
         and hr_gate_dir.exists()
         and (hr_gate_dir / "headroom_gate.json").exists()
     )
@@ -1033,8 +1064,7 @@ def _tune_classical_on_real_val(
 def _maybe_load_classical_tuning(out_dir: Path) -> Optional[ClassicalConfig]:
     """Reuse global classical threshold tuning when ``classical_tuning.json`` exists.
 
-    Per-(model, regime, seed) runs skip via ``_DONE.json``, but tuning used to
-    run on every pipeline restart because it lives outside that loop.
+    Per-(model, regime, seed) runs skip via ``_DONE.json``
     """
     from phase4.io_safe.sentinels import force_rerun_active
 
@@ -1480,7 +1510,18 @@ def _run_one(
             # estimate_cer < tau short-circuit straight to identity.
             hr_summary: Optional[Dict[str, object]] = None
             if val_nn:
-                loaded_hr = _load_neural_headroom_from_disk(model, model_dir)
+                hr_cal_path = model_dir / "headroom_calibration.json"
+                if hr_cal_path.exists() and not _headroom_calibration_fresh(model_dir):
+                    print(
+                        "[train] neural: stale headroom_calibration.json "
+                        "(selection_version<2); refitting headroom gate ...",
+                        flush=True,
+                    )
+                loaded_hr = (
+                    _load_neural_headroom_from_disk(model, model_dir)
+                    if _headroom_calibration_fresh(model_dir)
+                    else None
+                )
                 if loaded_hr is not None:
                     hr_summary = loaded_hr
                     print(
@@ -1490,7 +1531,7 @@ def _run_one(
                         flush=True,
                     )
                 else:
-                    from phase4.models.headroom_gate import HeadroomGate, HeadroomGateConfig
+                    from phase4.models.headroom_gate import HeadroomGate
 
                     hr_cap = min(int(nn_cfg.gate_calibration_max_pairs), len(val_nn))
                     hr_pairs = list(val_nn[:hr_cap])
@@ -1499,7 +1540,14 @@ def _run_one(
                         flush=True,
                     )
                     t_hr = time.perf_counter()
-                    hr_gate = HeadroomGate(config=HeadroomGateConfig())
+                    hr_cfg = _headroom_gate_config_for_regime(nn_cfg, regime)
+                    hr_gate = HeadroomGate(config=hr_cfg)
+                    print(
+                        f"[train] neural: headroom config "
+                        f"max_overcorrection={hr_cfg.max_overcorrection} "
+                        f"min_kept_fraction={hr_cfg.min_kept_fraction}",
+                        flush=True,
+                    )
                     train_clean = [
                         str(r["clean"]) for r in train_rows
                         if r.get("clean") and r["split"] == "train"

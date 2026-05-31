@@ -1,0 +1,172 @@
+{
+  "selection_version": 2,
+  "selection_rule": "maximize_cer_reduction subject to overcorrection<=0.1 and kept_fraction>=0.08",
+  "selected": {
+    "threshold": 0.005,
+    "mean_cer": 0.05703152840066037,
+    "cer_reduction_rate": 0.195285002614257,
+    "kept_fraction": 1.0,
+    "overcorrection_rate": 0.08875739644970414,
+    "useful_correction_rate": 0.8362919132149902,
+    "edited": 507
+  },
+  "curve": [
+    {
+      "threshold": 0.005,
+      "mean_cer": 0.05703152840066037,
+      "cer_reduction_rate": 0.195285002614257,
+      "kept_fraction": 1.0,
+      "overcorrection_rate": 0.08875739644970414,
+      "useful_correction_rate": 0.8362919132149902,
+      "edited": 507
+    },
+    {
+      "threshold": 0.01,
+      "mean_cer": 0.05703152840066037,
+      "cer_reduction_rate": 0.195285002614257,
+      "kept_fraction": 1.0,
+      "overcorrection_rate": 0.08875739644970414,
+      "useful_correction_rate": 0.8362919132149902,
+      "edited": 507
+    },
+    {
+      "threshold": 0.015,
+      "mean_cer": 0.05703152840066037,
+      "cer_reduction_rate": 0.195285002614257,
+      "kept_fraction": 0.998,
+      "overcorrection_rate": 0.08875739644970414,
+      "useful_correction_rate": 0.8362919132149902,
+      "edited": 507
+    },
+    {
+      "threshold": 0.02,
+      "mean_cer": 0.05703152840066037,
+      "cer_reduction_rate": 0.195285002614257,
+      "kept_fraction": 0.996,
+      "overcorrection_rate": 0.08875739644970414,
+      "useful_correction_rate": 0.8362919132149902,
+      "edited": 507
+    },
+    {
+      "threshold": 0.025,
+      "mean_cer": 0.05703152840066037,
+      "cer_reduction_rate": 0.195285002614257,
+      "kept_fraction": 0.991,
+      "overcorrection_rate": 0.08875739644970414,
+      "useful_correction_rate": 0.8362919132149902,
+      "edited": 507
+    },
+    {
+      "threshold": 0.03,
+      "mean_cer": 0.05705326753109515,
+      "cer_reduction_rate": 0.1949782634336393,
+      "kept_fraction": 0.975,
+      "overcorrection_rate": 0.08893280632411067,
+      "useful_correction_rate": 0.8359683794466403,
+      "edited": 506
+    },
+    {
+      "threshold": 0.04,
+      "mean_cer": 0.05710690741326015,
+      "cer_reduction_rate": 0.19422140457246811,
+      "kept_fraction": 0.893,
+      "overcorrection_rate": 0.08835341365461848,
+      "useful_correction_rate": 0.8353413654618473,
+      "edited": 498
+    },
+    {
+      "threshold": 0.05,
+      "mean_cer": 0.05773081494632441,
+      "cer_reduction_rate": 0.18541806784069392,
+      "kept_fraction": 0.737,
+      "overcorrection_rate": 0.07551487414187644,
+      "useful_correction_rate": 0.8398169336384439,
+      "edited": 437
+    },
+    {
+      "threshold": 0.06,
+      "mean_cer": 0.058913875277749564,
+      "cer_reduction_rate": 0.16872508383329105,
+      "kept_fraction": 0.564,
+      "overcorrection_rate": 0.05994550408719346,
+      "useful_correction_rate": 0.8392370572207084,
+      "edited": 367
+    },
+    {
+      "threshold": 0.08,
+      "mean_cer": 0.06151766518093382,
+      "cer_reduction_rate": 0.13198560228873396,
+      "kept_fraction": 0.34,
+      "overcorrection_rate": 0.056451612903225805,
+      "useful_correction_rate": 0.8387096774193549,
+      "edited": 248
+    },
+    {
+      "threshold": 0.1,
+      "mean_cer": 0.06711829993465765,
+      "cer_reduction_rate": 0.05296063298510252,
+      "kept_fraction": 0.143,
+      "overcorrection_rate": 0.04854368932038835,
+      "useful_correction_rate": 0.7669902912621359,
+      "edited": 103
+    },
+    {
+      "threshold": 0.13,
+      "mean_cer": 0.07002837580583791,
+      "cer_reduction_rate": 0.011899455725086723,
+      "kept_fraction": 0.039,
+      "overcorrection_rate": 0.043478260869565216,
+      "useful_correction_rate": 0.7391304347826086,
+      "edited": 23
+    },
+    {
+      "threshold": 0.16,
+      "mean_cer": 0.07071536138179348,
+      "cer_reduction_rate": 0.0022060876625060602,
+      "kept_fraction": 0.014,
+      "overcorrection_rate": 0.14285714285714285,
+      "useful_correction_rate": 0.7142857142857143,
+      "edited": 7
+    },
+    {
+      "threshold": 0.2,
+      "mean_cer": 0.07087171058814268,
+      "cer_reduction_rate": 0.0,
+      "kept_fraction": 0.001,
+      "overcorrection_rate": 0.0,
+      "useful_correction_rate": 0.0,
+      "edited": 0
+    },
+    {
+      "threshold": 0.25,
+      "mean_cer": 0.07087171058814268,
+      "cer_reduction_rate": 0.0,
+      "kept_fraction": 0.0,
+      "overcorrection_rate": 0.0,
+      "useful_correction_rate": 0.0,
+      "edited": 0
+    },
+    {
+      "threshold": 0.3,
+      "mean_cer": 0.07087171058814268,
+      "cer_reduction_rate": 0.0,
+      "kept_fraction": 0.0,
+      "overcorrection_rate": 0.0,
+      "useful_correction_rate": 0.0,
+      "edited": 0
+    }
+  ],
+  "baseline_input_cer": 0.07087171058814268,
+  "baseline_pred_cer": 0.05703152840066037,
+  "n_val": 1000,
+  "coefficients": [
+    0.041195237299146086,
+    0.01554999218393096,
+    0.0029328508486407795,
+    0.0003676146522447129
+  ],
+  "train_ppl_mean": 1.765644705759707,
+  "train_ppl_std": 0.31547654478349857,
+  "max_overcorrection": 0.1,
+  "min_kept_fraction": 0.08
+}

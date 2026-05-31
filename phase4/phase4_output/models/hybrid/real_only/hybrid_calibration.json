@@ -1,0 +1,689 @@
+{
+  "config": {
+    "num_classical_candidates": 5,
+    "fusion_w_lm": 1.0,
+    "fusion_w_channel": 0.5,
+    "fusion_w_neural": 1.5,
+    "margin_default": 0.8,
+    "margin_proper_name": 1.6,
+    "margin_rare_word": 1.4,
+    "calibration_grid_w_neural": [
+      0.5,
+      1.5,
+      2.5
+    ],
+    "calibration_grid_w_lm": [
+      0.5,
+      1.0,
+      1.5
+    ],
+    "calibration_grid_w_channel": [
+      0.3,
+      0.6,
+      1.0
+    ],
+    "calibration_grid_margin": [
+      0.4,
+      1.2,
+      2.0
+    ]
+  },
+  "calibration": {
+    "w_lm": 0.5,
+    "w_channel": 0.3,
+    "w_neural": 1.5,
+    "margin_default": 1.2,
+    "margin_proper_name": 1.7999999999999998,
+    "margin_rare_word": 1.56
+  },
+  "calibration_log": [
+    {
+      "w_neural": 0.5,
+      "w_lm": 0.5,
+      "w_channel": 0.3,
+      "margin": 0.4,
+      "mean_cer": 0.045883275446360755,
+      "change_rate": 0.0625
+    },
+    {
+      "w_neural": 0.5,
+      "w_lm": 0.5,
+      "w_channel": 0.3,
+      "margin": 1.2,
+      "mean_cer": 0.04528692585820827,
+      "change_rate": 0.035
+    },
+    {
+      "w_neural": 0.5,
+      "w_lm": 0.5,
+      "w_channel": 0.3,
+      "margin": 2.0,
+      "mean_cer": 0.044954103121456895,
+      "change_rate": 0.015
+    },
+    {
+      "w_neural": 0.5,
+      "w_lm": 0.5,
+      "w_channel": 0.6,
+      "margin": 0.4,
+      "mean_cer": 0.045178056279511096,
+      "change_rate": 0.03
+    },
+    {
+      "w_neural": 0.5,
+      "w_lm": 0.5,
+      "w_channel": 0.6,
+      "margin": 1.2,
+      "mean_cer": 0.044953208659245174,
+      "change_rate": 0.0125
+    },
+    {
+      "w_neural": 0.5,
+      "w_lm": 0.5,
+      "w_channel": 0.6,
+      "margin": 2.0,
+      "mean_cer": 0.04484573915795469,
+      "change_rate": 0.0025
+    },
+    {
+      "w_neural": 0.5,
+      "w_lm": 0.5,
+      "w_channel": 1.0,
+      "margin": 0.4,
+      "mean_cer": 0.04493728509236619,
+      "change_rate": 0.01
+    },
+    {
+      "w_neural": 0.5,
+      "w_lm": 0.5,
+      "w_channel": 1.0,
+      "margin": 1.2,
+      "mean_cer": 0.04484573915795469,
+      "change_rate": 0.0025
+    },
+    {
+      "w_neural": 0.5,
+      "w_lm": 0.5,
+      "w_channel": 1.0,
+      "margin": 2.0,
+      "mean_cer": 0.04484573915795469,
+      "change_rate": 0.0025
+    },
+    {
+      "w_neural": 0.5,
+      "w_lm": 1.0,
+      "w_channel": 0.3,
+      "margin": 0.4,
+      "mean_cer": 0.053060452558916234,
+      "change_rate": 0.245
+    },
+    {
+      "w_neural": 0.5,
+      "w_lm": 1.0,
+      "w_channel": 0.3,
+      "margin": 1.2,
+      "mean_cer": 0.05035013713980139,
+      "change_rate": 0.175
+    },
+    {
+      "w_neural": 0.5,
+      "w_lm": 1.0,
+      "w_channel": 0.3,
+      "margin": 2.0,
+      "mean_cer": 0.04799918220091232,
+      "change_rate": 0.11
+    },
+    {
+      "w_neural": 0.5,
+      "w_lm": 1.0,
+      "w_channel": 0.6,
+      "margin": 0.4,
+      "mean_cer": 0.04910868232446058,
+      "change_rate": 0.165
+    },
+    {
+      "w_neural": 0.5,
+      "w_lm": 1.0,
+      "w_channel": 0.6,
+      "margin": 1.2,
+      "mean_cer": 0.04732926287251548,
+      "change_rate": 0.0975
+    },
+    {
+      "w_neural": 0.5,
+      "w_lm": 1.0,
+      "w_channel": 0.6,
+      "margin": 2.0,
+      "mean_cer": 0.04662125372192486,
+      "change_rate": 0.065
+    },
+    {
+      "w_neural": 0.5,
+      "w_lm": 1.0,
+      "w_channel": 1.0,
+      "margin": 0.4,
+      "mean_cer": 0.04678617556723301,
+      "change_rate": 0.08
+    },
+    {
+      "w_neural": 0.5,
+      "w_lm": 1.0,
+      "w_channel": 1.0,
+      "margin": 1.2,
+      "mean_cer": 0.045894425765470134,
+      "change_rate": 0.05
+    },
+    {
+      "w_neural": 0.5,
+      "w_lm": 1.0,
+      "w_channel": 1.0,
+      "margin": 2.0,
+      "mean_cer": 0.045468091914374315,
+      "change_rate": 0.035
+    },
+    {
+      "w_neural": 0.5,
+      "w_lm": 1.5,
+      "w_channel": 0.3,
+      "margin": 0.4,
+      "mean_cer": 0.056710642275409534,
+      "change_rate": 0.3425
+    },
+    {
+      "w_neural": 0.5,
+      "w_lm": 1.5,
+      "w_channel": 0.3,
+      "margin": 1.2,
+      "mean_cer": 0.05393419587481567,
+      "change_rate": 0.265
+    },
+    {
+      "w_neural": 0.5,
+      "w_lm": 1.5,
+      "w_channel": 0.3,
+      "margin": 2.0,
+      "mean_cer": 0.052841270162493785,
+      "change_rate": 0.23
+    },
+    {
+      "w_neural": 0.5,
+      "w_lm": 1.5,
+      "w_channel": 0.6,
+      "margin": 0.4,
+      "mean_cer": 0.05358807197553216,
+      "change_rate": 0.2575
+    },
+    {
+      "w_neural": 0.5,
+      "w_lm": 1.5,
+      "w_channel": 0.6,
+      "margin": 1.2,
+      "mean_cer": 0.05191971264170639,
+      "change_rate": 0.215
+    },
+    {
+      "w_neural": 0.5,
+      "w_lm": 1.5,
+      "w_channel": 0.6,
+      "margin": 2.0,
+      "mean_cer": 0.05004433992775418,
+      "change_rate": 0.1625
+    },
+    {
+      "w_neural": 0.5,
+      "w_lm": 1.5,
+      "w_channel": 1.0,
+      "margin": 0.4,
+      "mean_cer": 0.05098708925075693,
+      "change_rate": 0.1975
+    },
+    {
+      "w_neural": 0.5,
+      "w_lm": 1.5,
+      "w_channel": 1.0,
+      "margin": 1.2,
+      "mean_cer": 0.049171774266035514,
+      "change_rate": 0.15
+    },
+    {
+      "w_neural": 0.5,
+      "w_lm": 1.5,
+      "w_channel": 1.0,
+      "margin": 2.0,
+      "mean_cer": 0.04782156686481948,
+      "change_rate": 0.1075
+    },
+    {
+      "w_neural": 1.5,
+      "w_lm": 0.5,
+      "w_channel": 0.3,
+      "margin": 0.4,
+      "mean_cer": 0.044877270962387895,
+      "change_rate": 0.015
+    },
+    {
+      "w_neural": 1.5,
+      "w_lm": 0.5,
+      "w_channel": 0.3,
+      "margin": 1.2,
+      "mean_cer": 0.04483085820557374,
+      "change_rate": 0.005
+    },
+    {
+      "w_neural": 1.5,
+      "w_lm": 0.5,
+      "w_channel": 0.3,
+      "margin": 2.0,
+      "mean_cer": 0.04484573915795469,
+      "change_rate": 0.0025
+    },
+    {
+      "w_neural": 1.5,
+      "w_lm": 0.5,
+      "w_channel": 0.6,
+      "margin": 0.4,
+      "mean_cer": 0.04483085820557374,
+      "change_rate": 0.005
+    },
+    {
+      "w_neural": 1.5,
+      "w_lm": 0.5,
+      "w_channel": 0.6,
+      "margin": 1.2,
+      "mean_cer": 0.04484573915795469,
+      "change_rate": 0.0025
+    },
+    {
+      "w_neural": 1.5,
+      "w_lm": 0.5,
+      "w_channel": 0.6,
+      "margin": 2.0,
+      "mean_cer": 0.04484573915795469,
+      "change_rate": 0.0025
+    },
+    {
+      "w_neural": 1.5,
+      "w_lm": 0.5,
+      "w_channel": 1.0,
+      "margin": 0.4,
+      "mean_cer": 0.04484573915795469,
+      "change_rate": 0.0025
+    },
+    {
+      "w_neural": 1.5,
+      "w_lm": 0.5,
+      "w_channel": 1.0,
+      "margin": 1.2,
+      "mean_cer": 0.04484573915795469,
+      "change_rate": 0.0025
+    },
+    {
+      "w_neural": 1.5,
+      "w_lm": 0.5,
+      "w_channel": 1.0,
+      "margin": 2.0,
+      "mean_cer": 0.04492149673371227,
+      "change_rate": 0.0
+    },
+    {
+      "w_neural": 1.5,
+      "w_lm": 1.0,
+      "w_channel": 0.3,
+      "margin": 0.4,
+      "mean_cer": 0.04655920927747062,
+      "change_rate": 0.1
+    },
+    {
+      "w_neural": 1.5,
+      "w_lm": 1.0,
+      "w_channel": 0.3,
+      "margin": 1.2,
+      "mean_cer": 0.04584159024773623,
+      "change_rate": 0.06
+    },
+    {
+      "w_neural": 1.5,
+      "w_lm": 1.0,
+      "w_channel": 0.3,
+      "margin": 2.0,
+      "mean_cer": 0.0454173309058373,
+      "change_rate": 0.045
+    },
+    {
+      "w_neural": 1.5,
+      "w_lm": 1.0,
+      "w_channel": 0.6,
+      "margin": 0.4,
+      "mean_cer": 0.04580920137228668,
+      "change_rate": 0.06
+    },
+    {
+      "w_neural": 1.5,
+      "w_lm": 1.0,
+      "w_channel": 0.6,
+      "margin": 1.2,
+      "mean_cer": 0.04527233699879182,
+      "change_rate": 0.035
+    },
+    {
+      "w_neural": 1.5,
+      "w_lm": 1.0,
+      "w_channel": 0.6,
+      "margin": 2.0,
+      "mean_cer": 0.045191354762637165,
+      "change_rate": 0.03
+    },
+    {
+      "w_neural": 1.5,
+      "w_lm": 1.0,
+      "w_channel": 1.0,
+      "margin": 0.4,
+      "mean_cer": 0.045186214787669605,
+      "change_rate": 0.0325
+    },
+    {
+      "w_neural": 1.5,
+      "w_lm": 1.0,
+      "w_channel": 1.0,
+      "margin": 1.2,
+      "mean_cer": 0.0450516878284166,
+      "change_rate": 0.0225
+    },
+    {
+      "w_neural": 1.5,
+      "w_lm": 1.0,
+      "w_channel": 1.0,
+      "margin": 2.0,
+      "mean_cer": 0.04489100722612416,
+      "change_rate": 0.01
+    },
+    {
+      "w_neural": 1.5,
+      "w_lm": 1.5,
+      "w_channel": 0.3,
+      "margin": 0.4,
+      "mean_cer": 0.049268335413882314,
+      "change_rate": 0.185
+    },
+    {
+      "w_neural": 1.5,
+      "w_lm": 1.5,
+      "w_channel": 0.3,
+      "margin": 1.2,
+      "mean_cer": 0.048401093365013026,
+      "change_rate": 0.15
+    },
+    {
+      "w_neural": 1.5,
+      "w_lm": 1.5,
+      "w_channel": 0.3,
+      "margin": 2.0,
+      "mean_cer": 0.04756561769026086,
+      "change_rate": 0.115
+    },
+    {
+      "w_neural": 1.5,
+      "w_lm": 1.5,
+      "w_channel": 0.6,
+      "margin": 0.4,
+      "mean_cer": 0.047835264739343956,
+      "change_rate": 0.1425
+    },
+    {
+      "w_neural": 1.5,
+      "w_lm": 1.5,
+      "w_channel": 0.6,
+      "margin": 1.2,
+      "mean_cer": 0.04750844490594415,
+      "change_rate": 0.1125
+    },
+    {
+      "w_neural": 1.5,
+      "w_lm": 1.5,
+      "w_channel": 0.6,
+      "margin": 2.0,
+      "mean_cer": 0.046459051065625444,
+      "change_rate": 0.0775
+    },
+    {
+      "w_neural": 1.5,
+      "w_lm": 1.5,
+      "w_channel": 1.0,
+      "margin": 0.4,
+      "mean_cer": 0.04663955916787138,
+      "change_rate": 0.095
+    },
+    {
+      "w_neural": 1.5,
+      "w_lm": 1.5,
+      "w_channel": 1.0,
+      "margin": 1.2,
+      "mean_cer": 0.045855802918888224,
+      "change_rate": 0.06
+    },
+    {
+      "w_neural": 1.5,
+      "w_lm": 1.5,
+      "w_channel": 1.0,
+      "margin": 2.0,
+      "mean_cer": 0.04562955992158851,
+      "change_rate": 0.045
+    },
+    {
+      "w_neural": 2.5,
+      "w_lm": 0.5,
+      "w_channel": 0.3,
+      "margin": 0.4,
+      "mean_cer": 0.04483085820557374,
+      "change_rate": 0.005
+    },
+    {
+      "w_neural": 2.5,
+      "w_lm": 0.5,
+      "w_channel": 0.3,
+      "margin": 1.2,
+      "mean_cer": 0.04483085820557374,
+      "change_rate": 0.005
+    },
+    {
+      "w_neural": 2.5,
+      "w_lm": 0.5,
+      "w_channel": 0.3,
+      "margin": 2.0,
+      "mean_cer": 0.04484573915795469,
+      "change_rate": 0.0025
+    },
+    {
+      "w_neural": 2.5,
+      "w_lm": 0.5,
+      "w_channel": 0.6,
+      "margin": 0.4,
+      "mean_cer": 0.04483085820557374,
+      "change_rate": 0.005
+    },
+    {
+      "w_neural": 2.5,
+      "w_lm": 0.5,
+      "w_channel": 0.6,
+      "margin": 1.2,
+      "mean_cer": 0.04484573915795469,
+      "change_rate": 0.0025
+    },
+    {
+      "w_neural": 2.5,
+      "w_lm": 0.5,
+      "w_channel": 0.6,
+      "margin": 2.0,
+      "mean_cer": 0.04492149673371227,
+      "change_rate": 0.0
+    },
+    {
+      "w_neural": 2.5,
+      "w_lm": 0.5,
+      "w_channel": 1.0,
+      "margin": 0.4,
+      "mean_cer": 0.04484573915795469,
+      "change_rate": 0.0025
+    },
+    {
+      "w_neural": 2.5,
+      "w_lm": 0.5,
+      "w_channel": 1.0,
+      "margin": 1.2,
+      "mean_cer": 0.04492149673371227,
+      "change_rate": 0.0
+    },
+    {
+      "w_neural": 2.5,
+      "w_lm": 0.5,
+      "w_channel": 1.0,
+      "margin": 2.0,
+      "mean_cer": 0.04492149673371227,
+      "change_rate": 0.0
+    },
+    {
+      "w_neural": 2.5,
+      "w_lm": 1.0,
+      "w_channel": 0.3,
+      "margin": 0.4,
+      "mean_cer": 0.04532157505489063,
+      "change_rate": 0.045
+    },
+    {
+      "w_neural": 2.5,
+      "w_lm": 1.0,
+      "w_channel": 0.3,
+      "margin": 1.2,
+      "mean_cer": 0.045234630250306225,
+      "change_rate": 0.035
+    },
+    {
+      "w_neural": 2.5,
+      "w_lm": 1.0,
+      "w_channel": 0.3,
+      "margin": 2.0,
+      "mean_cer": 0.04505968503953881,
+      "change_rate": 0.025
+    },
+    {
+      "w_neural": 2.5,
+      "w_lm": 1.0,
+      "w_channel": 0.6,
+      "margin": 0.4,
+      "mean_cer": 0.04514145225853208,
+      "change_rate": 0.03
+    },
+    {
+      "w_neural": 2.5,
+      "w_lm": 1.0,
+      "w_channel": 0.6,
+      "margin": 1.2,
+      "mean_cer": 0.044877270962387895,
+      "change_rate": 0.015
+    },
+    {
+      "w_neural": 2.5,
+      "w_lm": 1.0,
+      "w_channel": 0.6,
+      "margin": 2.0,
+      "mean_cer": 0.044877270962387895,
+      "change_rate": 0.015
+    },
+    {
+      "w_neural": 2.5,
+      "w_lm": 1.0,
+      "w_channel": 1.0,
+      "margin": 0.4,
+      "mean_cer": 0.044877270962387895,
+      "change_rate": 0.015
+    },
+    {
+      "w_neural": 2.5,
+      "w_lm": 1.0,
+      "w_channel": 1.0,
+      "margin": 1.2,
+      "mean_cer": 0.04485916009236619,
+      "change_rate": 0.0075
+    },
+    {
+      "w_neural": 2.5,
+      "w_lm": 1.0,
+      "w_channel": 1.0,
+      "margin": 2.0,
+      "mean_cer": 0.04483085820557374,
+      "change_rate": 0.005
+    },
+    {
+      "w_neural": 2.5,
+      "w_lm": 1.5,
+      "w_channel": 0.3,
+      "margin": 0.4,
+      "mean_cer": 0.04673975907229583,
+      "change_rate": 0.11
+    },
+    {
+      "w_neural": 2.5,
+      "w_lm": 1.5,
+      "w_channel": 0.3,
+      "margin": 1.2,
+      "mean_cer": 0.0460643910338783,
+      "change_rate": 0.0725
+    },
+    {
+      "w_neural": 2.5,
+      "w_lm": 1.5,
+      "w_channel": 0.3,
+      "margin": 2.0,
+      "mean_cer": 0.04558304323918923,
+      "change_rate": 0.0575
+    },
+    {
+      "w_neural": 2.5,
+      "w_lm": 1.5,
+      "w_channel": 0.6,
+      "margin": 0.4,
+      "mean_cer": 0.04596554780813029,
+      "change_rate": 0.0725
+    },
+    {
+      "w_neural": 2.5,
+      "w_lm": 1.5,
+      "w_channel": 0.6,
+      "margin": 1.2,
+      "mean_cer": 0.045465634120824695,
+      "change_rate": 0.055
+    },
+    {
+      "w_neural": 2.5,
+      "w_lm": 1.5,
+      "w_channel": 0.6,
+      "margin": 2.0,
+      "mean_cer": 0.04536332439351496,
+      "change_rate": 0.0425
+    },
+    {
+      "w_neural": 2.5,
+      "w_lm": 1.5,
+      "w_channel": 1.0,
+      "margin": 0.4,
+      "mean_cer": 0.04542328064097122,
+      "change_rate": 0.05
+    },
+    {
+      "w_neural": 2.5,
+      "w_lm": 1.5,
+      "w_channel": 1.0,
+      "margin": 1.2,
+      "mean_cer": 0.04525745604641087,
+      "change_rate": 0.035
+    },
+    {
+      "w_neural": 2.5,
+      "w_lm": 1.5,
+      "w_channel": 1.0,
+      "margin": 2.0,
+      "mean_cer": 0.04521957725853208,
+      "change_rate": 0.0325
+    }
+  ]
+}

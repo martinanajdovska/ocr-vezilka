@@ -1,0 +1,12 @@
+{
+  "selected": {
+    "w_lm": 0.5,
+    "w_channel": 0.3,
+    "w_neural": 1.5,
+    "margin_default": 1.2,
+    "margin_proper_name": 1.7999999999999998,
+    "margin_rare_word": 1.56
+  },
+  "grid_size": 81,
+  "tested": 81
+}

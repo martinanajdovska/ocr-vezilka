@@ -1,0 +1,243 @@
+{
+  "config": {
+    "pretrained_model": "google/byt5-small",
+    "learning_rate": 0.0001,
+    "warmup_ratio": 0.05,
+    "weight_decay": 0.01,
+    "label_smoothing": 0.1,
+    "grad_clip": 1.0,
+    "max_input_bytes": 1024,
+    "max_target_bytes": 1024,
+    "batch_size": 32,
+    "gradient_accumulation_steps": 4,
+    "dataloader_num_workers": 8,
+    "pin_memory": true,
+    "gradient_checkpointing": true,
+    "max_epochs": 15,
+    "pretrain_epochs": 10,
+    "finetune_epochs": 5,
+    "early_stopping_patience": 3,
+    "early_stop_metric": "val_cer",
+    "beam_size": 4,
+    "length_penalty": 1.0,
+    "no_repeat_ngram_size": 0,
+    "length_norm_alpha": 0.6,
+    "min_new_token_ratio": 0.5,
+    "gate_enabled": true,
+    "gate_log_prob_margin": 0.0,
+    "gate_per_edit_margin": 0.0,
+    "gate_proper_name_extra_margin": 1.0,
+    "gate_rare_word_extra_margin": 1.0,
+    "gate_confusion_whitelist_k": 200,
+    "gate_calibration_grid": [
+      -0.4,
+      -0.2,
+      -0.1,
+      0.0,
+      0.1,
+      0.2,
+      0.4,
+      0.6
+    ],
+    "gate_calibration_max_pairs": 1000,
+    "headroom_default_threshold": 0.06,
+    "headroom_max_overcorrection": 0.08,
+    "headroom_min_kept_fraction": 0.0,
+    "headroom_threshold_grid": [
+      0.005,
+      0.01,
+      0.015,
+      0.02,
+      0.025,
+      0.03,
+      0.04,
+      0.05,
+      0.06,
+      0.08,
+      0.1,
+      0.13,
+      0.16,
+      0.2,
+      0.25,
+      0.3
+    ],
+    "sanitize_macedonian_output": true,
+    "identity_pair_ratio": 0.4,
+    "finetune_lr_scale": 0.3,
+    "finetune_warmup_ratio": 0.0,
+    "task_prefix": "correct OCR: ",
+    "use_amp": true,
+    "deterministic": false,
+    "eval_cer_pairs": 256,
+    "eval_cer_beam": 1,
+    "eval_gen_batch_size": 64,
+    "predict_batch_size": 64,
+    "use_window_context": false,
+    "window_context_sep": " <sep> ",
+    "training_confusion_noise_prob": 0.25
+  },
+  "seed": 1337,
+  "training_metrics": {
+    "stage": "train",
+    "epochs_run": 14,
+    "best_val_loss": 0.17979476545132747,
+    "best_val_cer": 0.06842572715579681,
+    "early_stop_metric": "val_cer",
+    "skipped_train_pairs": 0,
+    "skipped_val_pairs": 0,
+    "kept_train_pairs": 15758,
+    "kept_val_pairs": 4693,
+    "total_train_seconds": 6747.307486401056,
+    "history": [
+      {
+        "epoch": 1,
+        "stage": "train",
+        "train_loss": 2.6634336768009117,
+        "val_loss": 0.26974707669546816,
+        "val_cer": 0.09991182423192968,
+        "epoch_time_s": 479.84165209310595
+      },
+      {
+        "epoch": 2,
+        "stage": "train",
+        "train_loss": 1.1430045571820489,
+        "val_loss": 0.22586132464360217,
+        "val_cer": 0.08277254096651025,
+        "epoch_time_s": 473.9603131469339
+      },
+      {
+        "epoch": 3,
+        "stage": "train",
+        "train_loss": 1.0886883636517166,
+        "val_loss": 0.2079851378997167,
+        "val_cer": 0.07865193685090004,
+        "epoch_time_s": 480.7186953559285
+      },
+      {
+        "epoch": 4,
+        "stage": "train",
+        "train_loss": 1.0655068463776223,
+        "val_loss": 0.20613682472786934,
+        "val_cer": 0.07526843920778584,
+        "epoch_time_s": 480.78734608890954
+      },
+      {
+        "epoch": 5,
+        "stage": "train",
+        "train_loss": 1.053698864718238,
+        "val_loss": 0.1967572509026041,
+        "val_cer": 0.07398817272733542,
+        "epoch_time_s": 481.75744767999277
+      },
+      {
+        "epoch": 6,
+        "stage": "train",
+        "train_loss": 1.0446923325559914,
+        "val_loss": 0.19011694040833688,
+        "val_cer": 0.07205941294803576,
+        "epoch_time_s": 480.08335850096773
+      },
+      {
+        "epoch": 7,
+        "stage": "train",
+        "train_loss": 1.0378039725895585,
+        "val_loss": 0.18737944798404668,
+        "val_cer": 0.07175862618658359,
+        "epoch_time_s": 481.2934423870174
+      },
+      {
+        "epoch": 8,
+        "stage": "train",
+        "train_loss": 1.0316042327010366,
+        "val_loss": 0.18325775496813715,
+        "val_cer": 0.07072590827708099,
+        "epoch_time_s": 476.8642599439481
+      },
+      {
+        "epoch": 9,
+        "stage": "train",
+        "train_loss": 1.0281140678552778,
+        "val_loss": 0.18314387512450314,
+        "val_cer": 0.07080473469579095,
+        "epoch_time_s": 477.4109937499743
+      },
+      {
+        "epoch": 10,
+        "stage": "train",
+        "train_loss": 1.0252871114390376,
+        "val_loss": 0.1810757776304167,
+        "val_cer": 0.06926146160623572,
+        "epoch_time_s": 477.80008064501453
+      },
+      {
+        "epoch": 11,
+        "stage": "train",
+        "train_loss": 1.0231259551057952,
+        "val_loss": 0.18015028242351247,
+        "val_cer": 0.06842572715579681,
+        "epoch_time_s": 479.14964151603635
+      },
+      {
+        "epoch": 12,
+        "stage": "train",
+        "train_loss": 1.0205837964527988,
+        "val_loss": 0.17991271392017805,
+        "val_cer": 0.06934851384520982,
+        "epoch_time_s": 476.3823375530774
+      },
+      {
+        "epoch": 13,
+        "stage": "train",
+        "train_loss": 1.0187518660727186,
+        "val_loss": 0.18023333683305856,
+        "val_cer": 0.06947828117674482,
+        "epoch_time_s": 477.46650963800494
+      },
+      {
+        "epoch": 14,
+        "stage": "train",
+        "train_loss": 1.0198372014879455,
+        "val_loss": 0.17979476545132747,
+        "val_cer": 0.06958541898146603,
+        "epoch_time_s": 476.39030218694825
+      }
+    ],
+    "n_params": 299637760,
+    "device": "cuda",
+    "effective_batch_size": 128,
+    "warmup_steps": 93,
+    "total_steps": 1860,
+    "resumed": false,
+    "early_stopped": true
+  },
+  "model_kind": "byt5",
+  "tuned_gate_margin": -0.1,
+  "tuned_per_edit_margin": -0.4,
+  "temperature": 0.85,
+  "temperature_calibration_summary": {
+    "temperature": 0.85,
+    "pre_nll": 0.17292547918305545,
+    "post_nll": 0.12866439442199146,
+    "pre_ece": 0.05568533739309699,
+    "post_ece": 0.008043026751830037,
+    "n_pairs": 2000,
+    "n_tokens": 193599
+  },
+  "gate_calibration_summary": {
+    "selected": {
+      "gate_log_prob_margin": -0.1,
+      "gate_per_edit_margin": -0.4,
+      "mean_cer": 0.06660961962435366,
+      "kept": 866,
+      "n_pairs": 1000,
+      "n_generated_edits": 874,
+      "change_rate": 0.866
+    },
+    "baseline_identity_cer": 0.09350999105977546,
+    "baseline_no_gate_cer": 0.05935241892329824,
+    "fallback_margin": 0.0,
+    "grid_size": 64,
+    "tested": 64,
+    "n_generated_edits": 874
+  }
+}

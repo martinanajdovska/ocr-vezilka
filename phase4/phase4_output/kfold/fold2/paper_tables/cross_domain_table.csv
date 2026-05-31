@@ -1,0 +1,4 @@
+model,regime,subset_domain,n,cer,wer,chrf,sentence_accuracy
+identity,real_only,poetry,355,0.19943,0.46437,0.70076,0.0
+identity,synthetic_only,poetry,655,0.11049,0.46369,0.76409,0.0
+identity,synthetic_plus_real,poetry,1010,0.14175,0.46393,0.74183,0.0

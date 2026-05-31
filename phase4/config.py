@@ -25,6 +25,19 @@ IDENTITY_PAIR_RATIO_BY_REGIME: Dict[str, float] = {
 }
 
 
+HEADROOM_MAX_OVERCORRECTION_BY_REGIME: Dict[str, float] = {
+    "real_only": 0.06,
+    "synthetic_only": 0.10,
+    "synthetic_plus_real": 0.10,
+}
+
+HEADROOM_MIN_KEPT_FRACTION_BY_REGIME: Dict[str, float] = {
+    "real_only": 0.0,
+    "synthetic_only": 0.08,
+    "synthetic_plus_real": 0.08,
+}
+
+
 @dataclass(frozen=True)
 class ClassicalConfig:
     max_edit_distance: int = 2
@@ -111,7 +124,18 @@ class TransformerConfig:
     gate_calibration_grid: List[float] = field(
         default_factory=lambda: [-0.4, -0.2, -0.1, 0.0, 0.1, 0.2, 0.4, 0.6]
     )
-    gate_calibration_max_pairs: int = 1500
+    gate_calibration_max_pairs: int = 1000
+
+
+    headroom_default_threshold: float = 0.06
+    headroom_max_overcorrection: float = 0.08
+    headroom_min_kept_fraction: float = 0.0
+    headroom_threshold_grid: List[float] = field(
+        default_factory=lambda: [
+            0.005, 0.01, 0.015, 0.02, 0.025, 0.03, 0.04, 0.05,
+            0.06, 0.08, 0.10, 0.13, 0.16, 0.20, 0.25, 0.30,
+        ]
+    )
 
     # Post-decode script filter: map Russian/Ukrainian Cyrillic confusions
     # (``ё``, ``й``, ``ы``, …) to Macedonian graphemes and drop any remaining

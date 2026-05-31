@@ -1,0 +1,225 @@
+{
+  "real_only": {
+    "train": {
+      "total": 3108,
+      "real": 3108
+    },
+    "test": {
+      "total": 1122,
+      "real": 1122
+    },
+    "val": {
+      "total": 1459,
+      "real": 1459
+    }
+  },
+  "synthetic_only": {
+    "train": {
+      "total": 18505,
+      "synthetic": 18505
+    },
+    "test": {
+      "total": 4693,
+      "synthetic": 4693
+    },
+    "val": {
+      "total": 3900,
+      "synthetic": 3900
+    }
+  },
+  "synthetic_plus_real": {
+    "train": {
+      "total": 21613,
+      "real": 3108,
+      "synthetic": 18505
+    },
+    "test": {
+      "total": 5815,
+      "real": 1122,
+      "synthetic": 4693
+    },
+    "val": {
+      "total": 5359,
+      "real": 1459,
+      "synthetic": 3900
+    }
+  },
+  "synthetic_alignment_qa": {
+    "Pesni": {
+      "aligned_pairs": 291,
+      "source_sentences": 291,
+      "target_sentences": 291,
+      "mismatch_ratio": 0.0,
+      "mean_alignment_similarity": 0.9257,
+      "median_alignment_similarity": 0.9524,
+      "min_alignment_similarity": 0.0368,
+      "max_alignment_similarity": 0.9917,
+      "low_alignment_ratio": 0.0206,
+      "very_low_alignment_ratio": 0.0172
+    },
+    "Prezir": {
+      "aligned_pairs": 2748,
+      "source_sentences": 2748,
+      "target_sentences": 2748,
+      "mismatch_ratio": 0.0,
+      "mean_alignment_similarity": 0.8647,
+      "median_alignment_similarity": 0.9491,
+      "min_alignment_similarity": 0.0073,
+      "max_alignment_similarity": 1.0,
+      "low_alignment_ratio": 0.0753,
+      "very_low_alignment_ratio": 0.0495
+    },
+    "Samecot": {
+      "aligned_pairs": 3673,
+      "source_sentences": 3673,
+      "target_sentences": 3673,
+      "mismatch_ratio": 0.0,
+      "mean_alignment_similarity": 0.9428,
+      "median_alignment_similarity": 0.9533,
+      "min_alignment_similarity": 0.046,
+      "max_alignment_similarity": 1.0,
+      "low_alignment_ratio": 0.0033,
+      "very_low_alignment_ratio": 0.0014
+    },
+    "Toj": {
+      "aligned_pairs": 260,
+      "source_sentences": 260,
+      "target_sentences": 260,
+      "mismatch_ratio": 0.0,
+      "mean_alignment_similarity": 0.8974,
+      "median_alignment_similarity": 0.9455,
+      "min_alignment_similarity": 0.0381,
+      "max_alignment_similarity": 1.0,
+      "low_alignment_ratio": 0.0269,
+      "very_low_alignment_ratio": 0.0192
+    },
+    "dnevnik_po_mnogu_godini": {
+      "aligned_pairs": 2448,
+      "source_sentences": 2448,
+      "target_sentences": 2448,
+      "mismatch_ratio": 0.0,
+      "mean_alignment_similarity": 0.9238,
+      "median_alignment_similarity": 0.95,
+      "min_alignment_similarity": 0.0,
+      "max_alignment_similarity": 1.0,
+      "low_alignment_ratio": 0.0176,
+      "very_low_alignment_ratio": 0.0094
+    },
+    "itar_pejo": {
+      "aligned_pairs": 1452,
+      "source_sentences": 1452,
+      "target_sentences": 1452,
+      "mismatch_ratio": 0.0,
+      "mean_alignment_similarity": 0.936,
+      "median_alignment_similarity": 0.9544,
+      "min_alignment_similarity": 0.0218,
+      "max_alignment_similarity": 1.0,
+      "low_alignment_ratio": 0.0117,
+      "very_low_alignment_ratio": 0.0103
+    },
+    "sina_pesna": {
+      "aligned_pairs": 364,
+      "source_sentences": 364,
+      "target_sentences": 364,
+      "mismatch_ratio": 0.0,
+      "mean_alignment_similarity": 0.9305,
+      "median_alignment_similarity": 0.9503,
+      "min_alignment_similarity": 0.0,
+      "max_alignment_similarity": 1.0,
+      "low_alignment_ratio": 0.0137,
+      "very_low_alignment_ratio": 0.0027
+    },
+    "tajnopis": {
+      "aligned_pairs": 467,
+      "source_sentences": 467,
+      "target_sentences": 467,
+      "mismatch_ratio": 0.0,
+      "mean_alignment_similarity": 0.9051,
+      "median_alignment_similarity": 0.9492,
+      "min_alignment_similarity": 0.0383,
+      "max_alignment_similarity": 1.0,
+      "low_alignment_ratio": 0.0343,
+      "very_low_alignment_ratio": 0.0128
+    },
+    "viktor_kupidon": {
+      "aligned_pairs": 679,
+      "source_sentences": 679,
+      "target_sentences": 679,
+      "mismatch_ratio": 0.0,
+      "mean_alignment_similarity": 0.8097,
+      "median_alignment_similarity": 0.9419,
+      "min_alignment_similarity": 0.0099,
+      "max_alignment_similarity": 0.991,
+      "low_alignment_ratio": 0.1267,
+      "very_low_alignment_ratio": 0.0781
+    },
+    "Забите на Ветрот - Томе Арсовски": {
+      "aligned_pairs": 4537,
+      "source_sentences": 4537,
+      "target_sentences": 4537,
+      "mismatch_ratio": 0.0,
+      "mean_alignment_similarity": 0.9255,
+      "median_alignment_similarity": 0.9524,
+      "min_alignment_similarity": 0.0247,
+      "max_alignment_similarity": 1.0,
+      "low_alignment_ratio": 0.0176,
+      "very_low_alignment_ratio": 0.0101
+    },
+    "Клуч за одредување на рибите и змииорките во Република Македонија": {
+      "aligned_pairs": 2512,
+      "source_sentences": 2512,
+      "target_sentences": 2512,
+      "mismatch_ratio": 0.0,
+      "mean_alignment_similarity": 0.882,
+      "median_alignment_similarity": 0.9452,
+      "min_alignment_similarity": 0.0,
+      "max_alignment_similarity": 0.9953,
+      "low_alignment_ratio": 0.043,
+      "very_low_alignment_ratio": 0.0207
+    },
+    "Провиденија": {
+      "aligned_pairs": 1020,
+      "source_sentences": 1020,
+      "target_sentences": 1020,
+      "mismatch_ratio": 0.0,
+      "mean_alignment_similarity": 0.9111,
+      "median_alignment_similarity": 0.9524,
+      "min_alignment_similarity": 0.0,
+      "max_alignment_similarity": 1.0,
+      "low_alignment_ratio": 0.0265,
+      "very_low_alignment_ratio": 0.0157
+    },
+    "Сите лица на смртта": {
+      "aligned_pairs": 4558,
+      "source_sentences": 4558,
+      "target_sentences": 4558,
+      "mismatch_ratio": 0.0,
+      "mean_alignment_similarity": 0.9489,
+      "median_alignment_similarity": 0.9552,
+      "min_alignment_similarity": 0.0473,
+      "max_alignment_similarity": 1.0,
+      "low_alignment_ratio": 0.0009,
+      "very_low_alignment_ratio": 0.0007
+    },
+    "Современост 7": {
+      "aligned_pairs": 2089,
+      "source_sentences": 2089,
+      "target_sentences": 2089,
+      "mismatch_ratio": 0.0,
+      "mean_alignment_similarity": 0.8842,
+      "median_alignment_similarity": 0.9492,
+      "min_alignment_similarity": 0.0,
+      "max_alignment_similarity": 1.0,
+      "low_alignment_ratio": 0.056,
+      "very_low_alignment_ratio": 0.0349
+    }
+  },
+  "alignment_config": {
+    "method": "phase3_native_pairs",
+    "synthetic_subdir": "structure_aware_noise",
+    "min_pair_sim": 0.55,
+    "max_len_ratio_delta": 0.5,
+    "dropped_real_pairs": 1197,
+    "synthetic_real_oversample_ratio": 4.0
+  }
+}

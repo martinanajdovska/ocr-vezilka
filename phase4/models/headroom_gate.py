@@ -136,7 +136,12 @@ class HeadroomGateConfig:
     char_lm_order: int = 4
     char_lm_add_k: float = 0.1
     threshold: float = 0.05
-    max_overcorrection: float = 0.05
+    max_overcorrection: float = 0.08
+    min_kept_fraction: float = 0.0
+    threshold_grid: Tuple[float, ...] = (
+        0.005, 0.01, 0.015, 0.02, 0.025, 0.03, 0.04, 0.05,
+        0.06, 0.08, 0.10, 0.13, 0.16, 0.20, 0.25, 0.30,
+    )
     weights: Tuple[float, float, float] = (0.55, 0.35, 0.10)
 
 
@@ -290,13 +295,12 @@ class HeadroomGate:
         grid = list(
             threshold_grid
             if threshold_grid is not None
-            else [
-                0.005, 0.01, 0.015, 0.02, 0.025, 0.03, 0.04, 0.05,
-                0.06, 0.08, 0.10, 0.13, 0.16, 0.20, 0.25, 0.30,
-            ]
+            else list(self.config.threshold_grid)
         )
+        min_kept = float(getattr(self.config, "min_kept_fraction", 0.0) or 0.0)
         curve: List[Dict[str, float]] = []
         best: Optional[Dict[str, float]] = None
+        best_relaxed: Optional[Dict[str, float]] = None
         baseline_pred_cer = (
             sum(pred_cers) / max(1, n) if val_preds else float("nan")
         )
@@ -328,33 +332,41 @@ class HeadroomGate:
             mean_cer = cer_sum / max(1, n)
             overcorr = harmful / edited if edited else 0.0
             useful_rate = useful / edited if edited else 0.0
+            cer_reduction_rate = (baseline_input_cer - mean_cer) / max(
+                baseline_input_cer, 1e-9
+            )
             row = {
                 "threshold": float(tau),
                 "mean_cer": float(mean_cer),
+                "cer_reduction_rate": float(cer_reduction_rate),
                 "kept_fraction": float(kept / n),
                 "overcorrection_rate": float(overcorr),
                 "useful_correction_rate": float(useful_rate),
                 "edited": int(edited),
             }
             curve.append(row)
-            # Selection rule: lowest mean_cer s.t. overcorrection <=
-            # ``max_overcorrection``. Tie-break: prefer the more
-            # *permissive* threshold (lower tau - run model on more
-            # sentences since refusing to correct loses Δ).
             within_budget = (
                 overcorr <= max_overcorr if val_preds is not None else True
             )
             if not within_budget:
                 continue
-            if (
-                best is None
-                or row["mean_cer"] < best["mean_cer"] - 1e-6
-                or (
-                    abs(row["mean_cer"] - best["mean_cer"]) < 1e-6
-                    and row["threshold"] < best["threshold"]
-                )
-            ):
+
+            def _better(candidate: Dict[str, float], incumbent: Dict[str, float]) -> bool:
+                if candidate["cer_reduction_rate"] > incumbent["cer_reduction_rate"] + 1e-6:
+                    return True
+                if abs(candidate["cer_reduction_rate"] - incumbent["cer_reduction_rate"]) <= 1e-6:
+                    return candidate["threshold"] < incumbent["threshold"]
+                return False
+
+            if best_relaxed is None or _better(row, best_relaxed):
+                best_relaxed = row
+            if kept / n + 1e-9 < min_kept:
+                continue
+            if best is None or _better(row, best):
                 best = row
+
+        if best is None:
+            best = best_relaxed
         if best is None:
             best = min(curve, key=lambda r: (r["mean_cer"], r["threshold"]))
         self.threshold = float(best["threshold"])
@@ -362,6 +374,12 @@ class HeadroomGate:
         self.selected = dict(best)
         self.n_val = n
         return {
+            "selection_version": 2,
+            "selection_rule": (
+                "maximize_cer_reduction subject to "
+                f"overcorrection<={max_overcorr} and "
+                f"kept_fraction>={min_kept}"
+            ),
             "selected": best,
             "curve": curve,
             "baseline_input_cer": float(baseline_input_cer),
@@ -371,6 +389,8 @@ class HeadroomGate:
             "coefficients": list(self.coefficients),
             "train_ppl_mean": float(self.train_ppl_mean),
             "train_ppl_std": float(self.train_ppl_std),
+            "max_overcorrection": float(max_overcorr),
+            "min_kept_fraction": float(min_kept),
         }
 
     def save(self, path: Path) -> None:
@@ -383,6 +403,8 @@ class HeadroomGate:
                 "char_lm_add_k": float(self.config.char_lm_add_k),
                 "threshold": float(self.config.threshold),
                 "max_overcorrection": float(self.config.max_overcorrection),
+                "min_kept_fraction": float(self.config.min_kept_fraction),
+                "threshold_grid": [float(x) for x in self.config.threshold_grid],
                 "weights": list(self.config.weights),
             },
             "coefficients": [float(x) for x in self.coefficients],
@@ -418,14 +440,20 @@ class HeadroomGate:
         else:
             json_path = path
         data = json.loads(json_path.read_text(encoding="utf-8"))
+        cfg_raw = data.get("config", {})
+        grid_raw = cfg_raw.get("threshold_grid")
+        if isinstance(grid_raw, list) and grid_raw:
+            threshold_grid = tuple(float(x) for x in grid_raw)
+        else:
+            threshold_grid = HeadroomGateConfig().threshold_grid
         cfg = HeadroomGateConfig(
-            char_lm_order=int(data.get("config", {}).get("char_lm_order", 4)),
-            char_lm_add_k=float(data.get("config", {}).get("char_lm_add_k", 0.1)),
-            threshold=float(data.get("config", {}).get("threshold", 0.05)),
-            max_overcorrection=float(
-                data.get("config", {}).get("max_overcorrection", 0.05)
-            ),
-            weights=tuple(data.get("config", {}).get("weights", (0.55, 0.35, 0.10))),
+            char_lm_order=int(cfg_raw.get("char_lm_order", 4)),
+            char_lm_add_k=float(cfg_raw.get("char_lm_add_k", 0.1)),
+            threshold=float(cfg_raw.get("threshold", 0.05)),
+            max_overcorrection=float(cfg_raw.get("max_overcorrection", 0.08)),
+            min_kept_fraction=float(cfg_raw.get("min_kept_fraction", 0.0)),
+            threshold_grid=threshold_grid,
+            weights=tuple(cfg_raw.get("weights", (0.55, 0.35, 0.10))),
         )
         gate = cls(config=cfg)
         gate.coefficients = [float(x) for x in data.get("coefficients", [])]

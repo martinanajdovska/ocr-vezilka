@@ -1,0 +1,27 @@
+{
+  "model": "classical",
+  "regime": "synthetic_plus_real",
+  "seed": 42,
+  "completed_at": "2026-05-29T16:21:08.574357+00:00",
+  "hyperparameter_hash": "c59dbf8e3a6acbe80b27a3eb16f3e0506e4ea304ec8fba125caab6cb67932f0e",
+  "split_manifest_hash": "28a3ef0d7445da41a10e981dbe35de034be64b84e42ee0be0354f8c4db713c86",
+  "artefacts": {
+    "val_predictions": "/home/hpc/users/martina.najdovska/ocr-vezilka/phase4/phase4_output/predictions/val/classical/synthetic_plus_real.jsonl",
+    "test_predictions": "/home/hpc/users/martina.najdovska/ocr-vezilka/phase4/phase4_output/predictions/test_blind/classical/synthetic_plus_real.jsonl",
+    "val_metrics": "/home/hpc/users/martina.najdovska/ocr-vezilka/phase4/phase4_output/val_metrics/classical/synthetic_plus_real.json",
+    "efficiency": "/home/hpc/users/martina.najdovska/ocr-vezilka/phase4/phase4_output/efficiency/classical/synthetic_plus_real.json",
+    "checkpoint_dir": "/home/hpc/users/martina.najdovska/ocr-vezilka/phase4/phase4_output/models/classical/synthetic_plus_real"
+  },
+  "row": {
+    "model": "classical",
+    "regime": "synthetic_plus_real",
+    "status": "success",
+    "seed": 42,
+    "primary_seed": 42,
+    "val_predictions": "/home/hpc/users/martina.najdovska/ocr-vezilka/phase4/phase4_output/predictions/val/classical/synthetic_plus_real.jsonl",
+    "test_predictions": "/home/hpc/users/martina.najdovska/ocr-vezilka/phase4/phase4_output/predictions/test_blind/classical/synthetic_plus_real.jsonl",
+    "val_metrics": "/home/hpc/users/martina.najdovska/ocr-vezilka/phase4/phase4_output/val_metrics/classical/synthetic_plus_real.json",
+    "efficiency": "/home/hpc/users/martina.najdovska/ocr-vezilka/phase4/phase4_output/efficiency/classical/synthetic_plus_real.json",
+    "checkpoint_dir": "/home/hpc/users/martina.najdovska/ocr-vezilka/phase4/phase4_output/models/classical/synthetic_plus_real"
+  }
+}
