@@ -1,5 +1,5 @@
 {
-  "median_ms_per_sentence": 111.12781299743801,
-  "p95_ms_per_sentence": 386.0121385327407,
+  "median_ms_per_sentence": 0.07436978103214642,
+  "p95_ms_per_sentence": 0.19033510943700094,
   "n_params": 299637760
 }

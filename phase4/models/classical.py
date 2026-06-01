@@ -329,6 +329,64 @@ def _load_confusion_sub_log_probs(phase2_train_only_dir: Optional[Path]) -> Dict
 
 
 
+def _load_top_confusions(
+    phase2_train_only_dir: Optional[Path],
+    top_k: int = 200,
+) -> frozenset:
+    """Return the top-K (src, tgt) single-char substitutions seen in
+    the train-only confusion matrix.
+
+    Both src and tgt are restricted to single, non-whitespace characters so the result
+    is a per-character substitution whitelist suitable for the per-edit
+    gate. Returns an empty frozenset if the phase-2 outputs are missing.
+    """
+    if phase2_train_only_dir is None:
+        return frozenset()
+    base = Path(phase2_train_only_dir)
+    counts_path = base / "error_confusion_counts.csv"
+    if counts_path.exists():
+        try:
+            with counts_path.open("r", encoding="utf-8") as f:
+                header = [h.strip() for h in f.readline().split(",")]
+                src_idx = header.index("src") if "src" in header else 0
+                tgt_idx = header.index("tgt") if "tgt" in header else 1
+                cnt_idx = (
+                    header.index("count") if "count" in header else len(header) - 1
+                )
+                rows: List[Tuple[str, str, int]] = []
+                for line in f:
+                    parts = [p.strip() for p in line.rstrip("\n").split(",")]
+                    if len(parts) <= max(src_idx, tgt_idx, cnt_idx):
+                        continue
+                    src = parts[src_idx]
+                    tgt = parts[tgt_idx]
+                    if not src or not tgt or src == tgt:
+                        continue
+                    if len(src) != 1 or len(tgt) != 1:
+                        continue
+                    if src.isspace() or tgt.isspace():
+                        continue
+                    try:
+                        cnt = int(float(parts[cnt_idx]))
+                    except (ValueError, TypeError):
+                        continue
+                    rows.append((src, tgt, cnt))
+                rows.sort(key=lambda r: r[2], reverse=True)
+                return frozenset((s, t) for s, t, _ in rows[: max(1, int(top_k))])
+        except Exception:
+            pass
+    sub_logp = _load_confusion_sub_log_probs(base)
+    if not sub_logp:
+        return frozenset()
+    ranked = sorted(sub_logp.items(), key=lambda kv: kv[1], reverse=True)
+    valid = [
+        (s, t)
+        for (s, t), _ in ranked
+        if len(s) == 1 and len(t) == 1 and not s.isspace() and not t.isspace()
+    ]
+    return frozenset(valid[: max(1, int(top_k))])
+
+
 def _load_diacritic_homoglyph_pairs(phase2_train_only_dir: Optional[Path]) -> List[Tuple[str, str]]:
     if phase2_train_only_dir is None:
         return []

@@ -1,5 +1,5 @@
 {
-  "_name_or_path": "google/byt5-small",
+  "_name_or_path": "/home/hpc/users/martina.najdovska/ocr-vezilka/phase4/phase4_output/models/neural/synthetic_plus_real",
   "architectures": [
     "T5ForConditionalGeneration"
   ],
@@ -27,7 +27,7 @@
   "tie_word_embeddings": false,
   "tokenizer_class": "ByT5Tokenizer",
   "torch_dtype": "float32",
-  "transformers_version": "4.49.0",
-  "use_cache": false,
+  "transformers_version": "4.45.2",
+  "use_cache": true,
   "vocab_size": 384
 }

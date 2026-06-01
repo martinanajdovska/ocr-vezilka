@@ -1,0 +1,29 @@
+{
+  "fold": 4,
+  "completed_at": "2026-05-31T07:42:12.057351+00:00",
+  "split_assignment": {
+    "train": [
+      "Pesni",
+      "Prezir",
+      "Samecot",
+      "dnevnik_po_mnogu_godini",
+      "itar_pejo",
+      "sina_pesna",
+      "Забите на Ветрот - Томе Арсовски",
+      "Клуч за одредување на рибите и змииорките во Република Македонија",
+      "Провиденија"
+    ],
+    "val": [
+      "Сите лица на смртта",
+      "Современост 7"
+    ],
+    "test": [
+      "Toj",
+      "tajnopis",
+      "viktor_kupidon"
+    ]
+  },
+  "seeds": [
+    42
+  ]
+}

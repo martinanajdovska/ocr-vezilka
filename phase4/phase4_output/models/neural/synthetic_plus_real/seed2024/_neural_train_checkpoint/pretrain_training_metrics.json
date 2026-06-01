@@ -1,0 +1,101 @@
+{
+  "stage": "pretrain",
+  "epochs_run": 10,
+  "best_val_loss": 0.18065319136603847,
+  "best_val_cer": 0.05455307672487392,
+  "early_stop_metric": "val_cer",
+  "skipped_train_pairs": 0,
+  "skipped_val_pairs": 0,
+  "kept_train_pairs": 15758,
+  "kept_val_pairs": 5815,
+  "total_train_seconds": 4915.209870447987,
+  "history": [
+    {
+      "epoch": 1,
+      "stage": "pretrain",
+      "train_loss": 2.4073259830474854,
+      "val_loss": 0.23019711386698943,
+      "val_cer": 0.07496933612945421,
+      "epoch_time_s": 494.07275982096326
+    },
+    {
+      "epoch": 2,
+      "stage": "pretrain",
+      "train_loss": 1.1350279606380036,
+      "val_loss": 0.20643596216053753,
+      "val_cer": 0.06332612933365543,
+      "epoch_time_s": 490.25470315793063
+    },
+    {
+      "epoch": 3,
+      "stage": "pretrain",
+      "train_loss": 1.0871104156753355,
+      "val_loss": 0.19726252576315795,
+      "val_cer": 0.058925952316185394,
+      "epoch_time_s": 486.3493528199615
+    },
+    {
+      "epoch": 4,
+      "stage": "pretrain",
+      "train_loss": 1.0685007134509135,
+      "val_loss": 0.19114655256271362,
+      "val_cer": 0.06046229825792281,
+      "epoch_time_s": 485.76513334398624
+    },
+    {
+      "epoch": 5,
+      "stage": "pretrain",
+      "train_loss": 1.055208256471955,
+      "val_loss": 0.18792161488762268,
+      "val_cer": 0.06074570489174065,
+      "epoch_time_s": 486.106975300936
+    },
+    {
+      "epoch": 6,
+      "stage": "pretrain",
+      "train_loss": 1.048165653588564,
+      "val_loss": 0.1846025550512822,
+      "val_cer": 0.056211714762053895,
+      "epoch_time_s": 486.1618342740694
+    },
+    {
+      "epoch": 7,
+      "stage": "pretrain",
+      "train_loss": 1.0427742549662173,
+      "val_loss": 0.18303725479559585,
+      "val_cer": 0.05455307672487392,
+      "epoch_time_s": 485.1618333160877
+    },
+    {
+      "epoch": 8,
+      "stage": "pretrain",
+      "train_loss": 1.0400940709375224,
+      "val_loss": 0.18066484337815872,
+      "val_cer": 0.05472026119632019,
+      "epoch_time_s": 494.2448959610192
+    },
+    {
+      "epoch": 9,
+      "stage": "pretrain",
+      "train_loss": 1.0355518818143414,
+      "val_loss": 0.18107157593572532,
+      "val_cer": 0.05471476086216622,
+      "epoch_time_s": 483.94113438704517
+    },
+    {
+      "epoch": 10,
+      "stage": "pretrain",
+      "train_loss": 1.0350656973662773,
+      "val_loss": 0.18065319136603847,
+      "val_cer": 0.05508116837021775,
+      "epoch_time_s": 489.6450640320545
+    }
+  ],
+  "n_params": 299637760,
+  "device": "cuda",
+  "effective_batch_size": 128,
+  "warmup_steps": 62,
+  "total_steps": 1240,
+  "resumed": false,
+  "early_stopped": true
+}
