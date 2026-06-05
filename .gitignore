@@ -1,2 +1,11 @@
 __pycache__/
 *.pyc
+
+# Hosted on HuggingFace
+phase1/phase1_output/
+phase2/phase2_output/
+phase2/phase2_output_train_only/
+phase3/phase3_output/
+phase3/phase3_output_train_only/
+phase4/phase4_output/
+phase4/data/manifests/
