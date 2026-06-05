@@ -1,4 +1,0 @@
-model,regime,subset_domain,n,cer,wer,chrf,sentence_accuracy
-identity,real_only,prose,1459,0.08947,0.18668,0.9009,0.0
-identity,synthetic_only,prose,3900,0.11943,0.47651,0.77012,0.0
-identity,synthetic_plus_real,prose,5359,0.11128,0.39761,0.80572,0.0

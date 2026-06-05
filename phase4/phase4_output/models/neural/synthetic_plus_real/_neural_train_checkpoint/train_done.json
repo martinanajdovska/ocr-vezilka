@@ -1,8 +1,0 @@
-{
-  "regime": "synthetic_plus_real",
-  "seed": 42,
-  "hyperparameter_hash": "c59dbf8e3a6acbe80b27a3eb16f3e0506e4ea304ec8fba125caab6cb67932f0e",
-  "split_manifest_hash": "28a3ef0d7445da41a10e981dbe35de034be64b84e42ee0be0354f8c4db713c86",
-  "weights_dir": "/home/hpc/users/martina.najdovska/ocr-vezilka/phase4/phase4_output/models/neural/synthetic_plus_real/_neural_train_checkpoint/train_hf",
-  "completed_at": "2026-05-29T22:41:44.859798+00:00"
-}

@@ -1,2 +1,0 @@
-total_word_ops,total_boundary_errors,split_count,merge_count,split_pct_of_word_ops,merge_pct_of_word_ops,boundary_error_pct_of_word_ops,split_pct_within_boundary_errors,merge_pct_within_boundary_errors
-197860,3537,2522,1015,1.2746386333771353,0.5129889821085616,1.787627615485697,71.30336443313543,28.696635566864575
