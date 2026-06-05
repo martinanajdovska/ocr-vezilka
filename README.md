@@ -2,6 +2,10 @@
 
 This repository implements a 4-phase pipeline for analyzing OCR errors in Macedonian Cyrillic text, generating realistic synthetic OCR noise, and training/evaluating correction models.
 
+The dataset used and outputs generated can be found at: https://huggingface.co/martinanajdovska/ocr-vezilka-outputs
+
+The models can be found at: https://huggingface.co/martinanajdovska/ocr-vezilka-models
+
 **Workflow**
 
 1. Align noisy OCR text with corrected references (`phase1`).
