@@ -1,4 +1,0 @@
-model,regime,n,input_cer,cer,cer_reduction_rate,wer,chrf,sentence_accuracy,correction_rate,overcorrection_rate,useful_correction_rate,edited_count,rare_word_corruption_rate,proper_name_corruption_rate,median_ms_per_sentence,p95_ms_per_sentence,n_params
-identity,real_only,244,0.11151,0.11151,0.0,0.18151,0.91293,0.0,0.0,0.0,0.0,0,0.44692,0.50036,,,
-identity,synthetic_only,1406,0.20237,0.20237,0.0,0.47252,0.77172,0.0,0.0,0.0,0.0,0,0.75325,0.5742,,,
-identity,synthetic_plus_real,1650,0.18893,0.18893,0.0,0.42948,0.79261,0.0,0.0,0.0,0.0,0,0.69835,0.55224,,,

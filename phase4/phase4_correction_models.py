@@ -56,8 +56,9 @@ from phase4.config import (
 )
 from phase4.data.build_phase4_dataset import build_phase4_manifests, load_jsonl
 from phase4.data.splits import (
-    SPLITS,
     assert_disjoint_splits,
+    docs_for_split,
+    normalize_doc_id,
     split_manifest_hash,
 )
 from phase4.eval.metrics import (
@@ -533,8 +534,14 @@ def _assert_no_disallowed_doc_ids(
 ) -> None:
     forbidden = set()
     for split in disallowed_splits:
-        forbidden.update(SPLITS[split])
-    leaked = sorted({str(r["doc_id"]) for r in rows if r["doc_id"] in forbidden})
+        forbidden.update(docs_for_split(split))
+    leaked = sorted(
+        {
+            str(r["doc_id"])
+            for r in rows
+            if normalize_doc_id(str(r["doc_id"])) in forbidden
+        }
+    )
     if leaked:
         raise AssertionError(
             f"Leak barrier violated in {context}: rows from disallowed splits "

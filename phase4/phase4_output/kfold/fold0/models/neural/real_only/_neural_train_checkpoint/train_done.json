@@ -1,8 +1,0 @@
-{
-  "regime": "real_only",
-  "seed": 42,
-  "hyperparameter_hash": "c59dbf8e3a6acbe80b27a3eb16f3e0506e4ea304ec8fba125caab6cb67932f0e",
-  "split_manifest_hash": "9ea96b30c4996214c46d1ca5cd8cd3a811e03232143dd1ac09857fe84bea08f6",
-  "weights_dir": "/home/hpc/users/martina.najdovska/ocr-vezilka/phase4/phase4_output/kfold/fold0/models/neural/real_only/_neural_train_checkpoint/train_hf",
-  "completed_at": "2026-05-30T13:22:03.671386+00:00"
-}
